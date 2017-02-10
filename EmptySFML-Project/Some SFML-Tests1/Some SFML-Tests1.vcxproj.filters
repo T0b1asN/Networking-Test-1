@@ -26,5 +26,8 @@
     <ClInclude Include="SFML.h">
       <Filter>Headerdateien\Util</Filter>
     </ClInclude>
+    <ClInclude Include="Defines.h">
+      <Filter>Headerdateien\Util</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
