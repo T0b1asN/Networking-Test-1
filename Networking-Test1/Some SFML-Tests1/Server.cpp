@@ -1,11 +1,12 @@
 #include "Server.h"
 
-Server::Server(std::string pName, unsigned int pPort, unsigned int pMax_Clients, sf::IpAddress address)
+Server::Server(std::string pName, bool pBlock, unsigned int pPort, unsigned int pMax_Clients, sf::IpAddress address)
 {
 	port = pPort;
 	max_Clients = pMax_Clients;
 	ip = address;
 	name = pName;
+	block = pBlock;
 }
 
 Server::~Server()
@@ -37,15 +38,18 @@ void Server::connectToClient()
 	if (listener.accept(other) != sf::Socket::Status::Done)
 	{
 		//TODO: Server-Error Could not connect to Client
+		std::cout << "Error, could not connect to Client" << std::endl;
+		return;
 	}
-	other.setBlocking(false);
+
+	other.setBlocking(block);
+	std::cout << "Client connected" << std::endl;
 }
 
-void Server::SendString(std::string msg)
+void Server::SendString(sf::String msg)
 {
 	sendData.clear();
 	sendData << msg;
-	//other.send(sendData);
 	other.send(sendData);
 }
 
@@ -55,13 +59,14 @@ void Server::Update()
 	lastMsg = "";
 	receiveData.clear();
 
-	if (other.receive(receiveData) != sf::Socket::Done)
-	{
-		//No data
-	}
-	else
+	if (other.receive(receiveData) == sf::Socket::Done)
 	{
 		receiveData >> lastMsg;
-		newMsg = true;
+		if (lastMsg != "")
+		{
+			lastMsg = "Client: " + lastMsg;
+			newMsg = true;
+			std::cout << lastMsg.toAnsiString() << std::endl;
+		}
 	}
 }

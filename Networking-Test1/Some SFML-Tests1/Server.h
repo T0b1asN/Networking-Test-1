@@ -23,10 +23,11 @@ private:
 	sf::Packet sendData;
 	sf::Packet receiveData;
 
-	std::string lastMsg;
-
+	sf::String lastMsg;
+	
+	bool block;
 public:
-	Server(std::string pName, unsigned int pPort = 53000, unsigned int pMax_Clients = 10, sf::IpAddress adress = sf::IpAddress::getLocalAddress());
+	Server(std::string pName, bool pBlock, unsigned int pPort = 53000, unsigned int pMax_Clients = 10, sf::IpAddress adress = sf::IpAddress::getLocalAddress());
 	~Server();
 
 	std::string getInfo();
@@ -34,14 +35,14 @@ public:
 
 	bool newMsg;
 
-	std::string getLastMsg() { return lastMsg; }
+	sf::String getLastMsg() { return lastMsg; }
 
 	void setup();
 	void connectToClient();
 
 	bool isRun() { return run; }
 
-	void SendString(std::string msg);
+	void SendString(sf::String msg);
 
 	void Update();
 };
