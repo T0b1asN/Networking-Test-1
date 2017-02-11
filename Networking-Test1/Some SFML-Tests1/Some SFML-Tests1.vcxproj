@@ -148,6 +148,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="OwnButton.cpp" />
     <ClCompile Include="Server.cpp" />
+    <ClCompile Include="StartMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h" />
@@ -156,6 +157,7 @@
     <ClInclude Include="OwnButton.h" />
     <ClInclude Include="Server.h" />
     <ClInclude Include="SFML.h" />
+    <ClInclude Include="StartMenu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

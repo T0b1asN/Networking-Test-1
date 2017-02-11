@@ -30,7 +30,7 @@ public:
 		sf::Color backColor = sf::Color::Black, sf::Color textColor = sf::Color::White, unsigned int pCharSize = 0);
 	~OwnButton();
 
-	void Update(bool click);
+	//void Update(bool click);
 	void display();
 
 	void SetPos(sf::Vector2f newPos);
@@ -46,6 +46,8 @@ public:
 	std::string GetText() { return text; }
 
 	void SetOrigin(sf::Vector2f newOffset);
+
+	bool validClick(bool click);
 
 	//TODO: update on valuechange
 };

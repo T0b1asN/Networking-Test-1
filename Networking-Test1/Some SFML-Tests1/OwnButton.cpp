@@ -35,14 +35,6 @@ OwnButton::~OwnButton()
 
 }
 
-void OwnButton::Update(bool click)
-{
-	if (checkClick() && click)
-	{
-		OnClick();
-	}
-}
-
 void OwnButton::OnClick()
 {
 	std::cout << "Click" << std::endl;
@@ -64,6 +56,21 @@ void OwnButton::display()
 {
 	cr::currWin().draw(field);
 	cr::currWin().draw(textField);
+}
+
+bool OwnButton::validClick(bool click)
+{
+	if (click)
+	{
+		if (cr::currWin().isOpen())
+		{
+			if (rect.contains((sf::Vector2f)sf::Mouse::getPosition(cr::currWin())))
+			{
+				return true;
+			}
+		}
+	}
+	return false;
 }
 
 void OwnButton::SetOrigin(sf::Vector2f newOffset)

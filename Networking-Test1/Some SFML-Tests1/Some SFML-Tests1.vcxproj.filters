@@ -40,6 +40,9 @@
       <Filter>Quelldateien\Server/Client</Filter>
     </ClCompile>
     <ClCompile Include="OwnButton.cpp">
+      <Filter>Quelldateien\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="StartMenu.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -60,6 +63,9 @@
       <Filter>Headerdateien\Server/Client</Filter>
     </ClInclude>
     <ClInclude Include="OwnButton.h">
+      <Filter>Headerdateien\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="StartMenu.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

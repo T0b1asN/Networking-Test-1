@@ -5,7 +5,7 @@
 #include "Client.h"
 #include "curr.h"
 
-#include "OwnButton.h"
+#include "StartMenu.h"
 
 #include <iostream>
 #include <string>
@@ -15,63 +15,36 @@ void RunServer();
 void RunClient();
 std::string getCurrTime();
 
-void GraphicsSetup();
+void GraphicsSetup(unsigned int width, unsigned int height);
 
 sf::RenderWindow win;
 sf::Font mainFont;
 
 int main()
 {
-	GraphicsSetup();
+	GraphicsSetup(500U, 150U);
+	
+	StartMenu stMen;
 
-	OwnButton test("Test", sf::Vector2f(200.0f, 100.0f), sf::Vector2f(WIDTH / 2.0f, HEIGHT / 2.0f));
-	test.SetOrigin(test.GetSize() / 2.0f);
+	StartMenu::Result stMenRes = stMen.open();
+	GraphicsSetup(1000U, 750U);
+	//std::cout << "Version " << VERSION << std::endl;
+	//std::cout << "Time: " << getCurrTime() << std::endl;
+	//char in;
+	//std::cout << "[s] for Server. [c] for Client." << std::endl;
+	//std::cin >> in;
 
-	while (win.isOpen())
+	switch (stMenRes)
 	{
-		bool click = false;
-		sf::Event evnt;
-		while (win.pollEvent(evnt))
-		{
-			switch (evnt.type)
-			{
-			case sf::Event::Closed:
-				win.close();
-				break;
-			case sf::Event::MouseButtonPressed:
-				if (evnt.mouseButton.button == sf::Mouse::Left)
-				{
-					click = true;
-				}
-				break;
-			}
-		}
-
-		win.clear(sf::Color(100, 100, 100));
-
-		test.Update(click);
-		test.display();
-
-		win.display();
-	}
-	return 0;
-
-	std::cout << "Version " << VERSION << std::endl;
-	std::cout << "Time: " << getCurrTime() << std::endl;
-	char in;
-	std::cout << "[s] for Server. [c] for Client." << std::endl;
-	std::cin >> in;
-
-	switch (in)
-	{
-	case 's':
-	case 'S':
+	case StartMenu::Server:
 		RunServer();
 
 		break;
-	case 'c':
-	case 'C':
+	case StartMenu::Client:
 		RunClient();
+
+		break;
+	case StartMenu::Close:
 
 		break;
 	}
@@ -80,10 +53,10 @@ int main()
 	return 0;
 }
 
-void GraphicsSetup()
+void GraphicsSetup(unsigned int width, unsigned int height)
 {
 	std::string vers = VERSION;
-	win.create(sf::VideoMode(WIDTH, HEIGHT), "SFML-Networkingtest, Version " + vers,sf::Style::Default);
+	win.create(sf::VideoMode(width, height), "SFML-Networkingtest, Version " + vers,sf::Style::Default);
 	win.setFramerateLimit(60);
 
 	std::string fontName = FONT_BOLD;
