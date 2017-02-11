@@ -3,6 +3,9 @@
 
 #include "Server.h"
 #include "Client.h"
+#include "curr.h"
+
+#include "OwnButton.h"
 
 #include <iostream>
 #include <string>
@@ -12,8 +15,47 @@ void RunServer();
 void RunClient();
 std::string getCurrTime();
 
+void GraphicsSetup();
+
+sf::RenderWindow win;
+sf::Font mainFont;
+
 int main()
 {
+	GraphicsSetup();
+
+	OwnButton test("Test", sf::Vector2f(200.0f, 100.0f), sf::Vector2f(WIDTH / 2.0f, HEIGHT / 2.0f));
+	test.SetOrigin(test.GetSize() / 2.0f);
+
+	while (win.isOpen())
+	{
+		bool click = false;
+		sf::Event evnt;
+		while (win.pollEvent(evnt))
+		{
+			switch (evnt.type)
+			{
+			case sf::Event::Closed:
+				win.close();
+				break;
+			case sf::Event::MouseButtonPressed:
+				if (evnt.mouseButton.button == sf::Mouse::Left)
+				{
+					click = true;
+				}
+				break;
+			}
+		}
+
+		win.clear(sf::Color(100, 100, 100));
+
+		test.Update(click);
+		test.display();
+
+		win.display();
+	}
+	return 0;
+
 	std::cout << "Version " << VERSION << std::endl;
 	std::cout << "Time: " << getCurrTime() << std::endl;
 	char in;
@@ -38,6 +80,16 @@ int main()
 	return 0;
 }
 
+void GraphicsSetup()
+{
+	std::string vers = VERSION;
+	win.create(sf::VideoMode(WIDTH, HEIGHT), "SFML-Networkingtest, Version " + vers,sf::Style::Default);
+	win.setFramerateLimit(60);
+
+	std::string fontName = FONT_BOLD;
+	mainFont.loadFromFile("res\\fonts\\" + fontName);
+}
+
 void RunServer()
 {
 	Server server("Test", false, 53000, 1);
@@ -47,7 +99,7 @@ void RunServer()
 
 	while (server.isRun())
 	{
-		
+
 	}
 }
 
@@ -73,3 +125,10 @@ std::string getCurrTime()
 		":" + std::to_string(now->tm_min);
 	return out;
 }
+
+
+//Returns for current stuff
+sf::RenderWindow& cr::currWin() { return win; }
+unsigned int cr::winWidth() { return win.getSize().x; }
+unsigned int cr::winHeight() { return win.getSize().y; }
+sf::Font& cr::currFont() { return mainFont; }

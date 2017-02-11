@@ -16,15 +16,30 @@
     <Filter Include="Headerdateien\Util">
       <UniqueIdentifier>{2347f3fd-faac-48a4-90fc-96c02058579a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Headerdateien\UI">
+      <UniqueIdentifier>{1d091c09-42aa-4acd-a950-befe5864d51b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\UI">
+      <UniqueIdentifier>{77353642-ec78-40b3-9149-effcd7562b43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Quelldateien\Server/Client">
+      <UniqueIdentifier>{03b515af-9c09-41b9-bfdc-3cca382b341f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headerdateien\Server/Client">
+      <UniqueIdentifier>{56898304-df39-46d4-b469-fec8f52a945f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Server.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Quelldateien\Server/Client</Filter>
     </ClCompile>
     <ClCompile Include="Client.cpp">
+      <Filter>Quelldateien\Server/Client</Filter>
+    </ClCompile>
+    <ClCompile Include="OwnButton.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,10 +50,16 @@
     <ClInclude Include="Defines.h">
       <Filter>Headerdateien\Util</Filter>
     </ClInclude>
-    <ClInclude Include="Server.h">
-      <Filter>Headerdateien</Filter>
+    <ClInclude Include="curr.h">
+      <Filter>Headerdateien\Util</Filter>
     </ClInclude>
     <ClInclude Include="Client.h">
+      <Filter>Headerdateien\Server/Client</Filter>
+    </ClInclude>
+    <ClInclude Include="Server.h">
+      <Filter>Headerdateien\Server/Client</Filter>
+    </ClInclude>
+    <ClInclude Include="OwnButton.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

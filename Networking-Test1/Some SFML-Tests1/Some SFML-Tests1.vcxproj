@@ -146,11 +146,14 @@
   <ItemGroup>
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="OwnButton.cpp" />
     <ClCompile Include="Server.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Client.h" />
+    <ClInclude Include="curr.h" />
     <ClInclude Include="Defines.h" />
+    <ClInclude Include="OwnButton.h" />
     <ClInclude Include="Server.h" />
     <ClInclude Include="SFML.h" />
   </ItemGroup>
