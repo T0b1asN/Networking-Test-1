@@ -1,5 +1,4 @@
-﻿  main.cpp
-e:\_github\own\networking\networking-test-1\networking-test1\some sfml-tests1\main.cpp(92): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.14393.0\ucrt\time.h(505): note: Siehe Deklaration von "localtime"
+﻿  TextBox.cpp
+e:\_github\own\networking\networking-test-1\networking-test1\some sfml-tests1\textbox.cpp(8): warning C4244: "=": Konvertierung von "float" in "unsigned int", möglicher Datenverlust
   Some SFML-Tests1.vcxproj -> E:\_GitHub\own\networking\Networking-Test-1\Networking-Test1\Debug\Networking Test 1.exe
   Some SFML-Tests1.vcxproj -> E:\_GitHub\own\networking\Networking-Test-1\Networking-Test1\Debug\Networking Test 1.pdb (Partial PDB)

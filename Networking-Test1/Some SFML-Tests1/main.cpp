@@ -27,7 +27,6 @@ int main()
 	StartMenu stMen;
 
 	StartMenu::Result stMenRes = stMen.open();
-	GraphicsSetup(1000U, 750U);
 	//std::cout << "Version " << VERSION << std::endl;
 	//std::cout << "Time: " << getCurrTime() << std::endl;
 	//char in;
@@ -37,30 +36,33 @@ int main()
 	switch (stMenRes)
 	{
 	case StartMenu::Server:
+		GraphicsSetup(1000U, 750U);
 		RunServer();
 
 		break;
 	case StartMenu::Client:
+		GraphicsSetup(1000U, 750U);
 		RunClient();
 
 		break;
 	case StartMenu::Close:
-
+		return 0;
 		break;
 	}
 
-	std::system("PAUSE");
 	return 0;
 }
 
 void GraphicsSetup(unsigned int width, unsigned int height)
 {
 	std::string vers = VERSION;
-	win.create(sf::VideoMode(width, height), "SFML-Networkingtest, Version " + vers,sf::Style::Default);
+	win.create(sf::VideoMode(width, height), "SFML-Networkingtest, Version " + vers, sf::Style::Close);
 	win.setFramerateLimit(60);
 
 	std::string fontName = FONT_BOLD;
 	mainFont.loadFromFile("res\\fonts\\" + fontName);
+
+	sf::sleep(sf::milliseconds(50));
 }
 
 void RunServer()
@@ -69,11 +71,7 @@ void RunServer()
 	server.setup();
 	server.connectToClient();
 	server.SendString("Hi");
-
-	while (server.isRun())
-	{
-
-	}
+	server.Run();
 }
 
 void RunClient()

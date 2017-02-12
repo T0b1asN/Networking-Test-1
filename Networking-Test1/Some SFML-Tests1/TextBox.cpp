@@ -1,0 +1,77 @@
+#include "TextBox.h"
+
+TextBox::TextBox(sf::Vector2f pPos, sf::Vector2f pSize, std::string pStandardText, sf::Color pBackColor, sf::Color pTextColor)
+{
+	pos = pPos;
+	size = pSize;
+
+	fontSize = size.y;
+
+	standardText = pStandardText;
+	actualText = standardText;
+
+	text.setFont(cr::currFont());
+	text.setFillColor(pTextColor);
+	text.setPosition(pos);
+	text.setCharacterSize(fontSize);
+	text.setString(actualText);
+
+	background = sf::RectangleShape(size);
+	background.setPosition(pos);
+	background.setFillColor(pBackColor);
+}
+
+TextBox::~TextBox()
+{
+
+}
+
+void TextBox::display()
+{
+	cr::currWin().draw(background);
+	cr::currWin().draw(text);
+}
+
+void TextBox::SelectOrUnselect()
+{
+	if (cr::currWin().isOpen())
+	{
+		if (background.getGlobalBounds().contains((sf::Vector2f)sf::Mouse::getPosition(cr::currWin())))
+		{
+			selected = true;
+			actualText = "";
+			text.setString(actualText);
+		}
+		else
+		{
+			selected = false;
+		}
+	}
+}
+
+void TextBox::Update(char add)
+{
+	if (add != 0)
+	{
+		if (selected)
+		{
+			if (add == (char)8)
+			{
+				actualText = actualText.substr(0, actualText.size() - 1);
+			}
+			else
+			{
+				actualText += add;
+				changed = true;
+			}
+		}
+		text.setString(actualText);
+	}
+}
+
+void TextBox::SetNormal()
+{
+	actualText = standardText;
+	text.setString(actualText);
+	changed = false;
+}

@@ -6,8 +6,6 @@ StartMenu::StartMenu() :
 {
 	serverButton.SetOrigin(serverButton.GetSize() / 2.0f);
 	clientButton.SetOrigin(clientButton.GetSize() / 2.0f);
-
-	std::cout << serverButton.GetPos().x << "|" << serverButton.GetPos().y << std::endl;
 }
 
 StartMenu::~StartMenu()

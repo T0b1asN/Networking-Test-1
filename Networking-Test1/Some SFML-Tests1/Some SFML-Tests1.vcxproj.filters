@@ -43,7 +43,10 @@
       <Filter>Quelldateien\UI</Filter>
     </ClCompile>
     <ClCompile Include="StartMenu.cpp">
-      <Filter>Quelldateien</Filter>
+      <Filter>Quelldateien\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="TextBox.cpp">
+      <Filter>Quelldateien\UI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -66,7 +69,10 @@
       <Filter>Headerdateien\UI</Filter>
     </ClInclude>
     <ClInclude Include="StartMenu.h">
-      <Filter>Headerdateien</Filter>
+      <Filter>Headerdateien\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="TextBox.h">
+      <Filter>Headerdateien\UI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

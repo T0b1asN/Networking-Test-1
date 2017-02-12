@@ -1,12 +1,16 @@
 #pragma once
 #include "SFML.h"
 #include "Defines.h"
+#include "curr.h"
+
+#include "TextBox.h"
 
 #include <iostream>
 #include <string>
 
 class Server
 {
+	//Networking stuff
 private:
 	sf::TcpListener listener;
 
@@ -44,6 +48,22 @@ public:
 
 	void SendString(sf::String msg);
 
+	//Graphics Stuff
+private:
+	sf::Text nameText;
+	TextBox textBox;
+
+	void Draw();
+
+	void Enter();
+
+	void initGraphics();
+public:
+	
+	//General
+public:
 	void Update();
+	void Run();
+
 };
 
