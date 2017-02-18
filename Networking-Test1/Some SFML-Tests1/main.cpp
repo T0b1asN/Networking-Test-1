@@ -22,6 +22,7 @@ sf::Font mainFont;
 
 int main()
 {
+	//TODO: try winsock
 	GraphicsSetup(500U, 150U);
 	
 	StartMenu stMen;
@@ -59,7 +60,7 @@ void GraphicsSetup(unsigned int width, unsigned int height)
 	win.create(sf::VideoMode(width, height), "SFML-Networkingtest, Version " + vers, sf::Style::Close);
 	win.setFramerateLimit(60);
 
-	std::string fontName = FONT_BOLD;
+	std::string fontName = FONT_NORM;
 	mainFont.loadFromFile("res\\fonts\\" + fontName);
 
 	sf::sleep(sf::milliseconds(50));
@@ -70,7 +71,6 @@ void RunServer()
 	Server server("Test", false, 53000, 1);
 	server.setup();
 	server.connectToClient();
-	server.SendString("Hi");
 	server.Run();
 }
 
@@ -78,10 +78,7 @@ void RunClient()
 {
 	Client client("Client 1", false);
 	client.setup();
-	while (client.isConnected())
-	{
-		client.Update();
-	}
+	client.Run();
 }
 
 std::string getCurrTime()
