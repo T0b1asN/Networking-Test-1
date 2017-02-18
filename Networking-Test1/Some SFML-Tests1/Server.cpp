@@ -33,6 +33,8 @@ void Server::setup()
 	if (listener.listen(port) != sf::Socket::Status::Done)
 	{
 		//TODO: Server-Error Could not set up server
+		std::cout << "Error - Could not set up server!" << std::endl;
+		return;
 	}
 	std::cout << "Connected... Port: " << port << std::endl;
 }
@@ -51,7 +53,7 @@ void Server::connectToClient()
 
 void Server::SendString(sf::String msg)
 {
-	std::cout << (std::string)msg << std::endl;
+	//std::cout << (std::string)msg << std::endl;
 	sendData.clear();
 	sendData << msg;
 	other.send(sendData);
@@ -65,12 +67,24 @@ void Server::Update()
 
 	if (other.receive(receiveData) == sf::Socket::Done)
 	{
-		std::cout << "Receiving" << std::endl;
 		receiveData >> lastMsg;
 		if (lastMsg != "")
 		{
 			lastMsg = "Client: " + lastMsg;
+
+			msgs.push_back(lastMsg);
+			if (msgs.size() > maxMsgs)
+				msgs.erase(msgs.begin());
+
 			newMsg = true;
+
+			sf::String complStr = "Messages:\n";
+			for (const sf::String msg : msgs)
+			{
+				complStr += msg + "\n";
+			}
+			msgText.setString(complStr);
+
 			std::cout << lastMsg.toAnsiString() << std::endl;
 		}
 	}
@@ -80,9 +94,14 @@ void Server::Update()
 
 void Server::initGraphics()
 {
-	nameText.setString("Server\nPort: " + std::to_string(port));
+	nameText.setString("Server\nPort: " + std::to_string(port) + "\nVersion: " + VERSION);
 	nameText.setFont(cr::currFont());
 	nameText.setCharacterSize(15U);
+
+	msgText.setString("Messages:\n");
+	msgText.setFont(cr::currFont());
+	msgText.setCharacterSize(25U);
+	msgText.setPosition(0.0f, 75.0f);
 
 	Draw();
 }
@@ -92,6 +111,7 @@ void Server::Draw()
 	cr::currWin().clear(sf::Color(100, 100, 100));
 
 	cr::currWin().draw(nameText);
+	cr::currWin().draw(msgText);
 	textBox.display();
 
 	cr::currWin().display();
@@ -110,11 +130,11 @@ void Server::Run()
 				return;
 				break;
 			case sf::Event::TextEntered:
-				if (evnt.text.unicode < 128 && evnt.text.unicode != 13)
+				if (evnt.text.unicode != 13)
 				{
 					textBox.Update(evnt.text.unicode);
 				}
-				else if (evnt.text.unicode == 13)
+				else
 				{
 					Enter();
 				}
@@ -127,16 +147,30 @@ void Server::Run()
 				break;
 			}
 		}
-		textBox.Update(0);
+		textBox.Update((char)0);
 		Update();
 	}
 }
 
 void Server::Enter()
 {
-	if (textBox.Text() != "")
+	if (textBox.Text() != "" && textBox.Text() != textBox.getStdText())
 	{
 		this->SendString(textBox.Text());
+
+		sf::String tmpStr = textBox.Text();
+		tmpStr = "Server: " + tmpStr;
+
+		msgs.push_back(tmpStr);
+		if (msgs.size() > maxMsgs)
+			msgs.erase(msgs.begin());
+
+		sf::String complStr = "Messages:\n";
+		for (const sf::String msg : msgs)
+		{
+			complStr += msg + "\n";
+		}
+		msgText.setString(complStr);
 	}
 	textBox.SetNormal();
 }

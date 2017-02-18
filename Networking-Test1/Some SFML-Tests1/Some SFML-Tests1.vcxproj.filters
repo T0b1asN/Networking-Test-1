@@ -28,6 +28,9 @@
     <Filter Include="Headerdateien\Server/Client">
       <UniqueIdentifier>{56898304-df39-46d4-b469-fec8f52a945f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Quelldateien\Util">
+      <UniqueIdentifier>{60c3673f-a9e4-4a8c-8f68-b6f22413857e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -47,6 +50,9 @@
     </ClCompile>
     <ClCompile Include="TextBox.cpp">
       <Filter>Quelldateien\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="stringutildef.cpp">
+      <Filter>Quelldateien\Util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +79,9 @@
     </ClInclude>
     <ClInclude Include="TextBox.h">
       <Filter>Headerdateien\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="stringutil.h">
+      <Filter>Headerdateien\Util</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

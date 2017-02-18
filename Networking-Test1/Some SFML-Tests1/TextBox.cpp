@@ -8,7 +8,7 @@ TextBox::TextBox(sf::Vector2f pPos, sf::Vector2f pSize, std::string pStandardTex
 	fontSize = size.y;
 
 	standardText = pStandardText;
-	actualText = standardText;
+	actualText = str_to_wstr(standardText);
 
 	text.setFont(cr::currFont());
 	text.setFillColor(pTextColor);
@@ -39,7 +39,8 @@ void TextBox::SelectOrUnselect()
 		if (background.getGlobalBounds().contains((sf::Vector2f)sf::Mouse::getPosition(cr::currWin())))
 		{
 			selected = true;
-			actualText = "";
+			if (actualText == str_to_wstr(standardText))
+				actualText = L"";
 			text.setString(actualText);
 		}
 		else
@@ -49,15 +50,17 @@ void TextBox::SelectOrUnselect()
 	}
 }
 
-void TextBox::Update(char add)
+void TextBox::Update(sf::String add)
 {
-	if (add != 0)
+	if (add != (char)0)
 	{
+		
 		if (selected)
 		{
 			if (add == (char)8)
 			{
-				actualText = actualText.substr(0, actualText.size() - 1);
+				//actualText = actualText.substr(0, actualText.size() - 1);
+				actualText.erase(actualText.getSize() - 1, 1);
 			}
 			else
 			{
@@ -71,7 +74,7 @@ void TextBox::Update(char add)
 
 void TextBox::SetNormal()
 {
-	actualText = standardText;
+	actualText = str_to_wstr(standardText);
 	text.setString(actualText);
 	changed = false;
 }

@@ -4,6 +4,8 @@
 #include "curr.h"
 #include <iostream>
 
+#include "stringutil.h"
+
 class TextBox
 {
 private:
@@ -12,8 +14,8 @@ private:
 
 	unsigned int fontSize;
 
-	std::string standardText;
-	std::string actualText;
+	sf::String standardText;
+	sf::String actualText;
 
 	sf::Text text;
 	sf::RectangleShape background;
@@ -29,9 +31,11 @@ public:
 	void display();
 
 	void SelectOrUnselect();
-	void Update(char add);
+	void Update(sf::String add);
 
-	std::string Text() { if (changed) return text.getString(); else { return ""; } }
+	sf::String Text() { if (changed) return text.getString(); else { return ""; } }
 
 	void SetNormal();
+
+	sf::String getStdText() { return standardText; }
 };

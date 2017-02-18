@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 class Server
 {
@@ -28,6 +29,9 @@ private:
 	sf::Packet receiveData;
 
 	sf::String lastMsg;
+
+	unsigned int maxMsgs = 15;
+	std::vector<sf::String> msgs;
 	
 	bool block;
 public:
@@ -52,6 +56,7 @@ public:
 private:
 	sf::Text nameText;
 	TextBox textBox;
+	sf::Text msgText;
 
 	void Draw();
 
