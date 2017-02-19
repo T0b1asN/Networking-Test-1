@@ -31,7 +31,7 @@ private:
 	std::vector<sf::String> msgs;
 
 public:
-	Client(std::string pName, bool pBlock, int pPort = 53000, sf::IpAddress address = sf::IpAddress::getLocalAddress());
+	Client(std::string pName, bool pBlock, int pPort = 53000, sf::IpAddress address = sf::IpAddress::getPublicAddress());
 	~Client();
 
 	bool isConnected() { return connected; }

@@ -35,7 +35,7 @@ private:
 	
 	bool block;
 public:
-	Server(std::string pName, bool pBlock, unsigned int pPort = 53000, unsigned int pMax_Clients = 10, sf::IpAddress adress = sf::IpAddress::getLocalAddress());
+	Server(std::string pName, bool pBlock, unsigned int pPort = 53000, unsigned int pMax_Clients = 10, sf::IpAddress adress = sf::IpAddress::getPublicAddress());
 	~Server();
 
 	std::string getInfo();

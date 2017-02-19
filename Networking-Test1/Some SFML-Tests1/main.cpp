@@ -68,7 +68,7 @@ void GraphicsSetup(unsigned int width, unsigned int height)
 
 void RunServer()
 {
-	Server server("Test", false, 53000, 1);
+	Server server("Test", false, 1234, 1, sf::IpAddress("185.22.142.143"));
 	server.setup();
 	server.connectToClient();
 	server.Run();
@@ -76,7 +76,7 @@ void RunServer()
 
 void RunClient()
 {
-	Client client("Client 1", false);
+	Client client("Client 1", false, 1234, sf::IpAddress("185.22.142.143"));
 	client.setup();
 	client.Run();
 }
