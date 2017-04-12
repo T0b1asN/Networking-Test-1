@@ -1,6 +1,6 @@
 #pragma once
 
-#define VERSION "0.1.3"
+#define VERSION "0.1.3b"
 
 //#define FONT_NORM "GOTHIC.TTF"
 //#define FONT_BOLD "GOTHICB.TTF"

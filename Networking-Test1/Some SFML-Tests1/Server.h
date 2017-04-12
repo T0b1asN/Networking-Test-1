@@ -22,6 +22,7 @@ private:
 	std::string name;
 
 	sf::TcpSocket other;
+	sf::SocketSelector selector;
 
 	bool run = true;
 

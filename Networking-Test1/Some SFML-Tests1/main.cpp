@@ -28,11 +28,6 @@ int main()
 	StartMenu stMen;
 
 	StartMenu::Result stMenRes = stMen.open();
-	//std::cout << "Version " << VERSION << std::endl;
-	//std::cout << "Time: " << getCurrTime() << std::endl;
-	//char in;
-	//std::cout << "[s] for Server. [c] for Client." << std::endl;
-	//std::cin >> in;
 
 	switch (stMenRes)
 	{
@@ -68,7 +63,7 @@ void GraphicsSetup(unsigned int width, unsigned int height)
 
 void RunServer()
 {
-	Server server("Test", false, 1234, 1, sf::IpAddress("185.22.142.143"));
+	Server server("Test", false, 1234, 1, sf::IpAddress::getLocalAddress());
 	server.setup();
 	server.connectToClient();
 	server.Run();
@@ -76,7 +71,7 @@ void RunServer()
 
 void RunClient()
 {
-	Client client("Client 1", false, 1234, sf::IpAddress("185.22.142.143"));
+	Client client("Client 1", false, 1234, sf::IpAddress::getLocalAddress());
 	client.setup();
 	client.Run();
 }
