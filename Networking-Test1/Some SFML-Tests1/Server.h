@@ -9,6 +9,10 @@
 #include <string>
 #include <vector>
 
+#include <Windows.h>
+
+#include <memory>
+
 class Server
 {
 	//Networking stuff
@@ -21,8 +25,8 @@ private:
 	sf::IpAddress ip;
 	std::string name;
 
-	sf::TcpSocket other;
 	sf::SocketSelector selector;
+	std::vector<std::unique_ptr<sf::TcpSocket>> sockets;
 
 	bool run = true;
 
@@ -35,6 +39,10 @@ private:
 	std::vector<sf::String> msgs;
 	
 	bool block;
+
+	void pushNewSocket();
+
+	int socketsConnected = 0;
 public:
 	Server(std::string pName, bool pBlock, unsigned int pPort = 53000, unsigned int pMax_Clients = 10, sf::IpAddress adress = sf::IpAddress::getPublicAddress());
 	~Server();
@@ -52,6 +60,7 @@ public:
 	bool isRun() { return run; }
 
 	void SendString(sf::String msg);
+	void SendString(sf::String msg, int exclude);
 
 	//Graphics Stuff
 private:

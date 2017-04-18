@@ -1,6 +1,6 @@
-#pragma once
+﻿#pragma once
 
-#define VERSION "0.1.3b"
+#define VERSION "0.2.0"
 
 //#define FONT_NORM "GOTHIC.TTF"
 //#define FONT_BOLD "GOTHICB.TTF"
@@ -11,3 +11,5 @@
 #define FONT_BOLD "timesb.ttf"
 #define FONT_IT "timesi.ttf"
 #define FONT_BOLD_IT "timesbi.ttf"
+
+#define ExcludeChar '⌂'

@@ -1,4 +1,4 @@
-#include "Client.h"
+﻿#include "Client.h"
 
 Client::Client(std::string pName, bool pBlock, int pPort, sf::IpAddress address) :
 	textBox(sf::Vector2f(10.0f, cr::winHeight() - 50.0f), sf::Vector2f(350.0f, 40.0f))
@@ -50,7 +50,10 @@ void Client::Update()
 		}
 		if (lastMsg != "")
 		{
-			lastMsg = "Server: " + lastMsg;
+			if (lastMsg[0] != ExcludeChar)
+				lastMsg = "Server: " + lastMsg;
+			else
+				lastMsg.erase(0);
 
 			msgs.push_back(lastMsg);
 			if (msgs.size() > maxMsgs)
@@ -76,7 +79,9 @@ void Client::receive()
 	socket.receive(receiveData);
 	receiveData >> lastMsg;
 	if (lastMsg != "")
+	{
 		newMsg = true;
+	}
 }
 
 //Graphics
@@ -133,7 +138,7 @@ void Client::Enter()
 		this->SendString(textBox.Text());
 
 		sf::String tmpStr = textBox.Text();
-		tmpStr = "Client: " + tmpStr;
+		tmpStr = "You: " + tmpStr;
 
 		msgs.push_back(tmpStr);
 		if (msgs.size() > maxMsgs)
