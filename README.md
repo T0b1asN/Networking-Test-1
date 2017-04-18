@@ -1,8 +1,8 @@
 *****************************************
 
 # Networking-Test-1
-Some Testing with SFMLs networking-system
-	by TobiasN
+A chat application to test the features of SFML regarding networking.
+I also want to learn networking so it is an ideal project for me. :)
 	
 CC0, of course! :)
 
