@@ -118,6 +118,7 @@ void Client::Run()
 		textBox.Update((char)0);
 		Update();
 	}
+	socket.disconnect();
 }
 
 void Client::Draw()

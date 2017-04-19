@@ -1,8 +1,8 @@
-﻿  Server.cpp
-e:\_github\own\networking\networking-test-1\networking-test1\some sfml-tests1\server.cpp(97): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
-e:\_github\own\networking\networking-test-1\networking-test1\some sfml-tests1\server.cpp(107): warning C4566: Das durch den universellen Zeichennamen "\u2302" dargestellte Zeichen kann in der aktuellen Codepage (1252) nicht dargestellt werden.
-  Client.cpp
-e:\_github\own\networking\networking-test-1\networking-test1\some sfml-tests1\client.cpp(53): warning C4566: Das durch den universellen Zeichennamen "\u2302" dargestellte Zeichen kann in der aktuellen Codepage (1252) nicht dargestellt werden.
+﻿  main.cpp
+  Server.cpp
+e:\_github\own\networking\networking-test-1\networking-test1\some sfml-tests1\server.cpp(68): warning C4566: Das durch den universellen Zeichennamen "\u2302" dargestellte Zeichen kann in der aktuellen Codepage (1252) nicht dargestellt werden.
+e:\_github\own\networking\networking-test-1\networking-test1\some sfml-tests1\server.cpp(125): warning C4566: Das durch den universellen Zeichennamen "\u2302" dargestellte Zeichen kann in der aktuellen Codepage (1252) nicht dargestellt werden.
+e:\_github\own\networking\networking-test-1\networking-test1\some sfml-tests1\server.cpp(151): warning C4566: Das durch den universellen Zeichennamen "\u2302" dargestellte Zeichen kann in der aktuellen Codepage (1252) nicht dargestellt werden.
   Code wird generiert...
   Some SFML-Tests1.vcxproj -> E:\_GitHub\own\networking\Networking-Test-1\Networking-Test1\Debug\Networking Test 1.exe
   Some SFML-Tests1.vcxproj -> E:\_GitHub\own\networking\Networking-Test-1\Networking-Test1\Debug\Networking Test 1.pdb (Partial PDB)

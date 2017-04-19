@@ -1,3 +1,5 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include "SFML.h"
 #include "Defines.h"
 
@@ -22,7 +24,6 @@ sf::Font mainFont;
 
 int main()
 {
-	//TODO: try winsock
 	GraphicsSetup(500U, 150U);
 	
 	StartMenu stMen;
@@ -63,7 +64,7 @@ void GraphicsSetup(unsigned int width, unsigned int height)
 
 void RunServer()
 {
-	Server server("Test", false, 1234, 1, sf::IpAddress::getLocalAddress());
+	Server server("Test", false, 1234, 10, sf::IpAddress::getLocalAddress());
 	server.setup();
 	server.connectToClient();
 	server.Run();

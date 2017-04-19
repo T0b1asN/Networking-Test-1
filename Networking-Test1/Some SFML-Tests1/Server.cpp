@@ -30,10 +30,9 @@ std::string Server::getInfo()
 
 void Server::setup()
 {
-	listener.setBlocking(false);
+	listener.setBlocking(block);
 	if (listener.listen(port) != sf::Socket::Status::Done)
 	{
-		//TODO: Server-Error Could not set up server
 		std::cout << "Error - Could not set up server!" << std::endl;
 		return;
 	}
@@ -48,18 +47,39 @@ void Server::pushNewSocket()
 
 void Server::connectToClient()
 {
-	pushNewSocket();
-
-	if (listener.accept(*(sockets.back().get())) != sf::Socket::Status::Done)
+	if (socketsConnected < (int)max_Clients)
 	{
-		//std::cout << "Error Could not connect to Client" << std::endl;
-		sockets.pop_back();
-		return;
+		pushNewSocket();
+
+		if (listener.accept(*(sockets.back().get())) != sf::Socket::Status::Done)
+		{
+			//std::cout << "Error Could not connect to Client" << std::endl;
+			sockets.pop_back();
+			return;
+		}
+		socketsConnected++;
+		(*sockets.back().get()).setBlocking(block);
+		selector.add((*sockets.back().get()));
+
+		lastMsg = "Client " + std::to_string(socketsConnected - 1) + " connected";
+		std::cout << (std::string)lastMsg << std::endl;
+
+		//send message to all other sockets
+		SendString(ExcludeChar + lastMsg, socketsConnected - 1);
+		msgs.push_back(lastMsg);
+		if (msgs.size() > maxMsgs)
+			msgs.erase(msgs.begin());
+
+		sf::String complStr = "Messages:\n";
+		for (const sf::String msg : msgs)
+		{
+			complStr += msg + "\n";
+		}
+		msgText.setString(complStr);
 	}
-	socketsConnected++;
-	(*sockets.back().get()).setBlocking(false);
-	std::cout << "Client connected" << std::endl;
-	selector.add((*sockets.back().get()));
+	else
+		return;
+	//TODO: should send a string, that the server is full
 }
 
 void Server::SendString(sf::String msg)
@@ -87,29 +107,51 @@ void Server::SendString(sf::String msg, int exclude)
 
 void Server::Update()
 {
-	newMsg = false;
 	lastMsg = "";
 	receiveData.clear();
 
-	if (selector.wait(sf::milliseconds(10)))
+	if (selector.wait(sf::milliseconds(10)) && socketsConnected > 0)
 	{
-		std::cout << "hi" << std::endl;
-		for (int i = 0; i < sockets.size(); i++)
+		for (int i = 0; i < (int)sockets.size(); i++)
 		{
 			if (selector.isReady((*sockets.at(i).get())))
 			{
-				(*sockets.at(i).get()).receive(receiveData);
-				
-				receiveData >> lastMsg;
-				if (lastMsg != "")
+				if ((*sockets.at(i).get()).receive(receiveData) != sf::Socket::Disconnected)
 				{
-					lastMsg = "Client " + std::to_string(i) + ": " + lastMsg;
+					receiveData >> lastMsg;
+					if (lastMsg != "")
+					{
+						lastMsg = "Client " + std::to_string(i) + ": " + lastMsg;
+						SendString(ExcludeChar + lastMsg, i);
+						msgs.push_back(lastMsg);
+						if (msgs.size() > maxMsgs)
+							msgs.erase(msgs.begin());
+
+						sf::String complStr = "Messages:\n";
+						for (const sf::String msg : msgs)
+						{
+							complStr += msg + "\n";
+						}
+						msgText.setString(complStr);
+
+						std::cout << lastMsg.toAnsiString() << std::endl;
+					}
+				}
+				else
+				{
+					lastMsg = "Client " + std::to_string(i) + " disconnected";
+					std::cout << (std::string)lastMsg << std::endl;
+
+					//disconnect and delete socket
+					selector.remove((*sockets.at(i).get()));
+					(*sockets.at(i).get()).disconnect();
+					sockets.erase(sockets.begin() + i);
+
+					//send message to all other sockets
 					SendString(ExcludeChar + lastMsg, i);
 					msgs.push_back(lastMsg);
 					if (msgs.size() > maxMsgs)
 						msgs.erase(msgs.begin());
-
-					newMsg = true;
 
 					sf::String complStr = "Messages:\n";
 					for (const sf::String msg : msgs)
@@ -117,10 +159,8 @@ void Server::Update()
 						complStr += msg + "\n";
 					}
 					msgText.setString(complStr);
-
-					std::cout << lastMsg.toAnsiString() << std::endl;
+					socketsConnected--;
 				}
-				
 			}
 		
 		}
