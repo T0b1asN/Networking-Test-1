@@ -5,7 +5,7 @@ TextBox::TextBox(sf::Vector2f pPos, sf::Vector2f pSize, std::string pStandardTex
 	pos = pPos;
 	size = pSize;
 
-	fontSize = size.y;
+	fontSize = (unsigned int)size.y;
 
 	standardText = pStandardText;
 	actualText = str_to_wstr(standardText);
@@ -39,9 +39,12 @@ void TextBox::SelectOrUnselect()
 		if (background.getGlobalBounds().contains((sf::Vector2f)sf::Mouse::getPosition(cr::currWin())))
 		{
 			selected = true;
-			if (actualText == str_to_wstr(standardText))
-				actualText = L"";
-			text.setString(actualText);
+			if (deleteStdMsg)
+			{
+				if (actualText == str_to_wstr(standardText))
+					actualText = L"";
+				text.setString(actualText);
+			}
 		}
 		else
 		{

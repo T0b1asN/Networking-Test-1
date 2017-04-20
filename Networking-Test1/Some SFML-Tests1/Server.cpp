@@ -1,12 +1,11 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include "Server.h"
 
-Server::Server(std::string pName, bool pBlock, unsigned int pPort, unsigned int pMax_Clients, sf::IpAddress address) :
+Server::Server(std::string pName, bool pBlock, unsigned int pPort, unsigned int pMax_Clients) :
 	textBox(sf::Vector2f(10.0f, cr::winHeight() - 50.0f), sf::Vector2f(350.0f, 40.0f))
 {
 	port = pPort;
 	max_Clients = pMax_Clients;
-	ip = address;
 	name = pName;
 	block = pBlock;
 
@@ -21,10 +20,9 @@ Server::~Server()
 std::string Server::getInfo()
 {
 	std::string out;
-	out += "Name: " + name 
-		+ "; Port: " + std::to_string(port) 
-		+ "; Max Clients: " + std::to_string(max_Clients) 
-		+ "; Ip: " + ip.toString();
+	out += "Name: " + name
+		+ "; Port: " + std::to_string(port)
+		+ "; Max Clients: " + std::to_string(max_Clients);
 	return out;
 }
 
@@ -139,7 +137,6 @@ void Server::SendString(sf::String msg, sf::TcpSocket& socket)
 
 void Server::Update()
 {
-	printNames();
 	lastMsg = "";
 	receiveData.clear();
 
@@ -204,9 +201,10 @@ void Server::Update()
 
 void Server::initGraphics()
 {
-	nameText.setString("Your nickname: " + name + "\nRole: Server\nPort: " + std::to_string(port) + "\nVersion: " + VERSION);
+	nameText.setString("Your nickname: " + name + "\nRole: Server\nPort: " + std::to_string(port) + 
+		"\nVersion: " + VERSION + "\nIp: " + sf::IpAddress::getLocalAddress().toString());
 	nameText.setFont(cr::currFont());
-	nameText.setCharacterSize(15U);
+	nameText.setCharacterSize(14U);
 
 	msgText.setString("Messages:\n");
 	msgText.setFont(cr::currFont());

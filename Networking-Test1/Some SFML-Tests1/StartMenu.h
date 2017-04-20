@@ -26,12 +26,16 @@ private:
 	TextBox nameBox;
 	std::string name;
 
+	TextBox ipBox;
+	sf::IpAddress adress;
+
 public:
 	StartMenu();
 	~StartMenu();
 
 	Result open();
 	std::string getName() { return name; }
+	sf::IpAddress getIp() { return adress; }
 	void display();
 };
 

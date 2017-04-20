@@ -14,7 +14,7 @@
 #include <ctime>
 
 void RunServer(std::string name);
-void RunClient(std::string name);
+void RunClient(std::string name, sf::IpAddress adress);
 std::string getCurrTime();
 
 void GraphicsSetup(unsigned int width, unsigned int height);
@@ -24,13 +24,14 @@ sf::Font mainFont;
 
 int main()
 {
-	GraphicsSetup(500U, 200U);
+	GraphicsSetup(500U, 250U);
 	
 	StartMenu stMen;
 
 	StartMenu::Result stMenRes = stMen.open();
 	std::string enteredName = stMen.getName();
-	std::cout << enteredName << std::endl;
+	sf::IpAddress enteredIp = stMen.getIp();
+	std::cout << "Name: " << enteredName << " | Ip: " << enteredIp.toString() << std::endl;
 
 	switch (stMenRes)
 	{
@@ -41,7 +42,7 @@ int main()
 		break;
 	case StartMenu::Client:
 		GraphicsSetup(1000U, 750U);
-		RunClient(enteredName);
+		RunClient(enteredName, enteredIp);
 
 		break;
 	case StartMenu::Close:
@@ -66,7 +67,7 @@ void GraphicsSetup(unsigned int width, unsigned int height)
 
 void RunServer(std::string name)
 {
-	Server server(name, false, 1234, 10, sf::IpAddress::getLocalAddress());
+	Server server(name, false, 1234, 10);
 	int setupCode = server.setup();
 	if (setupCode != 0)
 	{
@@ -77,9 +78,9 @@ void RunServer(std::string name)
 	server.Run();
 }
 
-void RunClient(std::string name)
+void RunClient(std::string name, sf::IpAddress adress)
 {
-	Client client(name, false, 1234, sf::IpAddress::getLocalAddress());
+	Client client(name, false, 1234, adress);
 	client.setup();
 	client.Run();
 }

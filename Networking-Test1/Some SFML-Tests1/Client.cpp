@@ -83,7 +83,6 @@ void Client::receive()
 	}
 }
 
-//Graphics
 void Client::Run()
 {
 	while (cr::currWin().isOpen())
@@ -157,9 +156,10 @@ void Client::Enter()
 
 void Client::initGraphics()
 {
-	nameText.setString("Name: " + name + "\nRole: Client\nPort: " + std::to_string(port) + "\nVersion: " + VERSION);
+	nameText.setString("Name: " + name + "\nRole: Client\nPort: " + std::to_string(port) + 
+		"\nVersion: " + VERSION + "\nConnected to " + ip.toString());
 	nameText.setFont(cr::currFont());
-	nameText.setCharacterSize(15U);
+	nameText.setCharacterSize(14U);
 
 	msgText.setString("Messages:\n");
 	msgText.setFont(cr::currFont());

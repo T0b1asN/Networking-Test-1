@@ -1,7 +1,6 @@
-﻿  Server.cpp
-  Code wird generiert...
-  Kompilieren...
-  main.cpp
+﻿  main.cpp
+  TextBox.cpp
+  Server.cpp
   Code wird generiert...
   Some SFML-Tests1.vcxproj -> E:\_GitHub\own\networking\Networking-Test-1\Networking-Test1\Debug\Networking Test 1.exe
   Some SFML-Tests1.vcxproj -> E:\_GitHub\own\networking\Networking-Test-1\Networking-Test1\Debug\Networking Test 1.pdb (Partial PDB)

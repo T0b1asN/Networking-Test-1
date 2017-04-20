@@ -22,6 +22,8 @@ private:
 
 	bool selected = false;
 	bool changed = false;
+
+	bool deleteStdMsg = true;
 public:
 	TextBox(sf::Vector2f pPos, sf::Vector2f pSize, std::string pStandardText = "Input Text...",
 		sf::Color pBackColor = sf::Color::Black, 
@@ -40,4 +42,7 @@ public:
 	sf::String getStdText() { return standardText; }
 
 	void Unselect() { selected = false; }
+
+	bool wasChanged() { return changed; }
+	void set_deleteStdMsg(bool newState) { deleteStdMsg = newState; }
 };

@@ -17,7 +17,7 @@
 //TODO: write a proper function for disconnecting a socket
 //TODO: handle server shutdown
 //TODO: Helper function, that displays a message
-//TODO: make it work over WiFi (not internet)
+//TODO: make it work over WiFi (not internet) -------------- needs to be tested
 class Server
 {
 	//Networking stuff
@@ -29,9 +29,7 @@ private:
 	unsigned int port;
 	//the max number of clients allowed
 	unsigned int max_Clients;
-
-	//just relevant for the info of the server
-	sf::IpAddress ip;
+	
 	//the name of the server
 	std::string name;
 
@@ -76,7 +74,7 @@ public:
 	///pMax_Clients: max clients of the server (standard 10)
 	///adress: IpAdress of the server (WARNING: standard not tested)
 	//////////////////////////////////////////////
-	Server(std::string pName, bool pBlock, unsigned int pPort = 53000, unsigned int pMax_Clients = 10, sf::IpAddress adress = sf::IpAddress::getPublicAddress());
+	Server(std::string pName, bool pBlock, unsigned int pPort = 53000, unsigned int pMax_Clients = 10);
 	~Server();
 
 	//returns the information of the server in one string
