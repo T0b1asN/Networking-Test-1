@@ -13,8 +13,8 @@
 #include <string>
 #include <ctime>
 
-void RunServer();
-void RunClient();
+void RunServer(std::string name);
+void RunClient(std::string name);
 std::string getCurrTime();
 
 void GraphicsSetup(unsigned int width, unsigned int height);
@@ -24,22 +24,24 @@ sf::Font mainFont;
 
 int main()
 {
-	GraphicsSetup(500U, 150U);
+	GraphicsSetup(500U, 200U);
 	
 	StartMenu stMen;
 
 	StartMenu::Result stMenRes = stMen.open();
+	std::string enteredName = stMen.getName();
+	std::cout << enteredName << std::endl;
 
 	switch (stMenRes)
 	{
 	case StartMenu::Server:
 		GraphicsSetup(1000U, 750U);
-		RunServer();
+		RunServer(enteredName);
 
 		break;
 	case StartMenu::Client:
 		GraphicsSetup(1000U, 750U);
-		RunClient();
+		RunClient(enteredName);
 
 		break;
 	case StartMenu::Close:
@@ -62,17 +64,22 @@ void GraphicsSetup(unsigned int width, unsigned int height)
 	sf::sleep(sf::milliseconds(50));
 }
 
-void RunServer()
+void RunServer(std::string name)
 {
-	Server server("Test", false, 1234, 10, sf::IpAddress::getLocalAddress());
-	server.setup();
+	Server server(name, false, 1234, 10, sf::IpAddress::getLocalAddress());
+	int setupCode = server.setup();
+	if (setupCode != 0)
+	{
+		std::cerr << "Error " << setupCode << " while setting up the server" << std::endl;
+		return;
+	}
 	server.connectToClient();
 	server.Run();
 }
 
-void RunClient()
+void RunClient(std::string name)
 {
-	Client client("Client 1", false, 1234, sf::IpAddress::getLocalAddress());
+	Client client(name, false, 1234, sf::IpAddress::getLocalAddress());
 	client.setup();
 	client.Run();
 }
@@ -89,7 +96,6 @@ std::string getCurrTime()
 		":" + std::to_string(now->tm_min);
 	return out;
 }
-
 
 //Returns for current stuff
 sf::RenderWindow& cr::currWin() { return win; }

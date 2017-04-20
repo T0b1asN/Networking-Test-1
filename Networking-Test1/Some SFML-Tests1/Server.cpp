@@ -28,15 +28,16 @@ std::string Server::getInfo()
 	return out;
 }
 
-void Server::setup()
+int Server::setup()
 {
 	listener.setBlocking(block);
 	if (listener.listen(port) != sf::Socket::Status::Done)
 	{
 		std::cout << "Error - Could not set up server!" << std::endl;
-		return;
+		return 1;
 	}
 	std::cout << "Connected... Port: " << port << std::endl;
+	return 0;
 }
 
 void Server::pushNewSocket()
@@ -57,15 +58,27 @@ void Server::connectToClient()
 			sockets.pop_back();
 			return;
 		}
+		//receive name from client
+		sf::Packet namePacket;
+		namePacket.clear();
+
+		(sockets.back().get())->receive(namePacket);
+
+		std::string newSocketName;
+		namePacket >> newSocketName;
+
 		socketsConnected++;
+
+		names.push_back(newSocketName);
+
 		(*sockets.back().get()).setBlocking(block);
 		selector.add((*sockets.back().get()));
 
-		lastMsg = "Client " + std::to_string(socketsConnected - 1) + " connected";
+		lastMsg = "[" + newSocketName + " connected]";
 		std::cout << (std::string)lastMsg << std::endl;
 
 		//send message to all other sockets
-		SendString(ExcludeChar + lastMsg, socketsConnected - 1);
+		SendString(lastMsg, socketsConnected - 1);
 		msgs.push_back(lastMsg);
 		if (msgs.size() > maxMsgs)
 			msgs.erase(msgs.begin());
@@ -78,13 +91,24 @@ void Server::connectToClient()
 		msgText.setString(complStr);
 	}
 	else
+	{
+		sf::TcpSocket errorSocket;
+
+		if (listener.accept(errorSocket) != sf::Socket::Status::Done)
+			return;
+
+		std::cout << "New socket detected, even though the server is full!" << std::endl;
+		SendString("Server is full!", errorSocket);
+		errorSocket.disconnect();
+
 		return;
-	//TODO: should send a string, that the server is full
+	}
 }
 
 void Server::SendString(sf::String msg)
 {
 	//std::cout << (std::string)msg << std::endl;
+	msg = name + ": " + msg;
 	sendData.clear();
 	sendData << msg;
 	for (int i = 0; i < (int)sockets.size(); i++)
@@ -105,8 +129,17 @@ void Server::SendString(sf::String msg, int exclude)
 	}
 }
 
+void Server::SendString(sf::String msg, sf::TcpSocket& socket)
+{
+	//std::cout << (std::string)msg << std::endl;
+	sendData.clear();
+	sendData << msg;
+	socket.send(sendData);
+}
+
 void Server::Update()
 {
+	printNames();
 	lastMsg = "";
 	receiveData.clear();
 
@@ -121,8 +154,7 @@ void Server::Update()
 					receiveData >> lastMsg;
 					if (lastMsg != "")
 					{
-						lastMsg = "Client " + std::to_string(i) + ": " + lastMsg;
-						SendString(ExcludeChar + lastMsg, i);
+						SendString(lastMsg, i);
 						msgs.push_back(lastMsg);
 						if (msgs.size() > maxMsgs)
 							msgs.erase(msgs.begin());
@@ -139,16 +171,17 @@ void Server::Update()
 				}
 				else
 				{
-					lastMsg = "Client " + std::to_string(i) + " disconnected";
+					lastMsg = names.at(i) + " disconnected";
 					std::cout << (std::string)lastMsg << std::endl;
 
 					//disconnect and delete socket
 					selector.remove((*sockets.at(i).get()));
 					(*sockets.at(i).get()).disconnect();
 					sockets.erase(sockets.begin() + i);
+					names.erase(names.begin() + i);
 
 					//send message to all other sockets
-					SendString(ExcludeChar + lastMsg, i);
+					SendString(lastMsg, i);
 					msgs.push_back(lastMsg);
 					if (msgs.size() > maxMsgs)
 						msgs.erase(msgs.begin());
@@ -171,7 +204,7 @@ void Server::Update()
 
 void Server::initGraphics()
 {
-	nameText.setString("Server\nPort: " + std::to_string(port) + "\nVersion: " + VERSION);
+	nameText.setString("Your nickname: " + name + "\nRole: Server\nPort: " + std::to_string(port) + "\nVersion: " + VERSION);
 	nameText.setFont(cr::currFont());
 	nameText.setCharacterSize(15U);
 
@@ -213,6 +246,7 @@ void Server::Run()
 				}
 				else
 				{
+					textBox.Unselect();
 					Enter();
 				}
 				break;
@@ -250,4 +284,12 @@ void Server::Enter()
 		msgText.setString(complStr);
 	}
 	textBox.SetNormal();
+}
+
+void Server::printNames()
+{
+	for (int i = 0; i < (int)names.size(); i++)
+	{
+		std::cout << "Slot " << i << ": " << names.at(i) << std::endl;
+	}
 }

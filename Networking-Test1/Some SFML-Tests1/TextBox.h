@@ -38,4 +38,6 @@ public:
 	void SetNormal();
 
 	sf::String getStdText() { return standardText; }
+
+	void Unselect() { selected = false; }
 };

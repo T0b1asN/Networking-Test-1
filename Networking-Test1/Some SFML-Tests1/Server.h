@@ -9,12 +9,15 @@
 #include <string>
 #include <vector>
 
+#include <map>
+
 #include <Windows.h>
 
 #include <memory>
 //TODO: write a proper function for disconnecting a socket
-//TODO: implement names
+//TODO: handle server shutdown
 //TODO: Helper function, that displays a message
+//TODO: make it work over WiFi (not internet)
 class Server
 {
 	//Networking stuff
@@ -63,6 +66,8 @@ private:
 
 	//current number of sockets connected
 	int socketsConnected = 0;
+	//all names
+	std::vector<std::string> names;
 public:
 	//////////////////////////////////////////////
 	///pName: name of the server
@@ -81,8 +86,7 @@ public:
 	std::string getName() { return name; }
 
 	//Call this before using the server, it sets up the listener
-	//TODO: let it return an error code
-	void setup();
+	int setup();
 	//looks for new clients that try to connect
 	//if a new client wants to connect it pushes a new socket in the sockets array
 	//this socket is the last socket in the vector
@@ -93,6 +97,8 @@ public:
 	//Send a string to all connected sockets except the
 	//socket at the index 'exclude'
 	void SendString(sf::String msg, int exclude);
+	//Send a string to the given socket
+	void SendString(sf::String msg, sf::TcpSocket& socket);
 
 	//Graphics Stuff
 private:
@@ -120,5 +126,7 @@ public:
 	//Loop that keeps the server running
 	void Run();
 
+	//prints all names
+	void printNames();
 };
 

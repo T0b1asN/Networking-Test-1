@@ -3,6 +3,7 @@
 #include "curr.h"
 #include "OwnButton.h"
 #include "Defines.h"
+#include "TextBox.h"
 
 #include <iostream>
 #include <string>
@@ -22,11 +23,15 @@ private:
 	OwnButton serverButton;
 	OwnButton clientButton;
 
+	TextBox nameBox;
+	std::string name;
+
 public:
 	StartMenu();
 	~StartMenu();
 
 	Result open();
+	std::string getName() { return name; }
 	void display();
 };
 

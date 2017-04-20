@@ -18,6 +18,7 @@ Client::~Client()
 
 void Client::SendString(sf::String msg)
 {
+	msg = name + ": " + msg;
 	sendData.clear();
 	sendData << msg;
 	socket.send(sendData);
@@ -29,8 +30,10 @@ void Client::setup()
 	{
 		std::cout << "Could not connect" << std::endl;
 		return;
-		//TODO: Client-Error Could not Connect
 	}
+	sf::Packet namePacket;
+	namePacket << name;
+	socket.send(namePacket);
 	std::cout << "Connected" << std::endl;
 	socket.setBlocking(block);
 }
@@ -50,10 +53,6 @@ void Client::Update()
 		}
 		if (lastMsg != "")
 		{
-			if (lastMsg[0] != ExcludeChar)
-				lastMsg = "Server: " + lastMsg;
-			else
-				lastMsg.erase(0);
 
 			msgs.push_back(lastMsg);
 			if (msgs.size() > maxMsgs)
@@ -104,6 +103,7 @@ void Client::Run()
 				}
 				else
 				{
+					textBox.Unselect();
 					Enter();
 				}
 				break;
@@ -157,7 +157,7 @@ void Client::Enter()
 
 void Client::initGraphics()
 {
-	nameText.setString("Client\nPort: " + std::to_string(port) + "\nVersion: " + VERSION);
+	nameText.setString("Name: " + name + "\nRole: Client\nPort: " + std::to_string(port) + "\nVersion: " + VERSION);
 	nameText.setFont(cr::currFont());
 	nameText.setCharacterSize(15U);
 
