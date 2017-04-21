@@ -6,9 +6,9 @@ I also want to learn networking so it is an ideal project for me. :)
 	
 CC0, of course! :)
 
-### Not finished things - Version 0.2.2
+### Not finished things - Version 0.2.2b
 -Just on local PC (planned to be over multiple PCs, but not over the internet) --- in testing  
--just basic disconnecting (on window closing, just when client disconnects, not when server shuts down)  
+-just basic disconnecting (on window closing, just when client disconnects)  
 
 ## DISCLAIMER
 ### It does not work over the internet
