@@ -1,6 +1,0 @@
-DO:
-	-write a proper function for disconnecting a socket
-	-Helper function, that displays a message
-
-TEST:
-	-make it work over WiFi (not internet) -------------- needs to be tested

@@ -77,16 +77,7 @@ void Server::connectToClient()
 
 		//send message to all other sockets
 		SendString(lastMsg, socketsConnected - 1);
-		msgs.push_back(lastMsg);
-		if (msgs.size() > maxMsgs)
-			msgs.erase(msgs.begin());
-
-		sf::String complStr = "Messages:\n";
-		for (const sf::String msg : msgs)
-		{
-			complStr += msg + "\n";
-		}
-		msgText.setString(complStr);
+		DisplayMessage(lastMsg);
 	}
 	else
 	{
@@ -95,9 +86,7 @@ void Server::connectToClient()
 		if (listener.accept(errorSocket) != sf::Socket::Status::Done)
 			return;
 
-		std::cout << "New socket detected, even though the server is full!" << std::endl;
-		SendString("Server is full!", errorSocket);
-		errorSocket.disconnect();
+		disconnectSocket(errorSocket, "Server is full!");
 
 		return;
 	}
@@ -141,70 +130,6 @@ void Server::SendStringWithoutName(sf::String msg)
 	{
 		(*sockets.at(i).get()).send(sendData);
 	}
-}
-
-void Server::Update()
-{
-	lastMsg = "";
-	receiveData.clear();
-
-	if (selector.wait(sf::milliseconds(10)) && socketsConnected > 0)
-	{
-		for (int i = 0; i < (int)sockets.size(); i++)
-		{
-			if (selector.isReady((*sockets.at(i).get())))
-			{
-				if ((*sockets.at(i).get()).receive(receiveData) != sf::Socket::Disconnected)
-				{
-					receiveData >> lastMsg;
-					if (lastMsg != "")
-					{
-						SendString(lastMsg, i);
-						msgs.push_back(lastMsg);
-						if (msgs.size() > maxMsgs)
-							msgs.erase(msgs.begin());
-
-						sf::String complStr = "Messages:\n";
-						for (const sf::String msg : msgs)
-						{
-							complStr += msg + "\n";
-						}
-						msgText.setString(complStr);
-
-						std::cout << lastMsg.toAnsiString() << std::endl;
-					}
-				}
-				else
-				{
-					lastMsg = names.at(i) + " disconnected";
-					std::cout << (std::string)lastMsg << std::endl;
-
-					//disconnect and delete socket
-					selector.remove((*sockets.at(i).get()));
-					(*sockets.at(i).get()).disconnect();
-					sockets.erase(sockets.begin() + i);
-					names.erase(names.begin() + i);
-
-					//send message to all other sockets
-					SendString(lastMsg, i);
-					msgs.push_back(lastMsg);
-					if (msgs.size() > maxMsgs)
-						msgs.erase(msgs.begin());
-
-					sf::String complStr = "Messages:\n";
-					for (const sf::String msg : msgs)
-					{
-						complStr += msg + "\n";
-					}
-					msgText.setString(complStr);
-					socketsConnected--;
-				}
-			}
-		
-		}
-	}
-	connectToClient();
-	Draw();
 }
 
 void Server::initGraphics()
@@ -270,6 +195,50 @@ void Server::Run()
 	}
 }
 
+void Server::Update()
+{
+	lastMsg = "";
+	receiveData.clear();
+
+	if (selector.wait(sf::milliseconds(10)) && socketsConnected > 0)
+	{
+		for (int i = 0; i < (int)sockets.size(); i++)
+		{
+			if (selector.isReady((*sockets.at(i).get())))
+			{
+				if ((*sockets.at(i).get()).receive(receiveData) != sf::Socket::Disconnected)
+				{
+					receiveData >> lastMsg;
+					if (lastMsg != "")
+					{
+						SendString(lastMsg, i);
+						DisplayMessage(lastMsg);
+					}
+				}
+				else
+				{
+					lastMsg = "[" + names.at(i) + " disconnected]";
+					std::cout << (std::string)lastMsg << std::endl;
+
+					//disconnect and delete socket
+					selector.remove((*sockets.at(i).get()));
+					(*sockets.at(i).get()).disconnect();
+					sockets.erase(sockets.begin() + i);
+					names.erase(names.begin() + i);
+
+					//send message to all other sockets
+					SendString(lastMsg, i);
+					DisplayMessage(lastMsg);
+					socketsConnected--;
+				}
+			}
+		
+		}
+	}
+	connectToClient();
+	Draw();
+}
+
 void Server::Enter()
 {
 	if (textBox.Text() != "" && textBox.Text() != textBox.getStdText())
@@ -279,16 +248,7 @@ void Server::Enter()
 		sf::String tmpStr = textBox.Text();
 		tmpStr = "You: " + tmpStr;
 
-		msgs.push_back(tmpStr);
-		if (msgs.size() > maxMsgs)
-			msgs.erase(msgs.begin());
-
-		sf::String complStr = "Messages:\n";
-		for (const sf::String msg : msgs)
-		{
-			complStr += msg + "\n";
-		}
-		msgText.setString(complStr);
+		DisplayMessage(tmpStr);
 	}
 	textBox.SetNormal();
 }
@@ -311,9 +271,42 @@ void Server::Shutdown(std::string optMsg, bool replaceOld)
 		SendStringWithoutName("[" + optMsg + "]");
 
 	SendStringWithoutName(SHUTDOWN_MSG);
-	std::cout << "Server is shutting down" << std::endl;
 	for (int i = 0; i < (int)sockets.size(); i++)
+		disconnectSocket(i);
+}
+
+void Server::disconnectSocket(int index, std::string reason)
+{
+	if (reason != "")
+		SendString("[Disconnected from server. Reason: " + reason + "]", (*sockets.at(index).get()));
+	else
+		SendString("[Disconnected from server for an unknown reason]", (*sockets.at(index).get()));
+	Sleep(100);
+
+	sockets.at(index).get()->disconnect();
+}
+
+void Server::disconnectSocket(sf::TcpSocket& socket, std::string reason)
+{
+	if (reason != "")
+		SendString("[Disconnected from server. Reason: " + reason + "]", socket);
+	else
+		SendString("[Disconnected from server for an unknown reason]", socket);
+	Sleep(100);
+
+	socket.disconnect();
+}
+
+void Server::DisplayMessage(std::string message)
+{
+	msgs.push_back(message);
+	if (msgs.size() > maxMsgs)
+		msgs.erase(msgs.begin());
+
+	sf::String complStr = "Messages:\n";
+	for (const sf::String msg : msgs)
 	{
-		sockets.at(i).get()->disconnect();
+		complStr += msg + "\n";
 	}
+	msgText.setString(complStr);
 }

@@ -48,7 +48,7 @@ public:
 
 	unsigned int getPort() { return socket.getRemotePort(); }
 
-	void OnServerShutdown();
+	void OnServerDisconnect();
 
 private:
 	sf::Text nameText;
@@ -61,6 +61,8 @@ private:
 
 	void initGraphics();
 public:
+	//Displays message in messages feed (no name, etc.)
+	void DisplayMessage(std::string message);
 
 	//General
 public:

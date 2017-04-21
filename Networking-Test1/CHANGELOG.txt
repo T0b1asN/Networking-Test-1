@@ -35,4 +35,11 @@ Version 0.2.2b - 21.4.2017
 			-Fitting method on client side
 	-new function to send message from server to all Clients
 		-SendStringWithoutName - send string without your name (made for the shutdown message)
-	-IpAdresses still not tested
+	-ip adresses still not tested
+
+Version 1.0.0 - 21.4.2017
+	-Functionality over multiple pcs tested - it works :)
+	-Function to display a message in your message feed
+		-without name, etc.
+		-For server and client
+	-Function to disconnect client

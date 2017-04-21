@@ -1,0 +1,4 @@
+DO:
+	-Commands?
+	-Log file?
+	-different ports?

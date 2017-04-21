@@ -93,8 +93,10 @@ public:
 	void SendString(sf::String msg);
 	//Send a string to all connected sockets except the
 	//socket at the index 'exclude'
+	//without name
 	void SendString(sf::String msg, int exclude);
 	//Send a string to the given socket
+	//without name
 	void SendString(sf::String msg, sf::TcpSocket& socket);
 	//Send a string without your name
 	void SendStringWithoutName(sf::String msg);
@@ -104,6 +106,11 @@ public:
 	//it can be used to display errors
 	//WARNING: doesn't close window
 	void Shutdown(std::string optMsg = "", bool replaceStd = false);
+
+	//Disconnect the socket at the given index, you can also give a reason
+	void disconnectSocket(int index, std::string reason = "");
+	//Disconnect the given socket, you can also give a reason
+	void disconnectSocket(sf::TcpSocket& socket, std::string reason = "");
 
 	//Graphics Stuff
 private:
@@ -123,6 +130,8 @@ private:
 	//initializes the info and message text
 	void initGraphics();
 public:
+	//Displays message in messages feed (no name, etc.)
+	void DisplayMessage(std::string message);
 	
 	//General
 public:

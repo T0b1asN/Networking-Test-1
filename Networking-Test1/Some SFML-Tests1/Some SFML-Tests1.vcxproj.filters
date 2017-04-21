@@ -84,4 +84,7 @@
       <Filter>Headerdateien\Util</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="TODO.txt" />
+  </ItemGroup>
 </Project>

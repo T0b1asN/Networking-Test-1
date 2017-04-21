@@ -35,6 +35,7 @@ void Client::setup()
 	namePacket << name;
 	socket.send(namePacket);
 	std::cout << "Connected" << std::endl;
+	DisplayMessage("[Connected to: " + ip.toString() + "]");
 	socket.setBlocking(block);
 }
 
@@ -53,26 +54,16 @@ void Client::Update()
 		}
 		if (lastMsg != "" && lastMsg != SHUTDOWN_MSG)
 		{
-
-			msgs.push_back(lastMsg);
-			if (msgs.size() > maxMsgs)
-				msgs.erase(msgs.begin());
-
-			newMsg = true;
-
-			sf::String complStr = "Messages:\n";
-			for (const sf::String msg : msgs)
-			{
-				complStr += msg + "\n";
-			}
-			msgText.setString(complStr);
-
-			std::cout << lastMsg.toAnsiString() << std::endl;
+			DisplayMessage(lastMsg);
 		}
 		else if (lastMsg == SHUTDOWN_MSG)
 		{
-			OnServerShutdown();
+			OnServerDisconnect();
 		}
+	}
+	else if (socket.receive(receiveData) == sf::Socket::Disconnected)
+	{
+		OnServerDisconnect();
 	}
 	Draw();
 }
@@ -134,16 +125,7 @@ void Client::Enter()
 		sf::String tmpStr = textBox.Text();
 		tmpStr = "You: " + tmpStr;
 
-		msgs.push_back(tmpStr);
-		if (msgs.size() > maxMsgs)
-			msgs.erase(msgs.begin());
-		
-		sf::String complStr = "Messages:\n";
-		for (const sf::String msg : msgs)
-		{
-			complStr += msg + "\n";
-		}
-		msgText.setString(complStr);
+		DisplayMessage(tmpStr);
 	}
 	textBox.SetNormal();
 }
@@ -163,10 +145,23 @@ void Client::initGraphics()
 	Draw();
 }
 
-void Client::OnServerShutdown()
+void Client::OnServerDisconnect()
 {
 	socket.disconnect();
-	//end program after delay
 	Sleep(1500);
 	cr::currWin().close();
+}
+
+void Client::DisplayMessage(std::string message)
+{
+	msgs.push_back(message);
+	if (msgs.size() > maxMsgs)
+		msgs.erase(msgs.begin());
+
+	sf::String complStr = "Messages:\n";
+	for (const sf::String msg : msgs)
+	{
+		complStr += msg + "\n";
+	}
+	msgText.setString(complStr);
 }
