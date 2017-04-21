@@ -1,4 +1,5 @@
 DO:
-	-Commands?
-	-Log file?
-	-different ports?
+	-Commands
+	-Log file
+	-variable port
+	-variable group size
