@@ -1,17 +1,20 @@
 *****************************************
 
-# Networking-Test-1
+# SMCCP
+(simple multi-client chat program)
 A chat application to test the features of SFML regarding networking.
 I also want to learn networking so it is an ideal project for me. :)
+
+### Features
+-You can set up a server (at the time only on port 1234) or connect as a client to a server via the ip adress  
+	-only works in a local network
+-Everyone can write to everyone else in a group  
+	-at the moment the group size is fixed to 10 but I plan to make it variable
 	
-CC0, of course! :)
-
-### Not finished things - Version 0.2.2b
--Just on local PC (planned to be over multiple PCs, but not over the internet) --- in testing  
--just basic disconnecting (on window closing, just when client disconnects)  
-
-## DISCLAIMER
-### It does not work over the internet
-### I misunderstood tcp sockets, when I uploaded the "fix"
+### Planned features  
+-Commands  
+-variable group size  
+-variable port  
+-a log files for i.e. errors  
 
 *****************************************
