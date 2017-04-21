@@ -1,0 +1,38 @@
+--- Versions before Changelog ---
+
+Version 0.2.0 - 18.4.2017
+	-Multiple Clients now supported
+
+Version 0.2.1 - 20.4.2017
+	-Client can now disconnect from the server
+		-At the moment only used on client shutdown (closing the window)
+	-Started organizing the source
+		-Server.h and Server.cpp
+	-Added todo-list at the top of Server.h
+
+Version 0.2.1b - 20.4.2017
+	-More onragnization in Server.h and Server.cpp
+	-Names for clients and server
+	-Added field in the StartMenu to enter the name
+	-Added function to unselect the textbox
+
+Version 0.2.2 - 20.4.2017/21.4.2017
+	-ip adresses for different servers
+		-can be entered at beginning -> Client tries to connect to this ip
+			-Not yet tested
+	-Field for the ip adress in the StartMenu
+	-Minor changes in the server and client windows
+		-shows ip adress at the top
+	-Added functionality to the TextBox
+
+--- Versions after Changelog ---
+
+Version 0.2.2b - 21.4.2017
+	-Added changelog and todo list
+	-Server shutdown
+		-Message to all Clients that the server shuts down
+			-Whirlpool hash that you cant send the message by accident
+			-Fitting method on client side
+	-new function to send message from server to all Clients
+		-SendStringWithoutName - send string without your name (made for the shutdown message)
+	-IpAdresses still not tested

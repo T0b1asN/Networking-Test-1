@@ -51,7 +51,7 @@ void Client::Update()
 			std::cout << "Error in receiving" << std::endl;
 			return;
 		}
-		if (lastMsg != "")
+		if (lastMsg != "" && lastMsg != SHUTDOWN_MSG)
 		{
 
 			msgs.push_back(lastMsg);
@@ -69,18 +69,12 @@ void Client::Update()
 
 			std::cout << lastMsg.toAnsiString() << std::endl;
 		}
+		else if (lastMsg == SHUTDOWN_MSG)
+		{
+			OnServerShutdown();
+		}
 	}
 	Draw();
-}
-
-void Client::receive()
-{
-	socket.receive(receiveData);
-	receiveData >> lastMsg;
-	if (lastMsg != "")
-	{
-		newMsg = true;
-	}
 }
 
 void Client::Run()
@@ -167,4 +161,12 @@ void Client::initGraphics()
 	msgText.setPosition(0.0f, 75.0f);
 
 	Draw();
+}
+
+void Client::OnServerShutdown()
+{
+	socket.disconnect();
+	//end program after delay
+	Sleep(1500);
+	cr::currWin().close();
 }

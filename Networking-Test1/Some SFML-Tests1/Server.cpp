@@ -117,7 +117,6 @@ void Server::SendString(sf::String msg)
 
 void Server::SendString(sf::String msg, int exclude)
 {
-	//std::cout << (std::string)msg << std::endl;
 	sendData.clear();
 	sendData << msg;
 	for (int i = 0; i < (int)sockets.size(); i++)
@@ -129,10 +128,19 @@ void Server::SendString(sf::String msg, int exclude)
 
 void Server::SendString(sf::String msg, sf::TcpSocket& socket)
 {
-	//std::cout << (std::string)msg << std::endl;
 	sendData.clear();
 	sendData << msg;
 	socket.send(sendData);
+}
+
+void Server::SendStringWithoutName(sf::String msg)
+{
+	sendData.clear();
+	sendData << msg;
+	for (int i = 0; i < (int)sockets.size(); i++)
+	{
+		(*sockets.at(i).get()).send(sendData);
+	}
 }
 
 void Server::Update()
@@ -235,6 +243,7 @@ void Server::Run()
 			switch (evnt.type)
 			{
 			case sf::Event::Closed:
+				Shutdown("Host closed the window!", true);
 				return;
 				break;
 			case sf::Event::TextEntered:
@@ -289,5 +298,22 @@ void Server::printNames()
 	for (int i = 0; i < (int)names.size(); i++)
 	{
 		std::cout << "Slot " << i << ": " << names.at(i) << std::endl;
+	}
+}
+
+void Server::Shutdown(std::string optMsg, bool replaceOld)
+{
+	if (optMsg == "")
+		SendStringWithoutName("[Server was shut down]");
+	else if(!replaceOld)
+		SendStringWithoutName("[Server was shut down. Message: " + optMsg + "]");
+	else
+		SendStringWithoutName("[" + optMsg + "]");
+
+	SendStringWithoutName(SHUTDOWN_MSG);
+	std::cout << "Server is shutting down" << std::endl;
+	for (int i = 0; i < (int)sockets.size(); i++)
+	{
+		sockets.at(i).get()->disconnect();
 	}
 }

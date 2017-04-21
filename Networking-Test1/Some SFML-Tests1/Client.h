@@ -9,6 +9,8 @@
 
 #include <vector>
 
+#include <Windows.h>
+
 class Client
 {
 private:
@@ -44,9 +46,9 @@ public:
 
 	void setup();
 
-	void receive();
-
 	unsigned int getPort() { return socket.getRemotePort(); }
+
+	void OnServerShutdown();
 
 private:
 	sf::Text nameText;

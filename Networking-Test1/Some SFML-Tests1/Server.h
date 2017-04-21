@@ -15,9 +15,8 @@
 
 #include <memory>
 //TODO: write a proper function for disconnecting a socket
-//TODO: handle server shutdown
 //TODO: Helper function, that displays a message
-//TODO: make it work over WiFi (not internet) -------------- needs to be tested
+//TEST: make it work over WiFi (not internet) -------------- needs to be tested
 class Server
 {
 	//Networking stuff
@@ -97,6 +96,14 @@ public:
 	void SendString(sf::String msg, int exclude);
 	//Send a string to the given socket
 	void SendString(sf::String msg, sf::TcpSocket& socket);
+	//Send a string without your name
+	void SendStringWithoutName(sf::String msg);
+
+	//Shuts down the server
+	//The optMsg is displayed after the standardMsg if replaceStd is false
+	//it can be used to display errors
+	//WARNING: doesn't close window
+	void Shutdown(std::string optMsg = "", bool replaceStd = false);
 
 	//Graphics Stuff
 private:
