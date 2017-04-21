@@ -1,7 +1,7 @@
 *****************************************
 
 # SMCCP
-(simple multi-client chat program)
+(simple multi-client chat program)  
 A chat application to test the features of SFML regarding networking.
 I also want to learn networking so it is an ideal project for me. :)
 
