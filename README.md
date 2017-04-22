@@ -26,7 +26,6 @@ When you want to be a client, you also need to enter the ip adress of the server
 After that you click the button for client and the application tries to connect to the server.  
 In both cases, server and client, opens a new window. At the top you can find the information of the server or client, for example the name, below that are your messages and at the bottom is the textbox for entering text, which can be send with pressing the enter key.
 
-<<<<<<< HEAD
 ###### **Have fun!**
 
 --------------------------------------
