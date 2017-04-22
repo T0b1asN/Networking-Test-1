@@ -17,6 +17,8 @@ void RunServer(std::string name);
 void RunClient(std::string name, sf::IpAddress adress);
 std::string getCurrTime();
 
+sf::Image icon;
+
 void GraphicsSetup(unsigned int width, unsigned int height);
 
 sf::RenderWindow win;
@@ -25,7 +27,7 @@ sf::Font mainFont;
 int main()
 {
 	GraphicsSetup(500U, 250U);
-	
+	ShowWindow(GetConsoleWindow(), SW_HIDE);
 	StartMenu stMen;
 
 	StartMenu::Result stMenRes = stMen.open();
@@ -55,10 +57,18 @@ int main()
 
 void GraphicsSetup(unsigned int width, unsigned int height)
 {
+
 	std::string vers = VERSION;
 	win.create(sf::VideoMode(width, height), "SFML-Networkingtest, Version " + vers, sf::Style::Close);
 	win.setFramerateLimit(60);
 
+	if (icon.loadFromFile("res\\AppIcon.png"))
+		win.setIcon(626, 626, icon.getPixelsPtr());
+	else
+	{
+		std::cout << "Icon loading failed" << std::endl;
+		std::system("PAUSE");
+	}
 	std::string fontName = FONT_NORM;
 	mainFont.loadFromFile("res\\fonts\\" + fontName);
 
