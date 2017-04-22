@@ -31,7 +31,6 @@ In both cases, server and client, opens a new window. At the top you can find th
 
 --------------------------------------
 
-Sience version 1.1.0 I also provide the debug version of SMCCP. The main differences are, that this version doesn't use static linking, so there are dll's. Also the console doesn't close in this version.
-=======
-##### **Have fun!**
->>>>>>> origin/master
+Sience version 1.1.0 I also provide the debug version of SMCCP.  
+The main differences are, that this version doesn't use static linking, so there are dll's. Also the console doesn't close in this version.
+
