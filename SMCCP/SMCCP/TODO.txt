@@ -2,4 +2,7 @@ DO:
 	-Commands
 	-Log file
 	-variable port
-	-variable group size
+	-variable max group size
+	-Unicode support (maybe done)
+	-no name doubling
+		-enter name on server connecting

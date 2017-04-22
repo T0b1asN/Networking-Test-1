@@ -25,3 +25,7 @@ After that you click the button for client and the application tries to connect 
 In both cases, server and client, opens a new window. At the top you can find the information of the server or client, for example the name, below that are your messages and at the bottom is the textbox for entering text, which can be send with pressing the enter key.
 
 ###### **Have fun!**
+
+--------------------------------------
+
+Sience version 1.1.0 I also provide the debug version of SMCCP. The main differences are, that this version doesn't use static linking, so there are dll's. Also the console doesn't close in this version.

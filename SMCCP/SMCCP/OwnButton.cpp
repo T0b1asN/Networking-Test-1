@@ -19,7 +19,7 @@ OwnButton::OwnButton(std::string pText, sf::Vector2f pSize, sf::Vector2f pPos,
 	rect = sf::FloatRect(pos, size);
 
 	textField = sf::Text(text, cr::currFont(), charSize);
-	textField.setColor(textColor);
+	textField.setFillColor(textColor);
 	textField.setOrigin(textField.getLocalBounds().width / 2.0f, textField.getLocalBounds().height / 2.0f);
 	textField.setPosition(pos + (size / 2.0f));
 

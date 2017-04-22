@@ -26,8 +26,17 @@ sf::Font mainFont;
 
 int main()
 {
+	if (own_log::CreateLog() == 0)
+	{
+		own_log::pushMsgToCommandIfDebug("Created log file");
+		own_log::AppendToLog("Created log file");
+	}
 	GraphicsSetup(500U, 250U);
+
+#ifndef _DEBUG
 	ShowWindow(GetConsoleWindow(), SW_HIDE);
+#endif // !NDEBUG
+
 	StartMenu stMen;
 
 	StartMenu::Result stMenRes = stMen.open();
@@ -59,7 +68,7 @@ void GraphicsSetup(unsigned int width, unsigned int height)
 {
 
 	std::string vers = VERSION;
-	win.create(sf::VideoMode(width, height), "SFML-Networkingtest, Version " + vers, sf::Style::Close);
+	win.create(sf::VideoMode(width, height), "SMCCP " + vers, sf::Style::Close);
 	win.setFramerateLimit(60);
 
 	if (icon.loadFromFile("res\\AppIcon.png"))

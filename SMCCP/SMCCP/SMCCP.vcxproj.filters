@@ -2,25 +2,28 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Code</Filter>
+      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Client.cpp">
-      <Filter>Code\Networking</Filter>
+      <Filter>Source\Networking</Filter>
     </ClCompile>
     <ClCompile Include="Server.cpp">
-      <Filter>Code\Networking</Filter>
+      <Filter>Source\Networking</Filter>
     </ClCompile>
     <ClCompile Include="TextBox.cpp">
-      <Filter>Code\UI</Filter>
+      <Filter>Source\UI</Filter>
     </ClCompile>
     <ClCompile Include="OwnButton.cpp">
-      <Filter>Code\UI</Filter>
+      <Filter>Source\UI</Filter>
     </ClCompile>
     <ClCompile Include="StartMenu.cpp">
-      <Filter>Code\UI</Filter>
+      <Filter>Source\UI</Filter>
     </ClCompile>
     <ClCompile Include="stringutildef.cpp">
-      <Filter>Code\Util</Filter>
+      <Filter>Source\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="LogUtil.cpp">
+      <Filter>Source\Util</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +66,9 @@
     <ClInclude Include="Defines.h">
       <Filter>Headers\Util</Filter>
     </ClInclude>
+    <ClInclude Include="LogUtil.h">
+      <Filter>Headers\Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />
@@ -70,9 +76,6 @@
   <ItemGroup>
     <Filter Include="Headers">
       <UniqueIdentifier>{4069e4a1-7ef5-46f4-8d3f-59737a59f87c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Code">
-      <UniqueIdentifier>{ef5dcde1-75fb-4507-b55e-0951f5e72589}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resources">
       <UniqueIdentifier>{845e22a7-eb03-4797-a4d3-2ab8955b0865}</UniqueIdentifier>
@@ -86,13 +89,16 @@
     <Filter Include="Headers\Networking">
       <UniqueIdentifier>{670097c4-d164-4e11-9e69-c7bdb8c938e9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Code\Networking">
+    <Filter Include="Source">
+      <UniqueIdentifier>{ef5dcde1-75fb-4507-b55e-0951f5e72589}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Networking">
       <UniqueIdentifier>{aa1b4688-50a2-4765-8273-01c88a35152b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Code\UI">
+    <Filter Include="Source\UI">
       <UniqueIdentifier>{71bfb553-dd7d-4da1-9c33-43a04eb824f9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Code\Util">
+    <Filter Include="Source\Util">
       <UniqueIdentifier>{f8b7c843-22f8-4d32-9882-6acbfb870a40}</UniqueIdentifier>
     </Filter>
   </ItemGroup>

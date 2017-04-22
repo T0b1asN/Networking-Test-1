@@ -48,3 +48,10 @@ Version 1.0.0b - 22.4.2017
 	-Changed font
 	-Release build with static linking, so that you don't need the dll's
 	-Added icons
+
+Version 1.1.0 - 23.4.2017
+	-Added a log
+		-this DOESN'T work well, when you open many applications from the same path,
+		 because they then all write in one log file
+	-I am also releasing the debug version now
+	-The console now closes in the release build

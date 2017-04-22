@@ -28,13 +28,17 @@ std::string Server::getInfo()
 
 int Server::setup()
 {
+	own_log::AppendToLogWOTime("\nServer session\n-------------------------------------------------------------");
+	own_log::AppendToLog("Setting up server on port " + std::to_string(port) + " with name " + name);
 	listener.setBlocking(block);
 	if (listener.listen(port) != sf::Socket::Status::Done)
 	{
 		std::cout << "Error - Could not set up server!" << std::endl;
+		own_log::AppendToLogWOTime("-------------------------------------------------------------\n");
 		return 1;
 	}
 	std::cout << "Connected... Port: " << port << std::endl;
+	own_log::AppendToLog("Server setup finished");
 	return 0;
 }
 
@@ -52,7 +56,7 @@ void Server::connectToClient()
 
 		if (listener.accept(*(sockets.back().get())) != sf::Socket::Status::Done)
 		{
-			//std::cout << "Error Could not connect to Client" << std::endl;
+			//most of the time, iff no client tries to connect
 			sockets.pop_back();
 			return;
 		}
@@ -78,6 +82,8 @@ void Server::connectToClient()
 		//send message to all other sockets
 		SendString(lastMsg, socketsConnected - 1);
 		DisplayMessage(lastMsg);
+
+		own_log::AppendToLog("New client named " + newSocketName + " | Now there are " + std::to_string(socketsConnected)  + " sockets connected");
 	}
 	else
 	{
@@ -87,6 +93,8 @@ void Server::connectToClient()
 			return;
 
 		disconnectSocket(errorSocket, "Server is full!");
+
+		own_log::AppendToLog("Client tried to connect, even though the server is full");
 
 		return;
 	}
@@ -168,6 +176,8 @@ void Server::Run()
 			switch (evnt.type)
 			{
 			case sf::Event::Closed:
+				own_log::AppendToLog("You shut down the server, by closing the window");
+				own_log::AppendToLogWOTime("-------------------------------------------------------------\n");
 				Shutdown("Host closed the window!", true);
 				return;
 				break;
@@ -224,12 +234,14 @@ void Server::Update()
 					selector.remove((*sockets.at(i).get()));
 					(*sockets.at(i).get()).disconnect();
 					sockets.erase(sockets.begin() + i);
+					socketsConnected--;
+					own_log::AppendToLog(names.at(i) + " (Place " + std::to_string(i) +
+						") disconnected | Now there are " + std::to_string(socketsConnected) + " sockets connected");
 					names.erase(names.begin() + i);
 
 					//send message to all other sockets
 					SendString(lastMsg, i);
 					DisplayMessage(lastMsg);
-					socketsConnected--;
 				}
 			}
 		

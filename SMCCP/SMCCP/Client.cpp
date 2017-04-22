@@ -26,9 +26,13 @@ void Client::SendString(sf::String msg)
 
 void Client::setup()
 {
+	own_log::AppendToLogWOTime("\nClient session\n-------------------------------------------------------------");
+	own_log::AppendToLog("Trying to connect to " + ip.toString() + " as " + name);
 	if (socket.connect(ip, port, sf::seconds(2.f)) != sf::Socket::Done)
 	{
 		std::cout << "Could not connect" << std::endl;
+		own_log::AppendToLog("Could not connect");
+		own_log::AppendToLogWOTime("-------------------------------------------------------------\n");
 		return;
 	}
 	sf::Packet namePacket;
@@ -36,6 +40,8 @@ void Client::setup()
 	socket.send(namePacket);
 	std::cout << "Connected" << std::endl;
 	DisplayMessage("[Connected to: " + ip.toString() + "]");
+	own_log::AppendToLog("Connected to: " + ip.toString());
+	own_log::AppendToLogWOTime("\n--------------------------------\n|	Connected as " + name + "\n--------------------------------\n");
 	socket.setBlocking(block);
 }
 
@@ -50,6 +56,7 @@ void Client::Update()
 		if (!(receiveData >> lastMsg))
 		{
 			std::cout << "Error in receiving" << std::endl;
+			own_log::AppendToLog("Error in receiving");
 			return;
 		}
 		if (lastMsg != "" && lastMsg != SHUTDOWN_MSG)
@@ -78,6 +85,9 @@ void Client::Run()
 			switch (evnt.type)
 			{
 			case sf::Event::Closed:
+				own_log::AppendToLog("Disconnect from server due to closing the window");
+				own_log::AppendToLogWOTime("-------------------------------------------------------------\n");
+				socket.disconnect();
 				return;
 				break;
 			case sf::Event::TextEntered:
@@ -147,6 +157,8 @@ void Client::initGraphics()
 
 void Client::OnServerDisconnect()
 {
+	own_log::AppendToLog("Disconnected from " + ip.toString() + " due to server");
+	own_log::AppendToLogWOTime("-------------------------------------------------------------");
 	socket.disconnect();
 	Sleep(1500);
 	cr::currWin().close();

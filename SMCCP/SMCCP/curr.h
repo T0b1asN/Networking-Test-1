@@ -1,5 +1,6 @@
 #pragma once
 #include "SFML.h"
+#include "LogUtil.h"
 
 namespace cr
 {
