@@ -1,6 +1,8 @@
 *A chat application to test the features of SFML regarding networking.
 I also want to learn networking so it is an ideal project for me. :)*
 
+## **Just works on Windows**
+
 ### **Features**
 -You can set up a server (at the time only on port 1234) or connect as a client to a server via the ip adress  
 	-only works in a local network
@@ -24,8 +26,12 @@ When you want to be a client, you also need to enter the ip adress of the server
 After that you click the button for client and the application tries to connect to the server.  
 In both cases, server and client, opens a new window. At the top you can find the information of the server or client, for example the name, below that are your messages and at the bottom is the textbox for entering text, which can be send with pressing the enter key.
 
+<<<<<<< HEAD
 ###### **Have fun!**
 
 --------------------------------------
 
 Sience version 1.1.0 I also provide the debug version of SMCCP. The main differences are, that this version doesn't use static linking, so there are dll's. Also the console doesn't close in this version.
+=======
+##### **Have fun!**
+>>>>>>> origin/master
