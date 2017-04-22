@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Code</Filter>
+    </ClCompile>
+    <ClCompile Include="Client.cpp">
+      <Filter>Code\Networking</Filter>
+    </ClCompile>
+    <ClCompile Include="Server.cpp">
+      <Filter>Code\Networking</Filter>
+    </ClCompile>
+    <ClCompile Include="TextBox.cpp">
+      <Filter>Code\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="OwnButton.cpp">
+      <Filter>Code\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="StartMenu.cpp">
+      <Filter>Code\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="stringutildef.cpp">
+      <Filter>Code\Util</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource2.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="resource3.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="resource1.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="TextBox.h">
+      <Filter>Headers\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="OwnButton.h">
+      <Filter>Headers\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="stringutil.h">
+      <Filter>Headers\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="StartMenu.h">
+      <Filter>Headers\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="SFML.h">
+      <Filter>Headers\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="curr.h">
+      <Filter>Headers\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Server.h">
+      <Filter>Headers\Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>Headers\Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="Defines.h">
+      <Filter>Headers\Util</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{4069e4a1-7ef5-46f4-8d3f-59737a59f87c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code">
+      <UniqueIdentifier>{ef5dcde1-75fb-4507-b55e-0951f5e72589}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{845e22a7-eb03-4797-a4d3-2ab8955b0865}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\UI">
+      <UniqueIdentifier>{06affbd3-f40c-4a08-9084-75829211f3c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Util">
+      <UniqueIdentifier>{6aab175d-4895-422b-ab4a-7726ecf6f0c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Networking">
+      <UniqueIdentifier>{670097c4-d164-4e11-9e69-c7bdb8c938e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Networking">
+      <UniqueIdentifier>{aa1b4688-50a2-4765-8273-01c88a35152b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\UI">
+      <UniqueIdentifier>{71bfb553-dd7d-4da1-9c33-43a04eb824f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Code\Util">
+      <UniqueIdentifier>{f8b7c843-22f8-4d32-9882-6acbfb870a40}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="AppIcon.ico">
+      <Filter>Resources</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Networking Test 1.rc">
+      <Filter>Resources</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
