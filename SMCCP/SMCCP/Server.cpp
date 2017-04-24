@@ -221,6 +221,7 @@ void Server::Update()
 					receiveData >> lastMsg;
 					if (lastMsg != "")
 					{
+						snd::playSound("incoming_01");
 						SendString(lastMsg, i);
 						DisplayMessage(lastMsg);
 					}
@@ -242,6 +243,8 @@ void Server::Update()
 					//send message to all other sockets
 					SendString(lastMsg, i);
 					DisplayMessage(lastMsg);
+
+					//TODO: Disconnect sound
 				}
 			}
 		
@@ -263,6 +266,7 @@ void Server::Enter()
 		DisplayMessage(tmpStr);
 	}
 	textBox.SetNormal();
+	snd::playSound("send_01");
 }
 
 void Server::printNames()
@@ -275,12 +279,13 @@ void Server::printNames()
 
 void Server::Shutdown(std::string optMsg, bool replaceOld)
 {
+	std::string nsc = NO_SOUND_CHAR;
 	if (optMsg == "")
-		SendStringWithoutName("[Server was shut down]");
+		SendStringWithoutName(nsc + "[Server was shut down]");
 	else if(!replaceOld)
-		SendStringWithoutName("[Server was shut down. Message: " + optMsg + "]");
+		SendStringWithoutName(nsc + "[Server was shut down. Message: " + optMsg + "]");
 	else
-		SendStringWithoutName("[" + optMsg + "]");
+		SendStringWithoutName(nsc + "[" + optMsg + "]");
 
 	SendStringWithoutName(SHUTDOWN_MSG);
 	for (int i = 0; i < (int)sockets.size(); i++)

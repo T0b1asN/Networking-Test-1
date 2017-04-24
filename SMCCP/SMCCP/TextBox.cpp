@@ -63,9 +63,10 @@ void TextBox::Update(sf::String add)
 			if (add == (char)8)
 			{
 				//actualText = actualText.substr(0, actualText.size() - 1);
-				actualText.erase(actualText.getSize() - 1, 1);
+				if (actualText.getSize() > 0)
+					actualText.erase(actualText.getSize() - 1, 1);
 			}
-			else
+			else if(actualText.getSize() < maxChars)
 			{
 				actualText += add;
 				changed = true;
@@ -80,4 +81,17 @@ void TextBox::SetNormal()
 	actualText = str_to_wstr(standardText);
 	text.setString(actualText);
 	changed = false;
+}
+
+sf::String TextBox::Text()
+{ 
+	if (canReturnStdText)
+		return text.getString();
+
+	if (changed) 
+		return text.getString(); 
+	else 
+	{
+		return ""; 
+	} 
 }

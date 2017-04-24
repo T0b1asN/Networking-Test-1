@@ -25,6 +25,12 @@
     <ClCompile Include="LogUtil.cpp">
       <Filter>Source\Util</Filter>
     </ClCompile>
+    <ClCompile Include="AudioUtil.cpp">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkHelpers.cpp">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource2.h">
@@ -67,6 +73,12 @@
       <Filter>Headers\Util</Filter>
     </ClInclude>
     <ClInclude Include="LogUtil.h">
+      <Filter>Headers\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioUtil.h">
+      <Filter>Headers\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkHelpers.h">
       <Filter>Headers\Util</Filter>
     </ClInclude>
   </ItemGroup>

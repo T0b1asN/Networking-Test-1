@@ -24,6 +24,9 @@ private:
 	bool changed = false;
 
 	bool deleteStdMsg = true;
+	bool canReturnStdText = false;
+
+	unsigned int maxChars = 100000000U;
 public:
 	TextBox(sf::Vector2f pPos, sf::Vector2f pSize, std::string pStandardText = "Input Text...",
 		sf::Color pBackColor = sf::Color::Black, 
@@ -35,7 +38,7 @@ public:
 	void SelectOrUnselect();
 	void Update(sf::String add);
 
-	sf::String Text() { if (changed) return text.getString(); else { return ""; } }
+	sf::String Text();
 
 	void SetNormal();
 
@@ -45,4 +48,7 @@ public:
 
 	bool wasChanged() { return changed; }
 	void set_deleteStdMsg(bool newState) { deleteStdMsg = newState; }
+	void set_canReturnStdText(bool newState) { canReturnStdText = newState; }
+
+	void set_maxChars(int newVal) { maxChars = newVal; }
 };

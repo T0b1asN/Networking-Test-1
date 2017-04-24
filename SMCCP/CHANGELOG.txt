@@ -55,3 +55,15 @@ Version 1.1.0 - 23.4.2017
 		 because they then all write in one log file
 	-I am also releasing the debug version now
 	-The console now closes in the release build
+
+Version 1.2.0 - 24.4.2017
+	-Some first sounds (more planned)
+		-On send, receive and server shutdown (last one just on client side)
+		-System to load and play sounds
+	-Variable port
+	-Port and ip boxes are safe to enter anything
+		-Unable to proceed, if the entered port is not a number or if the ip is not valid
+		-Involves a function that checks if the ip is valid
+	-Added functionality to TextBox
+		-Now able to set the maximum characters allowed (before infinite)
+		-Can now return the standard text, if a boolean is set

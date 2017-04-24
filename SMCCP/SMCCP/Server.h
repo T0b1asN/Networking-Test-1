@@ -5,6 +5,8 @@
 
 #include "TextBox.h"
 
+#include "AudioUtil.h"
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -14,9 +16,7 @@
 #include <Windows.h>
 
 #include <memory>
-//TODO: write a proper function for disconnecting a socket
-//TODO: Helper function, that displays a message
-//TEST: make it work over WiFi (not internet) -------------- needs to be tested
+
 class Server
 {
 	//Networking stuff

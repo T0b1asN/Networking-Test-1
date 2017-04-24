@@ -1,3 +1,12 @@
-﻿  Server.cpp
+﻿  Client.cpp
+e:\_github\own\networking\smccp\smccp\smccp\client.cpp(64): warning C4566: Das durch den universellen Zeichennamen "\u2302" dargestellte Zeichen kann in der aktuellen Codepage (1252) nicht dargestellt werden.
+  Code wird generiert...
+  Kompilieren...
+  main.cpp
+  StartMenu.cpp
+  Server.cpp
+e:\_github\own\networking\smccp\smccp\smccp\server.cpp(282): warning C4566: Das durch den universellen Zeichennamen "\u2302" dargestellte Zeichen kann in der aktuellen Codepage (1252) nicht dargestellt werden.
+  OwnButton.cpp
+  Code wird generiert...
   SMCCP.vcxproj -> E:\_GitHub\own\networking\SMCCP\SMCCP\Debug\SMCCP.exe
   SMCCP.vcxproj -> E:\_GitHub\own\networking\SMCCP\SMCCP\Debug\SMCCP.pdb (Partial PDB)

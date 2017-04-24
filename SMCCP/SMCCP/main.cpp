@@ -13,8 +13,11 @@
 #include <string>
 #include <ctime>
 
-void RunServer(std::string name);
-void RunClient(std::string name, sf::IpAddress adress);
+#include "AudioUtil.h"
+#include "NetworkHelpers.h"
+
+void RunServer(std::string name, unsigned int port = 1234);
+void RunClient(std::string name, sf::IpAddress adress, unsigned int port = 1234);
 std::string getCurrTime();
 
 sf::Image icon;
@@ -31,6 +34,10 @@ int main()
 		own_log::pushMsgToCommandIfDebug("Created log file");
 		own_log::AppendToLog("Created log file");
 	}
+
+	if (!snd::LoadAllSounds())
+		own_log::pushMsgToCommandIfDebug("Couldn't load all sounds");
+	
 	GraphicsSetup(500U, 250U);
 
 #ifndef _DEBUG
@@ -38,22 +45,23 @@ int main()
 #endif // !NDEBUG
 
 	StartMenu stMen;
-
+	
 	StartMenu::Result stMenRes = stMen.open();
 	std::string enteredName = stMen.getName();
 	sf::IpAddress enteredIp = stMen.getIp();
 	std::cout << "Name: " << enteredName << " | Ip: " << enteredIp.toString() << std::endl;
+	unsigned int port = stMen.getPort();
 
 	switch (stMenRes)
 	{
 	case StartMenu::Server:
 		GraphicsSetup(1000U, 750U);
-		RunServer(enteredName);
+		RunServer(enteredName, port);
 
 		break;
 	case StartMenu::Client:
 		GraphicsSetup(1000U, 750U);
-		RunClient(enteredName, enteredIp);
+		RunClient(enteredName, enteredIp, port);
 
 		break;
 	case StartMenu::Close:
@@ -66,7 +74,6 @@ int main()
 
 void GraphicsSetup(unsigned int width, unsigned int height)
 {
-
 	std::string vers = VERSION;
 	win.create(sf::VideoMode(width, height), "SMCCP " + vers, sf::Style::Close);
 	win.setFramerateLimit(60);
@@ -75,7 +82,7 @@ void GraphicsSetup(unsigned int width, unsigned int height)
 		win.setIcon(626, 626, icon.getPixelsPtr());
 	else
 	{
-		std::cout << "Icon loading failed" << std::endl;
+		own_log::pushMsgToCommandIfDebug("Icon loading failed");
 		std::system("PAUSE");
 	}
 	std::string fontName = FONT_NORM;
@@ -84,9 +91,9 @@ void GraphicsSetup(unsigned int width, unsigned int height)
 	sf::sleep(sf::milliseconds(50));
 }
 
-void RunServer(std::string name)
+void RunServer(std::string name, unsigned int port)
 {
-	Server server(name, false, 1234, 10);
+	Server server(name, false, port, 10);
 	int setupCode = server.setup();
 	if (setupCode != 0)
 	{
@@ -97,9 +104,9 @@ void RunServer(std::string name)
 	server.Run();
 }
 
-void RunClient(std::string name, sf::IpAddress adress)
+void RunClient(std::string name, sf::IpAddress adress, unsigned int port)
 {
-	Client client(name, false, 1234, adress);
+	Client client(name, false, port, adress);
 	client.setup();
 	client.Run();
 }

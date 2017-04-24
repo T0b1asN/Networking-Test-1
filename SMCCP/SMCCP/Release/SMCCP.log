@@ -1,7 +1,16 @@
-﻿  Server.cpp
+﻿  AudioUtil.cpp
+  Client.cpp
+Client.cpp(64): warning C4566: Das durch den universellen Zeichennamen "\u2302" dargestellte Zeichen kann in der aktuellen Codepage (1252) nicht dargestellt werden.
+  main.cpp
+  NetworkHelpers.cpp
+  OwnButton.cpp
+  Server.cpp
+Server.cpp(282): warning C4566: Das durch den universellen Zeichennamen "\u2302" dargestellte Zeichen kann in der aktuellen Codepage (1252) nicht dargestellt werden.
+  StartMenu.cpp
+  TextBox.cpp
   Code wird generiert.
-  2 of 816 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    16 functions had inline decision re-evaluated but remain unchanged
+  171 of 1049 functions (16.3%) were compiled, the rest were copied from previous compilation.
+    105 functions were new in current compilation
+    130 functions had inline decision re-evaluated but remain unchanged
   Codegenerierung ist abgeschlossen.
   SMCCP.vcxproj -> E:\_GitHub\own\networking\SMCCP\SMCCP\Release\SMCCP.exe

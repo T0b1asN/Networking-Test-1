@@ -4,9 +4,12 @@
 #include "OwnButton.h"
 #include "Defines.h"
 #include "TextBox.h"
+#include "NetworkHelpers.h"
 
 #include <iostream>
 #include <string>
+
+
 
 class StartMenu
 {
@@ -29,13 +32,19 @@ private:
 	TextBox ipBox;
 	sf::IpAddress adress;
 
+	TextBox portBox;
+	unsigned int port;
+
 public:
 	StartMenu();
 	~StartMenu();
 
 	Result open();
+
 	std::string getName() { return name; }
 	sf::IpAddress getIp() { return adress; }
+	unsigned int getPort() { return port; }
+
 	void display();
 };
 

@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#define VERSION "v1.1.0"
+#define VERSION "v1.2.0"
 
 //#define FONT_NORM "GOTHIC.TTF"
 //#define FONT_BOLD "GOTHICB.TTF"
@@ -14,3 +14,6 @@
 
 //INFO: using whirlpool hash
 #define SHUTDOWN_MSG "53f433188a63f84e5486e5ab0118731b939fd3ac5990f9e1b46c162b50dc620832a11636331d22530e5689b4ae6f94972812834adf3151c9fddb65d85a03beac"
+
+//send this at the start of the message, if the client should not play a sound on receiving
+#define NO_SOUND_CHAR "⌂"

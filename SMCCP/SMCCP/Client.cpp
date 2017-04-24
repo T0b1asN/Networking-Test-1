@@ -61,6 +61,10 @@ void Client::Update()
 		}
 		if (lastMsg != "" && lastMsg != SHUTDOWN_MSG)
 		{
+			if (lastMsg.substring(0, 1) != NO_SOUND_CHAR)
+				snd::playSound("incoming_01");
+			else
+				lastMsg.erase(0);
 			DisplayMessage(lastMsg);
 		}
 		else if (lastMsg == SHUTDOWN_MSG)
@@ -138,6 +142,7 @@ void Client::Enter()
 		DisplayMessage(tmpStr);
 	}
 	textBox.SetNormal();
+	snd::playSound("send_01");
 }
 
 void Client::initGraphics()
@@ -160,6 +165,7 @@ void Client::OnServerDisconnect()
 	own_log::AppendToLog("Disconnected from " + ip.toString() + " due to server");
 	own_log::AppendToLogWOTime("-------------------------------------------------------------");
 	socket.disconnect();
+	snd::playSound("error_01");
 	Sleep(1500);
 	cr::currWin().close();
 }

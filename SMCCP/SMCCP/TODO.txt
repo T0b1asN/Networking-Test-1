@@ -1,8 +1,17 @@
+In-between:
+	-fix that 001.001.001.001 is a valid ip
+		-no zeros as first digit of a block of 2-3 digits
+	-function to load audiofiles on runtime not only on start
+
 DO:
-	-Commands
-	-Log file
-	-variable port
-	-variable max group size
-	-Unicode support (maybe done)
-	-no name doubling
+	1.no name doubling
 		-enter name on server connecting
+	2.Pop-up window
+	3.more sounds
+	4.scalable window
+	5.variable max group size
+	6.Unicode support (maybe already done)
+	7.Commands
+
+Finished for new version:
+

@@ -1,0 +1,8 @@
+This is the log file from SMCCP
+--------------------------------
+24.04.2017 22:16:06 - Created log file
+
+**********************************
+Loading audio files
+24.04.2017 22:16:07 - Loaded 3 audiofiles - without error: true
+**********************************

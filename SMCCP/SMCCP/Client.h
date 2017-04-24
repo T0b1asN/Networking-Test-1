@@ -2,10 +2,13 @@
 #include "SFML.h"
 #include "Defines.h"
 
+#include "TextBox.h"
+
+#include "AudioUtil.h"
+
 #include <iostream>
 #include <string>
 
-#include "TextBox.h"
 
 #include <vector>
 
