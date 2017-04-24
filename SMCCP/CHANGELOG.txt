@@ -11,7 +11,7 @@ Version 0.2.1 - 20.4.2017
 	-Added todo-list at the top of Server.h
 
 Version 0.2.1b - 20.4.2017
-	-More onragnization in Server.h and Server.cpp
+	-More onrganization in Server.h and Server.cpp
 	-Names for clients and server
 	-Added field in the StartMenu to enter the name
 	-Added function to unselect the textbox
