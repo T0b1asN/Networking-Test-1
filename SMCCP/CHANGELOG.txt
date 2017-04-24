@@ -1,7 +1,7 @@
 --- Versions before Changelog ---
 
 Version 0.2.0 - 18.4.2017
-	-Multiple Clients now supported
+	-MultIPle Clients now supported
 
 Version 0.2.1 - 20.4.2017
 	-Client can now disconnect from the server
@@ -17,12 +17,12 @@ Version 0.2.1b - 20.4.2017
 	-Added function to unselect the textbox
 
 Version 0.2.2 - 20.4.2017/21.4.2017
-	-ip adresses for different servers
-		-can be entered at beginning -> Client tries to connect to this ip
+	-IP addresses for different servers
+		-can be entered at beginning -> Client tries to connect to this IP
 			-Not yet tested
-	-Field for the ip adress in the StartMenu
+	-Field for the IP address in the StartMenu
 	-Minor changes in the server and client windows
-		-shows ip adress at the top
+		-shows IP address at the top
 	-Added functionality to the TextBox
 
 --- Versions after Changelog ---
@@ -35,10 +35,10 @@ Version 0.2.2b - 21.4.2017
 			-Fitting method on client side
 	-new function to send message from server to all Clients
 		-SendStringWithoutName - send string without your name (made for the shutdown message)
-	-ip adresses still not tested
+	-IP addresses still not tested
 
 Version 1.0.0 - 21.4.2017
-	-Functionality over multiple pcs tested - it works :)
+	-Functionality over multIPle pcs tested - it works :)
 	-Function to display a message in your message feed
 		-without name, etc.
 		-For server and client
@@ -61,9 +61,9 @@ Version 1.2.0 - 24.4.2017
 		-On send, receive and server shutdown (last one just on client side)
 		-System to load and play sounds
 	-Variable port
-	-Port and ip boxes are safe to enter anything
-		-Unable to proceed, if the entered port is not a number or if the ip is not valid
-		-Involves a function that checks if the ip is valid
+	-Port and IP boxes are safe to enter anything
+		-Unable to proceed, if the entered port is not a number or if the IP is not valid
+		-Involves a function that checks if the IP is valid
 	-Added functionality to TextBox
 		-Now able to set the maximum characters allowed (before infinite)
 		-Can now return the standard text, if a boolean is set
