@@ -4,17 +4,19 @@ I also want to learn networking so it is an ideal project for me. :)*
 ## **Just works on Windows**
 
 ### **Features**
--You can set up a server (at the time only on port 1234) or connect as a client to a server via the ip adress  
+-You can set up a server or connect as a client to a server via the ip adress  
 	-only works in a local network
 -Everyone can write to everyone else in a group  
 	-at the moment the group size is fixed to 10 but I plan to make it variable
 	
 ### **Planned features**  
 -Commands  
--variable group size  
--variable port  
--a log files for i.e. errors  
+-variable group size   
 -no name doubling  
+-Pop-up window  
+-more sounds  
+-scalable window  
+-Unicode support  
 
 --------------------------------------
 
