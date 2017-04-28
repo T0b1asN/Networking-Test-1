@@ -33,11 +33,11 @@ int Server::setup()
 	listener.setBlocking(block);
 	if (listener.listen(port) != sf::Socket::Status::Done)
 	{
-		std::cout << "Error - Could not set up server!" << std::endl;
+		own_log::pushMsgToCommandIfDebug("Error - Could not set up server!");
 		own_log::AppendToLogWOTime("-------------------------------------------------------------\n");
 		return 1;
 	}
-	std::cout << "Connected... Port: " << port << std::endl;
+	own_log::pushMsgToCommandIfDebug("Connected... Port: " + std::to_string(port));
 	own_log::AppendToLog("Server setup finished");
 	return 0;
 }
@@ -60,6 +60,7 @@ void Server::connectToClient()
 			sockets.pop_back();
 			return;
 		}
+		//TODO: send back, if name is valid
 		//receive name from client
 		sf::Packet namePacket;
 		namePacket.clear();
@@ -69,6 +70,22 @@ void Server::connectToClient()
 		std::string newSocketName;
 		namePacket >> newSocketName;
 
+		if (std::find(names.begin(), names.end(), newSocketName) != names.end() || newSocketName == name)
+		{
+			sf::Packet respPacket;
+			respPacket << "1";
+			(sockets.back().get())->send(respPacket);
+			(sockets.back().get())->disconnect();
+			sockets.pop_back();
+			return;
+		}
+		else
+		{
+			sf::Packet respPacket;
+			respPacket << "0";
+			(sockets.back().get())->send(respPacket);
+		}
+
 		socketsConnected++;
 
 		names.push_back(newSocketName);
@@ -77,10 +94,11 @@ void Server::connectToClient()
 		selector.add((*sockets.back().get()));
 
 		lastMsg = "[" + newSocketName + " connected]";
-		std::cout << (std::string)lastMsg << std::endl;
+		own_log::pushMsgToCommandIfDebug((std::string)lastMsg);
 
 		//send message to all other sockets
-		SendString(lastMsg, socketsConnected - 1);
+		std::string nsc = NO_SOUND_CHAR;
+		SendString(nsc + lastMsg, socketsConnected - 1);
 		DisplayMessage(lastMsg);
 
 		own_log::AppendToLog("New client named " + newSocketName + " | Now there are " + std::to_string(socketsConnected)  + " sockets connected");
@@ -102,7 +120,6 @@ void Server::connectToClient()
 
 void Server::SendString(sf::String msg)
 {
-	//std::cout << (std::string)msg << std::endl;
 	msg = name + ": " + msg;
 	sendData.clear();
 	sendData << msg;
@@ -168,6 +185,7 @@ void Server::Draw()
 
 void Server::Run()
 {
+	textBox.Select();
 	while (cr::currWin().isOpen())
 	{
 		sf::Event evnt;
@@ -229,7 +247,7 @@ void Server::Update()
 				else
 				{
 					lastMsg = "[" + names.at(i) + " disconnected]";
-					std::cout << (std::string)lastMsg << std::endl;
+					own_log::pushMsgToCommandIfDebug((std::string)lastMsg);
 
 					//disconnect and delete socket
 					selector.remove((*sockets.at(i).get()));
@@ -264,16 +282,16 @@ void Server::Enter()
 		tmpStr = "You: " + tmpStr;
 
 		DisplayMessage(tmpStr);
+		snd::playSound("send_01");
 	}
 	textBox.SetNormal();
-	snd::playSound("send_01");
 }
 
 void Server::printNames()
 {
 	for (int i = 0; i < (int)names.size(); i++)
 	{
-		std::cout << "Slot " << i << ": " << names.at(i) << std::endl;
+		own_log::pushMsgToCommandIfDebug("Slot " + std::to_string(i) + ": " + names.at(i));
 	}
 }
 

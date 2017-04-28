@@ -49,6 +49,11 @@ bool ntwrk::validIp(std::string ip)
 			}
 		}
 
+		//Check if, when the block has more than 1 digit, the first digit is 0, if yes, return
+		if (currNum.length() > 1)
+			if (currNum[0] == '0')
+				return false;
+
 		//Check for 4digit parts is unnessecary, because it is checked if the number is lower than 255
 		//a 4digit number is always bigger than 255
 		try

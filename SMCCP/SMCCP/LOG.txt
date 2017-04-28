@@ -1,8 +1,31 @@
 This is the log file from SMCCP
 --------------------------------
-24.04.2017 22:16:06 - Created log file
+28.04.2017 20:33:51 - Created log file
 
 **********************************
 Loading audio files
-24.04.2017 22:16:07 - Loaded 3 audiofiles - without error: true
+28.04.2017 20:33:51 - Loaded 3 audiofiles - without error: true
 **********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 20:33:58 - Setting up server on port 1234 with name lkjh
+28.04.2017 20:33:58 - Server setup finished
+28.04.2017 20:34:10 - New client named kjhkjh | Now there are 1 sockets connected
+28.04.2017 20:34:17 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+28.04.2017 20:41:24 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Client session
+-------------------------------------------------------------
+28.04.2017 20:41:28 - Trying to connect to 192.168.178.184 as sssssssss
+28.04.2017 20:41:30 - Could not connect
+-------------------------------------------------------------
+
+28.04.2017 20:41:30 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------

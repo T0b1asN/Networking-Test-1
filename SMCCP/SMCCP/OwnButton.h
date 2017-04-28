@@ -8,6 +8,8 @@
 class OwnButton
 {
 private:
+	sf::RenderWindow* win;
+
 	sf::Vector2f pos;
 	sf::Vector2f size;
 
@@ -23,11 +25,9 @@ private:
 
 	sf::Vector2f offset;
 
-	void OnClick();
-
 public:
 	OwnButton(std::string pText, sf::Vector2f pSize, sf::Vector2f pPos, 
-		sf::Color backColor = sf::Color::Black, sf::Color textColor = sf::Color::White, unsigned int pCharSize = 0);
+		sf::Color backColor = sf::Color::Black, sf::Color textColor = sf::Color::White, sf::RenderWindow* winPtr = &cr::currWin(), unsigned int pCharSize = 0);
 	~OwnButton();
 
 	//void Update(bool click);
@@ -49,6 +49,6 @@ public:
 
 	bool validClick(bool click);
 
-	//TODO: update on valuechange
+	void setWinPtr(sf::RenderWindow* ptr) { win = ptr; }
 };
 

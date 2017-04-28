@@ -522,3 +522,658 @@ Server session
 Loading audio files
 24.04.2017 22:15:50 - Loaded 3 audiofiles - without error: true
 **********************************
+
+**********************************
+Loading audio files
+25.04.2017 21:38:20 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+25.04.2017 21:38:25 - Setting up server on port 1234 with name sdf
+25.04.2017 21:38:25 - Server setup finished
+
+**********************************
+Loading audio files
+25.04.2017 21:39:24 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+25.04.2017 21:39:35 - Setting up server on port 1234 with name asdasd
+25.04.2017 21:39:35 - Server setup finished
+
+**********************************
+Loading audio files
+25.04.2017 21:42:53 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+25.04.2017 21:42:55 - Setting up server on port 1234 with name sfsdf
+25.04.2017 21:42:55 - Server setup finished
+25.04.2017 21:42:57 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+25.04.2017 21:45:32 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+25.04.2017 21:54:57 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+25.04.2017 21:55:01 - Setting up server on port 1234 with name dfg
+25.04.2017 21:55:01 - Server setup finished
+
+**********************************
+Loading audio files
+25.04.2017 21:58:05 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+25.04.2017 21:58:10 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+25.04.2017 21:58:51 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+25.04.2017 21:59:00 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+25.04.2017 22:05:11 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+25.04.2017 22:07:05 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+25.04.2017 22:07:55 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+25.04.2017 22:08:31 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+25.04.2017 22:08:43 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+25.04.2017 22:10:54 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+25.04.2017 22:12:58 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+25.04.2017 22:14:26 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+25.04.2017 22:17:06 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+26.04.2017 21:55:37 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+26.04.2017 21:55:42 - Setting up server on port 1234 with name sdf
+26.04.2017 21:55:42 - Server setup finished
+
+**********************************
+Loading audio files
+26.04.2017 21:57:29 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+26.04.2017 21:57:50 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+26.04.2017 21:57:54 - Setting up server on port 1234 with name dfg
+26.04.2017 21:57:54 - Server setup finished
+
+**********************************
+Loading audio files
+26.04.2017 21:58:07 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+26.04.2017 21:58:11 - Setting up server on port 1234 with name sdf
+26.04.2017 21:58:11 - Server setup finished
+
+**********************************
+Loading audio files
+26.04.2017 22:02:15 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Client session
+-------------------------------------------------------------
+26.04.2017 22:02:20 - Trying to connect to 192.168.178.184 as sdf
+26.04.2017 22:02:22 - Could not connect
+-------------------------------------------------------------
+
+26.04.2017 22:02:22 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+26.04.2017 22:03:01 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Client session
+-------------------------------------------------------------
+26.04.2017 22:03:05 - Trying to connect to 192.168.178.184 as asd
+26.04.2017 22:03:07 - Could not connect
+-------------------------------------------------------------
+
+26.04.2017 22:03:07 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+26.04.2017 22:03:27 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Client session
+-------------------------------------------------------------
+26.04.2017 22:03:31 - Trying to connect to 192.168.178.184 as asd
+26.04.2017 22:03:33 - Could not connect
+-------------------------------------------------------------
+
+26.04.2017 22:03:33 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+26.04.2017 22:05:49 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Client session
+-------------------------------------------------------------
+26.04.2017 22:05:54 - Trying to connect to 192.168.178.184 as sdf
+26.04.2017 22:05:56 - Could not connect
+-------------------------------------------------------------
+
+26.04.2017 22:05:56 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+26.04.2017 22:06:09 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Client session
+-------------------------------------------------------------
+26.04.2017 22:06:12 - Trying to connect to 192.168.178.184 as sdf
+26.04.2017 22:06:14 - Could not connect
+-------------------------------------------------------------
+
+26.04.2017 22:06:15 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+26.04.2017 22:07:52 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+26.04.2017 22:07:57 - Setting up server on port 1234 with name asd
+26.04.2017 22:07:57 - Server setup finished
+26.04.2017 22:08:22 - New client named ads | Now there are 1 sockets connected
+26.04.2017 22:08:28 - ads (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+26.04.2017 22:10:20 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Client session
+-------------------------------------------------------------
+26.04.2017 22:10:24 - Trying to connect to 192.168.178.184 as wer
+26.04.2017 22:10:26 - Could not connect
+-------------------------------------------------------------
+
+26.04.2017 22:10:26 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+26.04.2017 22:20:16 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Client session
+-------------------------------------------------------------
+26.04.2017 22:20:19 - Trying to connect to 192.168.178.184 as dsf
+26.04.2017 22:20:21 - Could not connect
+-------------------------------------------------------------
+
+26.04.2017 22:20:24 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+26.04.2017 22:20:28 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+26.04.2017 22:20:31 - Setting up server on port 1234 with name sf
+26.04.2017 22:20:31 - Server setup finished
+26.04.2017 22:20:38 - New client named sdf | Now there are 1 sockets connected
+
+**********************************
+Loading audio files
+26.04.2017 22:21:38 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+26.04.2017 22:21:42 - Setting up server on port 1234 with name asd
+26.04.2017 22:21:42 - Server setup finished
+26.04.2017 22:21:47 - New client named asd | Now there are 1 sockets connected
+
+**********************************
+Loading audio files
+26.04.2017 22:22:33 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+26.04.2017 22:22:37 - Setting up server on port 1234 with name das
+26.04.2017 22:22:37 - Server setup finished
+26.04.2017 22:22:44 - New client named dsa | Now there are 1 sockets connected
+26.04.2017 22:23:01 - New client named das | Now there are 2 sockets connected
+
+**********************************
+Loading audio files
+26.04.2017 22:26:41 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+26.04.2017 22:28:58 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+26.04.2017 22:29:02 - Setting up server on port 1234 with name asd
+26.04.2017 22:29:02 - Server setup finished
+26.04.2017 22:29:11 - New client named ads | Now there are 1 sockets connected
+26.04.2017 22:29:17 - New client named asd | Now there are 2 sockets connected
+
+**********************************
+Loading audio files
+26.04.2017 22:30:56 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+26.04.2017 22:31:00 - Setting up server on port 1234 with name da
+26.04.2017 22:31:00 - Server setup finished
+26.04.2017 22:31:06 - New client named asd | Now there are 1 sockets connected
+
+**********************************
+Loading audio files
+28.04.2017 19:36:11 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 19:36:29 - Setting up server on port 1234 with name jo
+28.04.2017 19:36:29 - Server setup finished
+28.04.2017 19:36:49 - New client named dfg | Now there are 1 sockets connected
+
+**********************************
+Loading audio files
+28.04.2017 19:39:09 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 19:39:13 - Setting up server on port 1234 with name qwe
+28.04.2017 19:39:13 - Server setup finished
+28.04.2017 19:39:21 - New client named w | Now there are 1 sockets connected
+28.04.2017 19:39:32 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+28.04.2017 19:40:53 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 19:40:57 - Setting up server on port 1234 with name e
+28.04.2017 19:40:57 - Server setup finished
+28.04.2017 19:41:02 - New client named e | Now there are 1 sockets connected
+
+**********************************
+Loading audio files
+28.04.2017 19:42:20 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 19:42:23 - Setting up server on port 1234 with name d
+28.04.2017 19:42:23 - Server setup finished
+28.04.2017 19:42:28 - New client named d | Now there are 1 sockets connected
+28.04.2017 19:42:34 - New client named s | Now there are 2 sockets connected
+28.04.2017 19:42:42 - s (Place 1) disconnected | Now there are 1 sockets connected
+
+**********************************
+Loading audio files
+28.04.2017 19:43:10 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 19:43:13 - Setting up server on port 1234 with name s
+28.04.2017 19:43:13 - Server setup finished
+28.04.2017 19:43:17 - New client named s | Now there are 1 sockets connected
+28.04.2017 19:43:25 - New client named a | Now there are 2 sockets connected
+28.04.2017 19:43:33 - a (Place 1) disconnected | Now there are 1 sockets connected
+28.04.2017 19:43:35 - s (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+28.04.2017 19:44:58 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 19:45:02 - Setting up server on port 1234 with name q
+28.04.2017 19:45:02 - Server setup finished
+28.04.2017 19:45:07 - New client named w | Now there are 1 sockets connected
+28.04.2017 19:45:09 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+28.04.2017 19:45:54 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 19:45:57 - Setting up server on port 1234 with name s
+28.04.2017 19:45:57 - Server setup finished
+28.04.2017 19:46:01 - New client named s | Now there are 1 sockets connected
+28.04.2017 19:46:07 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+28.04.2017 19:46:17 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 19:46:20 - Setting up server on port 1234 with name s
+28.04.2017 19:46:20 - Server setup finished
+28.04.2017 19:46:26 - New client named s | Now there are 1 sockets connected
+28.04.2017 19:46:31 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+28.04.2017 19:47:42 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 19:47:46 - Setting up server on port 1234 with name asd
+28.04.2017 19:47:46 - Server setup finished
+28.04.2017 19:47:52 - New client named q | Now there are 1 sockets connected
+28.04.2017 19:47:54 - q (Place 0) disconnected | Now there are 0 sockets connected
+28.04.2017 19:47:56 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+28.04.2017 19:48:23 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 19:48:27 - Setting up server on port 1234 with name asd
+28.04.2017 19:48:27 - Server setup finished
+28.04.2017 19:48:32 - New client named q | Now there are 1 sockets connected
+28.04.2017 19:48:38 - New client named w | Now there are 2 sockets connected
+28.04.2017 19:48:41 - q (Place 0) disconnected | Now there are 1 sockets connected
+
+**********************************
+Loading audio files
+28.04.2017 19:53:04 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 19:53:08 - Setting up server on port 1234 with name 
+28.04.2017 19:53:08 - Server setup finished
+28.04.2017 19:53:10 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+28.04.2017 19:56:06 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+28.04.2017 19:56:16 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+28.04.2017 19:57:23 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+28.04.2017 19:58:07 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 19:58:18 - Setting up server on port 1234 with name 1234
+28.04.2017 19:58:18 - Server setup finished
+
+**********************************
+Loading audio files
+28.04.2017 20:07:00 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 20:07:10 - Setting up server on port 1234 with name sd
+28.04.2017 20:07:10 - Server setup finished
+28.04.2017 20:07:11 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+28.04.2017 20:07:13 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 20:07:16 - Setting up server on port 1234 with name sdfsdf
+28.04.2017 20:07:16 - Server setup finished
+28.04.2017 20:07:18 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+28.04.2017 20:13:07 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+28.04.2017 20:13:29 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+28.04.2017 20:14:30 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+28.04.2017 20:14:50 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+28.04.2017 20:15:53 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+28.04.2017 20:19:14 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+28.04.2017 20:19:44 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+28.04.2017 20:23:09 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+28.04.2017 20:23:14 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Client session
+-------------------------------------------------------------
+28.04.2017 20:23:18 - Trying to connect to 192.168.178.184 as sdf
+28.04.2017 20:23:20 - Could not connect
+-------------------------------------------------------------
+
+28.04.2017 20:23:20 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+28.04.2017 20:23:39 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 20:23:48 - Setting up server on port 1234 with name s
+28.04.2017 20:23:48 - Server setup finished
+
+**********************************
+Loading audio files
+28.04.2017 20:23:52 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Client session
+-------------------------------------------------------------
+28.04.2017 20:24:03 - Trying to connect to 192.168.178.0 as 1
+28.04.2017 20:24:05 - Could not connect
+-------------------------------------------------------------
+
+28.04.2017 20:24:05 - Disconnected from 192.168.178.0 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+28.04.2017 20:24:08 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Client session
+-------------------------------------------------------------
+28.04.2017 20:24:25 - Trying to connect to 192.168.178.0 as 1
+28.04.2017 20:24:27 - Could not connect
+-------------------------------------------------------------
+
+28.04.2017 20:24:27 - Disconnected from 192.168.178.0 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+28.04.2017 20:27:44 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 20:27:52 - Setting up server on port 1234 with name s
+28.04.2017 20:27:52 - Server setup finished
+28.04.2017 20:28:06 - New client named w | Now there are 1 sockets connected
+
+**********************************
+Loading audio files
+28.04.2017 20:29:20 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 20:29:23 - Setting up server on port 1234 with name hggh
+28.04.2017 20:29:23 - Server setup finished
+
+**********************************
+Loading audio files
+28.04.2017 20:30:33 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 20:30:35 - Setting up server on port 1234 with name s
+28.04.2017 20:30:35 - Server setup finished
+
+**********************************
+Loading audio files
+28.04.2017 20:33:12 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+28.04.2017 20:33:29 - Setting up server on port 1234 with name kjhghjgfgdfhfhg
+28.04.2017 20:33:29 - Server setup finished
+
+**********************************
+Loading audio files
+28.04.2017 20:41:13 - Loaded 3 audiofiles - without error: true
+**********************************

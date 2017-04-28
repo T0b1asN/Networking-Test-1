@@ -8,6 +8,7 @@
 #include "curr.h"
 
 #include "StartMenu.h"
+#include "NamePrompt.h"
 
 #include <iostream>
 #include <string>
@@ -16,8 +17,8 @@
 #include "AudioUtil.h"
 #include "NetworkHelpers.h"
 
-void RunServer(std::string name, unsigned int port = 1234);
-void RunClient(std::string name, sf::IpAddress adress, unsigned int port = 1234);
+void RunServer(std::string name, int port = 1234);
+void RunClient(sf::IpAddress adress, unsigned int port = 1234);
 std::string getCurrTime();
 
 sf::Image icon;
@@ -38,8 +39,8 @@ int main()
 	if (!snd::LoadAllSounds())
 		own_log::pushMsgToCommandIfDebug("Couldn't load all sounds");
 	
-	GraphicsSetup(500U, 250U);
-
+	GraphicsSetup(500U, 200U);
+	
 #ifndef _DEBUG
 	ShowWindow(GetConsoleWindow(), SW_HIDE);
 #endif // !NDEBUG
@@ -47,21 +48,28 @@ int main()
 	StartMenu stMen;
 	
 	StartMenu::Result stMenRes = stMen.open();
-	std::string enteredName = stMen.getName();
 	sf::IpAddress enteredIp = stMen.getIp();
-	std::cout << "Name: " << enteredName << " | Ip: " << enteredIp.toString() << std::endl;
 	unsigned int port = stMen.getPort();
+	own_log::pushMsgToCommandIfDebug("Port: " + std::to_string(port) + "Ip: " + enteredIp.toString());
 
 	switch (stMenRes)
 	{
 	case StartMenu::Server:
-		GraphicsSetup(1000U, 750U);
-		RunServer(enteredName, port);
+	{
+		win.close();
 
+		NamePrompt np;
+		if (np.run() == 1)
+			return 0;
+		std::string name = np.getName();
+
+		GraphicsSetup(1000U, 750U);
+		RunServer(name, port);
 		break;
+	}
 	case StartMenu::Client:
 		GraphicsSetup(1000U, 750U);
-		RunClient(enteredName, enteredIp, port);
+		RunClient(enteredIp, port);
 
 		break;
 	case StartMenu::Close:
@@ -81,33 +89,31 @@ void GraphicsSetup(unsigned int width, unsigned int height)
 	if (icon.loadFromFile("res\\AppIcon.png"))
 		win.setIcon(626, 626, icon.getPixelsPtr());
 	else
-	{
-		own_log::pushMsgToCommandIfDebug("Icon loading failed");
-		std::system("PAUSE");
-	}
+		own_log::AppendToLog("Icon could not be loaded!");
 	std::string fontName = FONT_NORM;
 	mainFont.loadFromFile("res\\fonts\\" + fontName);
 
 	sf::sleep(sf::milliseconds(50));
 }
 
-void RunServer(std::string name, unsigned int port)
+void RunServer(std::string name, int port)
 {
 	Server server(name, false, port, 10);
 	int setupCode = server.setup();
 	if (setupCode != 0)
 	{
-		std::cerr << "Error " << setupCode << " while setting up the server" << std::endl;
+		own_log::AppendToLog("Error " + std::to_string(setupCode) + " while setting up the server");
 		return;
 	}
 	server.connectToClient();
 	server.Run();
 }
 
-void RunClient(std::string name, sf::IpAddress adress, unsigned int port)
+void RunClient(sf::IpAddress adress, unsigned int port)
 {
-	Client client(name, false, port, adress);
-	client.setup();
+	Client client(false, port, adress);
+	if(client.setup() == 2)
+		return;
 	client.Run();
 }
 

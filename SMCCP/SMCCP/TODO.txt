@@ -1,17 +1,29 @@
+Current task:
+
 In-between:
-	-fix that 001.001.001.001 is a valid ip
-		-no zeros as first digit of a block of 2-3 digits
 	-function to load audiofiles on runtime not only on start
+	-Change size and pos in OwnButton constructor
+	-Make name prompt for strings in general (not just for names)
+	-Own RenderWindow for starting menu, like the namePrompt
+
+Fix:
 
 DO:
-	1.no name doubling
-		-enter name on server connecting
-	2.Pop-up window
+	0.Mute checkbox
+		-UI element checkbox
+	1.Pop-up window (for errors and infos)
+	2.Port checker (Check if entered port is used already)
 	3.more sounds
 	4.scalable window
 	5.variable max group size
 	6.Unicode support (maybe already done)
 	7.Commands
 
-Finished for new version:
+Ideas:
+	-Server-IDs
+		-you are identified
+	-Persistant client names on a specific server (one time name enter)
+	-Move network stuff on different thread than graphics and other stuff
 
+Finished for new version:
+	

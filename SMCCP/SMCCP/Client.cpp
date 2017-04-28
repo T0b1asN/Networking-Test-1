@@ -1,10 +1,10 @@
 ﻿#include "Client.h"
 
-Client::Client(std::string pName, bool pBlock, int pPort, sf::IpAddress address) :
+Client::Client(bool pBlock, int pPort, sf::IpAddress address) :
 	textBox(sf::Vector2f(10.0f, cr::winHeight() - 50.0f), sf::Vector2f(350.0f, 40.0f))
 {
 	port = pPort;
-	name = pName;
+	name = "";
 	ip = address;
 	block = pBlock;
 
@@ -24,25 +24,54 @@ void Client::SendString(sf::String msg)
 	socket.send(sendData);
 }
 
-void Client::setup()
+int Client::setup()
 {
+	//TODO: implement name prompt
+	//TODO:: Can't connect with taken name, but finds disconnect, after closed window
+	NamePrompt np;
+	if(np.run() == 1)
+		return 2;
+	name = np.getName();
+	
+	//Update nameText
+	nameText.setString("Name: " + name + "\nRole: Client\nPort: " + std::to_string(port) +
+		"\nVersion: " + VERSION + "\nConnected to " + ip.toString());
+	Draw();
+
 	own_log::AppendToLogWOTime("\nClient session\n-------------------------------------------------------------");
 	own_log::AppendToLog("Trying to connect to " + ip.toString() + " as " + name);
+
 	if (socket.connect(ip, port, sf::seconds(2.f)) != sf::Socket::Done)
 	{
-		std::cout << "Could not connect" << std::endl;
+		own_log::pushMsgToCommandIfDebug("Could not connect");
 		own_log::AppendToLog("Could not connect");
 		own_log::AppendToLogWOTime("-------------------------------------------------------------\n");
-		return;
+		return 1;
 	}
+
 	sf::Packet namePacket;
 	namePacket << name;
 	socket.send(namePacket);
-	std::cout << "Connected" << std::endl;
+
+	sf::Packet respPacket;
+	socket.receive(respPacket);
+	std::string resp;
+	respPacket >> resp;
+	
+	if (resp == "1")
+	{
+		socket.disconnect();
+		setup();
+		return 3;
+	}
+
+	own_log::pushMsgToCommandIfDebug("Connected");
 	DisplayMessage("[Connected to: " + ip.toString() + "]");
+
 	own_log::AppendToLog("Connected to: " + ip.toString());
 	own_log::AppendToLogWOTime("\n--------------------------------\n|	Connected as " + name + "\n--------------------------------\n");
 	socket.setBlocking(block);
+	return 0;
 }
 
 void Client::Update()
@@ -55,7 +84,7 @@ void Client::Update()
 	{
 		if (!(receiveData >> lastMsg))
 		{
-			std::cout << "Error in receiving" << std::endl;
+			own_log::pushMsgToCommandIfDebug("Error in receiving");
 			own_log::AppendToLog("Error in receiving");
 			return;
 		}
@@ -81,6 +110,7 @@ void Client::Update()
 
 void Client::Run()
 {
+	textBox.Select();
 	while (cr::currWin().isOpen())
 	{
 		sf::Event evnt;
@@ -122,7 +152,7 @@ void Client::Run()
 void Client::Draw()
 {
 	cr::currWin().clear(sf::Color(100, 100, 100));
-
+	
 	cr::currWin().draw(nameText);
 	cr::currWin().draw(msgText);
 	textBox.display();
@@ -140,9 +170,9 @@ void Client::Enter()
 		tmpStr = "You: " + tmpStr;
 
 		DisplayMessage(tmpStr);
+		snd::playSound("send_01");
 	}
 	textBox.SetNormal();
-	snd::playSound("send_01");
 }
 
 void Client::initGraphics()

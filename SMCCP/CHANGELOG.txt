@@ -67,3 +67,20 @@ Version 1.2.0 - 24.4.2017
 	-Added functionality to TextBox
 		-Now able to set the maximum characters allowed (before infinite)
 		-Can now return the standard text, if a boolean is set
+
+Version 2.0.0 - 28.4.2017
+	Major:
+		-Added a name prompt
+			-> No name doubling on a server anymore
+			-Changed send-receive cycle
+				->Incompatible with old versions
+
+	Minor:
+		-TextBoxes and OwnButtons now just have a reference to a RenderWindow, so that you can change on which window they render
+		-TextBoxes can now specifically be selected
+
+	Fixes:
+		-Fixed that send sound is played on every enter press
+		-Fixed that 001.001.001.001 is a valid ip
+			-No zeros as first digit of a block of 2-3 digits
+		-Deleted all std::cout calls, that can be called in release mode

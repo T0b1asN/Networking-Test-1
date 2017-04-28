@@ -26,9 +26,6 @@ private:
 	OwnButton serverButton;
 	OwnButton clientButton;
 
-	TextBox nameBox;
-	std::string name;
-
 	TextBox ipBox;
 	sf::IpAddress adress;
 
@@ -41,7 +38,6 @@ public:
 
 	Result open();
 
-	std::string getName() { return name; }
 	sf::IpAddress getIp() { return adress; }
 	unsigned int getPort() { return port; }
 

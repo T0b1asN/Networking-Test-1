@@ -5,10 +5,11 @@
 #include "TextBox.h"
 
 #include "AudioUtil.h"
+#include "NamePrompt.h"
+#include "LogUtil.h"
 
 #include <iostream>
 #include <string>
-
 
 #include <vector>
 
@@ -36,7 +37,7 @@ private:
 	std::vector<sf::String> msgs;
 
 public:
-	Client(std::string pName, bool pBlock, int pPort = 53000, sf::IpAddress address = sf::IpAddress::getPublicAddress());
+	Client(bool pBlock, int pPort = 53000, sf::IpAddress address = sf::IpAddress::getPublicAddress());
 	~Client();
 
 	bool isConnected() { return connected; }
@@ -47,7 +48,12 @@ public:
 
 	bool newMsg;
 
-	void setup();
+	//returns errorCode
+	//	0 = OK
+	//	1 = Could not connect
+	//	2 = Closed name prompt
+	//	3 = Reached code that is unreachable
+	int setup();
 
 	unsigned int getPort() { return socket.getRemotePort(); }
 

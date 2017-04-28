@@ -1,8 +1,10 @@
 #include "OwnButton.h"
 
 OwnButton::OwnButton(std::string pText, sf::Vector2f pSize, sf::Vector2f pPos,
-	sf::Color backColor, sf::Color textColor, unsigned int pCharSize)
+	sf::Color backColor, sf::Color textColor, sf::RenderWindow* winPtr, unsigned int pCharSize)
 {
+	win = winPtr;
+
 	pos = pPos;
 	text = pText;
 	size = pSize;
@@ -35,16 +37,11 @@ OwnButton::~OwnButton()
 
 }
 
-void OwnButton::OnClick()
-{
-	std::cout << "Click" << std::endl;
-}
-
 bool OwnButton::checkClick()
 {
-	if (cr::currWin().isOpen())
+	if (win->isOpen())
 	{
-		if (rect.contains((sf::Vector2f)sf::Mouse::getPosition(cr::currWin())))
+		if (rect.contains((sf::Vector2f)sf::Mouse::getPosition(*win)))
 		{
 			return true;
 		}
@@ -54,17 +51,17 @@ bool OwnButton::checkClick()
 
 void OwnButton::display()
 {
-	cr::currWin().draw(field);
-	cr::currWin().draw(textField);
+	win->draw(field);
+	win->draw(textField);
 }
 
 bool OwnButton::validClick(bool click)
 {
 	if (click)
 	{
-		if (cr::currWin().isOpen())
+		if (win->isOpen())
 		{
-			if (rect.contains((sf::Vector2f)sf::Mouse::getPosition(cr::currWin())))
+			if (rect.contains((sf::Vector2f)sf::Mouse::getPosition(*win)))
 			{
 				return true;
 			}

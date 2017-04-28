@@ -31,20 +31,11 @@
     <ClCompile Include="NetworkHelpers.cpp">
       <Filter>Source\Util</Filter>
     </ClCompile>
+    <ClCompile Include="NamePrompt.cpp">
+      <Filter>Source\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="resource2.h">
-      <Filter>Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="resource3.h">
-      <Filter>Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="resource1.h">
-      <Filter>Resources</Filter>
-    </ClInclude>
     <ClInclude Include="TextBox.h">
       <Filter>Headers\UI</Filter>
     </ClInclude>
@@ -80,6 +71,9 @@
     </ClInclude>
     <ClInclude Include="NetworkHelpers.h">
       <Filter>Headers\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="NamePrompt.h">
+      <Filter>Headers\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -118,10 +112,5 @@
     <Image Include="AppIcon.ico">
       <Filter>Resources</Filter>
     </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Networking Test 1.rc">
-      <Filter>Resources</Filter>
-    </ResourceCompile>
   </ItemGroup>
 </Project>

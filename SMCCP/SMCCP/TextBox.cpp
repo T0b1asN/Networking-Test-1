@@ -1,7 +1,8 @@
 #include "TextBox.h"
 
-TextBox::TextBox(sf::Vector2f pPos, sf::Vector2f pSize, std::string pStandardText, sf::Color pBackColor, sf::Color pTextColor)
+TextBox::TextBox(sf::Vector2f pPos, sf::Vector2f pSize, std::string pStandardText, sf::Color pBackColor, sf::Color pTextColor, sf::RenderWindow* winPtr)
 {
+	win = winPtr;
 	pos = pPos;
 	size = pSize;
 
@@ -28,15 +29,15 @@ TextBox::~TextBox()
 
 void TextBox::display()
 {
-	cr::currWin().draw(background);
-	cr::currWin().draw(text);
+	win->draw(background);
+	win->draw(text);
 }
 
 void TextBox::SelectOrUnselect()
 {
-	if (cr::currWin().isOpen())
+	if (win->isOpen())
 	{
-		if (background.getGlobalBounds().contains((sf::Vector2f)sf::Mouse::getPosition(cr::currWin())))
+		if (background.getGlobalBounds().contains((sf::Vector2f)sf::Mouse::getPosition(*win)))
 		{
 			selected = true;
 			if (deleteStdMsg)
@@ -50,6 +51,17 @@ void TextBox::SelectOrUnselect()
 		{
 			selected = false;
 		}
+	}
+}
+
+void TextBox::Select()
+{
+	selected = true;
+	if (deleteStdMsg)
+	{
+		if (actualText == str_to_wstr(standardText))
+			actualText = L"";
+		text.setString(actualText);
 	}
 }
 
