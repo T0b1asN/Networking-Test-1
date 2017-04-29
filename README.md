@@ -4,15 +4,14 @@ I also want to learn networking so it is an ideal project for me. :)*
 ## **Just works on Windows**
 
 ### **Features**
--You can set up a server or connect as a client to a server via the ip adress  
-	-only works in a local network
--Everyone can write to everyone else in a group  
-	-at the moment the group size is fixed to 10 but I plan to make it variable
+* You can set up a server or connect as a client to a server via the ip adress  
+   * only works in a local network
+* Everyone can write to everyone else in a group  
+   * at the moment the group size is fixed to 10 but I plan to make it variable
 	
 ### **Planned features**  
 -Commands  
 -variable group size   
--no name doubling  
 -Pop-up window  
 -more sounds  
 -scalable window  
@@ -21,12 +20,18 @@ I also want to learn networking so it is an ideal project for me. :)*
 --------------------------------------
 
 ### **How to use**
-When you start the application, you see two textboxes and two buttons.
-First you enter your name in the top text box, if you want to set up a server, you click on the button for the server
-and the server starts.  
-When you want to be a client, you also need to enter the ip adress of the server you want to connect to, which can be found at the top of the server application, the standard is your local ip adress, so you normally only need to change the last part of the ip.
-After that you click the button for client and the application tries to connect to the server.  
-In both cases, server and client, opens a new window. At the top you can find the information of the server or client, for example the name, below that are your messages and at the bottom is the textbox for entering text, which can be send with pressing the enter key.
+#### Server
+1. If you want to change the port on which the server will be set up, enter it in the textbbox in the bottom right corner  
+2. Press on the button for the server  
+3. Enter your nickname in the pop-up  
+4. Wait for clients to connect  
+5. Have conversations :speech_balloon:  
+#### Client
+1. Enter the IP address of the server in the textbox in the bottom left corner (server can see it in the top of his window)  
+2. Enter the port on which the server is in the textbox in the bottom right corner (server can also see this at the top)  
+3. Press on the button for the client  
+4. You are asked for a nickname, enter it. If it is already in use on the server, this window will pop up again  
+5. Have conversations :speech_balloon:  
 
 ###### **Have fun!**
 
@@ -34,4 +39,3 @@ In both cases, server and client, opens a new window. At the top you can find th
 
 Since version 1.1.0 I also provide the debug version of SMCCP.  
 The main differences are, that this version doesn't use static linking, so there are dll's. Also the console doesn't close in this version.
-
