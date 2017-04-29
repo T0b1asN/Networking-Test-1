@@ -1,12 +1,19 @@
 ﻿#include "Client.h"
 
 Client::Client(bool pBlock, int pPort, sf::IpAddress address) :
-	textBox(sf::Vector2f(10.0f, cr::winHeight() - 50.0f), sf::Vector2f(350.0f, 40.0f))
+	textBox(sf::Vector2f(10.0f, cr::winHeight() - 50.0f), sf::Vector2f(350.0f, 40.0f)),
+	muteBox(sf::Vector2f(480.f, cr::winHeight() - 30.f), 40.f),
+	sendButton("Send", sf::Vector2f(80.f, 40.f), sf::Vector2f(370.f, cr::winHeight() - 50.f))
 {
 	port = pPort;
 	name = "";
 	ip = address;
 	block = pBlock;
+
+	sendButton.setCharSize(25U);
+
+	muteBox.setInfo("mute sounds");
+	muted = muteBox.isChecked();
 
 	initGraphics();
 }
@@ -26,8 +33,6 @@ void Client::SendString(sf::String msg)
 
 int Client::setup()
 {
-	//TODO: implement name prompt
-	//TODO:: Can't connect with taken name, but finds disconnect, after closed window
 	NamePrompt np;
 	if(np.run() == 1)
 		return 2;
@@ -91,7 +96,10 @@ void Client::Update()
 		if (lastMsg != "" && lastMsg != SHUTDOWN_MSG)
 		{
 			if (lastMsg.substring(0, 1) != NO_SOUND_CHAR)
-				snd::playSound("incoming_01");
+			{
+				if (!muted)
+					snd::playSound("incoming_01");
+			}
 			else
 				lastMsg.erase(0);
 			DisplayMessage(lastMsg);
@@ -133,12 +141,20 @@ void Client::Run()
 				{
 					textBox.Unselect();
 					Enter();
+					textBox.Select();
 				}
 				break;
 			case sf::Event::MouseButtonPressed:
 				if (evnt.mouseButton.button == sf::Mouse::Left)
 				{
+					if (muteBox.CheckClick())
+						muted = muteBox.isChecked();
 					textBox.SelectOrUnselect();
+					if (sendButton.validClick(true))
+					{
+						Enter();
+						textBox.Select();
+					}
 				}
 				break;
 			}
@@ -156,6 +172,8 @@ void Client::Draw()
 	cr::currWin().draw(nameText);
 	cr::currWin().draw(msgText);
 	textBox.display();
+	muteBox.display();
+	sendButton.display();
 
 	cr::currWin().display();
 }
@@ -170,7 +188,8 @@ void Client::Enter()
 		tmpStr = "You: " + tmpStr;
 
 		DisplayMessage(tmpStr);
-		snd::playSound("send_01");
+		if (!muted)
+			snd::playSound("send_01");
 	}
 	textBox.SetNormal();
 }
@@ -195,7 +214,8 @@ void Client::OnServerDisconnect()
 	own_log::AppendToLog("Disconnected from " + ip.toString() + " due to server");
 	own_log::AppendToLogWOTime("-------------------------------------------------------------");
 	socket.disconnect();
-	snd::playSound("error_01");
+	if (!muted)
+		snd::playSound("error_01");
 	Sleep(1500);
 	cr::currWin().close();
 }

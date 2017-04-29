@@ -3,6 +3,8 @@
 #include "Defines.h"
 
 #include "TextBox.h"
+#include "CheckBox.h"
+#include "OwnButton.h"
 
 #include "AudioUtil.h"
 #include "NamePrompt.h"
@@ -35,6 +37,11 @@ private:
 	unsigned int maxMsgs = 15U;
 
 	std::vector<sf::String> msgs;
+
+	bool muted;
+	CheckBox muteBox;
+
+	OwnButton sendButton;
 
 public:
 	Client(bool pBlock, int pPort = 53000, sf::IpAddress address = sf::IpAddress::getPublicAddress());

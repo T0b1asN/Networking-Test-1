@@ -29,3 +29,28 @@ Client session
 
 28.04.2017 20:41:30 - Disconnected from 192.168.178.184 due to server
 -------------------------------------------------------------
+
+**********************************
+Loading audio files
+29.04.2017 14:51:01 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+29.04.2017 14:52:08 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+29.04.2017 14:52:31 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+29.04.2017 14:53:00 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+29.04.2017 14:54:20 - Loaded 3 audiofiles - without error: true
+**********************************

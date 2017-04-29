@@ -47,7 +47,7 @@ public:
 	sf::String getStdText() { return standardText; }
 
 	void Select();
-	void Unselect() { selected = false; }
+	void Unselect();
 
 	bool wasChanged() { return changed; }
 	void set_deleteStdMsg(bool newState) { deleteStdMsg = newState; }
@@ -56,4 +56,6 @@ public:
 	void set_maxChars(int newVal) { maxChars = newVal; }
 
 	void setWinPtr(sf::RenderWindow* ptr) { win = ptr; }
+
+	void setText(std::string _text) { actualText = _text; text.setString(_text); }
 };

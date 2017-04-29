@@ -84,3 +84,13 @@ Version 2.0.0 - 28.4.2017
 		-Fixed that 001.001.001.001 is a valid ip
 			-No zeros as first digit of a block of 2-3 digits
 		-Deleted all std::cout calls, that can be called in release mode
+
+Version 2.1.0 - 29.4.2017
+	Major:
+		-Mute checkbox
+			-Now able to mute all sounds
+			-New UI element: CheckBox
+		-Send button
+
+	Minor:
+		-The enter key and send button now don't unselect the textbox

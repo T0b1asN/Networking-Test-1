@@ -50,5 +50,7 @@ public:
 	bool validClick(bool click);
 
 	void setWinPtr(sf::RenderWindow* ptr) { win = ptr; }
+
+	void setCharSize(unsigned int newSize);
 };
 

@@ -5,12 +5,11 @@ In-between:
 	-Change size and pos in OwnButton constructor
 	-Make name prompt for strings in general (not just for names)
 	-Own RenderWindow for starting menu, like the namePrompt
+	-Max message size
 
 Fix:
-
+	
 DO:
-	0.Mute checkbox
-		-UI element checkbox
 	1.Pop-up window (for errors and infos)
 	2.Port checker (Check if entered port is used already)
 	3.more sounds

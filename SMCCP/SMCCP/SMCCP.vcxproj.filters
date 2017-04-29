@@ -34,6 +34,9 @@
     <ClCompile Include="NamePrompt.cpp">
       <Filter>Source\UI</Filter>
     </ClCompile>
+    <ClCompile Include="CheckBox.cpp">
+      <Filter>Source\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TextBox.h">
@@ -73,6 +76,9 @@
       <Filter>Headers\Util</Filter>
     </ClInclude>
     <ClInclude Include="NamePrompt.h">
+      <Filter>Headers\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckBox.h">
       <Filter>Headers\UI</Filter>
     </ClInclude>
   </ItemGroup>

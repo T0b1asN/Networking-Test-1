@@ -4,6 +4,8 @@
 #include "curr.h"
 
 #include "TextBox.h"
+#include "CheckBox.h"
+#include "OwnButton.h"
 
 #include "AudioUtil.h"
 
@@ -65,6 +67,10 @@ private:
 	int socketsConnected = 0;
 	//all names
 	std::vector<std::string> names;
+
+	//Is the sound muted
+	bool muted;
+
 public:
 	//////////////////////////////////////////////
 	///pName: name of the server
@@ -120,6 +126,10 @@ private:
 	TextBox textBox;
 	//Text, where the messages are displayed
 	sf::Text msgText;
+	//CheckBox to control, if the sound is muted
+	CheckBox muteBox;
+	//Button that funtions as the enter key
+	OwnButton sendButton;
 
 	//Draw the server interface
 	void Draw();

@@ -50,6 +50,11 @@ void TextBox::SelectOrUnselect()
 		else
 		{
 			selected = false;
+			if (actualText == L"")
+			{
+				actualText = str_to_wstr(standardText);
+				text.setString(actualText);
+			}
 		}
 	}
 }
@@ -61,6 +66,16 @@ void TextBox::Select()
 	{
 		if (actualText == str_to_wstr(standardText))
 			actualText = L"";
+		text.setString(actualText);
+	}
+}
+
+void TextBox::Unselect()
+{
+	selected = false;
+	if (actualText == L"")
+	{
+		actualText = str_to_wstr(standardText);
 		text.setString(actualText);
 	}
 }

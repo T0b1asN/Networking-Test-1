@@ -102,3 +102,11 @@ void OwnButton::SetText(std::string newText)
 	text = newText;
 	textField.setString(text);
 }
+
+void OwnButton::setCharSize(unsigned int newSize)
+{
+	charSize = newSize;
+	textField.setCharacterSize(newSize);
+	textField.setOrigin(textField.getLocalBounds().width / 2.0f, textField.getLocalBounds().height / 2.0f);
+	textField.setPosition(pos + (size / 2.0f));
+}

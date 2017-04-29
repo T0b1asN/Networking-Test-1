@@ -1,15 +1,7 @@
-﻿  Client.cpp
-Client.cpp(93): warning C4566: Das durch den universellen Zeichennamen "\u2510" dargestellte Zeichen kann in der aktuellen Codepage (1252) nicht dargestellt werden.
-  NamePrompt.cpp
-  OwnButton.cpp
-  Server.cpp
-Server.cpp(100): warning C4566: Das durch den universellen Zeichennamen "\u2510" dargestellte Zeichen kann in der aktuellen Codepage (1252) nicht dargestellt werden.
-Server.cpp(300): warning C4566: Das durch den universellen Zeichennamen "\u2510" dargestellte Zeichen kann in der aktuellen Codepage (1252) nicht dargestellt werden.
-  StartMenu.cpp
-  main.cpp
+﻿  CheckBox.cpp
   Code wird generiert.
-  20 of 1068 functions ( 1.9%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    74 functions had inline decision re-evaluated but remain unchanged
+  27 of 1082 functions ( 2.5%) were compiled, the rest were copied from previous compilation.
+    10 functions were new in current compilation
+    80 functions had inline decision re-evaluated but remain unchanged
   Codegenerierung ist abgeschlossen.
   SMCCP.vcxproj -> E:\_GitHub\own\networking\SMCCP\SMCCP\Release\SMCCP.exe

@@ -22,7 +22,6 @@ NamePrompt::~NamePrompt()
 
 int NamePrompt::run()
 {
-	//TODO: Select TextBox on open
 	nameBox.Select();
 	bool run = true;
 	while (run && prompt.isOpen())

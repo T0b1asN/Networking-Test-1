@@ -1,10 +1,12 @@
 #pragma once
 #include "SFML.h"
 #include "curr.h"
-#include "OwnButton.h"
 #include "Defines.h"
-#include "TextBox.h"
 #include "NetworkHelpers.h"
+
+#include "OwnButton.h"
+#include "TextBox.h"
+#include "CheckBox.h"
 
 #include <iostream>
 #include <string>

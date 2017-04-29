@@ -2,12 +2,19 @@
 #include "Server.h"
 
 Server::Server(std::string pName, bool pBlock, unsigned int pPort, unsigned int pMax_Clients) :
-	textBox(sf::Vector2f(10.0f, cr::winHeight() - 50.0f), sf::Vector2f(350.0f, 40.0f))
+	textBox(sf::Vector2f(10.0f, cr::winHeight() - 50.0f), sf::Vector2f(350.0f, 40.0f)),
+	muteBox(sf::Vector2f(480.f, cr::winHeight() - 30.f), 40.f),
+	sendButton("Send", sf::Vector2f(80.f, 40.f), sf::Vector2f(370.f, cr::winHeight() - 50.f))
 {
 	port = pPort;
 	max_Clients = pMax_Clients;
 	name = pName;
 	block = pBlock;
+
+	sendButton.setCharSize(25U);
+
+	muteBox.setInfo("mute sounds");
+	muted = muteBox.isChecked();
 
 	initGraphics();
 }
@@ -60,7 +67,6 @@ void Server::connectToClient()
 			sockets.pop_back();
 			return;
 		}
-		//TODO: send back, if name is valid
 		//receive name from client
 		sf::Packet namePacket;
 		namePacket.clear();
@@ -179,6 +185,8 @@ void Server::Draw()
 	cr::currWin().draw(nameText);
 	cr::currWin().draw(msgText);
 	textBox.display();
+	muteBox.display();
+	sendButton.display();
 
 	cr::currWin().display();
 }
@@ -208,12 +216,20 @@ void Server::Run()
 				{
 					textBox.Unselect();
 					Enter();
+					textBox.Select();
 				}
 				break;
 			case sf::Event::MouseButtonPressed:
 				if (evnt.mouseButton.button == sf::Mouse::Left)
 				{
+					if (muteBox.CheckClick())
+						muted = muteBox.isChecked();
 					textBox.SelectOrUnselect();
+					if (sendButton.validClick(true))
+					{
+						Enter();
+						textBox.Select();
+					}
 				}
 				break;
 			}
@@ -239,7 +255,8 @@ void Server::Update()
 					receiveData >> lastMsg;
 					if (lastMsg != "")
 					{
-						snd::playSound("incoming_01");
+						if (!muted)
+							snd::playSound("incoming_01");
 						SendString(lastMsg, i);
 						DisplayMessage(lastMsg);
 					}
@@ -282,7 +299,8 @@ void Server::Enter()
 		tmpStr = "You: " + tmpStr;
 
 		DisplayMessage(tmpStr);
-		snd::playSound("send_01");
+		if (!muted)
+			snd::playSound("send_01");
 	}
 	textBox.SetNormal();
 }
