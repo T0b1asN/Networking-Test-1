@@ -1,28 +1,27 @@
 Current task:
 
 In-between:
-	-function to load audiofiles on runtime not only on start
-	-Change size and pos in OwnButton constructor
-	-Make name prompt for strings in general (not just for names)
-	-Own RenderWindow for starting menu, like the namePrompt
-	-Max message size
+	- Function to load audiofiles on runtime not only on start
+	- Change size and pos in OwnButton constructor
+	- Make prompt for strings in general (not just for names)
+	- Own RenderWindow for starting menu, like the namePrompt
+	- Max message size
 
 Fix:
 	
 DO:
-	1.Pop-up window (for errors and infos)
-	2.Port checker (Check if entered port is used already)
-	3.more sounds
-	4.scalable window
-	5.variable max group size
-	6.Unicode support (maybe already done)
-	7.Commands
+	1. Multithreading
+	2. More sounds
+	3. Variable max group size
+	4. Commands
 
 Ideas:
-	-Server-IDs
-		-you are identified
-	-Persistant client names on a specific server (one time name enter)
-	-Move network stuff on different thread than graphics and other stuff
+	- Server-IDs
+		- you are identified
+	- Persistant client names on a specific server (one time name enter)
+	- Move network stuff on different thread than graphics and other stuff
 
 Finished for new version:
-	
+	Major:
+		- class for static functions related to pop-ups
+			- static function to create a popup

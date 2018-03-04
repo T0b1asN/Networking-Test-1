@@ -1,5 +1,12 @@
-﻿  Server.cpp
-e:\_github\own\networking\smccp\smccp\smccp\server.cpp(106): warning C4566: Das durch den universellen Zeichennamen "\u2510" dargestellte Zeichen kann in der aktuellen Codepage (1252) nicht dargestellt werden.
-e:\_github\own\networking\smccp\smccp\smccp\server.cpp(318): warning C4566: Das durch den universellen Zeichennamen "\u2510" dargestellte Zeichen kann in der aktuellen Codepage (1252) nicht dargestellt werden.
+﻿  Client.cpp
+e:\_github\own\networking\smccp\smccp\smccp\client.cpp(98): warning C4566: Das durch den universellen Zeichennamen "\u2510" dargestellte Zeichen kann in der aktuellen Codepage (1252) nicht dargestellt werden.
+  Code wird generiert...
+  Überspringen... (keine relevanten Änderungen gefunden)
+  PopUp.cpp
+  main.cpp
+  StartMenu.cpp
+  Server.cpp
+  OwnButton.cpp
+  NamePrompt.cpp
   SMCCP.vcxproj -> E:\_GitHub\own\networking\SMCCP\SMCCP\Debug\SMCCP.exe
   SMCCP.vcxproj -> E:\_GitHub\own\networking\SMCCP\SMCCP\Debug\SMCCP.pdb (Partial PDB)

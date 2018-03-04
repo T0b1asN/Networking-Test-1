@@ -4,7 +4,7 @@
 //Will fit in all name boxes (15)
 #define MAX_NAME_LENGTH 15
 
-#define VERSION "v2.1.0"
+#define VERSION "v2.2.0"
 
 //#define FONT_NORM "GOTHIC.TTF"
 //#define FONT_BOLD "GOTHICB.TTF"
@@ -12,9 +12,10 @@
 //#define FONT_BOLD_IT "GOTHICBI.TTF"
 
 #define FONT_NORM "times.ttf"
-#define FONT_BOLD "timesb.ttf"
+#define FONT_BOLD "timesbd.ttf"
 #define FONT_IT "HTOWERT.ttf"
 #define FONT_BOLD_IT "HTOWERTI.ttf"
+#define FONT_UNICODE "unifont-9.0.06.ttf"
 
 //INFO: using whirlpool hash
 //can be replaced with any string can only be used by server in code due to things that are added in user accesible functions

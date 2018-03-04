@@ -9,6 +9,7 @@
 
 #include "StartMenu.h"
 #include "NamePrompt.h"
+#include "PopUp.h"
 
 #include <iostream>
 #include <string>
@@ -40,7 +41,7 @@ int main()
 		own_log::pushMsgToCommandIfDebug("Couldn't load all sounds");
 	
 	GraphicsSetup(500U, 200U);
-	
+
 #ifndef _DEBUG
 	ShowWindow(GetConsoleWindow(), SW_HIDE);
 #endif // !NDEBUG
@@ -90,7 +91,7 @@ void GraphicsSetup(unsigned int width, unsigned int height)
 		win.setIcon(626, 626, icon.getPixelsPtr());
 	else
 		own_log::AppendToLog("Icon could not be loaded!");
-	std::string fontName = FONT_NORM;
+	std::string fontName = FONT_IT;
 	mainFont.loadFromFile("res\\fonts\\" + fontName);
 
 	sf::sleep(sf::milliseconds(50));

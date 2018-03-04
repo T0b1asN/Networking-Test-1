@@ -1,0 +1,16 @@
+This is the log file from SMCCP
+--------------------------------
+30.04.2017 18:50:05 - Created log file
+
+**********************************
+Loading audio files
+30.04.2017 18:50:05 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+30.04.2017 18:50:11 - Setting up server on port 1234 with name Oben
+30.04.2017 18:50:12 - Server setup finished
+30.04.2017 19:00:58 - You shut down the server, by closing the window
+-------------------------------------------------------------
+

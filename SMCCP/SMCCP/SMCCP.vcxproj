@@ -159,6 +159,7 @@
     <ClCompile Include="NamePrompt.cpp" />
     <ClCompile Include="NetworkHelpers.cpp" />
     <ClCompile Include="OwnButton.cpp" />
+    <ClCompile Include="PopUp.cpp" />
     <ClCompile Include="Server.cpp" />
     <ClCompile Include="StartMenu.cpp" />
     <ClCompile Include="stringutildef.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="NamePrompt.h" />
     <ClInclude Include="NetworkHelpers.h" />
     <ClInclude Include="OwnButton.h" />
+    <ClInclude Include="PopUp.h" />
     <ClInclude Include="Server.h" />
     <ClInclude Include="SFML.h" />
     <ClInclude Include="StartMenu.h" />

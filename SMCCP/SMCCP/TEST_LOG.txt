@@ -1444,3 +1444,126 @@ Server session
 29.04.2017 15:51:41 - You shut down the server, by closing the window
 -------------------------------------------------------------
 
+
+**********************************
+Loading audio files
+29.04.2017 15:56:15 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+19.05.2017 23:15:33 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+19.05.2017 23:15:47 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+19.05.2017 23:16:07 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+19.05.2017 23:24:57 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+19.05.2017 23:25:31 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+19.05.2017 23:26:12 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+19.05.2017 23:26:23 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+19.05.2017 23:26:35 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+19.05.2017 23:27:03 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+19.05.2017 23:27:27 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+19.05.2017 23:27:45 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+19.05.2017 23:37:34 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+19.05.2017 23:38:13 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+20.05.2017 23:06:26 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+20.05.2017 23:06:57 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+20.05.2017 23:21:02 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+20.05.2017 23:21:06 - Setting up server on port 1234 with name Hello
+20.05.2017 23:21:06 - Server setup finished
+20.05.2017 23:21:26 - New client named üüü | Now there are 1 sockets connected
+
+**********************************
+Loading audio files
+20.05.2017 23:27:37 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+20.05.2017 23:28:25 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+20.05.2017 23:28:36 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+20.05.2017 23:29:33 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+20.05.2017 23:29:52 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+20.05.2017 23:30:01 - Setting up server on port 1234 with name j\nj
+20.05.2017 23:30:01 - Server setup finished
+20.05.2017 23:30:17 - New client named l\l | Now there are 1 sockets connected
+20.05.2017 23:30:27 - l\l (Place 0) disconnected | Now there are 0 sockets connected

@@ -1161,3 +1161,67 @@ Client session
 29.04.2017 15:44:48 - Disconnect from server due to closing the window
 -------------------------------------------------------------
 
+
+**********************************
+Loading audio files
+20.05.2017 23:07:09 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+20.05.2017 23:07:10 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+20.05.2017 23:07:22 - Setting up server on port 1234 with name Serv
+20.05.2017 23:07:22 - Server setup finished
+
+Client session
+-------------------------------------------------------------
+20.05.2017 23:07:28 - Trying to connect to 192.168.178.184 as Cl
+20.05.2017 23:07:28 - Connected to: 192.168.178.184
+20.05.2017 23:07:28 - New client named Cl | Now there are 1 sockets connected
+
+--------------------------------
+|	Connected as Cl
+--------------------------------
+
+
+**********************************
+Loading audio files
+20.05.2017 23:21:19 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Client session
+-------------------------------------------------------------
+20.05.2017 23:21:25 - Trying to connect to 192.168.178.184 as üüü
+20.05.2017 23:21:26 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as üüü
+--------------------------------
+
+
+**********************************
+Loading audio files
+20.05.2017 23:30:12 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Client session
+-------------------------------------------------------------
+20.05.2017 23:30:17 - Trying to connect to 192.168.178.184 as l\l
+20.05.2017 23:30:17 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as l\l
+--------------------------------
+
+20.05.2017 23:30:27 - Disconnect from server due to closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+31.01.2018 22:11:05 - Loaded 3 audiofiles - without error: true
+**********************************
