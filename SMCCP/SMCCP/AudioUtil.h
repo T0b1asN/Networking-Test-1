@@ -19,4 +19,5 @@ namespace snd
 	bool LoadAllSounds();
 
 	void playSound(std::string name);
+	// Test
 }
