@@ -6,7 +6,7 @@
 //Will fit in all name boxes (15)
 #define MAX_NAME_LENGTH 15
 
-#define VERSION "v2.2.0"
+#define VERSION "v3.0.0a1"
 
 //#define FONT_NORM "GOTHIC.TTF"
 //#define FONT_BOLD "GOTHICB.TTF"

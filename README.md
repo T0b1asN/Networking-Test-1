@@ -22,12 +22,14 @@ SFML is used for basic graphics for which I wrote own classes for Input, etc. li
 - [ ] Image support
 - [ ] Proper Pop-Up support
 - [ ] More sounds
+- [ ] Own class/namespace for Discord Rich Presence 
 
 
 
 ##### Planned for later versions
 
 - [ ] Webserver to enable usage over WI-FI
+- [ ] Make Client- and Serverclasses that can be inherited to have custom Clients/Servers
 - [ ] Commands
 - [ ] Scalable window
 - [ ] **Unicode** ☺ ♘ ⚽ ⛓ 
