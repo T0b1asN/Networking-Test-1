@@ -37,4 +37,7 @@ SFML is used for basic graphics for which I wrote own classes for Input, etc. li
   - Saved chat on server
   - Messages while a client is offline
 - [ ] Possibility for dedicated server with no/minimal UI and no possibility to chat
-  
+
+------------------------------------------
+
+To see a Howto, click [here](HOWTO.md).
