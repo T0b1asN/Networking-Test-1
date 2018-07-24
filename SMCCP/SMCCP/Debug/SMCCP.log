@@ -1,12 +1,8 @@
-﻿  Client.cpp
-e:\_github\own\networking\smccp\smccp\smccp\client.cpp(98): warning C4566: Das durch den universellen Zeichennamen "\u2510" dargestellte Zeichen kann in der aktuellen Codepage (1252) nicht dargestellt werden.
-  Code wird generiert...
-  Überspringen... (keine relevanten Änderungen gefunden)
-  PopUp.cpp
-  main.cpp
-  StartMenu.cpp
-  Server.cpp
-  OwnButton.cpp
-  NamePrompt.cpp
+﻿  main.cpp
+e:\_github\own\networking\smccp\smccp\smccp\startmenu.h(16): warning C4005: 'CALLBACK_ID': macro redefinition
+  e:\_github\own\networking\smccp\smccp\smccp\nameprompt.h(8): note: see previous definition of 'CALLBACK_ID'
+e:\_github\own\networking\smccp\smccp\smccp\popup.h(11): warning C4091: 'static ': ignored on left of 'PopUp' when no variable is declared
+  Client.cpp
+e:\_github\own\networking\smccp\smccp\smccp\client.cpp(220): warning C4390: ';': empty controlled statement found; is this the intent?
+  Generating Code...
   SMCCP.vcxproj -> E:\_GitHub\own\networking\SMCCP\SMCCP\Debug\SMCCP.exe
-  SMCCP.vcxproj -> E:\_GitHub\own\networking\SMCCP\SMCCP\Debug\SMCCP.pdb (Partial PDB)

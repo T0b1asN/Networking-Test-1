@@ -20,40 +20,22 @@ int own_log::CreateLog()
 	return 0;
 }
 
-bool own_log::AppendToLog(std::string whatToAppend, bool was)
+bool own_log::AppendToLog(std::string whatToAppend, bool addTime)
 {
+	//TODO check if there could be an endless loop (when file could not be created
 	std::string alt_name = LOG_FILE_NAME;
 	std::fstream f(alt_name, std::ios::app);
-	if (f.good())
-	{
-		f << own_log::getTime() << " - " << whatToAppend << std::endl;
-	}
-	else
-		if (!was)
-		{
-			own_log::CreateLog();
-			AppendToLog(whatToAppend, true);
-		}
-		else
-			return false;
-	return true;
-}
-
-bool own_log::AppendToLogWOTime(std::string whatToAppend, bool was)
-{
-	std::fstream f(LOG_FILE_NAME, std::ios::app);
+	if (addTime)
+		whatToAppend = getTime() + " - " + whatToAppend;
 	if (f.good())
 	{
 		f << whatToAppend << std::endl;
 	}
 	else
-		if (!was)
-		{
-			own_log::CreateLog();
-			AppendToLog(whatToAppend, true);
-		}
-		else
-			return false;
+	{
+		own_log::CreateLog();
+		AppendToLog(whatToAppend, addTime);
+	}
 	return true;
 }
 
@@ -68,7 +50,8 @@ std::string own_log::getTime()
 {
 	std::time_t result;
 	std::time(&result);
-	struct tm time = *localtime(&result);
+	struct tm time;
+	localtime_s(&time, &result);
 
 	std::string day = time.tm_mday < 10 ? "0" + std::to_string(time.tm_mday) : std::to_string(time.tm_mday);
 	std::string mon = time.tm_mon < 10 ? "0" + std::to_string(time.tm_mon + 1) : std::to_string(time.tm_mon + 1);
@@ -78,4 +61,9 @@ std::string own_log::getTime()
 
 	//INFO: time may not be correct
 	return day + "." + mon + "." + std::to_string(time.tm_year + 1900) + " " + hour + ":" + min + ":" + sec;
+}
+
+std::time_t own_log::getTimeStamp()
+{
+	return std::time(0);
 }

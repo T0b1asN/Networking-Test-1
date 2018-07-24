@@ -1,0 +1,210 @@
+This is the log file from SMCCP
+--------------------------------
+23.07.2018 22:59:43 - Created log file
+
+**********************************
+Loading audio files
+23.07.2018 22:59:43 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 23:03:37 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 23:14:26 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 23:14:44 - Button: callback not set!
+
+**********************************
+Loading audio files
+24.07.2018 19:16:00 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:16:02 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+24.07.2018 19:16:06 - Setting up server on port 1234 with name Bernd
+24.07.2018 19:16:06 - Server setup finished
+
+**********************************
+Loading audio files
+24.07.2018 19:16:12 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:16:14 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+24.07.2018 19:16:17 - Trying to connect to 192.168.178.184 as Horst
+24.07.2018 19:16:17 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as Horst
+--------------------------------
+
+24.07.2018 19:16:17 - New client named Horst | Now there are 1 sockets connected
+24.07.2018 19:16:20 - Button: callback not set!
+24.07.2018 19:16:23 - Button: callback not set!
+24.07.2018 19:16:27 - Button: callback not set!
+24.07.2018 19:16:31 - Button: callback not set!
+24.07.2018 19:16:34 - Button: callback not set!
+24.07.2018 19:16:37 - Button: callback not set!
+24.07.2018 19:16:42 - Button: callback not set!
+24.07.2018 19:16:46 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+24.07.2018 19:16:46 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+24.07.2018 19:17:45 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:17:47 - Button: callback not set!
+24.07.2018 19:17:50 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+24.07.2018 19:17:50 - Trying to connect to 192.168.178.184 as eqwer
+24.07.2018 19:17:51 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as eqwer
+--------------------------------
+
+24.07.2018 19:17:56 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+24.07.2018 19:19:36 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:19:38 - Button: callback not set!
+24.07.2018 19:19:43 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+24.07.2018 19:19:43 - Trying to connect to 192.168.178.184 as awdsad
+24.07.2018 19:19:43 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as awdsad
+--------------------------------
+
+24.07.2018 19:19:46 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+24.07.2018 19:23:30 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+24.07.2018 19:23:32 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:23:41 - Button: callback not set!
+24.07.2018 19:23:45 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+24.07.2018 19:23:45 - Trying to connect to 192.168.178.184 as 1445
+24.07.2018 19:23:45 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as 1445
+--------------------------------
+
+24.07.2018 19:23:49 - Button: callback not set!
+24.07.2018 19:23:52 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+24.07.2018 19:23:52 - Trying to connect to 192.168.178.184 as 134555
+24.07.2018 19:23:52 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as 134555
+--------------------------------
+
+24.07.2018 19:23:57 - Disconnect from server due to closing the window
+-------------------------------------------------------------
+
+24.07.2018 19:24:07 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+24.07.2018 19:27:43 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:27:51 - Button: callback not set!
+24.07.2018 19:27:54 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+24.07.2018 19:27:54 - Trying to connect to 192.168.178.184 as 32444
+24.07.2018 19:27:54 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as 32444
+--------------------------------
+
+24.07.2018 19:27:57 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+24.07.2018 19:29:01 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:29:05 - Button: callback not set!
+24.07.2018 19:29:10 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+24.07.2018 19:29:10 - Trying to connect to 192.168.178.184 as 498766546464546
+24.07.2018 19:29:10 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as 498766546464546
+--------------------------------
+
+24.07.2018 19:29:13 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+24.07.2018 19:35:42 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:35:44 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+24.07.2018 19:35:47 - Trying to connect to 192.168.178.184 as 6854
+24.07.2018 19:35:47 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as 6854
+--------------------------------
+
+24.07.2018 19:35:49 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+24.07.2018 19:36:41 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:36:43 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+24.07.2018 19:36:45 - Trying to connect to 192.168.178.184 as 40
+24.07.2018 19:36:45 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as 40
+--------------------------------
+
+24.07.2018 19:36:47 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------

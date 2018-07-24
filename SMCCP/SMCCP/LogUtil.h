@@ -7,7 +7,7 @@
 #include <time.h>
 
 #ifdef _DEBUG
-#define LOG_FILE_NAME "TEST_LOG.txt"
+#define LOG_FILE_NAME "DEBUG_LOG.txt"
 #else
 #define LOG_FILE_NAME "LOG.txt"
 #endif
@@ -16,22 +16,19 @@ namespace own_log
 {
 	//Creates a log file
 	//returns an error code
-	//TODO: explain error codes
 	//Codes:
-	//	0 = Ok
+	//	0 = Created Log
 	//	1 = Log file already exists
 	int CreateLog();
 
-	//Append a string to the log
-	//It will be in a new line
-	//returns true if sucessful
-	//ignore the second parameter
-	bool AppendToLog(std::string whatToAppend, bool was = false);
-	//same as above, but without time
-	bool AppendToLogWOTime(std::string whatToAppend, bool was = false);
+	//Append string to log (new line)
+	//second parameter: Should the time be added?
+	//returns true if successful
+	bool AppendToLog(std::string whatToAppend, bool addTime = true);
 
 	//TODO: Functions to read the log
 	std::string getTime();
+	std::time_t getTimeStamp();
 
 	//writes stuff to the command window, if in Debug mode
 	void pushMsgToCommandIfDebug(std::string msg);

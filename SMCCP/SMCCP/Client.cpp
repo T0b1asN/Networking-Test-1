@@ -1,4 +1,4 @@
-﻿#include "Client.h"
+#include "Client.h"
 
 Client::Client(bool pBlock, int pPort, sf::IpAddress address) :
 	textBox(sf::Vector2f(10.0f, cr::winHeight() - 50.0f), sf::Vector2f(350.0f, 40.0f)),
@@ -37,20 +37,21 @@ int Client::setup()
 	if(np.run() == 1)
 		return 2;
 	name = np.getName();
+	input::setFocus(&cr::currWin());
 	
 	//Update nameText
 	nameText.setString("Name: " + name + "\nRole: Client\nPort: " + std::to_string(port) +
 		"\nVersion: " + VERSION + "\nConnected to " + ip.toString());
 	Draw();
 
-	own_log::AppendToLogWOTime("\nClient session\n-------------------------------------------------------------");
+	own_log::AppendToLog("\nClient session\n-------------------------------------------------------------", false);
 	own_log::AppendToLog("Trying to connect to " + ip.toString() + " as " + name);
 
 	if (socket.connect(ip, port, sf::seconds(2.f)) != sf::Socket::Done)
 	{
 		own_log::pushMsgToCommandIfDebug("Could not connect");
 		own_log::AppendToLog("Could not connect");
-		own_log::AppendToLogWOTime("-------------------------------------------------------------\n");
+		own_log::AppendToLog("-------------------------------------------------------------\n", false);
 		return 1;
 	}
 
@@ -74,7 +75,7 @@ int Client::setup()
 	DisplayMessage("[Connected to: " + ip.toString() + "]");
 
 	own_log::AppendToLog("Connected to: " + ip.toString());
-	own_log::AppendToLogWOTime("\n--------------------------------\n|	Connected as " + name + "\n--------------------------------\n");
+	own_log::AppendToLog("\n--------------------------------\n|	Connected as " + name + "\n--------------------------------\n", false);
 	socket.setBlocking(block);
 	return 0;
 }
@@ -95,13 +96,15 @@ void Client::Update()
 		}
 		if (lastMsg != "" && lastMsg != SHUTDOWN_MSG)
 		{
-			if (lastMsg.substring(0, 1) != NO_SOUND_CHAR)
+			if (lastMsg.substring(0, NO_SOUND_MSG_LENGTH) != NO_SOUND_MSG)
 			{
 				if (!muted)
 					snd::playSound("incoming_01");
 			}
 			else
-				lastMsg.erase(0);
+			{
+				lastMsg.erase(0, NO_SOUND_MSG_LENGTH);
+			}
 			DisplayMessage(lastMsg);
 		}
 		else if (lastMsg == SHUTDOWN_MSG)
@@ -128,7 +131,7 @@ void Client::Run()
 			{
 			case sf::Event::Closed:
 				own_log::AppendToLog("Disconnect from server due to closing the window");
-				own_log::AppendToLogWOTime("-------------------------------------------------------------\n");
+				own_log::AppendToLog("-------------------------------------------------------------\n", false);
 				socket.disconnect();
 				return;
 				break;
@@ -212,7 +215,7 @@ void Client::initGraphics()
 void Client::OnServerDisconnect()
 {
 	own_log::AppendToLog("Disconnected from " + ip.toString() + " due to server");
-	own_log::AppendToLogWOTime("-------------------------------------------------------------");
+	own_log::AppendToLog("-------------------------------------------------------------", false);
 	socket.disconnect();
 	if (!muted)
 		snd::playSound("error_01");

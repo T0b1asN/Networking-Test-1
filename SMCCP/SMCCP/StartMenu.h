@@ -11,13 +11,16 @@
 #include <iostream>
 #include <string>
 
+#include "InputHandler.h"
 
+#define CALLBACK_ID "startMenu"
 
 class StartMenu
 {
 public:
 	enum Result
 	{
+		None = -2,
 		Close = -1,
 		Default = 0,
 		Server = 1,
@@ -34,6 +37,10 @@ private:
 	TextBox portBox;
 	unsigned int port;
 
+	Result returnVal = Result::None;
+
+	void initCallbacks();
+
 public:
 	StartMenu();
 	~StartMenu();
@@ -43,6 +50,11 @@ public:
 	sf::IpAddress getIp() { return adress; }
 	unsigned int getPort() { return port; }
 
+	void leftMouseDown(int x, int y);
+	void textEntered(sf::Event::TextEvent text);
+	void close();
+
 	void display();
+	void nextWindow();
 };
 

@@ -59,6 +59,33 @@ void TextBox::SelectOrUnselect()
 	}
 }
 
+void TextBox::SelectOrUnselect(int x, int y)
+{
+	if (win->isOpen())
+	{
+		if (background.getGlobalBounds().contains(sf::Vector2f(x, y)))
+		{
+			selected = true;
+			if (deleteStdMsg)
+			{
+				if (actualText == str_to_wstr(standardText))
+					actualText = L"";
+				text.setString(actualText);
+			}
+		}
+		else
+		{
+			selected = false;
+			if (actualText == L"")
+			{
+				actualText = str_to_wstr(standardText);
+				text.setString(actualText);
+			}
+		}
+	}
+	std::cout << selected << std::endl;
+}
+
 void TextBox::Select()
 {
 	selected = true;
@@ -84,7 +111,6 @@ void TextBox::Update(sf::String add)
 {
 	if (add != (char)0)
 	{
-		
 		if (selected)
 		{
 			if (add == (char)8)

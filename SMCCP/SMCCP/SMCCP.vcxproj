@@ -89,12 +89,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\Visual Studio 2017 Projekte\Some SFML-Tests1\Some SFML-Tests1\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\_GitHub\own\networking\SMCCP\SMCCP\SMCCP\DiscordRPC\include;E:\_GitHub\own\networking\SMCCP\SMCCP\SMCCP\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <AdditionalLibraryDirectories>E:\Visual Studio 2017 Projekte\Some SFML-Tests1\Some SFML-Tests1\SFML\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-window-d.lib;sfml-system-d.lib;sfml-network-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>E:\_GitHub\own\networking\SMCCP\SMCCP\SMCCP\SFML\lib;E:\_GitHub\own\networking\SMCCP\SMCCP\SMCCP\DiscordRPC\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-window-d.lib;sfml-system-d.lib;sfml-network-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;discord-rpc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -121,14 +121,14 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>SFML_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\_GitHub\own\networking\SMCCP\SMCCP\SMCCP\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\_GitHub\own\networking\SMCCP\SMCCP\SMCCP\DiscordRPC\static\include;E:\_GitHub\own\networking\SMCCP\SMCCP\SMCCP\SFML\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>E:\_GitHub\own\networking\SMCCP\SMCCP\SMCCP\SFML\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-network-s.lib;sfml-graphics-s.lib;sfml-system-s.lib;sfml-window-s.lib;sfml-audio-s.lib;opengl32.lib;freetype.lib;jpeg.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>E:\_GitHub\own\networking\SMCCP\SMCCP\SMCCP\DiscordRPC\static\lib;E:\_GitHub\own\networking\SMCCP\SMCCP\SMCCP\SFML\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-network-s.lib;sfml-graphics-s.lib;sfml-system-s.lib;sfml-window-s.lib;sfml-audio-s.lib;opengl32.lib;freetype.lib;jpeg.lib;winmm.lib;gdi32.lib;openal32.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;ws2_32.lib;discord-rpc.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -156,6 +156,7 @@
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="LogUtil.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="NamePrompt.cpp" />
     <ClCompile Include="NetworkHelpers.cpp" />
     <ClCompile Include="OwnButton.cpp" />
@@ -172,6 +173,7 @@
     <ClInclude Include="curr.h" />
     <ClInclude Include="Defines.h" />
     <ClInclude Include="LogUtil.h" />
+    <ClInclude Include="InputHandler.h" />
     <ClInclude Include="NamePrompt.h" />
     <ClInclude Include="NetworkHelpers.h" />
     <ClInclude Include="OwnButton.h" />
@@ -181,6 +183,7 @@
     <ClInclude Include="StartMenu.h" />
     <ClInclude Include="stringutil.h" />
     <ClInclude Include="TextBox.h" />
+    <ClInclude Include="UIElement.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

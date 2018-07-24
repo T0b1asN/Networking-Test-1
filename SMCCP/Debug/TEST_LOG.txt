@@ -1225,3 +1225,26 @@ Client session
 Loading audio files
 31.01.2018 22:11:05 - Loaded 3 audiofiles - without error: true
 **********************************
+
+**********************************
+Loading audio files
+12.07.2018 21:04:29 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+12.07.2018 21:05:06 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Client session
+-------------------------------------------------------------
+12.07.2018 21:05:13 - Trying to connect to 192.168.178.184 as JOJO
+12.07.2018 21:05:13 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as JOJO
+--------------------------------
+
+12.07.2018 21:05:50 - Disconnect from server due to closing the window
+-------------------------------------------------------------
+

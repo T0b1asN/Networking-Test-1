@@ -1,6 +1,6 @@
 #include "NamePrompt.h"
 
-NamePrompt::NamePrompt() : 
+NamePrompt::NamePrompt() :
 	prompt(sf::VideoMode((unsigned int)(500.f - 12.5f), 90U), "Set Name", sf::Style::Close),
 	nameBox(sf::Vector2f(25.f, 25.f), sf::Vector2f(300.f, 40.f), "Name...", sf::Color::Black, sf::Color::White, &prompt),
 	okButton("Ok", sf::Vector2f(125.f, 40.f), sf::Vector2f(350.f - 12.5f, 25.f), sf::Color(0, 155, 0), sf::Color::Black, &prompt, 25)
@@ -13,62 +13,43 @@ NamePrompt::NamePrompt() :
 		prompt.setIcon(626, 626, icon.getPixelsPtr());
 	else
 		own_log::AppendToLog("Icon could not be loaded!");
+
+	initCallbacks();
+
+	input::setFocus(&prompt);
 }
 
 NamePrompt::~NamePrompt()
 {
+	
+}
 
+void NamePrompt::initCallbacks()
+{
+	input::addLeftMouseCallback(
+		std::bind(
+			&NamePrompt::leftMouseDown, this,
+			std::placeholders::_1, std::placeholders::_2),
+		CALLBACK_ID);
+	input::addCloseCallback(
+		std::bind(&NamePrompt::close, this),
+		CALLBACK_ID);
+	input::addTextEnteredCallback(
+		std::bind(&NamePrompt::textEntered, this, std::placeholders::_1),
+		CALLBACK_ID);
 }
 
 int NamePrompt::run()
 {
 	nameBox.Select();
-	bool run = true;
-	while (run && prompt.isOpen())
+	while (prompt.isOpen() && returnVal == -1)
 	{
-		sf::Event evnt;
-		while (prompt.pollEvent(evnt))
-		{
-			switch (evnt.type)
-			{
-			case sf::Event::Closed:
-				prompt.close();
-				return 1;
-				break;
-			case sf::Event::TextEntered:
-				if (evnt.text.unicode != 13)
-					nameBox.Update(evnt.text.unicode);
-				else
-				{
-					nameBox.Unselect();
-					if (nameBox.wasChanged() && nameBox.Text() != "")
-					{
-						name = nameBox.Text();
-						prompt.close();
-						return 0;
-					}
-				}
-				break;
-			case sf::Event::MouseButtonPressed:
-				if (evnt.mouseButton.button == sf::Mouse::Left)
-				{
-					if (nameBox.wasChanged() && nameBox.Text() != "")
-					{
-						if(okButton.validClick(true))
-						{
-							name = nameBox.Text();
-							prompt.close();
-							return 0;
-						}
-					}
-					nameBox.SelectOrUnselect();
-				}
-				break;
-			}
-		}
 		display();
+		cr::updateUIElements();
+		input::handleInput();
 	}
-	return 2;
+	nextWindow();
+	return returnVal;
 }
 
 void NamePrompt::display()
@@ -79,4 +60,46 @@ void NamePrompt::display()
 	okButton.display();
 
 	prompt.display();
+}
+
+void NamePrompt::leftMouseDown(int x, int y)
+{
+	if (nameBox.wasChanged() && nameBox.Text() != "")
+	{
+		if (okButton.validClick(true))
+		{
+			name = nameBox.Text();
+			nextWindow();
+			returnVal = 0;
+			return;
+		}
+	}
+	nameBox.SelectOrUnselect();
+}
+
+void NamePrompt::textEntered(sf::Event::TextEvent text)
+{
+	if (text.unicode != 13)
+		nameBox.Update(text.unicode);
+	else
+	{
+		nameBox.Unselect();
+		if (nameBox.wasChanged() && nameBox.Text() != "")
+		{
+			name = nameBox.Text();
+			nextWindow();
+			returnVal = 0;
+		}
+	}
+}
+
+void NamePrompt::nextWindow()
+{
+	okButton.~OwnButton();
+	prompt.close();
+}
+
+void NamePrompt::close()
+{
+	nextWindow();
 }

@@ -3,6 +3,10 @@
 #include "OwnButton.h"
 #include "SFML.h"
 
+#include "InputHandler.h"
+
+#define CALLBACK_ID "namePrompt"
+
 class NamePrompt
 {
 private:
@@ -12,6 +16,10 @@ private:
 	OwnButton okButton;
 
 	sf::RenderWindow prompt;
+
+	int returnVal = -1;
+
+	void initCallbacks();
 
 public:
 	NamePrompt();
@@ -25,6 +33,11 @@ public:
 
 	std::string getName() { return name; }
 
+	void leftMouseDown(int x, int y);
+	void textEntered(sf::Event::TextEvent text);
+	void close();
+
 	void display();
+	void nextWindow();
 };
 

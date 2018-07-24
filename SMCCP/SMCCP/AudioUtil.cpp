@@ -8,7 +8,7 @@ int snd::currChannel = 0;
 
 bool snd::LoadAllSounds()
 {
-	own_log::AppendToLogWOTime("\n**********************************\nLoading audio files");
+	own_log::AppendToLog("\n**********************************\nLoading audio files", false);
 	bool no_error = true;
 
 	sf::SoundBuffer bufToCopy;
@@ -44,7 +44,7 @@ bool snd::LoadAllSounds()
 
 	std::string result = (no_error ? "true" : "false");
 	own_log::AppendToLog("Loaded " + std::to_string(sounds.size()) + " audiofiles - without error: " + result);
-	own_log::AppendToLogWOTime("**********************************");
+	own_log::AppendToLog("**********************************", false);
 
 	return no_error;
 }

@@ -38,6 +38,7 @@ public:
 	void display();
 
 	void SelectOrUnselect();
+	void SelectOrUnselect(int x, int y);
 	void Update(sf::String add);
 
 	sf::String Text();

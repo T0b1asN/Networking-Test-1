@@ -40,6 +40,9 @@
     <ClCompile Include="TextBox.cpp">
       <Filter>Source\UI\Elements</Filter>
     </ClCompile>
+    <ClCompile Include="InputHandler.cpp">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stringutil.h">
@@ -87,6 +90,12 @@
     <ClInclude Include="StartMenu.h">
       <Filter>Headers\UI\Windows</Filter>
     </ClInclude>
+    <ClInclude Include="UIElement.h">
+      <Filter>Headers\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="InputHandler.h">
+      <Filter>Headers\Util</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />
@@ -130,6 +139,9 @@
     </Filter>
     <Filter Include="Headers\UI\Windows">
       <UniqueIdentifier>{93c9ef31-1a2c-41a0-b1f4-e40ac56374b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Interfaces">
+      <UniqueIdentifier>{7dad4187-7904-4b63-a70b-9a22e0074513}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

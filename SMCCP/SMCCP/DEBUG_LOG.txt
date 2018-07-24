@@ -1,0 +1,759 @@
+This is the log file from SMCCP
+--------------------------------
+17.07.2018 20:46:35 - Created log file
+
+**********************************
+Loading audio files
+17.07.2018 20:46:35 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+17.07.2018 20:46:42 - Setting up server on port 1234 with name dsfad
+17.07.2018 20:46:42 - Server setup finished
+17.07.2018 20:46:45 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+17.07.2018 20:47:30 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+17.07.2018 20:56:31 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+17.07.2018 20:58:27 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+17.07.2018 20:58:36 - Setting up server on port 1234 with name Bernd
+17.07.2018 20:58:36 - Server setup finished
+17.07.2018 20:58:54 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+22.07.2018 01:26:16 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+22.07.2018 01:35:03 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 01:35:04 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+22.07.2018 01:35:08 - Setting up server on port 1234 with name Bert
+22.07.2018 01:35:08 - Server setup finished
+22.07.2018 01:35:10 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+22.07.2018 01:40:32 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+22.07.2018 01:42:07 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+22.07.2018 01:44:33 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 01:44:34 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+22.07.2018 01:44:45 - Setting up server on port 1234 with name B ernd
+22.07.2018 01:44:45 - Server setup finished
+22.07.2018 01:44:48 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+22.07.2018 01:59:22 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 01:59:23 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+22.07.2018 01:59:25 - Setting up server on port 1234 with name b
+22.07.2018 01:59:25 - Server setup finished
+22.07.2018 01:59:28 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+22.07.2018 15:53:15 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 15:53:18 - Button: callback not set!
+
+**********************************
+Loading audio files
+22.07.2018 15:57:59 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 15:58:01 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+22.07.2018 15:58:06 - Setting up server on port 1234 with name d
+22.07.2018 15:58:06 - Server setup finished
+22.07.2018 15:58:09 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+22.07.2018 15:58:55 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 15:58:56 - Button: callback not set!
+
+**********************************
+Loading audio files
+22.07.2018 18:36:12 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 18:36:15 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+22.07.2018 18:36:21 - Setting up server on port 1234 with name 456879
+22.07.2018 18:36:21 - Server setup finished
+22.07.2018 18:36:26 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+22.07.2018 18:37:59 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 18:38:00 - Button: callback not set!
+22.07.2018 18:38:03 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+22.07.2018 18:38:03 - Setting up server on port 1234 with name sdf
+22.07.2018 18:38:03 - Server setup finished
+22.07.2018 18:38:08 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+22.07.2018 18:42:39 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 18:42:40 - Button: callback not set!
+22.07.2018 18:42:43 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+22.07.2018 18:42:43 - Setting up server on port 1234 with name sg
+22.07.2018 18:42:43 - Server setup finished
+22.07.2018 18:43:04 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+22.07.2018 18:51:58 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 18:52:00 - Button: callback not set!
+
+**********************************
+Loading audio files
+22.07.2018 18:59:51 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+22.07.2018 19:00:19 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 19:00:25 - Button: callback not set!
+
+**********************************
+Loading audio files
+22.07.2018 23:34:49 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 23:34:50 - Button: callback not set!
+
+**********************************
+Loading audio files
+22.07.2018 23:35:06 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 23:35:08 - Button: callback not set!
+
+**********************************
+Loading audio files
+22.07.2018 23:35:27 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 23:35:28 - Button: callback not set!
+
+**********************************
+Loading audio files
+22.07.2018 23:35:43 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 23:35:45 - Button: callback not set!
+
+**********************************
+Loading audio files
+22.07.2018 23:37:02 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 23:37:03 - Button: callback not set!
+
+**********************************
+Loading audio files
+22.07.2018 23:40:50 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 23:40:51 - Button: callback not set!
+
+**********************************
+Loading audio files
+22.07.2018 23:43:16 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 23:43:17 - Button: callback not set!
+
+**********************************
+Loading audio files
+22.07.2018 23:43:39 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 23:43:40 - Button: callback not set!
+
+**********************************
+Loading audio files
+22.07.2018 23:44:16 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 23:44:16 - Button: callback not set!
+
+**********************************
+Loading audio files
+22.07.2018 23:45:02 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 23:45:06 - Button: callback not set!
+
+**********************************
+Loading audio files
+22.07.2018 23:46:18 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 23:46:19 - Button: callback not set!
+
+**********************************
+Loading audio files
+22.07.2018 23:47:44 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+22.07.2018 23:49:04 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+22.07.2018 23:56:21 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+22.07.2018 23:56:48 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 23:56:49 - Button: callback not set!
+
+**********************************
+Loading audio files
+22.07.2018 23:57:51 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+22.07.2018 23:58:24 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+22.07.2018 23:58:56 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+22.07.2018 23:59:13 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+22.07.2018 23:59:37 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 23:59:38 - Button: callback not set!
+
+**********************************
+Loading audio files
+22.07.2018 23:59:43 - Loaded 3 audiofiles - without error: true
+**********************************
+22.07.2018 23:59:45 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 17:00:18 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 17:03:05 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 17:03:45 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 17:04:56 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 17:05:30 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 17:27:13 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 17:30:35 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 17:30:55 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 17:31:46 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 17:31:47 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 17:31:55 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 17:31:55 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 17:32:57 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 17:32:58 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 17:33:21 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 17:33:21 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 17:59:55 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 17:59:56 - Button: callback not set!
+23.07.2018 18:00:01 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+23.07.2018 18:00:01 - Setting up server on port 1234 with name afdsf
+23.07.2018 18:00:01 - Server setup finished
+23.07.2018 18:00:03 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+23.07.2018 18:00:59 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 18:01:01 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 18:01:19 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 18:01:20 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 18:02:27 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 18:02:28 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 18:02:42 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 18:02:43 - Button: callback not set!
+23.07.2018 18:02:47 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+23.07.2018 18:02:47 - Setting up server on port 1234 with name stgesfeqqwe
+23.07.2018 18:02:47 - Server setup finished
+23.07.2018 18:02:50 - Button: callback not set!
+23.07.2018 18:02:59 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+23.07.2018 19:27:31 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 19:27:32 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 19:28:08 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 19:28:11 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 19:28:36 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 19:28:37 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 19:29:47 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 19:29:49 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 19:30:51 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 19:31:16 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 19:31:18 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 19:32:45 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 19:33:30 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 19:33:54 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 19:33:56 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 19:34:40 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 19:34:42 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 19:36:20 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 19:36:21 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 19:37:30 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 19:37:32 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 19:38:01 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 19:38:03 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 19:42:22 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 19:42:23 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 19:42:41 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 22:28:23 - Loaded 3 audiofiles - without error: true
+**********************************
+23.07.2018 22:28:24 - Button: callback not set!
+
+**********************************
+Loading audio files
+23.07.2018 22:32:01 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 22:59:01 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 23:01:41 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 23:02:10 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 23:02:36 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 23:03:26 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 23:14:11 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 23:17:31 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+23.07.2018 23:18:32 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+24.07.2018 19:05:32 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:05:34 - Button: callback not set!
+24.07.2018 19:05:38 - Button: callback not set!
+
+**********************************
+Loading audio files
+24.07.2018 19:06:53 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:06:55 - Button: callback not set!
+24.07.2018 19:06:56 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+24.07.2018 19:06:58 - Setting up server on port 1234 with name dfs
+24.07.2018 19:06:58 - Server setup finished
+24.07.2018 19:07:00 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+24.07.2018 19:08:01 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+24.07.2018 19:08:49 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:08:51 - Button: callback not set!
+24.07.2018 19:08:53 - Button: callback not set!
+
+**********************************
+Loading audio files
+24.07.2018 19:09:17 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:09:18 - Button: callback not set!
+24.07.2018 19:09:21 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+24.07.2018 19:09:21 - Setting up server on port 1234 with name sdfefsf
+24.07.2018 19:09:21 - Server setup finished
+24.07.2018 19:09:30 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+24.07.2018 19:14:58 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:14:59 - Button: callback not set!
+24.07.2018 19:15:02 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+24.07.2018 19:15:02 - Trying to connect to 192.168.178.184 as dfgsdf
+24.07.2018 19:15:04 - Could not connect
+-------------------------------------------------------------
+
+24.07.2018 19:15:04 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+24.07.2018 19:17:36 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:17:38 - Button: callback not set!
+24.07.2018 19:17:40 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+24.07.2018 19:17:40 - Setting up server on port 1234 with name 1233
+24.07.2018 19:17:40 - Server setup finished
+24.07.2018 19:17:51 - New client named eqwer | Now there are 1 sockets connected
+24.07.2018 19:17:56 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+24.07.2018 19:19:24 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:19:29 - Button: callback not set!
+24.07.2018 19:19:33 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+24.07.2018 19:19:33 - Setting up server on port 1234 with name sdfe
+24.07.2018 19:19:33 - Server setup finished
+24.07.2018 19:19:43 - New client named awdsad | Now there are 1 sockets connected
+24.07.2018 19:19:46 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+24.07.2018 19:23:29 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:23:34 - Button: callback not set!
+24.07.2018 19:23:37 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+24.07.2018 19:23:37 - Setting up server on port 1234 with name 1234
+24.07.2018 19:23:37 - Server setup finished
+24.07.2018 19:23:45 - New client named 1445 | Now there are 1 sockets connected
+24.07.2018 19:23:52 - New client named 134555 | Now there are 2 sockets connected
+24.07.2018 19:23:57 - 134555 (Place 1) disconnected | Now there are 1 sockets connected
+24.07.2018 19:24:07 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+24.07.2018 19:27:41 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:27:43 - Button: callback not set!
+24.07.2018 19:27:48 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+24.07.2018 19:27:48 - Setting up server on port 1234 with name 123444
+24.07.2018 19:27:48 - Server setup finished
+24.07.2018 19:27:54 - New client named 32444 | Now there are 1 sockets connected
+24.07.2018 19:27:57 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+24.07.2018 19:28:50 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:28:52 - Button: callback not set!
+24.07.2018 19:28:56 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+24.07.2018 19:28:56 - Setting up server on port 1234 with name 124554
+24.07.2018 19:28:56 - Server setup finished
+24.07.2018 19:29:10 - New client named 498766546464546 | Now there are 1 sockets connected
+24.07.2018 19:29:13 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+24.07.2018 19:30:41 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:30:42 - Button: callback not set!
+24.07.2018 19:30:48 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+24.07.2018 19:30:48 - Setting up server on port 1234 with name asdw
+24.07.2018 19:30:48 - Server setup finished
+24.07.2018 19:30:51 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+24.07.2018 19:34:20 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:34:21 - Button: callback not set!
+24.07.2018 19:34:23 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+24.07.2018 19:34:23 - Setting up server on port 1234 with name q
+24.07.2018 19:34:23 - Server setup finished
+24.07.2018 19:34:25 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+24.07.2018 19:35:30 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:35:31 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+24.07.2018 19:35:34 - Setting up server on port 1234 with name 96847961
+24.07.2018 19:35:34 - Server setup finished
+24.07.2018 19:35:47 - New client named 6854 | Now there are 1 sockets connected
+24.07.2018 19:35:49 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+24.07.2018 19:36:31 - Loaded 3 audiofiles - without error: true
+**********************************
+24.07.2018 19:36:33 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+24.07.2018 19:36:35 - Setting up server on port 1234 with name 41
+24.07.2018 19:36:35 - Server setup finished
+24.07.2018 19:36:45 - New client named 40 | Now there are 1 sockets connected
+24.07.2018 19:36:47 - You shut down the server, by closing the window
+-------------------------------------------------------------
+

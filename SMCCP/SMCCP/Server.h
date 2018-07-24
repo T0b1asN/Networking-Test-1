@@ -74,10 +74,9 @@ private:
 public:
 	//////////////////////////////////////////////
 	///pName: name of the server
-	///pBlock: should the components block
+	///pBlock: should the components block the thread when waiting
 	///pPort: the port of the server (standard 53000)
 	///pMax_Clients: max clients of the server (standard 10)
-	///adress: IpAdress of the server (WARNING: standard not tested)
 	//////////////////////////////////////////////
 	Server(std::string pName, bool pBlock, unsigned int pPort = 53000, unsigned int pMax_Clients = 10);
 	~Server();
@@ -111,7 +110,7 @@ public:
 	//The optMsg is displayed after the standardMsg if replaceStd is false
 	//it can be used to display errors
 	//WARNING: doesn't close window
-	void Shutdown(std::string optMsg = "", bool replaceStd = false);
+	void Shutdown(sf::String optMsg = "", bool replaceStd = false);
 
 	//Disconnect the socket at the given index, you can also give a reason
 	void disconnectSocket(int index, std::string reason = "");

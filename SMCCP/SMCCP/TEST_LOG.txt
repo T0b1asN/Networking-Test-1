@@ -1567,3 +1567,57 @@ Server session
 20.05.2017 23:30:01 - Server setup finished
 20.05.2017 23:30:17 - New client named l\l | Now there are 1 sockets connected
 20.05.2017 23:30:27 - l\l (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+12.07.2018 20:49:16 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+12.07.2018 20:49:24 - Setting up server on port 1234 with name Bernd
+12.07.2018 20:49:24 - Server setup finished
+12.07.2018 20:49:32 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+12.07.2018 21:01:27 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+12.07.2018 21:01:37 - Setting up server on port 1234 with name Bernd
+12.07.2018 21:01:37 - Server setup finished
+12.07.2018 21:01:43 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+12.07.2018 21:03:32 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+12.07.2018 21:03:41 - Setting up server on port 1234 with name Bernd
+12.07.2018 21:03:41 - Server setup finished
+12.07.2018 21:05:13 - New client named JOJO | Now there are 1 sockets connected
+12.07.2018 21:05:50 - JOJO (Place 0) disconnected | Now there are 0 sockets connected
+12.07.2018 21:05:52 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+17.07.2018 20:43:54 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+17.07.2018 20:44:05 - Setting up server on port 1234 with name mnghj
+17.07.2018 20:44:05 - Server setup finished
+17.07.2018 20:44:10 - You shut down the server, by closing the window
+-------------------------------------------------------------
+

@@ -1,4 +1,12 @@
 Current task:
+	- System to see which of the open windows has focus
+		- Have every window check if it gains focus
+			- set focus of input
+		->Workaround (for now): have windows only lose focus, 
+								if they are opened
+			- if a window is waiting for a window, 
+			  it should reclaim it's focus after waiting
+		- ???
 
 In-between:
 	- Function to load audiofiles on runtime not only on start
@@ -10,10 +18,14 @@ In-between:
 Fix:
 	
 DO:
+	- multiple window support
+		- one graphics class/namespace, that holds all windows
+			- can request a new one
 	1. Multithreading
 	2. More sounds
 	3. Variable max group size
 	4. Commands
+	5. Images
 
 Ideas:
 	- Server-IDs
@@ -25,3 +37,13 @@ Finished for new version:
 	Major:
 		- class for static functions related to pop-ups
 			- static function to create a popup
+		- COMPLETE restructuring
+			- callback-system instead of manually 
+			  asking every iteration, if that is a 
+			  valid click
+		- LogUtil cleaned up
+		- moved stuff in new graphics-namespace
+		- made InputHandler
+		- replaced std::string with sf::String in more places
+		- Discord Rich Presence barebones
+			- Update works, just needs to be used and maybe changed

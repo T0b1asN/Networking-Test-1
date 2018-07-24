@@ -1,4 +1,4 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
 #include "Server.h"
 
 Server::Server(std::string pName, bool pBlock, unsigned int pPort, unsigned int pMax_Clients) :
@@ -35,13 +35,13 @@ std::string Server::getInfo()
 
 int Server::setup()
 {
-	own_log::AppendToLogWOTime("\nServer session\n-------------------------------------------------------------");
+	own_log::AppendToLog("\nServer session\n-------------------------------------------------------------", false);
 	own_log::AppendToLog("Setting up server on port " + std::to_string(port) + " with name " + name);
 	listener.setBlocking(block);
 	if (listener.listen(port) != sf::Socket::Status::Done)
 	{
 		own_log::pushMsgToCommandIfDebug("Error - Could not set up server!");
-		own_log::AppendToLogWOTime("-------------------------------------------------------------\n");
+		own_log::AppendToLog("-------------------------------------------------------------\n", false);
 		return 1;
 	}
 	own_log::pushMsgToCommandIfDebug("Connected... Port: " + std::to_string(port));
@@ -103,7 +103,7 @@ void Server::connectToClient()
 		own_log::pushMsgToCommandIfDebug((std::string)lastMsg);
 
 		//send message to all other sockets
-		std::string nsc = NO_SOUND_CHAR;
+		std::string nsc = NO_SOUND_MSG;
 		SendString(nsc + lastMsg, socketsConnected - 1);
 		DisplayMessage(lastMsg);
 
@@ -203,7 +203,7 @@ void Server::Run()
 			{
 			case sf::Event::Closed:
 				own_log::AppendToLog("You shut down the server, by closing the window");
-				own_log::AppendToLogWOTime("-------------------------------------------------------------\n");
+				own_log::AppendToLog("-------------------------------------------------------------\n", false);
 				Shutdown("Host closed the window!", true);
 				return;
 				break;
@@ -313,15 +313,16 @@ void Server::printNames()
 	}
 }
 
-void Server::Shutdown(std::string optMsg, bool replaceOld)
+void Server::Shutdown(sf::String optMsg, bool replaceOld)
 {
-	std::string nsc = NO_SOUND_CHAR;
+	sf::String nsc = NO_SOUND_MSG;
+	std::wcout << nsc.toWideString() << std::endl;
 	if (optMsg == "")
-		SendStringWithoutName(nsc + "[Server was shut down]");
+		SendStringWithoutName(nsc + L"[Server was shut down]");
 	else if(!replaceOld)
-		SendStringWithoutName(nsc + "[Server was shut down. Message: " + optMsg + "]");
+		SendStringWithoutName(nsc + L"[Server was shut down. Message: " + optMsg + L"]");
 	else
-		SendStringWithoutName(nsc + "[" + optMsg + "]");
+		SendStringWithoutName(nsc + L"[" + optMsg + L"]");
 
 	SendStringWithoutName(SHUTDOWN_MSG);
 	for (int i = 0; i < (int)sockets.size(); i++)
