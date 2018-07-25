@@ -208,3 +208,18 @@ Client session
 
 24.07.2018 19:36:47 - Disconnected from 192.168.178.184 due to server
 -------------------------------------------------------------
+
+**********************************
+Loading audio files
+25.07.2018 01:09:06 - Loaded 3 audiofiles - without error: true
+**********************************
+25.07.2018 01:09:08 - Button: callback not set!
+25.07.2018 01:09:09 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+25.07.2018 01:09:09 - Setting up server on port 1234 with name sdfaw
+25.07.2018 01:09:09 - Server setup finished
+25.07.2018 01:09:21 - You shut down the server, by closing the window
+-------------------------------------------------------------
+

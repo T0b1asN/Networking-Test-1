@@ -11,7 +11,7 @@ std::vector<std::string> tECbDelete;
 sf::RenderWindow* focus;
 
 
-void input::addLeftMouseCallback(std::function<void(int, int)> cb, std::string name)
+void input::addLeftMouseCallback(mouseCallback cb, std::string name)
 {
 	lMouseCallbacks[name] = cb;
 	own_log::pushMsgToCommandIfDebug("Added a callback; ID: " + name);
@@ -22,17 +22,17 @@ void input::deleteLMouseCallback(std::string name)
 	lMCbDelete.push_back(name);
 }
 
-std::map<std::string, std::function<void(int, int)>> input::getLMouseCallbacks()
+std::map<std::string, input::mouseCallback> input::getLMouseCallbacks()
 {
 	return lMouseCallbacks;
 }
 
-std::function<void(int, int)> input::getLMouseCallback(std::string name)
+input::mouseCallback input::getLMouseCallback(std::string name)
 {
 	return lMouseCallbacks[name];
 }
 
-void input::addCloseCallback(std::function<void()> cb, std::string name)
+void input::addCloseCallback(closeCallback cb, std::string name)
 {
 	closeCallbacks[name] = cb;
 	own_log::pushMsgToCommandIfDebug("Added a callback; ID: " + name);
@@ -43,17 +43,17 @@ void input::deleteCloseCallback(std::string name)
 	cCbDelete.push_back(name);
 }
 
-std::map<std::string, std::function<void()>> input::getCloseCallbacks()
+std::map<std::string, input::closeCallback> input::getCloseCallbacks()
 {
 	return closeCallbacks;
 }
 
-std::function<void()> input::getCloseCallback(std::string name)
+input::closeCallback input::getCloseCallback(std::string name)
 {
 	return closeCallbacks[name];
 }
 
-void input::addTextEnteredCallback(std::function<void(sf::Event::TextEvent)> cb, std::string name)
+void input::addTextEnteredCallback(textEnteredCallback cb, std::string name)
 {
 	textEnteredCallbacks[name] = cb;
 	own_log::pushMsgToCommandIfDebug("Added a callback; ID: " + name);
@@ -64,12 +64,12 @@ void input::deleteTextEnteredCallback(std::string name)
 	tECbDelete.push_back(name);
 }
 
-std::map<std::string, std::function<void(sf::Event::TextEvent)>> input::getTextEnteredCallbacks()
+std::map<std::string, input::textEnteredCallback> input::getTextEnteredCallbacks()
 {
 	return textEnteredCallbacks;
 }
 
-std::function<void(sf::Event::TextEvent)> input::getTextEnteredCallback(std::string name)
+input::textEnteredCallback input::getTextEnteredCallback(std::string name)
 {
 	return textEnteredCallbacks[name];
 }

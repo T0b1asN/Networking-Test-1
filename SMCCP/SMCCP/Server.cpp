@@ -17,6 +17,7 @@ Server::Server(std::string pName, bool pBlock, unsigned int pPort, unsigned int 
 	muted = muteBox.isChecked();
 
 	initGraphics();
+	initCallbacks();
 }
 
 Server::~Server()
@@ -176,6 +177,15 @@ void Server::initGraphics()
 	msgText.setPosition(0.0f, 75.0f);
 
 	Draw();
+}
+
+void Server::initCallbacks()
+{
+}
+
+void Server::mouseCallback(int x, int y)
+{
+	//Mouse callback stuff
 }
 
 void Server::Draw()

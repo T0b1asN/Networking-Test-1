@@ -14,7 +14,8 @@ SFML is used for basic graphics for which I wrote own classes for Input, etc. li
 
 - [ ] Changing system from individual updates to a callback system, because then there is only one main loop
   - [ ] InputHandler
-    - [ ] Templates for callbacks, that you don't need to use ```std::function<std::string,sf::Event::TextEvent>``` for example
+    - [x] Templates for callbacks, that you don't need to use ```std::function<std::string,sf::Event::TextEvent>``` for example
+    	- *not as useful as planned :(*
     - Class/namespace, that calls back on important events
     - Callbacks can be added for the events
   - [ ] GraphicsHandler

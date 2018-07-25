@@ -9,6 +9,8 @@
 
 #include "AudioUtil.h"
 
+#include "InputHandler.h"
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -138,6 +140,9 @@ private:
 
 	//initializes the info and message text
 	void initGraphics();
+	void initCallbacks();
+
+	void mouseCallback(int x, int y);
 public:
 	//Displays message in messages feed (no name, etc.)
 	void DisplayMessage(std::string message);
@@ -151,5 +156,6 @@ public:
 
 	//prints all names
 	void printNames();
+	input::mouseCallback mc;
 };
 
