@@ -31,13 +31,13 @@ void StartMenu::initCallbacks()
 		std::bind(
 			&StartMenu::leftMouseDown, this,
 			std::placeholders::_1, std::placeholders::_2),
-		CALLBACK_ID);
+		callback_id);
 	input::addCloseCallback(
 		std::bind(&StartMenu::close, this),
-		CALLBACK_ID);
+		callback_id);
 	input::addTextEnteredCallback(
 		std::bind(&StartMenu::textEntered, this, std::placeholders::_1),
-		CALLBACK_ID);
+		callback_id);
 }
 
 StartMenu::Result StartMenu::open()
@@ -136,9 +136,9 @@ void StartMenu::nextWindow()
 	serverButton.~OwnButton();
 	clientButton.~OwnButton();
 
-	input::deleteLMouseCallback(CALLBACK_ID);
-	input::deleteTextEnteredCallback(CALLBACK_ID);
-	input::deleteCloseCallback(CALLBACK_ID);
+	input::deleteLMouseCallback(callback_id);
+	input::deleteTextEnteredCallback(callback_id);
+	input::deleteCloseCallback(callback_id);
 }
 
 void StartMenu::close()

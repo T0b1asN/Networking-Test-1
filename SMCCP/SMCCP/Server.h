@@ -23,8 +23,20 @@
 
 class Server
 {
-	//Networking stuff
+public:
+#pragma region Con-/Destructors
+	//////////////////////////////////////////////
+	///pName: name of the server
+	///pBlock: should the components block the thread when waiting
+	///pPort: the port of the server (standard 53000)
+	///pMax_Clients: max clients of the server (standard 10)
+	//////////////////////////////////////////////
+	Server(std::string pName, bool pBlock, unsigned int pPort = 53000, unsigned int pMax_Clients = 10);
+	~Server();
+#pragma endregion
+
 private:
+#pragma region Networking
 	//the listener of the server
 	sf::TcpListener listener;
 
@@ -32,7 +44,7 @@ private:
 	unsigned int port;
 	//the max number of clients allowed
 	unsigned int max_Clients;
-	
+
 	//the name of the server
 	std::string name;
 
@@ -58,7 +70,7 @@ private:
 	//if there are to many (over the limit set by maxMsgs)
 	//the old ones will be deleted
 	std::vector<sf::String> msgs;
-	
+
 	//determines if the components should block or not
 	bool block;
 
@@ -72,17 +84,10 @@ private:
 
 	//Is the sound muted
 	bool muted;
+#pragma endregion
 
 public:
-	//////////////////////////////////////////////
-	///pName: name of the server
-	///pBlock: should the components block the thread when waiting
-	///pPort: the port of the server (standard 53000)
-	///pMax_Clients: max clients of the server (standard 10)
-	//////////////////////////////////////////////
-	Server(std::string pName, bool pBlock, unsigned int pPort = 53000, unsigned int pMax_Clients = 10);
-	~Server();
-
+#pragma region Networking
 	//returns the information of the server in one string
 	std::string getInfo();
 	//returns the name of the server
@@ -118,9 +123,10 @@ public:
 	void disconnectSocket(int index, std::string reason = "");
 	//Disconnect the given socket, you can also give a reason
 	void disconnectSocket(sf::TcpSocket& socket, std::string reason = "");
+#pragma endregion
 
-	//Graphics Stuff
 private:
+#pragma region Graphics
 	//Text, where the server information is displayed
 	sf::Text nameText;
 	//Textbox, where the server enters his text
@@ -140,22 +146,63 @@ private:
 
 	//initializes the info and message text
 	void initGraphics();
-	void initCallbacks();
 
-	void mouseCallback(int x, int y);
+#pragma endregion
+
 public:
+#pragma region Graphics
 	//Displays message in messages feed (no name, etc.)
 	void DisplayMessage(std::string message);
-	
-	//General
-public:
+#pragma endregion
+
+private:
+#pragma region General
 	//one cycle of the server
 	void Update();
-	//Loop that keeps the server running
-	void Run();
 
 	//prints all names
 	void printNames();
-	input::mouseCallback mc;
+#pragma endregion
+
+public:
+#pragma region General
+	//Loop that keeps the server running
+	void Run();
+#pragma endregion
+
+private:
+#pragma region Callbacks
+	void initCallbacks();
+#pragma endregion
+
+public:
+#pragma region Callbacks
+	// Callback stuff
+	const std::string callback_id = "server";
+
+	void leftMCallback(int x, int y);
+	// handle for leftMouseCallback
+	input::mouseCallback lMCb =
+		std::bind(
+			&Server::leftMCallback, this,
+			std::placeholders::_1,
+			std::placeholders::_2
+		);
+
+	void closeCallback();
+	// handle for closeCallback
+	input::closeCallback cCb =
+		std::bind(&Server::closeCallback, this);
+
+	void textEnteredCallback(sf::Event::TextEvent);
+	// handle for textEnteredCallback
+	input::textEnteredCallback tECb =
+		std::bind(
+			&Server::textEnteredCallback, this,
+			std::placeholders::_1
+		);
+
+#pragma endregion
+
 };
 

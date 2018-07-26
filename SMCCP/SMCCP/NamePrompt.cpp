@@ -30,13 +30,13 @@ void NamePrompt::initCallbacks()
 		std::bind(
 			&NamePrompt::leftMouseDown, this,
 			std::placeholders::_1, std::placeholders::_2),
-		CALLBACK_ID);
+		callback_id);
 	input::addCloseCallback(
 		std::bind(&NamePrompt::close, this),
-		CALLBACK_ID);
+		callback_id);
 	input::addTextEnteredCallback(
 		std::bind(&NamePrompt::textEntered, this, std::placeholders::_1),
-		CALLBACK_ID);
+		callback_id);
 }
 
 int NamePrompt::run()

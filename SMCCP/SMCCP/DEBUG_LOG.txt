@@ -757,3 +757,80 @@ Server session
 24.07.2018 19:36:47 - You shut down the server, by closing the window
 -------------------------------------------------------------
 
+
+**********************************
+Loading audio files
+26.07.2018 22:30:13 - Loaded 3 audiofiles - without error: true
+**********************************
+26.07.2018 22:30:18 - Button: callback not set!
+26.07.2018 22:30:21 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+26.07.2018 22:30:21 - Setting up server on port 1234 with name sdfefs
+26.07.2018 22:30:21 - Server setup finished
+26.07.2018 22:30:25 - Button: callback not set!
+26.07.2018 22:30:26 - Button: callback not set!
+26.07.2018 22:30:28 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+26.07.2018 22:30:36 - Loaded 3 audiofiles - without error: true
+**********************************
+26.07.2018 22:30:38 - Button: callback not set!
+26.07.2018 22:30:40 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+26.07.2018 22:30:40 - Setting up server on port 1234 with name asda
+26.07.2018 22:30:40 - Server setup finished
+26.07.2018 22:30:43 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+26.07.2018 22:31:09 - Loaded 3 audiofiles - without error: true
+**********************************
+26.07.2018 22:31:12 - Button: callback not set!
+26.07.2018 22:31:14 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+26.07.2018 22:31:14 - Setting up server on port 1234 with name sdf
+26.07.2018 22:31:14 - Server setup finished
+26.07.2018 22:31:21 - Button: callback not set!
+26.07.2018 22:31:22 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+26.07.2018 22:31:56 - Loaded 3 audiofiles - without error: true
+**********************************
+26.07.2018 22:31:57 - Button: callback not set!
+26.07.2018 22:31:59 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+26.07.2018 22:31:59 - Setting up server on port 1234 with name sdfef
+26.07.2018 22:31:59 - Server setup finished
+
+**********************************
+Loading audio files
+27.07.2018 01:07:23 - Loaded 3 audiofiles - without error: true
+**********************************
+27.07.2018 01:07:24 - Button: callback not set!
+27.07.2018 01:07:26 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+27.07.2018 01:07:26 - Setting up server on port 1234 with name fdsfewsf
+27.07.2018 01:07:26 - Server setup finished
+
+**********************************
+Loading audio files
+27.07.2018 01:11:24 - Loaded 3 audiofiles - without error: true
+**********************************

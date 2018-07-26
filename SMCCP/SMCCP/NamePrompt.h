@@ -5,8 +5,6 @@
 
 #include "InputHandler.h"
 
-#define CALLBACK_ID "namePrompt"
-
 class NamePrompt
 {
 private:
@@ -24,6 +22,8 @@ private:
 public:
 	NamePrompt();
 	~NamePrompt();
+
+	const std::string callback_id = "namePrompt";
 
 	//returns errorCode
 	//	0 = OK

@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Server.h"
 
+#pragma region Con-/Destructors
 Server::Server(std::string pName, bool pBlock, unsigned int pPort, unsigned int pMax_Clients) :
 	textBox(sf::Vector2f(10.0f, cr::winHeight() - 50.0f), sf::Vector2f(350.0f, 40.0f)),
 	muteBox(sf::Vector2f(480.f, cr::winHeight() - 30.f), 40.f),
@@ -23,6 +24,14 @@ Server::Server(std::string pName, bool pBlock, unsigned int pPort, unsigned int 
 Server::~Server()
 {
 
+}
+#pragma endregion
+
+#pragma region Networking
+void Server::pushNewSocket()
+{
+	sockets.push_back((std::unique_ptr<sf::TcpSocket>)(new sf::TcpSocket()));
+	selector.add((*sockets.back().get()));
 }
 
 std::string Server::getInfo()
@@ -50,12 +59,6 @@ int Server::setup()
 	return 0;
 }
 
-void Server::pushNewSocket()
-{
-	sockets.push_back((std::unique_ptr<sf::TcpSocket>)(new sf::TcpSocket()));
-	selector.add((*sockets.back().get()));
-}
-
 void Server::connectToClient()
 {
 	if (socketsConnected < (int)max_Clients)
@@ -64,7 +67,7 @@ void Server::connectToClient()
 
 		if (listener.accept(*(sockets.back().get())) != sf::Socket::Status::Done)
 		{
-			//most of the time, iff no client tries to connect
+			//most of the time, if no client tries to connect
 			sockets.pop_back();
 			return;
 		}
@@ -103,12 +106,11 @@ void Server::connectToClient()
 		lastMsg = "[" + newSocketName + " connected]";
 		own_log::pushMsgToCommandIfDebug((std::string)lastMsg);
 
-		//send message to all other sockets
 		std::string nsc = NO_SOUND_MSG;
 		SendString(nsc + lastMsg, socketsConnected - 1);
 		DisplayMessage(lastMsg);
 
-		own_log::AppendToLog("New client named " + newSocketName + " | Now there are " + std::to_string(socketsConnected)  + " sockets connected");
+		own_log::AppendToLog("New client named " + newSocketName + " | Now there are " + std::to_string(socketsConnected) + " sockets connected");
 	}
 	else
 	{
@@ -142,7 +144,7 @@ void Server::SendString(sf::String msg, int exclude)
 	sendData << msg;
 	for (int i = 0; i < (int)sockets.size(); i++)
 	{
-		if(i != exclude)
+		if (i != exclude)
 			(*sockets.at(i).get()).send(sendData);;
 	}
 }
@@ -164,30 +166,46 @@ void Server::SendStringWithoutName(sf::String msg)
 	}
 }
 
-void Server::initGraphics()
+void Server::Shutdown(sf::String optMsg, bool replaceOld)
 {
-	nameText.setString("Your nickname: " + name + "\nRole: Server\nPort: " + std::to_string(port) + 
-		"\nVersion: " + VERSION + "\nIp: " + sf::IpAddress::getLocalAddress().toString());
-	nameText.setFont(cr::currFont());
-	nameText.setCharacterSize(14U);
+	sf::String nsc = NO_SOUND_MSG;
+	std::wcout << nsc.toWideString() << std::endl;
+	if (optMsg == "")
+		SendStringWithoutName(nsc + L"[Server was shut down]");
+	else if (!replaceOld)
+		SendStringWithoutName(nsc + L"[Server was shut down. Message: " + optMsg + L"]");
+	else
+		SendStringWithoutName(nsc + L"[" + optMsg + L"]");
 
-	msgText.setString("Messages:\n");
-	msgText.setFont(cr::currFont());
-	msgText.setCharacterSize(25U);
-	msgText.setPosition(0.0f, 75.0f);
-
-	Draw();
+	SendStringWithoutName(SHUTDOWN_MSG);
+	for (int i = 0; i < (int)sockets.size(); i++)
+		disconnectSocket(i);
 }
 
-void Server::initCallbacks()
+void Server::disconnectSocket(int index, std::string reason)
 {
+	if (reason != "")
+		SendString("[Disconnected from server. Reason: " + reason + "]", (*sockets.at(index).get()));
+	else
+		SendString("[Disconnected from server for an unknown reason]", (*sockets.at(index).get()));
+	Sleep(100);
+
+	sockets.at(index).get()->disconnect();
 }
 
-void Server::mouseCallback(int x, int y)
+void Server::disconnectSocket(sf::TcpSocket& socket, std::string reason)
 {
-	//Mouse callback stuff
-}
+	if (reason != "")
+		SendString("[Disconnected from server. Reason: " + reason + "]", socket);
+	else
+		SendString("[Disconnected from server for an unknown reason]", socket);
+	Sleep(100);
 
+	socket.disconnect();
+}
+#pragma endregion
+
+#pragma region Graphics
 void Server::Draw()
 {
 	cr::currWin().clear(sf::Color(100, 100, 100));
@@ -201,54 +219,53 @@ void Server::Draw()
 	cr::currWin().display();
 }
 
-void Server::Run()
+void Server::Enter()
 {
-	textBox.Select();
-	while (cr::currWin().isOpen())
+	if (textBox.Text() != "" && textBox.Text() != textBox.getStdText())
 	{
-		sf::Event evnt;
-		while (cr::currWin().pollEvent(evnt))
-		{
-			switch (evnt.type)
-			{
-			case sf::Event::Closed:
-				own_log::AppendToLog("You shut down the server, by closing the window");
-				own_log::AppendToLog("-------------------------------------------------------------\n", false);
-				Shutdown("Host closed the window!", true);
-				return;
-				break;
-			case sf::Event::TextEntered:
-				if (evnt.text.unicode != 13)
-				{
-					textBox.Update(evnt.text.unicode);
-				}
-				else
-				{
-					textBox.Unselect();
-					Enter();
-					textBox.Select();
-				}
-				break;
-			case sf::Event::MouseButtonPressed:
-				if (evnt.mouseButton.button == sf::Mouse::Left)
-				{
-					if (muteBox.CheckClick())
-						muted = muteBox.isChecked();
-					textBox.SelectOrUnselect();
-					if (sendButton.validClick(true))
-					{
-						Enter();
-						textBox.Select();
-					}
-				}
-				break;
-			}
-		}
-		textBox.Update((char)0);
-		Update();
+		this->SendString(textBox.Text());
+
+		sf::String tmpStr = textBox.Text();
+		tmpStr = "You: " + tmpStr;
+
+		DisplayMessage(tmpStr);
+		if (!muted)
+			snd::playSound("send_01");
 	}
+	textBox.SetNormal();
 }
 
+void Server::initGraphics()
+{
+	nameText.setString("Your nickname: " + name + "\nRole: Server\nPort: " + std::to_string(port) +
+		"\nVersion: " + VERSION + "\nIp: " + sf::IpAddress::getLocalAddress().toString());
+	nameText.setFont(cr::currFont());
+	nameText.setCharacterSize(14U);
+
+	msgText.setString("Messages:\n");
+	msgText.setFont(cr::currFont());
+	msgText.setCharacterSize(25U);
+	msgText.setPosition(0.0f, 75.0f);
+
+	Draw();
+}
+
+void Server::DisplayMessage(std::string message)
+{
+	msgs.push_back(message);
+	if (msgs.size() > maxMsgs)
+		msgs.erase(msgs.begin());
+
+	sf::String complStr = "Messages:\n";
+	for (const sf::String msg : msgs)
+	{
+		complStr += msg + "\n";
+	}
+	msgText.setString(complStr);
+}
+#pragma endregion
+
+#pragma region General
 void Server::Update()
 {
 	lastMsg = "";
@@ -292,27 +309,53 @@ void Server::Update()
 					//TODO: Disconnect sound
 				}
 			}
-		
+
 		}
 	}
 	connectToClient();
 	Draw();
 }
 
-void Server::Enter()
+void Server::Run()
 {
-	if (textBox.Text() != "" && textBox.Text() != textBox.getStdText())
+	textBox.Select();
+	while (cr::currWin().isOpen())
 	{
-		this->SendString(textBox.Text());
+		input::handleInput();
+		sf::Event evnt;
+		while (cr::currWin().pollEvent(evnt))
+		{
+			switch (evnt.type)
+			{
+			case sf::Event::Closed:
+				own_log::AppendToLog("You shut down the server, by closing the window");
+				own_log::AppendToLog("-------------------------------------------------------------\n", false);
+				Shutdown("Host closed the window!", true);
+				return;
+				break;
+			case sf::Event::TextEntered:
+				if (evnt.text.unicode != 13)
+				{
+					textBox.Update(evnt.text.unicode);
+				}
+				else
+				{
+					textBox.Unselect();
+					Enter();
+					textBox.Select();
+				}
+				break;
+			case sf::Event::MouseButtonPressed:
+				if (evnt.mouseButton.button == sf::Mouse::Left)
+				{
 
-		sf::String tmpStr = textBox.Text();
-		tmpStr = "You: " + tmpStr;
-
-		DisplayMessage(tmpStr);
-		if (!muted)
-			snd::playSound("send_01");
+				}
+				break;
+			}
+		}
+		textBox.Update((char)0);
+		Update();
 	}
-	textBox.SetNormal();
 }
 
 void Server::printNames()
@@ -322,55 +365,35 @@ void Server::printNames()
 		own_log::pushMsgToCommandIfDebug("Slot " + std::to_string(i) + ": " + names.at(i));
 	}
 }
+#pragma endregion
 
-void Server::Shutdown(sf::String optMsg, bool replaceOld)
+#pragma region Callbacks
+void Server::initCallbacks()
 {
-	sf::String nsc = NO_SOUND_MSG;
-	std::wcout << nsc.toWideString() << std::endl;
-	if (optMsg == "")
-		SendStringWithoutName(nsc + L"[Server was shut down]");
-	else if(!replaceOld)
-		SendStringWithoutName(nsc + L"[Server was shut down. Message: " + optMsg + L"]");
-	else
-		SendStringWithoutName(nsc + L"[" + optMsg + L"]");
-
-	SendStringWithoutName(SHUTDOWN_MSG);
-	for (int i = 0; i < (int)sockets.size(); i++)
-		disconnectSocket(i);
+	input::addLeftMouseCallback(lMCb, callback_id);
+	input::addCloseCallback(cCb, callback_id);
+	input::addTextEnteredCallback(tECb, callback_id);
 }
 
-void Server::disconnectSocket(int index, std::string reason)
+void Server::leftMCallback(int x, int y)
 {
-	if (reason != "")
-		SendString("[Disconnected from server. Reason: " + reason + "]", (*sockets.at(index).get()));
-	else
-		SendString("[Disconnected from server for an unknown reason]", (*sockets.at(index).get()));
-	Sleep(100);
-
-	sockets.at(index).get()->disconnect();
-}
-
-void Server::disconnectSocket(sf::TcpSocket& socket, std::string reason)
-{
-	if (reason != "")
-		SendString("[Disconnected from server. Reason: " + reason + "]", socket);
-	else
-		SendString("[Disconnected from server for an unknown reason]", socket);
-	Sleep(100);
-
-	socket.disconnect();
-}
-
-void Server::DisplayMessage(std::string message)
-{
-	msgs.push_back(message);
-	if (msgs.size() > maxMsgs)
-		msgs.erase(msgs.begin());
-
-	sf::String complStr = "Messages:\n";
-	for (const sf::String msg : msgs)
+	if (muteBox.CheckClick())
+		muted = muteBox.isChecked();
+	textBox.SelectOrUnselect();
+	if (sendButton.validClick(true))
 	{
-		complStr += msg + "\n";
+		Enter();
+		textBox.Select();
 	}
-	msgText.setString(complStr);
 }
+
+void Server::closeCallback()
+{
+	//TODO add these
+}
+
+void Server::textEnteredCallback(sf::Event::TextEvent)
+{
+
+}
+#pragma endregion

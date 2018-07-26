@@ -24,6 +24,14 @@ SFML is used for basic graphics for which I wrote own classes for Input, etc. li
 - [ ] Proper Pop-Up support
 - [ ] More sounds
 - [ ] Own class/namespace for Discord Rich Presence 
+- [ ] Settings window
+  - [ ] Persistent
+- [ ] Simple commands
+- [ ] Structuring the code
+  - [ ] Using regions
+  - [ ] Constant naming scheme
+    - Example: Server (Run(), Update(), printNames())
+      - Capital letters no indication of access modifier
 
 
 
@@ -31,10 +39,10 @@ SFML is used for basic graphics for which I wrote own classes for Input, etc. li
 
 - [ ] Webserver to enable usage over WI-FI
 - [ ] Make Client- and Serverclasses that can be inherited to have custom Clients/Servers
-- [ ] Commands
+- [ ] Extended commands
 - [ ] Scalable window
 - [ ] **Unicode** ☺ ♘ ⚽ ⛓ 
-- [ ] Smilies
+- [ ] Emojis
 - [ ] Persistent accounts on a server
   - Restartable server
   - Saved chat on server

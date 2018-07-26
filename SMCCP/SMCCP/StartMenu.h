@@ -13,8 +13,6 @@
 
 #include "InputHandler.h"
 
-#define CALLBACK_ID "startMenu"
-
 class StartMenu
 {
 public:
@@ -44,6 +42,8 @@ private:
 public:
 	StartMenu();
 	~StartMenu();
+
+	const std::string callback_id = "startMenu";
 
 	Result open();
 
