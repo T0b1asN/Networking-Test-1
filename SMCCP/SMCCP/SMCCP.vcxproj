@@ -151,14 +151,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AudioUtil.cpp" />
     <ClCompile Include="CheckBox.cpp" />
     <ClCompile Include="Client.cpp" />
-    <ClCompile Include="LogUtil.cpp" />
+    <ClCompile Include="util.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="InputHandler.cpp" />
     <ClCompile Include="NamePrompt.cpp" />
-    <ClCompile Include="NetworkHelpers.cpp" />
     <ClCompile Include="OwnButton.cpp" />
     <ClCompile Include="PopUp.cpp" />
     <ClCompile Include="Server.cpp" />
@@ -167,15 +165,13 @@
     <ClCompile Include="TextBox.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AudioUtil.h" />
     <ClInclude Include="CheckBox.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="curr.h" />
     <ClInclude Include="Defines.h" />
-    <ClInclude Include="LogUtil.h" />
+    <ClInclude Include="util.h" />
     <ClInclude Include="InputHandler.h" />
     <ClInclude Include="NamePrompt.h" />
-    <ClInclude Include="NetworkHelpers.h" />
     <ClInclude Include="OwnButton.h" />
     <ClInclude Include="PopUp.h" />
     <ClInclude Include="Server.h" />

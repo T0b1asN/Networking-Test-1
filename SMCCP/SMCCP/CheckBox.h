@@ -1,6 +1,6 @@
 #pragma once
 #include "SFML.h"
-#include "LogUtil.h"
+#include "util.h"
 #include "curr.h"
 
 class CheckBox

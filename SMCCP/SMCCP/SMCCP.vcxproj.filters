@@ -13,15 +13,6 @@
     <ClCompile Include="stringutildef.cpp">
       <Filter>Source\Util</Filter>
     </ClCompile>
-    <ClCompile Include="LogUtil.cpp">
-      <Filter>Source\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="AudioUtil.cpp">
-      <Filter>Source\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="NetworkHelpers.cpp">
-      <Filter>Source\Util</Filter>
-    </ClCompile>
     <ClCompile Include="CheckBox.cpp">
       <Filter>Source\UI\Elements</Filter>
     </ClCompile>
@@ -43,6 +34,9 @@
     <ClCompile Include="InputHandler.cpp">
       <Filter>Source\Util</Filter>
     </ClCompile>
+    <ClCompile Include="util.cpp">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stringutil.h">
@@ -61,15 +55,6 @@
       <Filter>Headers\Networking</Filter>
     </ClInclude>
     <ClInclude Include="Defines.h">
-      <Filter>Headers\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="LogUtil.h">
-      <Filter>Headers\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="AudioUtil.h">
-      <Filter>Headers\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="NetworkHelpers.h">
       <Filter>Headers\Util</Filter>
     </ClInclude>
     <ClInclude Include="CheckBox.h">
@@ -94,6 +79,9 @@
       <Filter>Headers\Interfaces</Filter>
     </ClInclude>
     <ClInclude Include="InputHandler.h">
+      <Filter>Headers\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="util.h">
       <Filter>Headers\Util</Filter>
     </ClInclude>
   </ItemGroup>

@@ -19,6 +19,8 @@ Server::Server(std::string pName, bool pBlock, unsigned int pPort, unsigned int 
 
 	initGraphics();
 	initCallbacks();
+
+	run = true;
 }
 
 Server::~Server()
@@ -45,17 +47,17 @@ std::string Server::getInfo()
 
 int Server::setup()
 {
-	own_log::AppendToLog("\nServer session\n-------------------------------------------------------------", false);
-	own_log::AppendToLog("Setting up server on port " + std::to_string(port) + " with name " + name);
+	own_log::append("\nServer session\n-------------------------------------------------------------", false);
+	own_log::append("Setting up server on port " + std::to_string(port) + " with name " + name);
 	listener.setBlocking(block);
 	if (listener.listen(port) != sf::Socket::Status::Done)
 	{
-		own_log::pushMsgToCommandIfDebug("Error - Could not set up server!");
-		own_log::AppendToLog("-------------------------------------------------------------\n", false);
+		debug::log("Error - Could not set up server!");
+		own_log::append("-------------------------------------------------------------\n", false);
 		return 1;
 	}
-	own_log::pushMsgToCommandIfDebug("Connected... Port: " + std::to_string(port));
-	own_log::AppendToLog("Server setup finished");
+	debug::log("Connected... Port: " + std::to_string(port));
+	own_log::append("Server setup finished");
 	return 0;
 }
 
@@ -104,13 +106,13 @@ void Server::connectToClient()
 		selector.add((*sockets.back().get()));
 
 		lastMsg = "[" + newSocketName + " connected]";
-		own_log::pushMsgToCommandIfDebug((std::string)lastMsg);
+		debug::log((std::string)lastMsg);
 
 		std::string nsc = NO_SOUND_MSG;
 		SendString(nsc + lastMsg, socketsConnected - 1);
 		DisplayMessage(lastMsg);
 
-		own_log::AppendToLog("New client named " + newSocketName + " | Now there are " + std::to_string(socketsConnected) + " sockets connected");
+		own_log::append("New client named " + newSocketName + " | Now there are " + std::to_string(socketsConnected) + " sockets connected");
 	}
 	else
 	{
@@ -121,7 +123,7 @@ void Server::connectToClient()
 
 		disconnectSocket(errorSocket, "Server is full!");
 
-		own_log::AppendToLog("Client tried to connect, even though the server is full");
+		own_log::append("Client tried to connect, even though the server is full");
 
 		return;
 	}
@@ -291,14 +293,14 @@ void Server::Update()
 				else
 				{
 					lastMsg = "[" + names.at(i) + " disconnected]";
-					own_log::pushMsgToCommandIfDebug((std::string)lastMsg);
+					debug::log((std::string)lastMsg);
 
 					//disconnect and delete socket
 					selector.remove((*sockets.at(i).get()));
 					(*sockets.at(i).get()).disconnect();
 					sockets.erase(sockets.begin() + i);
 					socketsConnected--;
-					own_log::AppendToLog(names.at(i) + " (Place " + std::to_string(i) +
+					own_log::append(names.at(i) + " (Place " + std::to_string(i) +
 						") disconnected | Now there are " + std::to_string(socketsConnected) + " sockets connected");
 					names.erase(names.begin() + i);
 
@@ -319,40 +321,9 @@ void Server::Update()
 void Server::Run()
 {
 	textBox.Select();
-	while (cr::currWin().isOpen())
+	while (cr::currWin().isOpen() && run)
 	{
 		input::handleInput();
-		sf::Event evnt;
-		while (cr::currWin().pollEvent(evnt))
-		{
-			switch (evnt.type)
-			{
-			case sf::Event::Closed:
-				own_log::AppendToLog("You shut down the server, by closing the window");
-				own_log::AppendToLog("-------------------------------------------------------------\n", false);
-				Shutdown("Host closed the window!", true);
-				return;
-				break;
-			case sf::Event::TextEntered:
-				if (evnt.text.unicode != 13)
-				{
-					textBox.Update(evnt.text.unicode);
-				}
-				else
-				{
-					textBox.Unselect();
-					Enter();
-					textBox.Select();
-				}
-				break;
-			case sf::Event::MouseButtonPressed:
-				if (evnt.mouseButton.button == sf::Mouse::Left)
-				{
-
-				}
-				break;
-			}
-		}
 		textBox.Update((char)0);
 		Update();
 	}
@@ -362,7 +333,7 @@ void Server::printNames()
 {
 	for (int i = 0; i < (int)names.size(); i++)
 	{
-		own_log::pushMsgToCommandIfDebug("Slot " + std::to_string(i) + ": " + names.at(i));
+		debug::log("Slot " + std::to_string(i) + ": " + names.at(i));
 	}
 }
 #pragma endregion
@@ -389,11 +360,23 @@ void Server::leftMCallback(int x, int y)
 
 void Server::closeCallback()
 {
-	//TODO add these
+	own_log::append("You shut down the server, by closing the window");
+	own_log::append("-------------------------------------------------------------\n", false);
+	Shutdown("Host closed the window!", true);
+	run = false;
 }
 
-void Server::textEnteredCallback(sf::Event::TextEvent)
+void Server::textEnteredCallback(sf::Event::TextEvent text)
 {
-
+	if (text.unicode != 13)
+	{
+		textBox.Update(text.unicode);
+	}
+	else
+	{
+		textBox.Unselect();
+		Enter();
+		textBox.Select();
+	}
 }
 #pragma endregion

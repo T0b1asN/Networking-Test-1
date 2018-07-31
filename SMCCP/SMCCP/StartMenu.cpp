@@ -69,16 +69,16 @@ void StartMenu::leftMouseDown(int x, int y)
 		}
 		catch (std::invalid_argument inv_arg)
 		{
-			own_log::pushMsgToCommandIfDebug("Invalid Port");
+			debug::log("Invalid Port");
 		}
 		catch (std::out_of_range oor)
 		{
-			own_log::pushMsgToCommandIfDebug("Port out of Range");
+			debug::log("Port out of Range");
 		}
 	}
 	else if (clientButton.validClick(true))
 	{
-		if (ntwrk::validIp(ipBox.Text()))
+		if (network::validIp(ipBox.Text()))
 		{
 			adress = sf::IpAddress(ipBox.Text());
 
@@ -90,11 +90,11 @@ void StartMenu::leftMouseDown(int x, int y)
 			}
 			catch (std::invalid_argument inv_arg)
 			{
-				own_log::pushMsgToCommandIfDebug("Invalid Port");
+				debug::log("Invalid Port");
 			}
 			catch (std::out_of_range oor)
 			{
-				own_log::pushMsgToCommandIfDebug("Port out of Range");
+				debug::log("Port out of Range");
 			}
 		}
 	}

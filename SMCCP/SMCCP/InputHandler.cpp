@@ -14,7 +14,7 @@ sf::RenderWindow* focus;
 void input::addLeftMouseCallback(mouseCallback cb, std::string name)
 {
 	lMouseCallbacks[name] = cb;
-	own_log::pushMsgToCommandIfDebug("Added a callback; ID: " + name);
+	debug::log("Added a left mouse callback; ID: " + name);
 }
 
 void input::deleteLMouseCallback(std::string name)
@@ -35,7 +35,7 @@ input::mouseCallback input::getLMouseCallback(std::string name)
 void input::addCloseCallback(closeCallback cb, std::string name)
 {
 	closeCallbacks[name] = cb;
-	own_log::pushMsgToCommandIfDebug("Added a callback; ID: " + name);
+	debug::log("Added a close callback; ID: " + name);
 }
 
 void input::deleteCloseCallback(std::string name)
@@ -56,7 +56,7 @@ input::closeCallback input::getCloseCallback(std::string name)
 void input::addTextEnteredCallback(textEnteredCallback cb, std::string name)
 {
 	textEnteredCallbacks[name] = cb;
-	own_log::pushMsgToCommandIfDebug("Added a callback; ID: " + name);
+	debug::log("Added a text entered callback; ID: " + name);
 }
 
 void input::deleteTextEnteredCallback(std::string name)
@@ -109,10 +109,10 @@ void input::cleanCallbacks()
 	tECbDelete.shrink_to_fit();
 
 	if(count > 0)
-		own_log::pushMsgToCommandIfDebug("Deleted " + std::to_string(count) + " callbacks!");
+		debug::log("Deleted " + std::to_string(count) + " callbacks!");
 	int ncount = lMouseCallbacks.size() + closeCallbacks.size() + textEnteredCallbacks.size();
 	if(count > 0)
-		own_log::pushMsgToCommandIfDebug("There are " + std::to_string(count) + " callbacks left");
+		debug::log("There are " + std::to_string(ncount) + " callbacks left");
 }
 
 void input::handleInput()

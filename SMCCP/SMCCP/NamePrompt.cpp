@@ -12,7 +12,7 @@ NamePrompt::NamePrompt() :
 	if (icon.loadFromFile("res\\AppIcon.png"))
 		prompt.setIcon(626, 626, icon.getPixelsPtr());
 	else
-		own_log::AppendToLog("Icon could not be loaded!");
+		own_log::append("Icon could not be loaded!");
 
 	initCallbacks();
 
@@ -64,7 +64,7 @@ void NamePrompt::display()
 
 void NamePrompt::leftMouseDown(int x, int y)
 {
-	if (nameBox.wasChanged() && nameBox.Text() != "")
+	if (nameBox.changed() && nameBox.Text() != "")
 	{
 		if (okButton.validClick(true))
 		{
@@ -84,7 +84,7 @@ void NamePrompt::textEntered(sf::Event::TextEvent text)
 	else
 	{
 		nameBox.Unselect();
-		if (nameBox.wasChanged() && nameBox.Text() != "")
+		if (nameBox.changed() && nameBox.Text() != "")
 		{
 			name = nameBox.Text();
 			nextWindow();

@@ -2,7 +2,6 @@
 #include "SFML.h"
 #include "curr.h"
 #include "Defines.h"
-#include "NetworkHelpers.h"
 
 #include "OwnButton.h"
 #include "TextBox.h"

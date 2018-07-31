@@ -834,3 +834,365 @@ Server session
 Loading audio files
 27.07.2018 01:11:24 - Loaded 3 audiofiles - without error: true
 **********************************
+
+**********************************
+Loading audio files
+31.07.2018 18:57:13 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 18:57:14 - Button: callback not set!
+31.07.2018 18:57:17 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+31.07.2018 18:57:17 - Setting up server on port 1234 with name dfgsdf
+31.07.2018 18:57:17 - Server setup finished
+31.07.2018 18:57:21 - Button: callback not set!
+31.07.2018 18:57:22 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+31.07.2018 19:05:08 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 19:05:11 - Button: callback not set!
+31.07.2018 19:05:16 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+31.07.2018 19:05:16 - Setting up server on port 1234 with name 123Bernd321
+31.07.2018 19:05:16 - Server setup finished
+31.07.2018 19:06:08 - New client named 321Bernd123 | Now there are 1 sockets connected
+31.07.2018 19:06:17 - 321Bernd123 (Place 0) disconnected | Now there are 0 sockets connected
+31.07.2018 19:06:19 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+31.07.2018 19:06:31 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 19:06:33 - Button: callback not set!
+31.07.2018 19:06:36 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+31.07.2018 19:06:36 - Trying to connect to 192.168.178.184 as wads2
+31.07.2018 19:06:36 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as wads2
+--------------------------------
+
+
+**********************************
+Loading audio files
+31.07.2018 19:07:03 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 19:07:04 - Button: callback not set!
+31.07.2018 19:07:06 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+31.07.2018 19:07:06 - Setting up server on port 1234 with name sdfef
+31.07.2018 19:07:06 - Server setup finished
+31.07.2018 19:07:13 - New client named asdwd | Now there are 1 sockets connected
+31.07.2018 19:07:22 - asdwd (Place 0) disconnected | Now there are 0 sockets connected
+31.07.2018 19:07:42 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+31.07.2018 19:07:58 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 19:08:17 - Button: callback not set!
+31.07.2018 19:08:20 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+31.07.2018 19:08:20 - Trying to connect to 192.168.178.184 as efsdf
+31.07.2018 19:08:20 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as efsdf
+--------------------------------
+
+
+**********************************
+Loading audio files
+31.07.2018 19:10:45 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 19:10:47 - Button: callback not set!
+31.07.2018 19:10:50 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+31.07.2018 19:10:50 - Setting up server on port 1234 with name asdwads
+31.07.2018 19:10:50 - Server setup finished
+31.07.2018 19:10:50 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+31.07.2018 19:10:54 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 19:11:03 - Button: callback not set!
+31.07.2018 19:11:07 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+31.07.2018 19:11:07 - Trying to connect to 192.168.178.184 as asdwdasd
+31.07.2018 19:11:07 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as asdwdasd
+--------------------------------
+
+
+**********************************
+Loading audio files
+31.07.2018 19:12:49 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 19:12:49 - Button: callback not set!
+31.07.2018 19:12:53 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+31.07.2018 19:12:53 - Trying to connect to 192.168.178.184 as 1234
+31.07.2018 19:12:55 - Could not connect
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+31.07.2018 19:13:13 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 19:13:14 - Button: callback not set!
+31.07.2018 19:13:37 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+31.07.2018 19:13:38 - Trying to connect to 192.168.178.184 as dsfefs
+31.07.2018 19:13:40 - Could not connect
+-------------------------------------------------------------
+
+31.07.2018 19:13:40 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+31.07.2018 19:27:59 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 19:28:00 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+31.07.2018 19:28:14 - Setting up server on port 1234 with name 
+31.07.2018 19:28:14 - Server setup finished
+31.07.2018 19:28:17 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+31.07.2018 19:29:16 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 19:29:17 - Button: callback not set!
+31.07.2018 19:29:20 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+31.07.2018 19:29:20 - Setting up server on port 1234 with name dsfesdfa
+31.07.2018 19:29:20 - Server setup finished
+31.07.2018 19:29:28 - New client named asdwd | Now there are 1 sockets connected
+31.07.2018 19:29:33 - asdwd (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+31.07.2018 19:30:19 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 19:30:20 - Button: callback not set!
+31.07.2018 19:30:22 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+31.07.2018 19:30:23 - Setting up server on port 1234 with name xcvdv
+31.07.2018 19:30:23 - Server setup finished
+31.07.2018 19:30:37 - New client named 456484565 | Now there are 1 sockets connected
+31.07.2018 19:30:41 - 456484565 (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+31.07.2018 19:30:53 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 19:30:54 - Button: callback not set!
+31.07.2018 19:30:56 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+31.07.2018 19:30:57 - Setting up server on port 1234 with name xcvxdv
+31.07.2018 19:30:57 - Server setup finished
+31.07.2018 19:31:07 - New client named zxcsc | Now there are 1 sockets connected
+31.07.2018 19:31:11 - zxcsc (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+31.07.2018 19:31:57 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 19:31:58 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+31.07.2018 19:32:00 - Setting up server on port 1234 with name 654
+31.07.2018 19:32:00 - Server setup finished
+31.07.2018 19:32:08 - New client named 789564 | Now there are 1 sockets connected
+31.07.2018 19:32:14 - 789564 (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+31.07.2018 21:55:42 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+31.07.2018 21:56:12 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 21:56:14 - Button: callback not set!
+31.07.2018 21:56:21 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+31.07.2018 21:56:21 - Setting up server on port 1234 with name 1234
+31.07.2018 21:56:21 - Server setup finished
+31.07.2018 21:57:06 - New client named 2134 | Now there are 1 sockets connected
+31.07.2018 21:57:11 - 2134 (Place 0) disconnected | Now there are 0 sockets connected
+31.07.2018 21:57:17 - Button: callback not set!
+
+**********************************
+Loading audio files
+31.07.2018 21:58:03 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 21:58:05 - Button: callback not set!
+31.07.2018 21:58:07 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+31.07.2018 21:58:08 - Setting up server on port 1234 with name sdfesf
+31.07.2018 21:58:08 - Server setup finished
+31.07.2018 21:58:20 - New client named qwe | Now there are 1 sockets connected
+31.07.2018 21:58:29 - qwe (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+31.07.2018 22:00:56 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 22:00:58 - Button: callback not set!
+31.07.2018 22:01:00 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+31.07.2018 22:01:00 - Setting up server on port 1234 with name 1234
+31.07.2018 22:01:00 - Server setup finished
+31.07.2018 22:01:11 - New client named awdasd | Now there are 1 sockets connected
+31.07.2018 22:01:16 - awdasd (Place 0) disconnected | Now there are 0 sockets connected
+31.07.2018 22:01:17 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+31.07.2018 22:23:26 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+31.07.2018 22:32:47 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+31.07.2018 22:48:44 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 22:48:45 - Button: callback not set!
+31.07.2018 22:48:46 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+31.07.2018 22:48:47 - Setting up server on port 1234 with name dfg
+31.07.2018 22:48:47 - Server setup finished
+31.07.2018 22:48:59 - New client named sdf | Now there are 1 sockets connected
+31.07.2018 22:49:07 - sdf (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+31.07.2018 22:49:48 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 22:49:48 - Button: callback not set!
+31.07.2018 22:49:50 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+31.07.2018 22:49:50 - Setting up server on port 1234 with name dsf
+31.07.2018 22:49:50 - Server setup finished
+31.07.2018 22:49:55 - New client named dfg | Now there are 1 sockets connected
+31.07.2018 22:49:58 - dfg (Place 0) disconnected | Now there are 0 sockets connected
+31.07.2018 22:50:02 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+31.07.2018 22:51:09 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 22:51:09 - Button: callback not set!
+31.07.2018 22:51:12 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+31.07.2018 22:51:12 - Setting up server on port 1234 with name asd
+31.07.2018 22:51:12 - Server setup finished
+31.07.2018 22:51:30 - New client named zxcs | Now there are 1 sockets connected
+31.07.2018 22:51:35 - zxcs (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+31.07.2018 22:55:01 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 22:55:02 - Button: callback not set!
+31.07.2018 22:55:05 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+31.07.2018 22:55:05 - Setting up server on port 1234 with name sdffgwfd
+31.07.2018 22:55:05 - Server setup finished
+31.07.2018 22:55:12 - New client named asdwd | Now there are 1 sockets connected
+31.07.2018 22:55:16 - asdwd (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+31.07.2018 22:55:34 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 22:55:35 - Button: callback not set!
+31.07.2018 22:55:40 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+31.07.2018 22:55:40 - Setting up server on port 1234 with name wdadwdasdadwada
+31.07.2018 22:55:40 - Server setup finished
+31.07.2018 22:55:49 - New client named wdasd2dqasd | Now there are 1 sockets connected
+31.07.2018 22:55:53 - wdasd2dqasd (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+31.07.2018 22:56:31 - Loaded 3 audiofiles - without error: true
+**********************************
+31.07.2018 22:56:32 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+31.07.2018 22:56:35 - Setting up server on port 1234 with name 6546574
+31.07.2018 22:56:35 - Server setup finished
+31.07.2018 22:56:44 - New client named 987456423156165 | Now there are 1 sockets connected
+31.07.2018 22:56:51 - 987456423156165 (Place 0) disconnected | Now there are 0 sockets connected

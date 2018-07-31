@@ -16,6 +16,9 @@ Client::Client(bool pBlock, int pPort, sf::IpAddress address) :
 	muted = muteBox.isChecked();
 
 	initGraphics();
+	initCallbacks();
+
+	run = true;
 }
 
 Client::~Client()
@@ -44,14 +47,14 @@ int Client::setup()
 		"\nVersion: " + VERSION + "\nConnected to " + ip.toString());
 	Draw();
 
-	own_log::AppendToLog("\nClient session\n-------------------------------------------------------------", false);
-	own_log::AppendToLog("Trying to connect to " + ip.toString() + " as " + name);
+	own_log::append("\nClient session\n-------------------------------------------------------------", false);
+	own_log::append("Trying to connect to " + ip.toString() + " as " + name);
 
 	if (socket.connect(ip, port, sf::seconds(2.f)) != sf::Socket::Done)
 	{
-		own_log::pushMsgToCommandIfDebug("Could not connect");
-		own_log::AppendToLog("Could not connect");
-		own_log::AppendToLog("-------------------------------------------------------------\n", false);
+		debug::log("Could not connect");
+		own_log::append("Could not connect");
+		own_log::append("-------------------------------------------------------------\n", false);
 		return 1;
 	}
 
@@ -66,16 +69,17 @@ int Client::setup()
 	
 	if (resp == "1")
 	{
+		// Name already exists on Server, disconnect and ask for another name
 		socket.disconnect();
 		setup();
 		return 3;
 	}
 
-	own_log::pushMsgToCommandIfDebug("Connected");
+	debug::log("Connected");
 	DisplayMessage("[Connected to: " + ip.toString() + "]");
 
-	own_log::AppendToLog("Connected to: " + ip.toString());
-	own_log::AppendToLog("\n--------------------------------\n|	Connected as " + name + "\n--------------------------------\n", false);
+	own_log::append("Connected to: " + ip.toString());
+	own_log::append("\n--------------------------------\n|	Connected as " + name + "\n--------------------------------\n", false);
 	socket.setBlocking(block);
 	return 0;
 }
@@ -90,8 +94,8 @@ void Client::Update()
 	{
 		if (!(receiveData >> lastMsg))
 		{
-			own_log::pushMsgToCommandIfDebug("Error in receiving");
-			own_log::AppendToLog("Error in receiving");
+			debug::log("Error in receiving");
+			own_log::append("Error in receiving");
 			return;
 		}
 		if (lastMsg != "" && lastMsg != SHUTDOWN_MSG)
@@ -122,50 +126,59 @@ void Client::Update()
 void Client::Run()
 {
 	textBox.Select();
-	while (cr::currWin().isOpen())
+	while (cr::currWin().isOpen() && run)
 	{
-		sf::Event evnt;
-		while (cr::currWin().pollEvent(evnt))
-		{
-			switch (evnt.type)
-			{
-			case sf::Event::Closed:
-				own_log::AppendToLog("Disconnect from server due to closing the window");
-				own_log::AppendToLog("-------------------------------------------------------------\n", false);
-				socket.disconnect();
-				return;
-				break;
-			case sf::Event::TextEntered:
-				if (evnt.text.unicode != 13)
-				{
-					textBox.Update(evnt.text.unicode);
-				}
-				else
-				{
-					textBox.Unselect();
-					Enter();
-					textBox.Select();
-				}
-				break;
-			case sf::Event::MouseButtonPressed:
-				if (evnt.mouseButton.button == sf::Mouse::Left)
-				{
-					if (muteBox.CheckClick())
-						muted = muteBox.isChecked();
-					textBox.SelectOrUnselect();
-					if (sendButton.validClick(true))
-					{
-						Enter();
-						textBox.Select();
-					}
-				}
-				break;
-			}
-		}
+		input::handleInput();
 		textBox.Update((char)0);
 		Update();
 	}
 	socket.disconnect();
+}
+
+void Client::initCallbacks()
+{
+	input::addLeftMouseCallback(lMCb, callback_id);
+	input::addCloseCallback(cCb, callback_id);
+	input::addTextEnteredCallback(tECb, callback_id);
+}
+
+void Client::leftMCallback(int x, int y)
+{
+	if (muteBox.CheckClick())
+	{
+		debug::pause();
+		muted = muteBox.isChecked();
+	}
+	textBox.SelectOrUnselect();
+	if (sendButton.validClick(true))
+	{
+		Enter();
+		textBox.Select();
+	}
+}
+
+void Client::closeCallback()
+{
+	own_log::append("Disconnect from server due to closing the window");
+	own_log::append("-------------------------------------------------------------\n", false);
+	socket.disconnect();
+	run = false;
+	debug::pause();
+}
+
+void Client::textEnteredCallback(sf::Event::TextEvent text)
+{
+	//std::cout << text.unicode << std::endl;
+	if (text.unicode != 13)
+	{
+		textBox.Update(text.unicode);
+	}
+	else
+	{
+		textBox.Unselect();
+		Enter();
+		textBox.Select();
+	}
 }
 
 void Client::Draw()
@@ -214,8 +227,8 @@ void Client::initGraphics()
 
 void Client::OnServerDisconnect()
 {
-	own_log::AppendToLog("Disconnected from " + ip.toString() + " due to server");
-	own_log::AppendToLog("-------------------------------------------------------------", false);
+	own_log::append("Disconnected from " + ip.toString() + " due to server");
+	own_log::append("-------------------------------------------------------------", false);
 	socket.disconnect();
 	if (!muted)
 		snd::playSound("error_01");

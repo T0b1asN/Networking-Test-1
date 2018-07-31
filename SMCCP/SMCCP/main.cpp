@@ -15,9 +15,6 @@
 #include <string>
 #include <ctime>
 
-#include "AudioUtil.h"
-#include "NetworkHelpers.h"
-
 #ifdef DISCORD_RICH_PRESENCE
 #include "discord_register.h"
 #include "discord_rpc.h"
@@ -44,14 +41,14 @@ std::vector<UIElement*> elementsVec;
 
 int main()
 {
-	if (own_log::CreateLog() == 0)
+	if (own_log::create() == 0)
 	{
-		own_log::pushMsgToCommandIfDebug("Created log file");
-		own_log::AppendToLog("Created log file");
+		debug::log("Created log file");
+		own_log::append("Created log file");
 	}
 
 	if (!snd::LoadAllSounds())
-		own_log::pushMsgToCommandIfDebug("Couldn't load all sounds");
+		debug::log("Couldn't load all sounds");
 	
 #ifdef DISCORD_RICH_PRESENCE
 	InitDiscord();
@@ -70,7 +67,7 @@ int main()
 	StartMenu::Result stMenRes = stMen.open();
 	sf::IpAddress enteredIp = stMen.getIp();
 	unsigned int port = stMen.getPort();
-	own_log::pushMsgToCommandIfDebug("Port: " + std::to_string(port) + "; Ip: " + enteredIp.toString());
+	debug::log("Port: " + std::to_string(port) + "; Ip: " + enteredIp.toString());
 
 	switch (stMenRes)
 	{
@@ -90,15 +87,14 @@ int main()
 	case StartMenu::Client:
 		GraphicsSetup(1000U, 750U);
 		RunClient(enteredIp, port);
-
 		break;
 	case StartMenu::Close:
 		return 0;
 		break;
 	default:
-		own_log::AppendToLog("Wrong return from StartMenu!");
-		own_log::pushMsgToCommandIfDebug("Wrong return fromm StartMenu!");
-		//TODO stop only if in debug (new method i own_log)
+		own_log::append("Wrong return from StartMenu!");
+		debug::log("Wrong return fromm StartMenu!");
+		//TODO stop only if in debug (new method in own_log)
 		system("pause");
 		//TODO error box (if in release)
 		break;
@@ -107,6 +103,7 @@ int main()
 #ifdef DISCORD_RICH_PRESENCE
 	Discord_Shutdown();
 #endif
+	system("pause");
 	return 0;
 }
 
@@ -119,7 +116,7 @@ void GraphicsSetup(unsigned int width, unsigned int height)
 	if (icon.loadFromFile("res\\AppIcon.png"))
 		win.setIcon(626, 626, icon.getPixelsPtr());
 	else
-		own_log::AppendToLog("Icon could not be loaded!");
+		own_log::append("Icon could not be loaded!");
 	std::string fontName = FONT_NORM;
 	mainFont.loadFromFile("res\\fonts\\" + fontName);
 
@@ -134,7 +131,7 @@ void RunServer(std::string name, int port)
 	int setupCode = server.setup();
 	if (setupCode != 0)
 	{
-		own_log::AppendToLog("Error " + std::to_string(setupCode) + " while setting up the server");
+		own_log::append("Error " + std::to_string(setupCode) + " while setting up the server");
 		return;
 	}
 	server.connectToClient();
@@ -147,6 +144,7 @@ void RunClient(sf::IpAddress adress, unsigned int port)
 	if(client.setup() == 2)
 		return;
 	client.Run();
+	debug::pause();
 }
 
 std::string getCurrTime()
@@ -245,6 +243,6 @@ void InitDiscord()
 
 	// Discord_Initialize(const char* applicationId, DiscordEventHandlers* handlers, int autoRegister, const char* optionalSteamId)
 	Discord_Initialize(DISCORD_CLIENT_ID, &handlers, 0, "");
-	own_log::pushMsgToCommandIfDebug("Discord Rich Presence enabled!");
+	debug::pushMsgToCommandIfDebug("Discord Rich Presence enabled!");
 }
 #endif

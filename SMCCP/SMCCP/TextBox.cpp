@@ -83,7 +83,6 @@ void TextBox::SelectOrUnselect(int x, int y)
 			}
 		}
 	}
-	std::cout << selected << std::endl;
 }
 
 void TextBox::Select()
@@ -122,7 +121,6 @@ void TextBox::Update(sf::String add)
 			else if(actualText.getSize() < maxChars)
 			{
 				actualText += add;
-				changed = true;
 			}
 		}
 		text.setString(actualText);
@@ -133,18 +131,16 @@ void TextBox::SetNormal()
 {
 	actualText = str_to_wstr(standardText);
 	text.setString(actualText);
-	changed = false;
 }
 
 sf::String TextBox::Text()
 { 
-	if (canReturnStdText)
-		return text.getString();
-
-	if (changed) 
-		return text.getString(); 
-	else 
+	if (text.getString() == standardText)
 	{
-		return ""; 
-	} 
+		if (canReturnStdText)
+			return text.getString();
+		return "";
+	}
+	else
+		return text.getString();
 }

@@ -5,10 +5,9 @@
 #include "TextBox.h"
 #include "CheckBox.h"
 #include "OwnButton.h"
-
-#include "AudioUtil.h"
 #include "NamePrompt.h"
-#include "LogUtil.h"
+
+#include "util.h"
 
 #include <iostream>
 #include <string>
@@ -81,8 +80,47 @@ public:
 	void DisplayMessage(std::string message);
 
 	//General
+private:
+	bool run = true;
+
 public:
 	void Update();
 	void Run();
+
+private:
+#pragma region Callbacks
+	void initCallbacks();
+#pragma endregion
+
+public:
+#pragma region Callbacks
+	// Callback stuff
+	const std::string callback_id = "client";
+
+	void leftMCallback(int x, int y);
+	// handle for leftMouseCallback
+	input::mouseCallback lMCb =
+		std::bind(
+			&Client::leftMCallback, this,
+			std::placeholders::_1,
+			std::placeholders::_2
+		);
+
+	void closeCallback();
+	// handle for closeCallback
+	input::closeCallback cCb =
+		std::bind(&Client::closeCallback, this);
+
+	void textEnteredCallback(sf::Event::TextEvent text);
+	// handle for textEnteredCallback
+	input::textEnteredCallback tECb =
+		std::bind(
+			&Client::textEnteredCallback, this,
+			std::placeholders::_1
+		);
+
+#pragma endregion
+
+
 };
 

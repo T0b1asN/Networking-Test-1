@@ -68,7 +68,7 @@ bool OwnButton::validClick(bool click)
 				if (callback)
 					callback();
 				else
-					own_log::AppendToLog("Button: callback not set!");
+					own_log::append("Button: callback not set!");
 				return true;
 			}
 		}

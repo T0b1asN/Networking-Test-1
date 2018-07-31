@@ -7,8 +7,6 @@
 #include "CheckBox.h"
 #include "OwnButton.h"
 
-#include "AudioUtil.h"
-
 #include "InputHandler.h"
 
 #include <iostream>
@@ -162,6 +160,8 @@ private:
 
 	//prints all names
 	void printNames();
+
+	bool run = true;
 #pragma endregion
 
 public:
@@ -194,7 +194,7 @@ public:
 	input::closeCallback cCb =
 		std::bind(&Server::closeCallback, this);
 
-	void textEnteredCallback(sf::Event::TextEvent);
+	void textEnteredCallback(sf::Event::TextEvent text);
 	// handle for textEnteredCallback
 	input::textEnteredCallback tECb =
 		std::bind(
