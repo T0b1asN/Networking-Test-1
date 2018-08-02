@@ -3,6 +3,8 @@
 #include <fstream>
 #include <string>
 #include <ctype.h>
+#include <locale>
+#include <codecvt>
 
 #include <map>
 #include <VECTOR>
@@ -70,5 +72,10 @@ namespace network
 	//Doesn't protect against 001.123.123.123 (0 as first digit of block)
 	//TODO: protect against 0 as first digit of multichar block
 	bool validIp(std::string ip);
+}
 
+namespace str
+{
+	std::wstring str_to_wstr(std::string src);
+	std::string wstr_to_str(std::wstring src);
 }

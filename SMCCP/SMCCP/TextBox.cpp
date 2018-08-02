@@ -9,7 +9,7 @@ TextBox::TextBox(sf::Vector2f pPos, sf::Vector2f pSize, std::string pStandardTex
 	fontSize = (unsigned int)size.y;
 
 	standardText = pStandardText;
-	actualText = str_to_wstr(standardText);
+	actualText = str::str_to_wstr(standardText);
 
 	text.setFont(cr::currFont());
 	text.setFillColor(pTextColor);
@@ -42,7 +42,7 @@ void TextBox::SelectOrUnselect()
 			selected = true;
 			if (deleteStdMsg)
 			{
-				if (actualText == str_to_wstr(standardText))
+				if (actualText == str::str_to_wstr(standardText))
 					actualText = L"";
 				text.setString(actualText);
 			}
@@ -52,7 +52,7 @@ void TextBox::SelectOrUnselect()
 			selected = false;
 			if (actualText == L"")
 			{
-				actualText = str_to_wstr(standardText);
+				actualText = str::str_to_wstr(standardText);
 				text.setString(actualText);
 			}
 		}
@@ -63,12 +63,12 @@ void TextBox::SelectOrUnselect(int x, int y)
 {
 	if (win->isOpen())
 	{
-		if (background.getGlobalBounds().contains(sf::Vector2f(x, y)))
+		if (background.getGlobalBounds().contains(sf::Vector2f((float)x, (float)y)))
 		{
 			selected = true;
 			if (deleteStdMsg)
 			{
-				if (actualText == str_to_wstr(standardText))
+				if (actualText == str::str_to_wstr(standardText))
 					actualText = L"";
 				text.setString(actualText);
 			}
@@ -78,7 +78,7 @@ void TextBox::SelectOrUnselect(int x, int y)
 			selected = false;
 			if (actualText == L"")
 			{
-				actualText = str_to_wstr(standardText);
+				actualText = str::str_to_wstr(standardText);
 				text.setString(actualText);
 			}
 		}
@@ -90,7 +90,7 @@ void TextBox::Select()
 	selected = true;
 	if (deleteStdMsg)
 	{
-		if (actualText == str_to_wstr(standardText))
+		if (actualText == str::str_to_wstr(standardText))
 			actualText = L"";
 		text.setString(actualText);
 	}
@@ -101,7 +101,7 @@ void TextBox::Unselect()
 	selected = false;
 	if (actualText == L"")
 	{
-		actualText = str_to_wstr(standardText);
+		actualText = str::str_to_wstr(standardText);
 		text.setString(actualText);
 	}
 }
@@ -129,7 +129,7 @@ void TextBox::Update(sf::String add)
 
 void TextBox::SetNormal()
 {
-	actualText = str_to_wstr(standardText);
+	actualText = str::str_to_wstr(standardText);
 	text.setString(actualText);
 }
 

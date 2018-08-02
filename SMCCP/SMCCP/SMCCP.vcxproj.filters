@@ -10,9 +10,6 @@
     <ClCompile Include="Server.cpp">
       <Filter>Source\Networking</Filter>
     </ClCompile>
-    <ClCompile Include="stringutildef.cpp">
-      <Filter>Source\Util</Filter>
-    </ClCompile>
     <ClCompile Include="CheckBox.cpp">
       <Filter>Source\UI\Elements</Filter>
     </ClCompile>
@@ -39,9 +36,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stringutil.h">
-      <Filter>Headers\Util</Filter>
-    </ClInclude>
     <ClInclude Include="SFML.h">
       <Filter>Headers\Util</Filter>
     </ClInclude>

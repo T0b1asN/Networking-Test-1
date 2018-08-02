@@ -161,7 +161,6 @@
     <ClCompile Include="PopUp.cpp" />
     <ClCompile Include="Server.cpp" />
     <ClCompile Include="StartMenu.cpp" />
-    <ClCompile Include="stringutildef.cpp" />
     <ClCompile Include="TextBox.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -177,7 +176,6 @@
     <ClInclude Include="Server.h" />
     <ClInclude Include="SFML.h" />
     <ClInclude Include="StartMenu.h" />
-    <ClInclude Include="stringutil.h" />
     <ClInclude Include="TextBox.h" />
     <ClInclude Include="UIElement.h" />
   </ItemGroup>

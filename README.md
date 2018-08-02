@@ -20,12 +20,14 @@ SFML is used for basic graphics for which I wrote own classes for Input, etc. li
     - Callbacks can be added for the events
   - [ ] GraphicsHandler
     - Have one class/namespace handle all windows, like the currently focused window 
+  - [ ] Have class, that all classes that all classes using a window inherit from
+    -  With that, you can just inherit from that, override the callbacks and the rest is handled by the base class (adding and deleting callbacks in InputHandler)
 - [ ] Image support
 - [ ] Proper Pop-Up support
 - [ ] More sounds
-- [ ] Own class/namespace for Discord Rich Presence 
+- [x] Own class/namespace for Discord Rich Presence 
 - [ ] Settings window
-  - [ ] Persistent
+  - [ ] Persistent Settings
 - [ ] Simple commands
 - [ ] Structuring the code
   - [ ] Using regions

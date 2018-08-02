@@ -1297,3 +1297,13 @@ Server session
 02.08.2018 12:13:28 - You shut down the server, by closing the window
 -------------------------------------------------------------
 
+
+**********************************
+Loading audio files
+02.08.2018 18:01:36 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+02.08.2018 18:31:31 - Loaded 3 audiofiles - without error: true
+**********************************

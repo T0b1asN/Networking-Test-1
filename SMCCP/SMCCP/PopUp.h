@@ -7,6 +7,6 @@
 static class PopUp
 {
 public:
-	int ShowMessageBox(std::string capt, std::string message, int type);
+	static int ShowMessageBox(std::string capt, std::string message, int type);
 };
 

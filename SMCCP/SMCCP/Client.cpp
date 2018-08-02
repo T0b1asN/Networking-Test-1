@@ -1,5 +1,6 @@
 #include "Client.h"
 
+#pragma region Con-/Destructor
 Client::Client(bool pBlock, int pPort, sf::IpAddress address) :
 	textBox(sf::Vector2f(10.0f, cr::winHeight() - 50.0f), sf::Vector2f(350.0f, 40.0f)),
 	muteBox(sf::Vector2f(480.f, cr::winHeight() - 30.f), 40.f),
@@ -18,12 +19,25 @@ Client::Client(bool pBlock, int pPort, sf::IpAddress address) :
 	initGraphics();
 	initCallbacks();
 
-	run = true;
+	running = true;
 }
 
 Client::~Client()
 {
 
+}
+#pragma endregion
+
+#pragma region Networking
+void Client::onServerDisconnect()
+{
+	own_log::append("Disconnected from " + ip.toString() + " due to server");
+	own_log::append("-------------------------------------------------------------", false);
+	socket.disconnect();
+	if (!muted)
+		snd::playSound("error_01");
+	Sleep(1500);
+	cr::currWin().close();
 }
 
 void Client::SendString(sf::String msg)
@@ -34,18 +48,18 @@ void Client::SendString(sf::String msg)
 	socket.send(sendData);
 }
 
-int Client::setup()
+int Client::Setup()
 {
 	NamePrompt np;
 	if (np.run() == 1)
 		return 2;
 	name = np.getName();
 	input::setFocus(&cr::currWin());
-	
+
 	//Update nameText
 	nameText.setString("Name: " + name + "\nRole: Client\nPort: " + std::to_string(port) +
 		"\nVersion: " + VERSION + "\nConnected to " + ip.toString());
-	Draw();
+	draw();
 
 	own_log::append("\nClient session\n-------------------------------------------------------------", false);
 	own_log::append("Trying to connect to " + ip.toString() + " as " + name);
@@ -66,12 +80,12 @@ int Client::setup()
 	socket.receive(respPacket);
 	std::string resp;
 	respPacket >> resp;
-	
+
 	if (resp == "1")
 	{
 		// Name already exists on Server, disconnect and ask for another name
 		socket.disconnect();
-		setup();
+		Setup();
 		return 3;
 	}
 
@@ -83,10 +97,71 @@ int Client::setup()
 	socket.setBlocking(block);
 	return 0;
 }
+#pragma endregion
 
-void Client::Update()
+#pragma region Graphics
+void Client::draw()
 {
-	newMsg = false;
+	cr::currWin().clear(sf::Color(100, 100, 100));
+
+	cr::currWin().draw(nameText);
+	cr::currWin().draw(msgText);
+	textBox.display();
+	muteBox.display();
+	sendButton.display();
+
+	cr::currWin().display();
+}
+
+void Client::onEnter()
+{
+	if (textBox.Text() != "" && textBox.Text() != textBox.getStdText())
+	{
+		this->SendString(textBox.Text());
+
+		sf::String tmpStr = textBox.Text();
+		tmpStr = "You: " + tmpStr;
+
+		DisplayMessage(tmpStr);
+		if (!muted)
+			snd::playSound("send_01");
+	}
+	textBox.SetNormal();
+}
+
+void Client::initGraphics()
+{
+	nameText.setString("Name: " + name + "\nRole: Client\nPort: " + std::to_string(port) +
+		"\nVersion: " + VERSION + "\nConnected to " + ip.toString());
+	nameText.setFont(cr::currFont());
+	nameText.setCharacterSize(14U);
+
+	msgText.setString("Messages:\n");
+	msgText.setFont(cr::currFont());
+	msgText.setCharacterSize(25U);
+	msgText.setPosition(0.0f, 75.0f);
+
+	draw();
+}
+
+void Client::DisplayMessage(std::string message)
+{
+	msgs.push_back(message);
+	if (msgs.size() > maxMsgs)
+		msgs.erase(msgs.begin());
+
+	sf::String complStr = "Messages:\n";
+	for (const sf::String msg : msgs)
+	{
+		complStr += msg + "\n";
+	}
+	msgText.setString(complStr);
+}
+#pragma endregion
+
+#pragma region General
+void Client::update()
+{
 	lastMsg = "";
 	receiveData.clear();
 
@@ -113,29 +188,31 @@ void Client::Update()
 		}
 		else if (lastMsg == SHUTDOWN_MSG)
 		{
-			OnServerDisconnect();
+			onServerDisconnect();
 		}
 	}
 	else if (socket.receive(receiveData) == sf::Socket::Disconnected)
 	{
-		OnServerDisconnect();
+		onServerDisconnect();
 	}
-	Draw();
+	draw();
 }
 
 void Client::Run()
 {
 	textBox.Select();
-	while (cr::currWin().isOpen() && run)
+	while (running && cr::currWin().isOpen())
 	{
 		input::handleInput();
 		textBox.Update((char)0);
-		Update();
+		update();
 	}
 	socket.disconnect();
 	cleanCallbacks();
 }
+#pragma endregion
 
+#pragma region Callbacks
 void Client::initCallbacks()
 {
 	input::addLeftMouseCallback(lMCb, callback_id);
@@ -150,7 +227,7 @@ void Client::cleanCallbacks()
 	input::deleteTextEnteredCallback(callback_id);
 }
 
-void Client::leftMCallback(int x, int y)
+void Client::LeftMCallback(int x, int y)
 {
 	if (muteBox.CheckClick())
 	{
@@ -160,20 +237,20 @@ void Client::leftMCallback(int x, int y)
 	textBox.SelectOrUnselect();
 	if (sendButton.validClick(true))
 	{
-		Enter();
+		onEnter();
 		textBox.Select();
 	}
 }
 
-void Client::closeCallback()
+void Client::CloseCallback()
 {
 	own_log::append("Disconnect from server due to closing the window");
 	own_log::append("-------------------------------------------------------------\n", false);
 	socket.disconnect();
-	run = false;
+	running = false;
 }
 
-void Client::textEnteredCallback(sf::Event::TextEvent text)
+void Client::TextEnteredCallback(sf::Event::TextEvent text)
 {
 	//std::cout << text.unicode << std::endl;
 	if (text.unicode != 13)
@@ -183,76 +260,8 @@ void Client::textEnteredCallback(sf::Event::TextEvent text)
 	else
 	{
 		textBox.Unselect();
-		Enter();
+		onEnter();
 		textBox.Select();
 	}
 }
-
-void Client::Draw()
-{
-	cr::currWin().clear(sf::Color(100, 100, 100));
-	
-	cr::currWin().draw(nameText);
-	cr::currWin().draw(msgText);
-	textBox.display();
-	muteBox.display();
-	sendButton.display();
-
-	cr::currWin().display();
-}
-
-void Client::Enter()
-{
-	if (textBox.Text() != "" && textBox.Text() != textBox.getStdText())
-	{
-		this->SendString(textBox.Text());
-
-		sf::String tmpStr = textBox.Text();
-		tmpStr = "You: " + tmpStr;
-
-		DisplayMessage(tmpStr);
-		if (!muted)
-			snd::playSound("send_01");
-	}
-	textBox.SetNormal();
-}
-
-void Client::initGraphics()
-{
-	nameText.setString("Name: " + name + "\nRole: Client\nPort: " + std::to_string(port) + 
-		"\nVersion: " + VERSION + "\nConnected to " + ip.toString());
-	nameText.setFont(cr::currFont());
-	nameText.setCharacterSize(14U);
-
-	msgText.setString("Messages:\n");
-	msgText.setFont(cr::currFont());
-	msgText.setCharacterSize(25U);
-	msgText.setPosition(0.0f, 75.0f);
-
-	Draw();
-}
-
-void Client::OnServerDisconnect()
-{
-	own_log::append("Disconnected from " + ip.toString() + " due to server");
-	own_log::append("-------------------------------------------------------------", false);
-	socket.disconnect();
-	if (!muted)
-		snd::playSound("error_01");
-	Sleep(1500);
-	cr::currWin().close();
-}
-
-void Client::DisplayMessage(std::string message)
-{
-	msgs.push_back(message);
-	if (msgs.size() > maxMsgs)
-		msgs.erase(msgs.begin());
-
-	sf::String complStr = "Messages:\n";
-	for (const sf::String msg : msgs)
-	{
-		complStr += msg + "\n";
-	}
-	msgText.setString(complStr);
-}
+#pragma endregion

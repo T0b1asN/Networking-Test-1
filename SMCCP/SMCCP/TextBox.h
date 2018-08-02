@@ -4,8 +4,6 @@
 #include "curr.h"
 #include <iostream>
 
-#include "stringutil.h"
-
 class TextBox
 {
 private:

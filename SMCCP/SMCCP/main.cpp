@@ -140,7 +140,7 @@ void RunServer(std::string name, int port)
 void RunClient(sf::IpAddress adress, unsigned int port)
 {
 	Client client(false, port, adress);
-	if(client.setup() == 2)
+	if(client.Setup() == 2)
 		return;
 	client.Run();
 }
