@@ -1196,3 +1196,104 @@ Server session
 31.07.2018 22:56:35 - Server setup finished
 31.07.2018 22:56:44 - New client named 987456423156165 | Now there are 1 sockets connected
 31.07.2018 22:56:51 - 987456423156165 (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+01.08.2018 16:37:02 - Loaded 3 audiofiles - without error: true
+**********************************
+01.08.2018 16:37:03 - Button: callback not set!
+01.08.2018 16:37:06 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+01.08.2018 16:37:06 - Trying to connect to 192.168.178.184 as 111
+01.08.2018 16:37:08 - Could not connect
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+01.08.2018 16:37:37 - Loaded 3 audiofiles - without error: true
+**********************************
+01.08.2018 16:37:38 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+01.08.2018 16:37:40 - Trying to connect to 192.168.178.184 as 45
+01.08.2018 16:37:42 - Could not connect
+-------------------------------------------------------------
+
+01.08.2018 16:37:42 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+01.08.2018 16:37:48 - Loaded 3 audiofiles - without error: true
+**********************************
+01.08.2018 16:37:49 - Button: callback not set!
+01.08.2018 16:37:59 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+01.08.2018 16:37:59 - Trying to connect to 192.168.178.184 as 789654
+01.08.2018 16:38:01 - Could not connect
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+01.08.2018 16:39:36 - Loaded 3 audiofiles - without error: true
+**********************************
+01.08.2018 16:39:38 - Button: callback not set!
+01.08.2018 16:39:40 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+01.08.2018 16:39:40 - Trying to connect to 192.168.178.184 as df
+01.08.2018 16:39:42 - Could not connect
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+02.08.2018 12:06:03 - Loaded 3 audiofiles - without error: true
+**********************************
+02.08.2018 12:06:04 - Button: callback not set!
+02.08.2018 12:06:18 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+02.08.2018 12:06:18 - Setting up server on port 1234 with name 6546575
+02.08.2018 12:06:18 - Server setup finished
+02.08.2018 12:06:29 - New client named Bernd | Now there are 1 sockets connected
+02.08.2018 12:06:34 - Bernd (Place 0) disconnected | Now there are 0 sockets connected
+02.08.2018 12:06:38 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+02.08.2018 12:12:55 - Loaded 3 audiofiles - without error: true
+**********************************
+02.08.2018 12:12:55 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+02.08.2018 12:12:57 - Setting up server on port 1234 with name 6547
+02.08.2018 12:12:57 - Server setup finished
+
+**********************************
+Loading audio files
+02.08.2018 12:13:08 - Loaded 3 audiofiles - without error: true
+**********************************
+02.08.2018 12:13:09 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+02.08.2018 12:13:11 - Setting up server on port 1234 with name 77
+02.08.2018 12:13:11 - Server setup finished
+02.08.2018 12:13:19 - New client named 44+ | Now there are 1 sockets connected
+02.08.2018 12:13:26 - 44+ (Place 0) disconnected | Now there are 0 sockets connected
+02.08.2018 12:13:28 - You shut down the server, by closing the window
+-------------------------------------------------------------
+

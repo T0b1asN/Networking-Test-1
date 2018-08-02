@@ -327,6 +327,7 @@ void Server::Run()
 		textBox.Update((char)0);
 		Update();
 	}
+	cleanCallbacks();
 }
 
 void Server::printNames()
@@ -344,6 +345,13 @@ void Server::initCallbacks()
 	input::addLeftMouseCallback(lMCb, callback_id);
 	input::addCloseCallback(cCb, callback_id);
 	input::addTextEnteredCallback(tECb, callback_id);
+}
+
+void Server::cleanCallbacks()
+{
+	input::deleteCloseCallback(callback_id);
+	input::deleteLMouseCallback(callback_id);
+	input::deleteTextEnteredCallback(callback_id);
 }
 
 void Server::leftMCallback(int x, int y)

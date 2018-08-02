@@ -90,6 +90,8 @@ public:
 private:
 #pragma region Callbacks
 	void initCallbacks();
+
+	void cleanCallbacks();
 #pragma endregion
 
 public:

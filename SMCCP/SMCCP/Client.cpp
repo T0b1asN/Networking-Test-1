@@ -37,7 +37,7 @@ void Client::SendString(sf::String msg)
 int Client::setup()
 {
 	NamePrompt np;
-	if(np.run() == 1)
+	if (np.run() == 1)
 		return 2;
 	name = np.getName();
 	input::setFocus(&cr::currWin());
@@ -133,6 +133,7 @@ void Client::Run()
 		Update();
 	}
 	socket.disconnect();
+	cleanCallbacks();
 }
 
 void Client::initCallbacks()
@@ -140,6 +141,13 @@ void Client::initCallbacks()
 	input::addLeftMouseCallback(lMCb, callback_id);
 	input::addCloseCallback(cCb, callback_id);
 	input::addTextEnteredCallback(tECb, callback_id);
+}
+
+void Client::cleanCallbacks()
+{
+	input::deleteCloseCallback(callback_id);
+	input::deleteLMouseCallback(callback_id);
+	input::deleteTextEnteredCallback(callback_id);
 }
 
 void Client::leftMCallback(int x, int y)
@@ -163,7 +171,6 @@ void Client::closeCallback()
 	own_log::append("-------------------------------------------------------------\n", false);
 	socket.disconnect();
 	run = false;
-	debug::pause();
 }
 
 void Client::textEnteredCallback(sf::Event::TextEvent text)

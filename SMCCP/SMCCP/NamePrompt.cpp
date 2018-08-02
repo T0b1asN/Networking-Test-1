@@ -39,6 +39,13 @@ void NamePrompt::initCallbacks()
 		callback_id);
 }
 
+void NamePrompt::cleanCallbacks()
+{
+	input::deleteCloseCallback(callback_id);
+	input::deleteLMouseCallback(callback_id);
+	input::deleteTextEnteredCallback(callback_id);
+}
+
 int NamePrompt::run()
 {
 	nameBox.Select();
@@ -96,6 +103,7 @@ void NamePrompt::textEntered(sf::Event::TextEvent text)
 void NamePrompt::nextWindow()
 {
 	okButton.~OwnButton();
+	cleanCallbacks();
 	prompt.close();
 }
 

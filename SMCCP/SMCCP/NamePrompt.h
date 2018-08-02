@@ -18,6 +18,7 @@ private:
 	int returnVal = -1;
 
 	void initCallbacks();
+	void cleanCallbacks();
 
 public:
 	NamePrompt();

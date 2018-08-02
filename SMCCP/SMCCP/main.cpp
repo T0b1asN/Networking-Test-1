@@ -103,7 +103,6 @@ int main()
 #ifdef DISCORD_RICH_PRESENCE
 	Discord_Shutdown();
 #endif
-	system("pause");
 	return 0;
 }
 
@@ -144,7 +143,6 @@ void RunClient(sf::IpAddress adress, unsigned int port)
 	if(client.setup() == 2)
 		return;
 	client.Run();
-	debug::pause();
 }
 
 std::string getCurrTime()
