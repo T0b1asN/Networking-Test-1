@@ -1,10 +1,12 @@
 #include "NamePrompt.h"
 
-NamePrompt::NamePrompt() :
+NamePrompt::NamePrompt(bool dontLoseFocus) :
 	prompt(sf::VideoMode((unsigned int)(500.f - 12.5f), 90U), "Set Name", sf::Style::Close),
 	nameBox(sf::Vector2f(25.f, 25.f), sf::Vector2f(300.f, 40.f), "Name...", sf::Color::Black, sf::Color::White, &prompt),
 	okButton("Ok", sf::Vector2f(125.f, 40.f), sf::Vector2f(350.f - 12.5f, 25.f), sf::Color(0, 155, 0), sf::Color::Black, &prompt, 25)
 {
+	loseFocus = !dontLoseFocus;
+
 	prompt.setFramerateLimit(60);
 	nameBox.set_maxChars(MAX_NAME_LENGTH);
 
@@ -26,17 +28,10 @@ NamePrompt::~NamePrompt()
 
 void NamePrompt::initCallbacks()
 {
-	input::addLeftMouseCallback(
-		std::bind(
-			&NamePrompt::leftMouseDown, this,
-			std::placeholders::_1, std::placeholders::_2),
-		callback_id);
-	input::addCloseCallback(
-		std::bind(&NamePrompt::close, this),
-		callback_id);
-	input::addTextEnteredCallback(
-		std::bind(&NamePrompt::textEntered, this, std::placeholders::_1),
-		callback_id);
+	input::addLeftMouseCallback(lMCb, callback_id);
+	input::addCloseCallback(cCb, callback_id);
+	input::addTextEnteredCallback(tECb, callback_id);
+	input::addLostFocusCallback(lFCb, callback_id);
 }
 
 void NamePrompt::cleanCallbacks()
@@ -44,6 +39,7 @@ void NamePrompt::cleanCallbacks()
 	input::deleteCloseCallback(callback_id);
 	input::deleteLMouseCallback(callback_id);
 	input::deleteTextEnteredCallback(callback_id);
+	input::deleteLostFocusCallback(callback_id);
 }
 
 int NamePrompt::run()
@@ -100,6 +96,14 @@ void NamePrompt::textEntered(sf::Event::TextEvent text)
 	}
 }
 
+void NamePrompt::lostFocus()
+{
+	if (!loseFocus)
+	{
+		prompt.requestFocus();
+	}
+}
+
 void NamePrompt::nextWindow()
 {
 	okButton.~OwnButton();
@@ -110,4 +114,5 @@ void NamePrompt::nextWindow()
 void NamePrompt::close()
 {
 	nextWindow();
+	returnVal = 1;
 }

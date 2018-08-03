@@ -3,22 +3,15 @@
 #pragma region Log
 int own_log::create()
 {
-	std::ofstream o;
-	std::ifstream f(LOG_FILE_NAME);
-	if (!f.good())
+	if (!file::exists(LOG_FILE_NAME))
 	{
-		f.close();
+		std::ofstream o;
 		o.open(LOG_FILE_NAME, std::ios::out | std::ios::app);
 		o << "This is the log file from SMCCP\n--------------------------------" << std::endl;
 		o.close();
+		return 0;
 	}
-	else
-	{
-		f.close();
-		return 1;
-	}
-
-	return 0;
+	return 1;
 }
 
 bool own_log::append(std::string whatToAppend, bool addTime)
@@ -44,10 +37,23 @@ bool own_log::append(std::string whatToAppend, bool addTime)
 #pragma region Debug
 void debug::log(std::string msg)
 {
+#ifdef _DEBUG
+	std::cout << msg << std::endl;
+#endif
+}
+
+void debug::log(std::wstring msg)
+{
+#ifdef _DEBUG
+	std::wcout << msg << std::endl;
+#endif
 }
 
 void debug::pause()
 {
+#ifdef _DEBUG
+	system("pause");
+#endif // _DEBUG
 }
 #pragma endregion
 
@@ -84,6 +90,7 @@ int snd::currChannel = 0;
 
 bool snd::LoadAllSounds()
 {
+	//TODO change the way audio files are loaded (index of files to be loaded)
 	own_log::append("\n**********************************\nLoading audio files", false);
 	bool no_error = true;
 
@@ -224,5 +231,68 @@ std::string str::wstr_to_str(std::wstring src)
 	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
 	std::string narrow = converter.to_bytes(src);
 	return narrow;
+}
+#pragma endregion
+
+#pragma region File
+std::vector<std::string> file::getLines(nameType fileName)
+{
+	if (usable(fileName))
+	{
+		std::ifstream file(fileName);
+		std::vector<std::string> lines;
+		std::string line;
+		while (std::getline(file, line))
+		{
+			lines.push_back(line);
+		}
+		return lines;
+	}
+	return std::vector<std::string>();
+}
+
+std::string file::getLine(nameType fileName, int lineNum)
+{
+	if (usable(fileName))
+	{
+		std::string result = "";
+		std::ifstream file(fileName);
+		for (int i = 0; i < lineNum; ++i) {
+			std::getline(file, result);
+		}
+		return result;
+	}
+	return "";
+}
+
+bool file::appendToFile(nameType fileName, std::string content)
+{
+	if (usable(fileName))
+	{
+		std::ofstream o;
+		o.open(LOG_FILE_NAME, std::ios::out | std::ios::app);
+		o << content << std::endl;
+		o.close();
+		return true;
+	}
+	return false;
+}
+
+bool file::usable(nameType fileName)
+{
+	std::ifstream f(LOG_FILE_NAME);
+	if (!f.good())
+	{
+		f.close();
+		return false;
+	}
+	f.close();
+	return true;
+}
+
+bool file::exists(nameType fileName)
+{
+	struct stat buffer;
+	return (stat(fileName.c_str(), &buffer) == 0);
 }
 #pragma endregion

@@ -15,6 +15,8 @@
 #include <string>
 #include <ctime>
 
+#include "WindowHandler.h"
+
 #ifdef DISCORD_RICH_PRESENCE
 #include "discord_register.h"
 #include "discord_rpc.h"
@@ -95,7 +97,7 @@ int main()
 		own_log::append("Wrong return from StartMenu!");
 		debug::log("Wrong return fromm StartMenu!");
 		//TODO stop only if in debug (new method in own_log)
-		system("pause");
+		debug::pause();
 		//TODO error box (if in release)
 		break;
 	}

@@ -1,2 +1,11 @@
-﻿  TextBox.cpp
+﻿  Client.cpp
+  Generating Code...
+  Compiling...
+  NamePrompt.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  main.cpp
+  TextBox.cpp
+  StartMenu.cpp
+  Server.cpp
   SMCCP.vcxproj -> E:\_GitHub\own\networking\SMCCP\SMCCP\Debug\SMCCP.exe

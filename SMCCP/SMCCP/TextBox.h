@@ -47,7 +47,7 @@ public:
 	void Select();
 	void Unselect();
 
-	bool changed() { debug::pause(); return (text.getString() != standardText || text.getString() != ""); }
+	bool changed() { return (text.getString() != standardText || text.getString() != ""); }
 	void set_deleteStdMsg(bool newState) { deleteStdMsg = newState; }
 	void set_canReturnStdText(bool newState) { canReturnStdText = newState; }
 

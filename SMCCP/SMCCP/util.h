@@ -12,7 +12,7 @@
 #include <ctime>
 #include <time.h>
 
-#include "SFML\Audio.hpp"
+#include "SFML.h"
 
 
 #ifdef _DEBUG
@@ -28,6 +28,7 @@ namespace own_log
 	//Codes:
 	//	0 = Created Log
 	//	1 = Log file already exists
+	//	2 = different error
 	int create();
 
 	//Append string to log (new line)
@@ -41,6 +42,7 @@ namespace own_log
 namespace debug
 {
 	void log(std::string msg);
+	void log(std::wstring msg);
 
 	void pause();
 }
@@ -60,6 +62,7 @@ namespace snd
 	extern int channels;
 	extern int currChannel;
 
+	//TODO Load all sounds with help of file containing all names
 	bool LoadAllSounds();
 
 	void playSound(std::string name);
@@ -78,4 +81,18 @@ namespace str
 {
 	std::wstring str_to_wstr(std::string src);
 	std::string wstr_to_str(std::wstring src);
+}
+
+namespace file
+{
+	typedef const std::string& nameType;
+	std::vector<std::string> getLines(nameType fileName);
+	//counting from one
+	std::string getLine(nameType fileName, int lineNum);
+
+	//returns true if successful
+	bool appendToFile(nameType fileName, std::string content);
+
+	bool usable(nameType fileName);
+	bool exists(nameType fileName);
 }

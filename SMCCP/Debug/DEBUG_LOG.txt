@@ -561,3 +561,23 @@ Client session
 02.08.2018 12:13:26 - Disconnect from server due to closing the window
 -------------------------------------------------------------
 
+
+**********************************
+Loading audio files
+03.08.2018 22:27:22 - Loaded 3 audiofiles - without error: true
+**********************************
+03.08.2018 22:27:24 - Button: callback not set!
+03.08.2018 22:27:32 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+03.08.2018 22:27:32 - Trying to connect to 192.168.178.184 as efsefsf
+03.08.2018 22:27:32 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as efsefsf
+--------------------------------
+
+03.08.2018 22:27:38 - Disconnect from server due to closing the window
+-------------------------------------------------------------
+
