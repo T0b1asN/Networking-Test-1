@@ -1,6 +1,8 @@
 #include "TextBox.h"
 
-TextBox::TextBox(sf::Vector2f pPos, sf::Vector2f pSize, std::string pStandardText, sf::Color pBackColor, sf::Color pTextColor, sf::RenderWindow* winPtr)
+TextBox::TextBox(
+	sf::Vector2f pPos, sf::Vector2f pSize, std::string pStandardText, 
+	sf::Color pBackColor, sf::Color pTextColor, sf::RenderWindow* winPtr)
 {
 	win = winPtr;
 	pos = pPos;

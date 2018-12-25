@@ -19,6 +19,8 @@
 
 #include <memory>
 
+#include "RSA.h"
+
 class Server
 {
 public:
@@ -51,6 +53,9 @@ private:
 	//the vector of sockets
 	//I didn't find another way of storing them :/
 	std::vector<std::unique_ptr<sf::TcpSocket>> sockets;
+	//TODO solve differently
+	// when adding a new socket, also get a new key
+	std::vector<RSA::PublicKey> socketKeys;
 
 	//a packet, where you can store the data to send
 	sf::Packet sendData;
@@ -204,6 +209,11 @@ public:
 			std::placeholders::_1
 		);
 
+#pragma endregion
+
+private:
+#pragma region RSA
+	RSA::Key ownKey;
 #pragma endregion
 
 };

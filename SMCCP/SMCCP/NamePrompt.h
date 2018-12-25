@@ -28,7 +28,6 @@ public:
 	NamePrompt(bool dontLoseFocus = true);
 	~NamePrompt();
 
-	const std::string callback_id = "namePrompt";
 
 	//returns errorCode
 	//	0 = OK
@@ -43,6 +42,7 @@ public:
 	void nextWindow();
 
 	// Callback stuff
+	const std::string callback_id = "namePrompt";
 	void leftMouseDown(int x, int y);
 	// handle for leftMouseCallback
 	input::mouseCallback lMCb =

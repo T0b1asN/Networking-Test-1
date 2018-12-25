@@ -1,11 +1,3 @@
-﻿  Client.cpp
-  Generating Code...
-  Compiling...
-  NamePrompt.cpp
-  Generating Code...
-  Skipping... (no relevant changes detected)
-  main.cpp
-  TextBox.cpp
-  StartMenu.cpp
-  Server.cpp
+﻿  main.cpp
+e:\_github\own\networking\smccp\smccp\smccp\popup.h(11): warning C4091: "static ": Ignoriert auf der linken Seite von "PopUp", wenn keine Variable deklariert wurde
   SMCCP.vcxproj -> E:\_GitHub\own\networking\SMCCP\SMCCP\Debug\SMCCP.exe

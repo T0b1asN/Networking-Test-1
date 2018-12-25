@@ -4,8 +4,10 @@
 #include <string>
 #include <map>
 
+
 namespace windows
 {
+	constexpr auto KEY_LENGTH = 10;
 	// a class that gives new windows if you ask
 	//TODO get a better name
 
@@ -33,6 +35,7 @@ namespace windows
 		sf::RenderWindow* window;
 	};
 	sf::RenderWindow* getNew(const std::string& id);
+	WindowEntry* getNew();
 
 	bool destroyWindow(WindowEntry& win);
 	bool destroyWindow(const std::string& key);

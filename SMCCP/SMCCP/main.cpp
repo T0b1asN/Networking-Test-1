@@ -15,7 +15,14 @@
 #include <string>
 #include <ctime>
 
+#include <chrono>
+
 #include "WindowHandler.h"
+
+#include "OwnWindow.h"
+
+#include "OwnMath.h"
+#include "RSA.h"
 
 #ifdef DISCORD_RICH_PRESENCE
 #include "discord_register.h"
@@ -36,6 +43,8 @@ void GraphicsSetup(unsigned int width, unsigned int height);
 	void InitDiscord();
 #endif
 
+void InitMPIR();
+
 sf::RenderWindow win;
 sf::Font mainFont;
 
@@ -43,6 +52,51 @@ std::vector<UIElement*> elementsVec;
 
 int main()
 {
+	InitMPIR();
+	
+	//debug::log(mpir_math::test::rand_prime_test(2048));
+	auto start = std::chrono::steady_clock::now();
+	RSA::Key key = RSA::GenerateKey(false, 512);
+	auto end = std::chrono::steady_clock::now();
+	auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
+	double elapsedS = (double)elapsed / 1000000000;
+	if (!key.err)
+	{
+		debug::log("N: " + mpir_helper::str(key.pubKey.N));
+		debug::log("e: " + mpir_helper::str(key.pubKey.e));
+		debug::log("d: " + mpir_helper::str(key.privKey.d));
+		debug::log("Time needed: " + std::to_string(elapsedS) + "s");
+	}
+	else
+		debug::log("Error in generating key");
+
+	std::string msg = "Hallo";
+
+	debug::log("Encrypting \"" + msg + "\"...");
+	start = std::chrono::steady_clock::now();
+	std::string encrypted = RSA::Encrypt_Long(msg, key.pubKey, 8);
+	end = std::chrono::steady_clock::now();
+	debug::log("Result (encryption): " + encrypted);
+	elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
+	elapsedS = (double)elapsed / 1000000000;
+	debug::log("Time needed: " + std::to_string(elapsedS) + "s");
+
+	debug::log("Decrypting...");
+	start = std::chrono::steady_clock::now();
+	std::string decrypted = RSA::Decrypt_Long(encrypted, key.privKey);
+	end = std::chrono::steady_clock::now();
+	debug::log("Result (decryption): " + decrypted);
+	elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
+	elapsedS = (double)elapsed / 1000000000;
+	debug::log("Time needed: " + std::to_string(elapsedS) + "s");
+	bool equal = (decrypted.compare(msg) == 0);
+	if (equal)
+		debug::log("Strings before and after RSA are equal->RSA worked!");
+	else
+		debug::log("Strings before and after RSA are not equal -> RSA failed!");
+
+	debug::pause();
+
 	if (own_log::create() == 0)
 	{
 		debug::log("Created log file");
@@ -204,6 +258,13 @@ void cr::updateUIElements()
 std::vector<UIElement*> cr::elements()
 {
 	return elementsVec;
+}
+
+void InitMPIR()
+{
+	auto now = std::chrono::time_point_cast<std::chrono::nanoseconds>(std::chrono::steady_clock::now());
+	long long now_ll = std::chrono::duration_cast<std::chrono::nanoseconds>(now.time_since_epoch()).count();
+	mpir_math::mpir_init(now_ll);
 }
 
 //DiscordRPC stuff

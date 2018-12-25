@@ -1420,3 +1420,107 @@ Server session
 03.08.2018 22:27:39 - You shut down the server, by closing the window
 -------------------------------------------------------------
 
+
+**********************************
+Loading audio files
+13.11.2018 16:47:28 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2018 16:47:33 - Button: callback not set!
+13.11.2018 16:47:39 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+13.11.2018 16:47:40 - Setting up server on port 1234 with name qwer
+13.11.2018 16:47:40 - Server setup finished
+13.11.2018 16:47:44 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2018 16:48:59 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2018 16:49:00 - Button: callback not set!
+13.11.2018 16:49:03 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+13.11.2018 16:49:03 - Setting up server on port 1234 with name asdawd
+13.11.2018 16:49:03 - Server setup finished
+13.11.2018 16:49:06 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2018 16:49:09 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2018 16:49:10 - Button: callback not set!
+13.11.2018 16:49:22 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+13.11.2018 16:49:22 - Trying to connect to 192.168.178.184 as asd
+13.11.2018 16:49:24 - Could not connect
+-------------------------------------------------------------
+
+13.11.2018 16:49:24 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
+
+**********************************
+Loading audio files
+13.11.2018 17:10:07 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2018 17:10:09 - Button: callback not set!
+13.11.2018 17:10:13 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+13.11.2018 17:10:13 - Setting up server on port 1234 with name sdf
+13.11.2018 17:10:13 - Server setup finished
+13.11.2018 17:10:19 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+18.12.2018 23:23:59 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+18.12.2018 23:24:08 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+19.12.2018 17:10:09 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+19.12.2018 20:11:37 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+19.12.2018 21:00:20 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+20.12.2018 15:12:09 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+20.12.2018 18:06:34 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+20.12.2018 18:35:50 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files

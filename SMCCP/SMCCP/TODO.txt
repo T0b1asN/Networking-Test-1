@@ -7,6 +7,7 @@ Current task:
 			- if a window is waiting for a window, 
 			  it should reclaim it's focus after waiting
 		- ???
+	- OwnWindow for inheritance to not declare callbacks in every class
 
 In-between:
 	- Function to load audiofiles on runtime not only on start

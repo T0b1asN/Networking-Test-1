@@ -20,7 +20,7 @@ bool own_log::append(std::string whatToAppend, bool addTime)
 	std::string alt_name = LOG_FILE_NAME;
 	std::fstream f(alt_name, std::ios::app);
 	if (addTime)
-		whatToAppend = own_time::getTime() + " - " + whatToAppend;
+		whatToAppend = own_time::getTime().getString() + " - " + whatToAppend;
 	if (f.good())
 	{
 		f << whatToAppend << std::endl;
@@ -58,26 +58,40 @@ void debug::pause()
 #pragma endregion
 
 #pragma region Time
-std::string own_time::getTime()
+own_time::Time own_time::getTime()
 {
 	std::time_t result;
 	std::time(&result);
 	struct tm time;
 	localtime_s(&time, &result);
 
-	std::string day = time.tm_mday < 10 ? "0" + std::to_string(time.tm_mday) : std::to_string(time.tm_mday);
-	std::string mon = time.tm_mon < 10 ? "0" + std::to_string(time.tm_mon + 1) : std::to_string(time.tm_mon + 1);
-	std::string hour = time.tm_hour < 10 ? "0" + std::to_string(time.tm_hour) : std::to_string(time.tm_hour);
-	std::string min = time.tm_min < 10 ? "0" + std::to_string(time.tm_min) : std::to_string(time.tm_min);
-	std::string sec = time.tm_sec < 10 ? "0" + std::to_string(time.tm_sec) : std::to_string(time.tm_sec);
+	own_time::Time ret_time = own_time::Time();
 
-	//INFO: time may not be correct
-	return day + "." + mon + "." + std::to_string(time.tm_year + 1900) + " " + hour + ":" + min + ":" + sec;
+	ret_time.day = time.tm_mday;
+	ret_time.month = time.tm_mon;
+	ret_time.hour = time.tm_hour;
+	ret_time.min = time.tm_min;
+	ret_time.sec = time.tm_sec;
+	ret_time.year = time.tm_year + 1900;
+
+	return ret_time;
 }
 
 std::time_t own_time::getTimeStamp()
 {
 	return std::time(0);
+}
+
+std::string own_time::Time::getString()
+{
+	std::string day = this->day < 10 ? "0" + std::to_string(this->day) : std::to_string(this->day);
+	std::string mon = this->month < 10 ? "0" + std::to_string(this->month + 1) : std::to_string(this->month + 1);
+	std::string hour = this->hour < 10 ? "0" + std::to_string(this->hour) : std::to_string(this->hour);
+	std::string min = this->min < 10 ? "0" + std::to_string(this->min) : std::to_string(this->min);
+	std::string sec = this->sec < 10 ? "0" + std::to_string(this->sec) : std::to_string(this->sec);
+
+	//INFO: time may not be correct
+	return day + "." + mon + "." + std::to_string(this->year) + " " + hour + ":" + min + ":" + sec;
 }
 #pragma endregion
 
@@ -231,6 +245,32 @@ std::string str::wstr_to_str(std::wstring src)
 	std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
 	std::string narrow = converter.to_bytes(src);
 	return narrow;
+}
+
+std::string str::createRandom(int length)
+{
+	std::string ret = "";
+	for (int i = 0; i < length; i++)
+		ret += key_lookup[rand() % (sizeof(key_lookup) - 1)];
+	return ret;
+}
+
+std::string str::toString(int num, int length)
+{
+	std::stringstream ss;
+	ss << std::setw(length) << std::setfill('0') << num;
+	return ss.str();
+}
+std::vector<std::string> str::split(std::string str, char delim)
+{
+	std::vector<std::string> ret;
+	std::istringstream iss(str);
+	std::string s;
+	while (std::getline(iss, s, delim))
+	{
+		ret.push_back(s);
+	}
+	return ret;
 }
 #pragma endregion
 

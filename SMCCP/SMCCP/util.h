@@ -12,6 +12,9 @@
 #include <ctime>
 #include <time.h>
 
+#include <sstream>
+#include <iomanip>
+
 #include "SFML.h"
 
 
@@ -43,14 +46,28 @@ namespace debug
 {
 	void log(std::string msg);
 	void log(std::wstring msg);
-
+	
 	void pause();
 }
 
 namespace own_time
 {
-	std::string getTime();
+	class Time;
+	Time getTime();
 	std::time_t getTimeStamp();
+
+	class Time
+	{
+	public:
+		int day;
+		int month;
+		int hour;
+		int min;
+		int sec;
+		int year;
+
+		std::string getString();
+	};
 }
 
 #define SOUND_PATH "res\\sounds\\"
@@ -81,6 +98,15 @@ namespace str
 {
 	std::wstring str_to_wstr(std::string src);
 	std::string wstr_to_str(std::wstring src);
+
+	const char key_lookup[] =
+		"0123456789abcdefghijklmnopqrstuvwxyz~!#$%^&*()-=_+,.<>";
+	std::string createRandom(int length);
+
+	// converts number to string of specified length (or if needed longer)
+	std::string toString(int num, int length);
+
+	std::vector<std::string> split(std::string str, char delim);
 }
 
 namespace file

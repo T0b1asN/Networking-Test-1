@@ -77,7 +77,7 @@ void Server::connectToClient()
 		sf::Packet namePacket;
 		namePacket.clear();
 
-		(sockets.back().get())->receive(namePacket);
+		sockets.back().get()->receive(namePacket);
 
 		std::string newSocketName;
 		namePacket >> newSocketName;
@@ -321,6 +321,9 @@ void Server::Update()
 void Server::Run()
 {
 	textBox.Select();
+
+	// Generate RSA key
+
 	while (cr::currWin().isOpen() && run)
 	{
 		input::handleInput();

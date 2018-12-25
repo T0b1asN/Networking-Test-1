@@ -13,6 +13,15 @@ namespace windows
 			return windows[id];
 		return &sf::RenderWindow();
 	}
+	
+	WindowEntry* getNew()
+	{
+		// TODO change
+		std::string s = str::createRandom(KEY_LENGTH);
+		while (windows.count(s) > 0)
+			s = str::createRandom(KEY_LENGTH);
+		return new WindowEntry(s, getNew(s));
+	}
 
 	bool destroyWindow(WindowEntry& win)
 	{
