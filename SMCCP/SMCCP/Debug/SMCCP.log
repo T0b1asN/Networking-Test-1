@@ -1,3 +1,9 @@
-﻿  main.cpp
-e:\_github\own\networking\smccp\smccp\smccp\popup.h(11): warning C4091: "static ": Ignoriert auf der linken Seite von "PopUp", wenn keine Variable deklariert wurde
-  SMCCP.vcxproj -> E:\_GitHub\own\networking\SMCCP\SMCCP\Debug\SMCCP.exe
+﻿  RSA.cpp
+f:\_programming\projekte\github\own\networking\smccp\smccp\smccp\rsa.cpp(77): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+f:\_programming\projekte\github\own\networking\smccp\smccp\smccp\rsa.cpp(101): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+f:\_programming\projekte\github\own\networking\smccp\smccp\smccp\rsa.cpp(129): warning C4018: "<": Konflikt zwischen "signed" und "unsigned"
+  Server.cpp
+  main.cpp
+f:\_programming\projekte\github\own\networking\smccp\smccp\smccp\popup.h(11): warning C4091: "static ": Ignoriert auf der linken Seite von "PopUp", wenn keine Variable deklariert wurde
+  Code wird generiert...
+  SMCCP.vcxproj -> F:\_Programming\Projekte\GitHub\own\networking\SMCCP\SMCCP\Debug\SMCCP.exe

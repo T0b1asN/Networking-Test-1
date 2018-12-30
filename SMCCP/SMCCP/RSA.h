@@ -6,10 +6,7 @@
 
 namespace RSA
 {
-	namespace
-	{
-		constexpr auto ENC_BASE = 62;
-	}
+	constexpr auto ENC_BASE = 62;
 
 	struct PublicKey
 	{
@@ -31,7 +28,7 @@ namespace RSA
 	};
 
 
-	Key GenerateKey(bool calcE = false, int bitCount = 1024);
+	Key GenerateKey(int bitCount = 1024, bool calcE = false);
 
 	//TODO better naming for long text variants
 	std::string Encrypt(std::string msg, PublicKey key);

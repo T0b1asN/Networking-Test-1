@@ -316,4 +316,10 @@ namespace mpir_helper
 	{
 		return mpz_get_str(NULL, 62, n);
 	}
+
+	void fill(mpz_t n, std::string str, int base)
+	{
+		mpz_init(n);
+		mpz_set_str(n, str.c_str(), base);
+	}
 }

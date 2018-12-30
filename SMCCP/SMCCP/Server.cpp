@@ -57,6 +57,22 @@ int Server::setup()
 		return 1;
 	}
 	debug::log("Connected... Port: " + std::to_string(port));
+	debug::log("Generating Key...");
+	key = RSA::GenerateKey(key_bitcount);
+	int err_count = 0;
+	while (key.err && err_count < 5)
+	{
+		err_count++;
+		key = RSA::GenerateKey(key_bitcount);
+	}
+	if (err_count >= 5)
+	{
+		debug::log("Error - Could not Generate key!");
+		own_log::append("Error - Could not generate key!");
+		own_log::append("-------------------------------------------------------------\n", false);
+		return 2;
+	}
+	debug::log("Generated key with bitcount " + std::to_string(key_bitcount));
 	own_log::append("Server setup finished");
 	return 0;
 }
@@ -73,6 +89,31 @@ void Server::connectToClient()
 			sockets.pop_back();
 			return;
 		}
+		// connected Socket is last in vector
+		// first send public key
+		std::string key_msg = prot::rsa_key;
+		key_msg += " " + mpir_helper::str(key.pubKey.N);
+		key_msg += " " + mpir_helper::str(key.pubKey.e);
+		//send msg to new socket
+		//receive public key from socket and save it in new vector
+		RSA::PublicKey otherKey = RSA::PublicKey();
+		// fill Key
+		//fill rec with received message from client
+		std::string rec = "";
+		std::vector<std::string> args = str::split(rec, ' ');
+		if (args.size() < 3)
+			; //retry receivingkey
+		if (args.front() != "RSA")
+			; //retry receiving Key
+		mpir_helper::fill(otherKey.N, args.at(1));
+		mpir_helper::fill(otherKey.e, args.at(2));
+
+		//from here only send encrypted messages
+
+		// not needed
+		int index = sockets.size() - 1;
+
+		socketKeys.push_back(otherKey);
 		//receive name from client
 		sf::Packet namePacket;
 		namePacket.clear();
@@ -85,7 +126,7 @@ void Server::connectToClient()
 		if (std::find(names.begin(), names.end(), newSocketName) != names.end() || newSocketName == name)
 		{
 			sf::Packet respPacket;
-			respPacket << "1";
+			respPacket << prot::s::name_resp << " 1";
 			(sockets.back().get())->send(respPacket);
 			(sockets.back().get())->disconnect();
 			sockets.pop_back();
@@ -94,7 +135,7 @@ void Server::connectToClient()
 		else
 		{
 			sf::Packet respPacket;
-			respPacket << "0";
+			respPacket << prot::s::name_resp << " 0";
 			(sockets.back().get())->send(respPacket);
 		}
 

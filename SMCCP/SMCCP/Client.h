@@ -16,6 +16,9 @@
 
 #include <Windows.h>
 
+#include "RSA.h"
+#include "Protocol.h"
+
 class Client
 {
 public:
@@ -31,6 +34,9 @@ private:
 	sf::IpAddress ip;
 
 	sf::TcpSocket socket;
+
+	RSA::Key key;
+	const int key_bitcount = 2048;
 
 	sf::Packet sendData;
 	sf::Packet receiveData;

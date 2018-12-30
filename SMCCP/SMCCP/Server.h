@@ -20,6 +20,7 @@
 #include <memory>
 
 #include "RSA.h"
+#include "Protocol.h"
 
 class Server
 {
@@ -47,6 +48,11 @@ private:
 
 	//the name of the server
 	std::string name;
+
+	//own RSA-key !!! only share public part!!!
+	RSA::Key key;
+	//key length in bits (higher = safer but slower)
+	const int key_bitcount = 1024;
 
 	//the socket selector
 	sf::SocketSelector selector;
@@ -91,6 +97,8 @@ private:
 
 public:
 #pragma region Networking
+	const std::string RSA = "RSA";
+
 	//returns the information of the server in one string
 	std::string getInfo();
 	//returns the name of the server

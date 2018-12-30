@@ -50,6 +50,21 @@ void Client::SendString(sf::String msg)
 
 int Client::Setup()
 {
+	key = RSA::GenerateKey(key_bitcount);
+	int err_count = 0;
+	while (key.err && err_count < 5)
+	{
+		err_count++;
+		key = RSA::GenerateKey(key_bitcount);
+	}
+	if (err_count >= 5)
+	{
+		debug::log("Error - Could not Generate key!");
+		own_log::append("Error - Could not generate key!");
+		own_log::append("-------------------------------------------------------------\n", false);
+		return 2;
+	}
+
 	NamePrompt np;
 	if (np.run() == 1)
 		return 2;

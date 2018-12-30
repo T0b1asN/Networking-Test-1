@@ -56,7 +56,7 @@ int main()
 	
 	//debug::log(mpir_math::test::rand_prime_test(2048));
 	auto start = std::chrono::steady_clock::now();
-	RSA::Key key = RSA::GenerateKey(false, 512);
+	RSA::Key key = RSA::GenerateKey(512);
 	auto end = std::chrono::steady_clock::now();
 	auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
 	double elapsedS = (double)elapsed / 1000000000;

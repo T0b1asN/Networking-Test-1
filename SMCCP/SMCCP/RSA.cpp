@@ -1,7 +1,7 @@
 #include "RSA.h"
 namespace RSA
 {
-	Key GenerateKey(bool calcE, int bitCount)
+	Key GenerateKey(int bitCount, bool calcE)
 	{
 		debug::log("starting keygeneration with primes...");
 		mpz_t p;
