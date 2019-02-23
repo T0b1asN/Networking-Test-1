@@ -35,9 +35,6 @@ private:
 
 	sf::TcpSocket socket;
 
-	RSA::Key key;
-	const int key_bitcount = 2048;
-
 	sf::Packet sendData;
 	sf::Packet receiveData;
 
@@ -54,8 +51,7 @@ private:
 
 public:
 #pragma region Networking
-
-	void SendString(sf::String msg);
+	__declspec(deprecated) void SendString(sf::String msg);
 
 	//set up the networking
 	//returns errorCode
@@ -69,6 +65,8 @@ public:
 	std::string getName() { return name; }
 	sf::String getLastMsg() { return lastMsg; }
 	unsigned int getPort() { return socket.getRemotePort(); }
+
+	void Send(std::string msg, bool tagIncluded = false, bool encrypt = true);
 #pragma endregion
 
 private:
@@ -104,6 +102,21 @@ private:
 public:
 #pragma region General
 	void Run();
+#pragma endregion
+
+private:
+#pragma region RSA
+	RSA::Key key;
+	RSA::PublicKey serverKey;
+
+	//tries generating a key (filling variable key)
+	//returns true if succesful
+	bool GenerateKey(int max_errors = 5);
+#pragma endregion
+
+public:
+#pragma region RSA
+
 #pragma endregion
 
 private:

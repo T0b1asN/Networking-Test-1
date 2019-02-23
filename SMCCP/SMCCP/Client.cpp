@@ -50,20 +50,31 @@ void Client::SendString(sf::String msg)
 
 int Client::Setup()
 {
-	key = RSA::GenerateKey(key_bitcount);
-	int err_count = 0;
-	while (key.err && err_count < 5)
-	{
-		err_count++;
-		key = RSA::GenerateKey(key_bitcount);
-	}
-	if (err_count >= 5)
+	socket.setBlocking(true);
+	//TODO: make that key isn't generated twice for the client, even if you need a new name
+	//		should also resend key, but not regenerate
+	//key generation
+	if (!GenerateKey())
 	{
 		debug::log("Error - Could not Generate key!");
 		own_log::append("Error - Could not generate key!");
 		own_log::append("-------------------------------------------------------------\n", false);
 		return 2;
 	}
+
+	if (socket.connect(ip, port, sf::seconds(2.f)) != sf::Socket::Done)
+	{
+		debug::log("Could not connect");
+		own_log::append("Could not connect");
+		own_log::append("-------------------------------------------------------------\n", false);
+		return 1;
+	}
+
+	//send key to server
+	std::string keyStr = str::concat(
+		prot::rsa_key, " ", mpir_helper::str(key.pubKey.N), " ", mpir_helper::str(key.pubKey.e)
+	);
+	this->Send(keyStr, true, false);
 
 	NamePrompt np;
 	if (np.run() == 1)
@@ -79,24 +90,52 @@ int Client::Setup()
 	own_log::append("\nClient session\n-------------------------------------------------------------", false);
 	own_log::append("Trying to connect to " + ip.toString() + " as " + name);
 
-	if (socket.connect(ip, port, sf::seconds(2.f)) != sf::Socket::Done)
-	{
-		debug::log("Could not connect");
-		own_log::append("Could not connect");
-		own_log::append("-------------------------------------------------------------\n", false);
-		return 1;
-	}
+	//receive key
+	sf::Packet sKeyPacket;
+	socket.receive(sKeyPacket);
+	std::string sKey;
+	sKeyPacket >> sKey;
+	debug::log(sKey);
 
-	sf::Packet namePacket;
+	if (str::split(sKey, ' ').front() != prot::rsa_key)
+	{
+		debug::log(str::concat("Error: Awaited ", prot::rsa_key,
+			"and received different Token -> Exiting..."));
+		own_log::append(str::concat("Error: Awaited ", prot::rsa_key,
+			"and received different Token -> Exiting...")); //awaited name response
+		return 4;
+	}
+	if (str::split(sKey, ' ').size() < 3)
+	{
+		debug::log(str::concat("Error: Didn't receive enough arguments from server -> Exiting..."));
+		own_log::append(str::concat("Error: Didn't receive enough arguments from server -> Exiting...")); //awaited name response
+		return 5;
+	}
+	mpir_helper::fill(serverKey.N, str::split(sKey, ' ').at(1), RSA::ENC_BASE);
+	mpir_helper::fill(serverKey.e, str::split(sKey, ' ').at(2), RSA::ENC_BASE);
+
+	/*sf::Packet namePacket;
 	namePacket << name;
-	socket.send(namePacket);
+	socket.send(namePacket);*/
+	this->Send(str::concat(prot::c::name, " ", name), true);
 
 	sf::Packet respPacket;
 	socket.receive(respPacket);
 	std::string resp;
 	respPacket >> resp;
+	resp = RSA::Decrypt(resp, key.privKey);
+	debug::log("Resp: " + resp);
 
-	if (resp == "1")
+	if (str::split(resp, ' ').front() != prot::s::name_resp)
+	{
+		debug::log(str::concat("Error: Awaited ", prot::s::name_resp,
+			"and received different Token -> Exiting..."));
+		own_log::append(str::concat("Error: Awaited ", prot::s::name_resp, 
+			"and received different Token -> Exiting...")); //awaited name response
+		return 4;
+	}
+
+	if (str::split(resp, ' ').at(1) == "1")
 	{
 		// Name already exists on Server, disconnect and ask for another name
 		socket.disconnect();
@@ -111,6 +150,17 @@ int Client::Setup()
 	own_log::append("\n--------------------------------\n|	Connected as " + name + "\n--------------------------------\n", false);
 	socket.setBlocking(block);
 	return 0;
+}
+void Client::Send(std::string msg, bool tagIncluded, bool encrypt)
+{
+	//if tag is not included in the message, add standard msg tag
+	if (!tagIncluded)
+		msg = str::concat(prot::msg, " ", msg);
+	if (encrypt)
+		msg = RSA::Encrypt(msg, serverKey, prot::rsa::chunkSize);
+	sendData.clear();
+	sendData << msg;
+	socket.send(sendData);
 }
 #pragma endregion
 
@@ -132,8 +182,7 @@ void Client::onEnter()
 {
 	if (textBox.Text() != "" && textBox.Text() != textBox.getStdText())
 	{
-		this->SendString(textBox.Text());
-
+		this->Send(textBox.Text());
 		sf::String tmpStr = textBox.Text();
 		tmpStr = "You: " + tmpStr;
 
@@ -179,7 +228,7 @@ void Client::update()
 {
 	lastMsg = "";
 	receiveData.clear();
-
+	//TODO: Work here
 	if (socket.receive(receiveData) == sf::Socket::Done)
 	{
 		if (!(receiveData >> lastMsg))
@@ -188,22 +237,30 @@ void Client::update()
 			own_log::append("Error in receiving");
 			return;
 		}
-		if (lastMsg != "" && lastMsg != SHUTDOWN_MSG)
+		lastMsg = RSA::Decrypt(lastMsg, key.privKey);
+		std::string token = str::split(lastMsg, ' ').front();
+		//remove token from message
+		lastMsg = prot::remToken(lastMsg, token);
+		if (token == prot::msg)
 		{
-			if (lastMsg.substring(0, NO_SOUND_MSG_LENGTH) != NO_SOUND_MSG)
-			{
-				if (!muted)
-					snd::playSound("incoming_01");
-			}
-			else
-			{
-				lastMsg.erase(0, NO_SOUND_MSG_LENGTH);
-			}
+			//normal message
+			if (!muted)
+				snd::playSound("incoming_01");
 			DisplayMessage(lastMsg);
 		}
-		else if (lastMsg == SHUTDOWN_MSG)
+		else if (token == prot::s::msg_nosound)
 		{
+			//message with no sound
+			DisplayMessage(lastMsg);
+		}
+		else if (token == prot::s::shutdown)
+		{
+			//server is shutting down
 			onServerDisconnect();
+		}
+		else if (token == prot::error)
+		{
+			//error
 		}
 	}
 	else if (socket.receive(receiveData) == sf::Socket::Disconnected)
@@ -224,6 +281,20 @@ void Client::Run()
 	}
 	socket.disconnect();
 	cleanCallbacks();
+}
+#pragma endregion
+
+#pragma region RSA
+bool Client::GenerateKey(int max_errors)
+{
+	key = RSA::GenerateKey(prot::rsa::key_bitcnt);
+	int err_count = 0;
+	while (key.err && err_count < 5)
+	{
+		err_count++;
+		key = RSA::GenerateKey(prot::rsa::key_bitcnt);
+	}
+	return !(err_count >= max_errors);
 }
 #pragma endregion
 

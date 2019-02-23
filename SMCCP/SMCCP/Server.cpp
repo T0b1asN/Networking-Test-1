@@ -57,22 +57,17 @@ int Server::setup()
 		return 1;
 	}
 	debug::log("Connected... Port: " + std::to_string(port));
+
 	debug::log("Generating Key...");
-	key = RSA::GenerateKey(key_bitcount);
-	int err_count = 0;
-	while (key.err && err_count < 5)
-	{
-		err_count++;
-		key = RSA::GenerateKey(key_bitcount);
-	}
-	if (err_count >= 5)
+	if (!GenerateKey())
 	{
 		debug::log("Error - Could not Generate key!");
 		own_log::append("Error - Could not generate key!");
 		own_log::append("-------------------------------------------------------------\n", false);
 		return 2;
 	}
-	debug::log("Generated key with bitcount " + std::to_string(key_bitcount));
+	debug::log("Generated key with bitcount " + std::to_string(prot::rsa::key_bitcnt));
+
 	own_log::append("Server setup finished");
 	return 0;
 }
@@ -89,24 +84,35 @@ void Server::connectToClient()
 			sockets.pop_back();
 			return;
 		}
-		// connected Socket is last in vector
-		// first send public key
-		std::string key_msg = prot::rsa_key;
-		key_msg += " " + mpir_helper::str(key.pubKey.N);
-		key_msg += " " + mpir_helper::str(key.pubKey.e);
-		//send msg to new socket
 		//receive public key from socket and save it in new vector
 		RSA::PublicKey otherKey = RSA::PublicKey();
 		// fill Key
 		//fill rec with received message from client
+		sf::Packet rsaPacket;
+		sockets.back().get()->receive(rsaPacket);
+		//TODO receive Key here
 		std::string rec = "";
+		rsaPacket >> rec;
 		std::vector<std::string> args = str::split(rec, ' ');
+		debug::log(str::concat("args size: ", std::to_string(args.size())));
 		if (args.size() < 3)
 			; //retry receivingkey
-		if (args.front() != "RSA")
+		if (args.front() != prot::rsa_key)
 			; //retry receiving Key
-		mpir_helper::fill(otherKey.N, args.at(1));
-		mpir_helper::fill(otherKey.e, args.at(2));
+		mpir_helper::fill(otherKey.N, args.at(1), RSA::ENC_BASE);
+		mpir_helper::fill(otherKey.e, args.at(2), RSA::ENC_BASE);
+		socketKeys.push_back(otherKey);
+
+		// connected Socket is last in vector
+		// first send public key
+		std::string key_msg = str::concat(prot::rsa_key, " ", mpir_helper::str(key.pubKey.N), " ", mpir_helper::str(key.pubKey.e));
+		sf::Packet ownRsaP;
+		ownRsaP.clear();
+		ownRsaP << key_msg;
+		sockets.back().get()->send(ownRsaP);
+		
+		//send msg to new socket
+
 
 		//from here only send encrypted messages
 
@@ -122,20 +128,29 @@ void Server::connectToClient()
 
 		std::string newSocketName;
 		namePacket >> newSocketName;
-
+		newSocketName = RSA::Decrypt(newSocketName, key.privKey);
+		newSocketName = prot::remToken(newSocketName, str::split(newSocketName, ' ').front());
 		if (std::find(names.begin(), names.end(), newSocketName) != names.end() || newSocketName == name)
 		{
 			sf::Packet respPacket;
-			respPacket << prot::s::name_resp << " 1";
+			std::string resp = str::concat(prot::s::name_resp, " 1");
+			resp = RSA::Encrypt(resp, socketKeys.back());
+			debug::log("Resp: " + resp);
+			respPacket << resp;
+			sockets.back().get()->setBlocking(true);
 			(sockets.back().get())->send(respPacket);
 			(sockets.back().get())->disconnect();
 			sockets.pop_back();
+			socketKeys.pop_back();
 			return;
 		}
 		else
 		{
 			sf::Packet respPacket;
-			respPacket << prot::s::name_resp << " 0";
+			std::string resp = str::concat(prot::s::name_resp, " 0");
+			resp = RSA::Encrypt(resp, socketKeys.back());
+			debug::log("Resp: " + resp);
+			respPacket << resp;
 			(sockets.back().get())->send(respPacket);
 		}
 
@@ -148,9 +163,8 @@ void Server::connectToClient()
 
 		lastMsg = "[" + newSocketName + " connected]";
 		debug::log((std::string)lastMsg);
-
-		std::string nsc = NO_SOUND_MSG;
-		SendString(nsc + lastMsg, socketsConnected - 1);
+		
+		Send(str::concat(prot::s::msg_nosound, " ", lastMsg), socketsConnected - 1, true);
 		DisplayMessage(lastMsg);
 
 		own_log::append("New client named " + newSocketName + " | Now there are " + std::to_string(socketsConnected) + " sockets connected");
@@ -158,11 +172,20 @@ void Server::connectToClient()
 	else
 	{
 		sf::TcpSocket errorSocket;
+		errorSocket.setBlocking(false);
 
 		if (listener.accept(errorSocket) != sf::Socket::Status::Done)
 			return;
 
-		disconnectSocket(errorSocket, "Server is full!");
+		//TODO do manually
+		std::string msg = "[Disconnected from server.Reason: Server is full!]";
+		sf::Packet errorPkt;
+		errorPkt.clear();
+		errorPkt << msg;
+		errorSocket.send(errorPkt);
+		Sleep(100);
+
+		errorSocket.disconnect();
 
 		own_log::append("Client tried to connect, even though the server is full");
 
@@ -209,18 +232,51 @@ void Server::SendStringWithoutName(sf::String msg)
 	}
 }
 
+void Server::Send(std::string msg, bool tagIncluded, bool encrypt)
+{
+	if(!tagIncluded)
+		msg = str::concat(prot::msg, " ", msg);
+	for (int i = 0; i < (int)sockets.size(); i++)
+	{
+		std::string encrypted = msg;
+		if (encrypt)
+			encrypted = RSA::Encrypt(msg, socketKeys.at(i), prot::rsa::chunkSize);
+		sendData.clear();
+		sendData << encrypted;
+		(*sockets.at(i).get()).send(sendData);
+	}
+}
+
+void Server::Send(std::string msg, int exclude, bool tagIncluded, bool encrypt)
+{
+	for (int i = 0; i < (int)sockets.size(); i++)
+	{
+		if (i != exclude)
+			SendSingle(msg, i, tagIncluded, encrypt);
+	}
+}
+
+void Server::SendSingle(std::string msg, int socketIndex, bool tagIncluded, bool encrypt)
+{
+	if (!tagIncluded)
+		msg = str::concat(prot::msg, " ", msg);
+	if (encrypt)
+		msg = RSA::Encrypt(msg, socketKeys.at(socketIndex), prot::rsa::chunkSize);
+	sendData.clear();
+	sendData << msg;
+	(*sockets.at(socketIndex).get()).send(sendData);
+}
+
 void Server::Shutdown(sf::String optMsg, bool replaceOld)
 {
-	sf::String nsc = NO_SOUND_MSG;
-	std::wcout << nsc.toWideString() << std::endl;
 	if (optMsg == "")
-		SendStringWithoutName(nsc + L"[Server was shut down]");
+		Send(str::concat(prot::s::msg_nosound, " [Server was shut down]"));
 	else if (!replaceOld)
-		SendStringWithoutName(nsc + L"[Server was shut down. Message: " + optMsg + L"]");
+		Send(str::concat(prot::s::msg_nosound, " [Server was shut down. Message: ", optMsg, "]"));
 	else
-		SendStringWithoutName(nsc + L"[" + optMsg + L"]");
+		Send(str::concat(prot::s::msg_nosound, "[", optMsg, "]"));
 
-	SendStringWithoutName(SHUTDOWN_MSG);
+	Send(prot::s::shutdown);
 	for (int i = 0; i < (int)sockets.size(); i++)
 		disconnectSocket(i);
 }
@@ -228,23 +284,13 @@ void Server::Shutdown(sf::String optMsg, bool replaceOld)
 void Server::disconnectSocket(int index, std::string reason)
 {
 	if (reason != "")
-		SendString("[Disconnected from server. Reason: " + reason + "]", (*sockets.at(index).get()));
+		SendSingle("[Disconnected from server. Reason: " + reason + "]", index);
 	else
-		SendString("[Disconnected from server for an unknown reason]", (*sockets.at(index).get()));
+		SendSingle("[Disconnected from server for an unknown reason]", index);
+	//wait for sockets to receive message
 	Sleep(100);
 
 	sockets.at(index).get()->disconnect();
-}
-
-void Server::disconnectSocket(sf::TcpSocket& socket, std::string reason)
-{
-	if (reason != "")
-		SendString("[Disconnected from server. Reason: " + reason + "]", socket);
-	else
-		SendString("[Disconnected from server for an unknown reason]", socket);
-	Sleep(100);
-
-	socket.disconnect();
 }
 #pragma endregion
 
@@ -266,7 +312,7 @@ void Server::Enter()
 {
 	if (textBox.Text() != "" && textBox.Text() != textBox.getStdText())
 	{
-		this->SendString(textBox.Text());
+		this->Send(textBox.Text());
 
 		sf::String tmpStr = textBox.Text();
 		tmpStr = "You: " + tmpStr;
@@ -311,8 +357,11 @@ void Server::DisplayMessage(std::string message)
 #pragma region General
 void Server::Update()
 {
+	//TODO: server should add name, if receiving a message, shouldn't be sent by client
 	lastMsg = "";
 	receiveData.clear();
+
+	//TODO adhere to protocol
 
 	if (selector.wait(sf::milliseconds(10)) && socketsConnected > 0)
 	{
@@ -322,12 +371,17 @@ void Server::Update()
 			{
 				if ((*sockets.at(i).get()).receive(receiveData) != sf::Socket::Disconnected)
 				{
+					//TODO fix problems probably with blocking
 					receiveData >> lastMsg;
-					if (lastMsg != "")
+					lastMsg = RSA::Decrypt(lastMsg, key.privKey);
+					debug::log("lastMsg: " + lastMsg.toAnsiString());
+					std::string token = str::split(lastMsg, ' ').front();
+					if (token == prot::msg)
 					{
+						lastMsg = prot::remToken(lastMsg, token);
 						if (!muted)
 							snd::playSound("incoming_01");
-						SendString(lastMsg, i);
+						Send(lastMsg, i);
 						DisplayMessage(lastMsg);
 					}
 				}
@@ -339,14 +393,18 @@ void Server::Update()
 					//disconnect and delete socket
 					selector.remove((*sockets.at(i).get()));
 					(*sockets.at(i).get()).disconnect();
+
 					sockets.erase(sockets.begin() + i);
+					socketKeys.erase(socketKeys.begin() + i);
+
 					socketsConnected--;
 					own_log::append(names.at(i) + " (Place " + std::to_string(i) +
 						") disconnected | Now there are " + std::to_string(socketsConnected) + " sockets connected");
 					names.erase(names.begin() + i);
 
 					//send message to all other sockets
-					SendString(lastMsg, i);
+					//not using send with exclude because socket is deleted
+					Send(lastMsg);
 					DisplayMessage(lastMsg);
 
 					//TODO: Disconnect sound
@@ -380,6 +438,20 @@ void Server::printNames()
 	{
 		debug::log("Slot " + std::to_string(i) + ": " + names.at(i));
 	}
+}
+#pragma endregion
+
+#pragma region RSA
+bool Server::GenerateKey(int max_errors)
+{
+	key = RSA::GenerateKey(prot::rsa::key_bitcnt);
+	int err_count = 0;
+	while (key.err && err_count < 5)
+	{
+		err_count++;
+		key = RSA::GenerateKey(prot::rsa::key_bitcnt);
+	}
+	return !(err_count >= max_errors);
 }
 #pragma endregion
 

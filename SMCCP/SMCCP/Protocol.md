@@ -8,7 +8,11 @@
 
 #### Sending RSA Key
 
-`RSA [N] [e]` Send components of public key
+`RSA [N] [e]` Send components of public key. __This Message should not be encrypted!
+
+#### Sending General Error
+
+`ERROR [Message]` Send an error-message for a general error__
 
 ### Server
 

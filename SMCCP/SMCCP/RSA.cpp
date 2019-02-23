@@ -65,7 +65,7 @@ namespace RSA
 		return key;
 	}
 
-	std::string Encrypt(std::string msg, PublicKey key)
+	std::string __encrypt(std::string msg, PublicKey key)
 	{
 		//! leading 1 is important!
 		std::string str_num = "1";
@@ -74,7 +74,7 @@ namespace RSA
 		//   A   B   C   D
 		// 1 065 066 067 068
 		// (explanation RSA-Ideas.md)
-		for (int i = 0; i < msg.length(); i++)
+		for (int i = 0; i < (int)msg.length(); i++)
 		{
 			str_num += str::toString(int(msg[i]), 3);
 		}
@@ -95,18 +95,20 @@ namespace RSA
 		return mpz_get_str(NULL, ENC_BASE, res);
 	}
 
-	std::string Encrypt_Long(std::string msg, PublicKey key, int partLength)
+	std::string Encrypt(std::string msg, PublicKey key, int partLength)
 	{
 		std::string res = "";
-		for (int i = 0; i < msg.length(); i+=partLength)
+		debug::log("Encrypt msg length " + std::to_string(msg.length()));
+		for (int i = 0; i < (int)msg.length(); i+=partLength)
 		{
-			res += Encrypt(msg.substr(i, partLength), key);
+			res += __encrypt(msg.substr(i, partLength), key);
+			debug::log("i: " + std::to_string(i) + "; partlength: " + std::to_string(partLength));
 			res += " ";
 		}
 		return res;
 	}
 
-	std::string Decrypt(std::string msg, PrivateKey key)
+	std::string __decrypt(std::string msg, PrivateKey key)
 	{
 		mpz_t crypt;
 		mpz_init(crypt);
@@ -126,7 +128,7 @@ namespace RSA
 		res_str = mpz_get_str(NULL, 10, res);
 		
 		std::string decode = "";
-		for (int i = 1; i < res_str.length(); i+=3)
+		for (int i = 1; i < (int)res_str.length(); i+=3)
 		{
 			std::string num_str = "";
 			num_str += res_str[i];
@@ -137,12 +139,12 @@ namespace RSA
 		return decode;
 	}
 
-	std::string Decrypt_Long(std::string msg, PrivateKey key)
+	std::string Decrypt(std::string msg, PrivateKey key)
 	{
 		std::string res = "";
 		for each (std::string s in str::split(msg, ' '))
 		{
-			res += Decrypt(s, key);
+			res += __decrypt(s, key);
 		}
 		return res;
 	}

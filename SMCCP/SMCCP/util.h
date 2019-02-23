@@ -17,6 +17,8 @@
 
 #include "SFML.h"
 
+#include <stdarg.h>
+
 
 #ifdef _DEBUG
 #define LOG_FILE_NAME "DEBUG_LOG.txt"
@@ -107,6 +109,15 @@ namespace str
 	std::string toString(int num, int length);
 
 	std::vector<std::string> split(std::string str, char delim);
+
+	//template< typename T >
+	std::string concat(const std::string t);
+
+	template< typename ... Args >
+	std::string concat(const std::string& first, Args ... args)
+	{
+		return concat(first) + concat(args...);
+	}
 }
 
 namespace file

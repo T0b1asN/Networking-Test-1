@@ -74,5 +74,5 @@ namespace mpir_math
 namespace mpir_helper
 {
 	std::string str(mpz_t n);
-	void fill(mpz_t n, std::string str);
+	void fill(mpz_t n, std::string str, int base);
 }

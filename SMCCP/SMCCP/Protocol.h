@@ -9,6 +9,8 @@ namespace prot
 	constexpr auto rsa_key = "RSA";
 	// notify about missing arguments in sent command
 	constexpr auto missing_args = "MISSING_ARGS";
+	//general error
+	constexpr auto error = "ERROR";
 
 	namespace c
 	{
@@ -32,5 +34,21 @@ namespace prot
 		constexpr auto missing_rsa_err = "RSA_MISSING";
 		// should have sended name
 		constexpr auto missing_name_err = "NAME_MISSING";
+	}
+
+	namespace rsa
+	{
+		//global value for bitcount of key
+		constexpr auto key_bitcnt = 512;
+		//how big the chunks for encryption should be
+		constexpr auto chunkSize = 8;
+	}
+
+	//removes the token and the space at the start of the function
+	//(only removes token.length()+1 chars from beginning of string)
+	inline std::string remToken(std::string from, std::string token)
+	{
+		//TODO make better
+		return from.erase(0, token.length() + 1);
 	}
 }

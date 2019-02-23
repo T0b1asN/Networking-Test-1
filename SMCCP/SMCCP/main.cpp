@@ -55,47 +55,47 @@ int main()
 	InitMPIR();
 	
 	//debug::log(mpir_math::test::rand_prime_test(2048));
-	auto start = std::chrono::steady_clock::now();
-	RSA::Key key = RSA::GenerateKey(512);
-	auto end = std::chrono::steady_clock::now();
-	auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
-	double elapsedS = (double)elapsed / 1000000000;
-	if (!key.err)
-	{
-		debug::log("N: " + mpir_helper::str(key.pubKey.N));
-		debug::log("e: " + mpir_helper::str(key.pubKey.e));
-		debug::log("d: " + mpir_helper::str(key.privKey.d));
-		debug::log("Time needed: " + std::to_string(elapsedS) + "s");
-	}
-	else
-		debug::log("Error in generating key");
+	//auto start = std::chrono::steady_clock::now();
+	//RSA::Key key = RSA::GenerateKey(512);
+	//auto end = std::chrono::steady_clock::now();
+	//auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
+	//double elapsedS = (double)elapsed / 1000000000;
+	//if (!key.err)
+	//{
+	//	debug::log("N: " + mpir_helper::str(key.pubKey.N));
+	//	debug::log("e: " + mpir_helper::str(key.pubKey.e));
+	//	debug::log("d: " + mpir_helper::str(key.privKey.d));
+	//	debug::log("Time needed: " + std::to_string(elapsedS) + "s");
+	//}
+	//else
+	//	debug::log("Error in generating key");
 
-	std::string msg = "Hallo";
+	//std::string msg = "Hallo";
 
-	debug::log("Encrypting \"" + msg + "\"...");
-	start = std::chrono::steady_clock::now();
-	std::string encrypted = RSA::Encrypt_Long(msg, key.pubKey, 8);
-	end = std::chrono::steady_clock::now();
-	debug::log("Result (encryption): " + encrypted);
-	elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
-	elapsedS = (double)elapsed / 1000000000;
-	debug::log("Time needed: " + std::to_string(elapsedS) + "s");
+	//debug::log("Encrypting \"" + msg + "\"...");
+	//start = std::chrono::steady_clock::now();
+	//std::string encrypted = RSA::Encrypt(msg, key.pubKey, 8);
+	//end = std::chrono::steady_clock::now();
+	//debug::log("Result (encryption): " + encrypted);
+	//elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
+	//elapsedS = (double)elapsed / 1000000000;
+	//debug::log("Time needed: " + std::to_string(elapsedS) + "s");
 
-	debug::log("Decrypting...");
-	start = std::chrono::steady_clock::now();
-	std::string decrypted = RSA::Decrypt_Long(encrypted, key.privKey);
-	end = std::chrono::steady_clock::now();
-	debug::log("Result (decryption): " + decrypted);
-	elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
-	elapsedS = (double)elapsed / 1000000000;
-	debug::log("Time needed: " + std::to_string(elapsedS) + "s");
-	bool equal = (decrypted.compare(msg) == 0);
-	if (equal)
-		debug::log("Strings before and after RSA are equal->RSA worked!");
-	else
-		debug::log("Strings before and after RSA are not equal -> RSA failed!");
+	//debug::log("Decrypting...");
+	//start = std::chrono::steady_clock::now();
+	//std::string decrypted = RSA::Decrypt(encrypted, key.privKey);
+	//end = std::chrono::steady_clock::now();
+	//debug::log("Result (decryption): " + decrypted);
+	//elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
+	//elapsedS = (double)elapsed / 1000000000;
+	//debug::log("Time needed: " + std::to_string(elapsedS) + "s");
+	//bool equal = (decrypted.compare(msg) == 0);
+	//if (equal)
+	//	debug::log("Strings before and after RSA are equal->RSA worked!");
+	//else
+	//	debug::log("Strings before and after RSA are not equal -> RSA failed!");
 
-	debug::pause();
+	//debug::pause();
 
 	if (own_log::create() == 0)
 	{
@@ -196,7 +196,8 @@ void RunServer(std::string name, int port)
 void RunClient(sf::IpAddress adress, unsigned int port)
 {
 	Client client(false, port, adress);
-	if(client.Setup() == 2)
+	int setupRes = client.Setup();
+	if(setupRes != 0)
 		return;
 	client.Run();
 }

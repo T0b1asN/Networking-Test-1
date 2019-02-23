@@ -272,6 +272,13 @@ std::vector<std::string> str::split(std::string str, char delim)
 	}
 	return ret;
 }
+
+std::string str::concat(const std::string t)
+{
+	std::stringstream string_stream;
+	string_stream << t;
+	return string_stream.str();
+}
 #pragma endregion
 
 #pragma region File

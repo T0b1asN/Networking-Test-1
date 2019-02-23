@@ -49,19 +49,11 @@ private:
 	//the name of the server
 	std::string name;
 
-	//own RSA-key !!! only share public part!!!
-	RSA::Key key;
-	//key length in bits (higher = safer but slower)
-	const int key_bitcount = 1024;
-
 	//the socket selector
 	sf::SocketSelector selector;
 	//the vector of sockets
 	//I didn't find another way of storing them :/
 	std::vector<std::unique_ptr<sf::TcpSocket>> sockets;
-	//TODO solve differently
-	// when adding a new socket, also get a new key
-	std::vector<RSA::PublicKey> socketKeys;
 
 	//a packet, where you can store the data to send
 	sf::Packet sendData;
@@ -97,8 +89,6 @@ private:
 
 public:
 #pragma region Networking
-	const std::string RSA = "RSA";
-
 	//returns the information of the server in one string
 	std::string getInfo();
 	//returns the name of the server
@@ -113,16 +103,24 @@ public:
 	void connectToClient();
 
 	//Send a string to all connected sockets
-	void SendString(sf::String msg);
+	__declspec(deprecated) void SendString(sf::String msg);
 	//Send a string to all connected sockets except the
 	//socket at the index 'exclude'
 	//without name
-	void SendString(sf::String msg, int exclude);
+	__declspec(deprecated) void SendString(sf::String msg, int exclude);
 	//Send a string to the given socket
 	//without name
-	void SendString(sf::String msg, sf::TcpSocket& socket);
+	__declspec(deprecated) void SendString(sf::String msg, sf::TcpSocket& socket);
 	//Send a string without your name
-	void SendStringWithoutName(sf::String msg);
+	__declspec(deprecated) void SendStringWithoutName(sf::String msg);
+
+	//TODO check on sf::String
+	//Send string to all sockets
+	void Send(std::string msg, bool tagIncluded = false, bool encrypt = true);
+	//send a string to all sockets except the ssocket at index [exclude]
+	void Send(std::string msg, int exclude, bool tagIncluded = false, bool encrypt = true);
+	//send a string to a specific socket
+	void SendSingle(std::string msg, int socketIndex, bool tagIncluded = false, bool encrypt = true);
 
 	//Shuts down the server
 	//The optMsg is displayed after the standardMsg if replaceStd is false
@@ -132,8 +130,6 @@ public:
 
 	//Disconnect the socket at the given index, you can also give a reason
 	void disconnectSocket(int index, std::string reason = "");
-	//Disconnect the given socket, you can also give a reason
-	void disconnectSocket(sf::TcpSocket& socket, std::string reason = "");
 #pragma endregion
 
 private:
@@ -181,6 +177,24 @@ public:
 #pragma region General
 	//Loop that keeps the server running
 	void Run();
+#pragma endregion
+
+private:
+#pragma region RSA
+	//own RSA-key !!! only share public part!!!
+	RSA::Key key;
+	//TODO solve differently
+	// when adding a new socket, also get a new key
+	std::vector<RSA::PublicKey> socketKeys;
+
+	//tries generating a key (filling variable key)
+	//returns true if succesful
+	bool GenerateKey(int max_errors = 5);
+#pragma endregion
+
+public:
+#pragma region RSA
+
 #pragma endregion
 
 private:
