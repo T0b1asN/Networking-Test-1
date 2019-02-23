@@ -31,6 +31,9 @@
 SMCCP/SMCCP/SFML/*
 SMCCP/Debug/*
 SMCCP/Release/*
+SMCCP/SMCCP/DiscordRPC/*
+SMCCP/SMCCP/mpir/*
+SMCCP/SMCCP/mpirxx/*
 
 # Files built by Visual Studio
 *_i.c
