@@ -1,3 +1,24 @@
-﻿  main.cpp
-c:\users\tobiaslaptop\documents\github\smccp\smccp\smccp\popup.h(11): warning C4091: "static ": Ignoriert auf der linken Seite von "PopUp", wenn keine Variable deklariert wurde
-  SMCCP.vcxproj -> C:\Users\TobiasLaptop\Documents\GitHub\SMCCP\SMCCP\Debug\SMCCP.exe
+﻿  CheckBox.cpp
+  Client.cpp
+  InputHandler.cpp
+  NamePrompt.cpp
+  OwnButton.cpp
+  OwnMath.cpp
+f:\_programming\projekte\github\own\networking\smccp\smccp\smccp\ownmath.cpp(78): warning C4244: "Argument": Konvertierung von "long double" in "int", möglicher Datenverlust
+f:\_programming\projekte\github\own\networking\smccp\smccp\smccp\ownmath.cpp(203): warning C4244: "Argument": Konvertierung von "__int64" in "mpir_ui", möglicher Datenverlust
+  OwnWindow.cpp
+  PopUp.cpp
+f:\_programming\projekte\github\own\networking\smccp\smccp\smccp\popup.h(11): warning C4091: "static ": Ignoriert auf der linken Seite von "PopUp", wenn keine Variable deklariert wurde
+  RSA.cpp
+  Server.cpp
+f:\_programming\projekte\github\own\networking\smccp\smccp\smccp\server.cpp(99): warning C4390: ";": Leere kontrollierte Anweisung aufgetreten; ist dies beabsichtigt?
+f:\_programming\projekte\github\own\networking\smccp\smccp\smccp\server.cpp(101): warning C4390: ";": Leere kontrollierte Anweisung aufgetreten; ist dies beabsichtigt?
+  StartMenu.cpp
+  TextBox.cpp
+  WindowHandler.cpp
+  main.cpp
+f:\_programming\projekte\github\own\networking\smccp\smccp\smccp\popup.h(11): warning C4091: "static ": Ignoriert auf der linken Seite von "PopUp", wenn keine Variable deklariert wurde
+  util.cpp
+  Code wird generiert...
+f:\_programming\projekte\github\own\networking\smccp\smccp\smccp\windowhandler.cpp(14): warning C4172: Adresse einer lokalen Variablen oder eines temporären Werts "" wird zurückgegeben
+  SMCCP.vcxproj -> F:\_Programming\Projekte\GitHub\own\networking\SMCCP\SMCCP\Debug\SMCCP.exe

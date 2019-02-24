@@ -54,7 +54,7 @@ int main()
 {
 #ifdef _DEBUG
 	ShowWindow(GetConsoleWindow(), SW_SHOW);
-#elif _DEBUG
+#else
 	ShowWindow(GetConsoleWindow(), SW_HIDE);
 #endif // !NDEBUG
 	InitMPIR();
