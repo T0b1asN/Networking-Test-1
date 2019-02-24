@@ -52,6 +52,11 @@ std::vector<UIElement*> elementsVec;
 
 int main()
 {
+#ifdef _DEBUG
+	ShowWindow(GetConsoleWindow(), SW_SHOW);
+#elif _DEBUG
+	ShowWindow(GetConsoleWindow(), SW_HIDE);
+#endif // !NDEBUG
 	InitMPIR();
 	
 	//debug::log(mpir_math::test::rand_prime_test(2048));
@@ -114,9 +119,6 @@ int main()
 	//TODO stuff like font loading is done for every new Window
 	GraphicsSetup(500U, 200U);
 
-#ifndef _DEBUG
-	ShowWindow(GetConsoleWindow(), SW_HIDE);
-#endif // !NDEBUG
 
 	StartMenu stMen;
 	

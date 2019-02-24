@@ -1,24 +1,3 @@
-﻿  CheckBox.cpp
-  Client.cpp
-  OwnMath.cpp
-c:\users\tobiaslaptop\documents\github\smccp\smccp\smccp\ownmath.cpp(78): warning C4244: "Argument": Konvertierung von "long double" in "int", möglicher Datenverlust
-c:\users\tobiaslaptop\documents\github\smccp\smccp\smccp\ownmath.cpp(203): warning C4244: "Argument": Konvertierung von "__int64" in "mpir_ui", möglicher Datenverlust
-  RSA.cpp
-  WindowHandler.cpp
-  OwnWindow.cpp
-  util.cpp
-  main.cpp
+﻿  main.cpp
 c:\users\tobiaslaptop\documents\github\smccp\smccp\smccp\popup.h(11): warning C4091: "static ": Ignoriert auf der linken Seite von "PopUp", wenn keine Variable deklariert wurde
-  InputHandler.cpp
-  NamePrompt.cpp
-  OwnButton.cpp
-  PopUp.cpp
-c:\users\tobiaslaptop\documents\github\smccp\smccp\smccp\popup.h(11): warning C4091: "static ": Ignoriert auf der linken Seite von "PopUp", wenn keine Variable deklariert wurde
-  Server.cpp
-c:\users\tobiaslaptop\documents\github\smccp\smccp\smccp\server.cpp(99): warning C4390: ";": Leere kontrollierte Anweisung aufgetreten; ist dies beabsichtigt?
-c:\users\tobiaslaptop\documents\github\smccp\smccp\smccp\server.cpp(101): warning C4390: ";": Leere kontrollierte Anweisung aufgetreten; ist dies beabsichtigt?
-  StartMenu.cpp
-  TextBox.cpp
-  Code wird generiert...
-c:\users\tobiaslaptop\documents\github\smccp\smccp\smccp\windowhandler.cpp(14): warning C4172: Adresse einer lokalen Variablen oder eines temporären Werts "" wird zurückgegeben
   SMCCP.vcxproj -> C:\Users\TobiasLaptop\Documents\GitHub\SMCCP\SMCCP\Debug\SMCCP.exe

@@ -1736,3 +1736,23 @@ Server session
 -------------------------------------------------------------
 24.02.2019 00:59:06 - Setting up server on port 1234 with name sd
 24.02.2019 00:59:06 - Server setup finished
+
+**********************************
+Loading audio files
+24.02.2019 01:41:59 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+24.02.2019 01:42:24 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+24.02.2019 01:43:45 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+24.02.2019 01:45:15 - Loaded 3 audiofiles - without error: true
+**********************************
