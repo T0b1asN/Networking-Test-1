@@ -1,4 +1,1 @@
-﻿  Server.cpp
-f:\_programming\projekte\github\own\networking\smccp\smccp\smccp\server.cpp(99): warning C4390: ";": Leere kontrollierte Anweisung aufgetreten; ist dies beabsichtigt?
-f:\_programming\projekte\github\own\networking\smccp\smccp\smccp\server.cpp(101): warning C4390: ";": Leere kontrollierte Anweisung aufgetreten; ist dies beabsichtigt?
-  SMCCP.vcxproj -> F:\_Programming\Projekte\GitHub\own\networking\SMCCP\SMCCP\Debug\SMCCP.exe
+﻿  SMCCP.vcxproj -> F:\_Programming\Projekte\GitHub\own\networking\SMCCP\SMCCP\Debug\SMCCP.exe

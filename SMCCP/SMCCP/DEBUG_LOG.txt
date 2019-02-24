@@ -1724,3 +1724,15 @@ Server session
 -------------------------------------------------------------
 30.12.2018 20:16:16 - Setting up server on port 1234 with name 1234
 30.12.2018 20:16:16 - Server setup finished
+
+**********************************
+Loading audio files
+24.02.2019 00:59:03 - Loaded 3 audiofiles - without error: true
+**********************************
+24.02.2019 00:59:04 - Button: callback not set!
+24.02.2019 00:59:06 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+24.02.2019 00:59:06 - Setting up server on port 1234 with name sd
+24.02.2019 00:59:06 - Server setup finished

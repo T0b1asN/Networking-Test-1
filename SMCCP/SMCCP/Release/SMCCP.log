@@ -1,10 +1,4 @@
-﻿  main.cpp
-e:\_github\own\networking\smccp\smccp\smccp\StartMenu.h(16): warning C4005: 'CALLBACK_ID': macro redefinition
-  e:\_github\own\networking\smccp\smccp\smccp\NamePrompt.h(8): note: see previous definition of 'CALLBACK_ID'
-e:\_github\own\networking\smccp\smccp\smccp\PopUp.h(11): warning C4091: 'static ': ignored on left of 'PopUp' when no variable is declared
-  Generating code
-  1 of 1819 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    11 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  SMCCP.vcxproj -> E:\_GitHub\own\networking\SMCCP\SMCCP\Release\SMCCP.exe
+﻿  Code wird generiert.
+  All 2458 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Codegenerierung ist abgeschlossen.
+  SMCCP.vcxproj -> F:\_Programming\Projekte\GitHub\own\networking\SMCCP\SMCCP\Release\SMCCP.exe
