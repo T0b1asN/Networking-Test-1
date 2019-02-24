@@ -16,10 +16,7 @@ Unpack the zip-file "_NeededLibraries.zip" and put all folders inside "/SMCCP/SM
 
 ### Building
 
-After building for the first time, you should put the missing dll files into the Debug or Release folder. Missing are:
-
-* Debug: sfml-*-d.dll (replace asterisc by different modules) and mpir.dll
-* Release: mpir.dll
+After building for the first time, unpack the bin zip-files next to the Debug/Release folder, named "_DebugBin.zip" and "_ReleaseBin.zip". Put the resulting dll files in the corresponding folder.
 
 ## Planned features for 3.0.0:
 
