@@ -1,6 +1,6 @@
-### **How to use**
+# How to use the finished program
 
-#### Server
+## Server
 
 1. Enter the desired port in the right textbox
 2. Press on the button labeled 'Server'
@@ -8,7 +8,7 @@
 4. Wait for clients to connect  
 5. Have conversations 💬  
 
-#### Client
+## Client
 
 1. Enter the IP address of the server in the left textbox (server can see it in the top of his window)  
 2. Enter the port on which the server is in the left textbox (server can also see this at the top)  
@@ -16,4 +16,4 @@
 4. You are asked for a nickname, enter it. If it is already in use on the server, this window will pop up again  
 5. Have conversations 💬  
 
-###### **Have fun!**
+### **Have fun!**
