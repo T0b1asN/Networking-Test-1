@@ -315,7 +315,7 @@ void Server::Enter()
 {
 	if (textBox.Text() != "" && textBox.Text() != textBox.getStdText())
 	{
-		this->Send(textBox.Text());
+		this->Send(name + ": " + textBox.Text());
 
 		sf::String tmpStr = textBox.Text();
 		tmpStr = "You: " + tmpStr;
@@ -392,8 +392,8 @@ void Server::Update()
 							lastMsg = prot::remToken(lastMsg, token);
 							if (!muted)
 								snd::playSound("incoming_01");
-							Send(lastMsg, i);
-							DisplayMessage(lastMsg);
+							Send(names.at(i) + ": " + lastMsg, i);
+							DisplayMessage(names.at(i) + ": " + lastMsg);
 						}
 						receiveData.clear();
 					}

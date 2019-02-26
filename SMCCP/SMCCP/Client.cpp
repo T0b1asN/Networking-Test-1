@@ -238,6 +238,7 @@ void Client::update()
 			return;
 		}
 		lastMsg = RSA::Decrypt(lastMsg, key.privKey);
+		debug::log("lastMsg: " + lastMsg);
 		std::string token = str::split(lastMsg, ' ').front();
 		//remove token from message
 		lastMsg = prot::remToken(lastMsg, token);

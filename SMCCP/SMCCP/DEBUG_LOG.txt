@@ -1788,3 +1788,162 @@ Client session
 
 24.02.2019 01:54:01 - Disconnected from 192.168.178.184 due to server
 -------------------------------------------------------------
+
+**********************************
+Loading audio files
+26.02.2019 22:15:44 - Loaded 3 audiofiles - without error: true
+**********************************
+26.02.2019 22:15:45 - Button: callback not set!
+26.02.2019 22:15:47 - Could not connect
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+26.02.2019 22:16:02 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+26.02.2019 22:16:34 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+26.02.2019 22:17:19 - Loaded 3 audiofiles - without error: true
+**********************************
+26.02.2019 22:17:21 - Button: callback not set!
+26.02.2019 22:17:23 - Could not connect
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+26.02.2019 22:20:51 - Loaded 3 audiofiles - without error: true
+**********************************
+26.02.2019 22:20:52 - Button: callback not set!
+26.02.2019 22:20:54 - Could not connect
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+26.02.2019 22:21:07 - Loaded 3 audiofiles - without error: true
+**********************************
+26.02.2019 22:21:08 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+26.02.2019 22:21:10 - Setting up server on port 1234 with name Hallo
+26.02.2019 22:21:11 - Server setup finished
+
+**********************************
+Loading audio files
+26.02.2019 22:22:02 - Loaded 3 audiofiles - without error: true
+**********************************
+26.02.2019 22:22:05 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+26.02.2019 22:22:06 - Setting up server on port 1234 with name 1234
+26.02.2019 22:22:06 - Server setup finished
+26.02.2019 22:22:26 - New client named Laptop | Now there are 1 sockets connected
+26.02.2019 22:23:03 - New client named PC1 | Now there are 2 sockets connected
+26.02.2019 22:23:15 - PC1 (Place 1) disconnected | Now there are 1 sockets connected
+26.02.2019 22:23:22 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+26.02.2019 22:23:55 - Loaded 3 audiofiles - without error: true
+**********************************
+26.02.2019 22:23:55 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+26.02.2019 22:23:57 - Setting up server on port 1234 with name dasf
+26.02.2019 22:23:57 - Server setup finished
+26.02.2019 22:24:03 - New client named qwe | Now there are 1 sockets connected
+26.02.2019 22:24:09 - qwe (Place 0) disconnected | Now there are 0 sockets connected
+26.02.2019 22:24:10 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+26.02.2019 22:26:47 - Loaded 3 audiofiles - without error: true
+**********************************
+26.02.2019 22:26:49 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+26.02.2019 22:26:52 - Setting up server on port 1234 with name TestServer
+26.02.2019 22:26:52 - Server setup finished
+26.02.2019 22:27:05 - New client named TEstClient | Now there are 1 sockets connected
+26.02.2019 22:27:22 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+26.02.2019 22:27:45 - Loaded 3 audiofiles - without error: true
+**********************************
+26.02.2019 22:27:46 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+26.02.2019 22:27:49 - Setting up server on port 1234 with name Hallo
+26.02.2019 22:27:49 - Server setup finished
+26.02.2019 22:27:58 - New client named 1 | Now there are 1 sockets connected
+26.02.2019 22:28:02 - New client named 2 | Now there are 2 sockets connected
+26.02.2019 22:28:28 - 2 (Place 1) disconnected | Now there are 1 sockets connected
+26.02.2019 22:28:30 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+26.02.2019 22:30:00 - Loaded 3 audiofiles - without error: true
+**********************************
+26.02.2019 22:30:26 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+26.02.2019 22:30:31 - Trying to connect to 192.168.178.184 as Client
+26.02.2019 22:30:31 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as Client
+--------------------------------
+
+
+**********************************
+Loading audio files
+26.02.2019 22:31:25 - Loaded 3 audiofiles - without error: true
+**********************************
+26.02.2019 22:31:34 - Button: callback not set!
+26.02.2019 22:31:37 - Could not connect
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+26.02.2019 22:31:40 - Loaded 3 audiofiles - without error: true
+**********************************
+26.02.2019 22:31:53 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+26.02.2019 22:31:54 - Trying to connect to 192.168.178.184 as 1
+26.02.2019 22:31:54 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as 1
+--------------------------------
+
+
+**********************************
+Loading audio files
+26.02.2019 22:34:54 - Loaded 3 audiofiles - without error: true
+**********************************
