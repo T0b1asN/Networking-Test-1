@@ -43,7 +43,7 @@ private:
 
 	void onServerDisconnect();
 
-	sf::String lastMsg;
+	std::string lastMsg;
 	unsigned int maxMsgs = 15U;
 
 	std::vector<sf::String> msgs;

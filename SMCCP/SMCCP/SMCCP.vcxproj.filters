@@ -103,7 +103,7 @@
       <Filter>Headers\Util</Filter>
     </ClInclude>
     <ClInclude Include="Protocol.h">
-      <Filter>Source\Networking</Filter>
+      <Filter>Headers\Networking</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

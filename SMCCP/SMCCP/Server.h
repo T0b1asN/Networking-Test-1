@@ -63,7 +63,7 @@ private:
 	//the newest message that is received
 	//it has some stuff in it that you should exclude from the message
 	//like the ExcludeChar
-	sf::String lastMsg;
+	std::string lastMsg;
 
 	//maximum amount of messages shown and saved
 	unsigned int maxMsgs = 15;

@@ -230,6 +230,32 @@ bool network::validIp(std::string ip)
 
 	return true;
 }
+
+std::string network::statusToString(sf::Socket::Status status)
+{
+	std::string ret = "";
+	switch (status)
+	{
+	case sf::Socket::Done:
+		ret = "Done";
+		break;
+	case sf::Socket::NotReady:
+		ret = "NotReady";
+		break;
+	case sf::Socket::Partial:
+		ret = "Partial";
+		break;
+	case sf::Socket::Disconnected:
+		ret = "Disconnect";
+		break;
+	case sf::Socket::Error:
+		ret = "Error";
+		break;
+	default:
+		break;
+	}
+	return ret;
+}
 #pragma endregion
 
 #pragma region String

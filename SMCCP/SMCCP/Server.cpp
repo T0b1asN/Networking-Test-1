@@ -188,9 +188,9 @@ void Server::connectToClient()
 		errorSocket.disconnect();
 
 		own_log::append("Client tried to connect, even though the server is full");
-
-		return;
 	}
+
+	receiveData.clear();
 }
 
 void Server::SendString(sf::String msg)
@@ -243,7 +243,9 @@ void Server::Send(std::string msg, bool tagIncluded, bool encrypt)
 			encrypted = RSA::Encrypt(msg, socketKeys.at(i), prot::rsa::chunkSize);
 		sendData.clear();
 		sendData << encrypted;
-		(*sockets.at(i).get()).send(sendData);
+		debug::log("Sending: " + encrypted + " (packet size: " + std::to_string((int)sendData.getDataSize()) + ")");
+		sf::Socket::Status stat = (*sockets.at(i).get()).send(sendData);
+		debug::log("Send status: " + network::statusToString(stat));
 	}
 }
 
@@ -264,6 +266,7 @@ void Server::SendSingle(std::string msg, int socketIndex, bool tagIncluded, bool
 		msg = RSA::Encrypt(msg, socketKeys.at(socketIndex), prot::rsa::chunkSize);
 	sendData.clear();
 	sendData << msg;
+	debug::log("Sending: " + msg + " (packet size: " + std::to_string((int)sendData.getDataSize()) + ")");
 	(*sockets.at(socketIndex).get()).send(sendData);
 }
 
@@ -359,7 +362,7 @@ void Server::Update()
 {
 	//TODO: server should add name, if receiving a message, shouldn't be sent by client
 	lastMsg = "";
-	receiveData.clear();
+	//receiveData.clear();
 
 	//TODO adhere to protocol
 
@@ -369,23 +372,33 @@ void Server::Update()
 		{
 			if (selector.isReady((*sockets.at(i).get())))
 			{
-				if ((*sockets.at(i).get()).receive(receiveData) != sf::Socket::Disconnected)
+				if ((*sockets.at(i).get()).receive(receiveData) == sf::Socket::Done)
 				{
-					//TODO fix problems probably with blocking
-					receiveData >> lastMsg;
-					lastMsg = RSA::Decrypt(lastMsg, key.privKey);
-					debug::log("lastMsg: " + lastMsg.toAnsiString());
-					std::string token = str::split(lastMsg, ' ').front();
-					if (token == prot::msg)
+					//TODO convert lastMsg to sf::String
+					if (!(receiveData >> lastMsg))
 					{
-						lastMsg = prot::remToken(lastMsg, token);
-						if (!muted)
-							snd::playSound("incoming_01");
-						Send(lastMsg, i);
-						DisplayMessage(lastMsg);
+						debug::log("Error in receiving");
+					}
+					else
+					{
+						int dataSize = (int)receiveData.getDataSize();
+						debug::log("data size: " + std::to_string(dataSize));
+						debug::log("lastMsg (no decrypt): " + lastMsg);
+						lastMsg = RSA::Decrypt(lastMsg, key.privKey);
+						debug::log("lastMsg: " + lastMsg);
+						std::string token = str::split(lastMsg, ' ').front();
+						if (token == prot::msg)
+						{
+							lastMsg = prot::remToken(lastMsg, token);
+							if (!muted)
+								snd::playSound("incoming_01");
+							Send(lastMsg, i);
+							DisplayMessage(lastMsg);
+						}
+						receiveData.clear();
 					}
 				}
-				else
+				else if((*sockets.at(i).get()).receive(receiveData) == sf::Socket::Disconnected)
 				{
 					lastMsg = "[" + names.at(i) + " disconnected]";
 					debug::log((std::string)lastMsg);
@@ -406,7 +419,7 @@ void Server::Update()
 					//not using send with exclude because socket is deleted
 					Send(lastMsg);
 					DisplayMessage(lastMsg);
-
+					receiveData.clear();
 					//TODO: Disconnect sound
 				}
 			}
