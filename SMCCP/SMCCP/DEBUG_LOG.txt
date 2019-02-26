@@ -1761,3 +1761,30 @@ Loading audio files
 Loading audio files
 24.02.2019 01:51:32 - Loaded 3 audiofiles - without error: true
 **********************************
+
+**********************************
+Loading audio files
+24.02.2019 01:53:13 - Loaded 3 audiofiles - without error: true
+**********************************
+24.02.2019 01:53:14 - Button: callback not set!
+24.02.2019 01:53:17 - Could not connect
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+24.02.2019 01:53:24 - Loaded 3 audiofiles - without error: true
+**********************************
+24.02.2019 01:53:39 - Button: callback not set!
+
+Client session
+-------------------------------------------------------------
+24.02.2019 01:53:44 - Trying to connect to 192.168.178.184 as TestClient
+24.02.2019 01:53:44 - Connected to: 192.168.178.184
+
+--------------------------------
+|	Connected as TestClient
+--------------------------------
+
+24.02.2019 01:54:01 - Disconnected from 192.168.178.184 due to server
+-------------------------------------------------------------
