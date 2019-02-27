@@ -94,7 +94,6 @@ void Server::connectToClient()
 		std::string rec = "";
 		rsaPacket >> rec;
 		std::vector<std::string> args = str::split(rec, ' ');
-		debug::log(str::concat("args size: ", std::to_string(args.size())));
 		if (args.size() < 3)
 			; //retry receivingkey
 		if (args.front() != prot::rsa_key)
@@ -102,6 +101,7 @@ void Server::connectToClient()
 		mpir_helper::fill(otherKey.N, args.at(1), RSA::ENC_BASE);
 		mpir_helper::fill(otherKey.e, args.at(2), RSA::ENC_BASE);
 		socketKeys.push_back(otherKey);
+		debug::log("Client " + std::to_string(sockets.size() - 1) + " key: " + RSA::keyToStr(otherKey));
 
 		// connected Socket is last in vector
 		// first send public key
@@ -119,7 +119,6 @@ void Server::connectToClient()
 		// not needed
 		int index = sockets.size() - 1;
 
-		socketKeys.push_back(otherKey);
 		//receive name from client
 		sf::Packet namePacket;
 		namePacket.clear();
@@ -141,6 +140,7 @@ void Server::connectToClient()
 			(sockets.back().get())->send(respPacket);
 			(sockets.back().get())->disconnect();
 			sockets.pop_back();
+			socketKeys.pop_back();
 			socketKeys.pop_back();
 			return;
 		}
@@ -262,6 +262,7 @@ void Server::SendSingle(std::string msg, int socketIndex, bool tagIncluded, bool
 {
 	if (!tagIncluded)
 		msg = str::concat(prot::msg, " ", msg);
+	debug::log("MSG before: " + msg + "| index: " + std::to_string(socketIndex));
 	if (encrypt)
 		msg = RSA::Encrypt(msg, socketKeys.at(socketIndex), prot::rsa::chunkSize);
 	sendData.clear();
@@ -389,6 +390,7 @@ void Server::Update()
 						std::string token = str::split(lastMsg, ' ').front();
 						if (token == prot::msg)
 						{
+							debug::log("socket which send index: " + std::to_string(i));
 							lastMsg = prot::remToken(lastMsg, token);
 							if (!muted)
 								snd::playSound("incoming_01");

@@ -1947,3 +1947,107 @@ Client session
 Loading audio files
 26.02.2019 22:34:54 - Loaded 3 audiofiles - without error: true
 **********************************
+
+**********************************
+Loading audio files
+27.02.2019 20:24:01 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+27.02.2019 20:28:05 - Loaded 3 audiofiles - without error: true
+**********************************
+27.02.2019 20:28:06 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+27.02.2019 20:28:08 - Setting up server on port 1234 with name Server
+27.02.2019 20:28:08 - Server setup finished
+27.02.2019 20:28:21 - New client named C1 | Now there are 1 sockets connected
+27.02.2019 20:28:26 - New client named C2 | Now there are 2 sockets connected
+27.02.2019 20:29:38 - C2 (Place 1) disconnected | Now there are 1 sockets connected
+27.02.2019 20:29:39 - C1 (Place 0) disconnected | Now there are 0 sockets connected
+27.02.2019 20:29:46 - New client named C0 | Now there are 1 sockets connected
+27.02.2019 20:29:52 - New client named C1 | Now there are 2 sockets connected
+27.02.2019 20:30:07 - C1 (Place 1) disconnected | Now there are 1 sockets connected
+27.02.2019 20:30:25 - C0 (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+27.02.2019 20:31:36 - Loaded 3 audiofiles - without error: true
+**********************************
+27.02.2019 20:31:37 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+27.02.2019 20:31:40 - Setting up server on port 1234 with name Hallo
+27.02.2019 20:31:40 - Server setup finished
+
+**********************************
+Loading audio files
+27.02.2019 20:32:02 - Loaded 3 audiofiles - without error: true
+**********************************
+27.02.2019 20:32:03 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+27.02.2019 20:32:04 - Setting up server on port 1234 with name A
+27.02.2019 20:32:04 - Server setup finished
+27.02.2019 20:32:12 - New client named Q | Now there are 1 sockets connected
+27.02.2019 20:32:24 - New client named @ | Now there are 2 sockets connected
+27.02.2019 20:33:18 - @ (Place 1) disconnected | Now there are 1 sockets connected
+27.02.2019 20:33:18 - Q (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+27.02.2019 20:36:15 - Loaded 3 audiofiles - without error: true
+**********************************
+27.02.2019 20:36:17 - Button: callback not set!
+27.02.2019 20:36:19 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+27.02.2019 20:36:20 - Setting up server on port 1234 with name 123fdf
+27.02.2019 20:36:20 - Server setup finished
+27.02.2019 20:36:30 - New client named sssdw | Now there are 1 sockets connected
+27.02.2019 20:36:49 - New client named Jalta | Now there are 2 sockets connected
+
+**********************************
+Loading audio files
+27.02.2019 20:38:40 - Loaded 3 audiofiles - without error: true
+**********************************
+27.02.2019 20:38:41 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+27.02.2019 20:38:43 - Setting up server on port 1234 with name 654657321
+27.02.2019 20:38:43 - Server setup finished
+27.02.2019 20:38:53 - New client named c1 | Now there are 1 sockets connected
+27.02.2019 20:38:57 - New client named c2 | Now there are 2 sockets connected
+
+**********************************
+Loading audio files
+27.02.2019 20:50:38 - Loaded 3 audiofiles - without error: true
+**********************************
+27.02.2019 20:50:42 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+27.02.2019 20:50:44 - Setting up server on port 1234 with name 654
+27.02.2019 20:50:44 - Server setup finished
+27.02.2019 20:50:52 - New client named c1 | Now there are 1 sockets connected
+27.02.2019 20:51:22 - New client named c2 | Now there are 2 sockets connected
+27.02.2019 20:51:58 - New client named c3 | Now there are 3 sockets connected
+
+**********************************
+Loading audio files
+27.02.2019 20:55:36 - Loaded 3 audiofiles - without error: true
+**********************************
+27.02.2019 20:55:37 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+27.02.2019 20:55:40 - Setting up server on port 1234 with name s
+27.02.2019 20:55:40 - Server setup finished
+27.02.2019 20:55:49 - New client named c1 | Now there are 1 sockets connected
+27.02.2019 20:55:55 - New client named c2 | Now there are 2 sockets connected

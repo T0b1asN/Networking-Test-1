@@ -148,4 +148,29 @@ namespace RSA
 		}
 		return res;
 	}
+
+	std::string keyToStr(Key key)
+	{
+		std::string ret = "";
+		ret += "private (d): " + mpir_helper::str(key.privKey.d) + "\n";
+		ret += "private/public (N): " + mpir_helper::str(key.privKey.N) + "\n";
+		ret += "public (e): " + mpir_helper::str(key.pubKey.e);
+		return ret;
+	}
+
+	std::string keyToStr(PublicKey key)
+	{
+		std::string ret = "";
+		ret += "N: " + mpir_helper::str(key.N) + "\n";
+		ret += "e: " + mpir_helper::str(key.e);
+		return ret;
+	}
+
+	std::string keyToStr(PrivateKey key)
+	{
+		std::string ret = "";
+		ret += "d: " + mpir_helper::str(key.d) + "\n";
+		ret += "N: " + mpir_helper::str(key.N);
+		return ret;
+	}
 }

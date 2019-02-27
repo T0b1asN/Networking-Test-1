@@ -27,6 +27,9 @@ namespace RSA
 		bool err;
 	};
 
+	std::string keyToStr(Key);
+	std::string keyToStr(PublicKey);
+	std::string keyToStr(PrivateKey);
 
 	Key GenerateKey(int bitCount = 1024, bool calcE = false);
 
