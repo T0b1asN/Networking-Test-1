@@ -31,6 +31,8 @@
 SMCCP/SMCCP/SFML/*
 SMCCP/Debug/*
 SMCCP/Release/*
+SMCCP/SMCCP/Debug/*
+SMCCP/SMCCP/Release/*
 SMCCP/SMCCP/DiscordRPC/*
 SMCCP/SMCCP/mpir/*
 SMCCP/SMCCP/mpirxx/*
@@ -125,5 +127,6 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
 *.pdb
 *.idb
