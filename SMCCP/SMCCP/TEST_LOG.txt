@@ -1567,3 +1567,35 @@ Server session
 20.05.2017 23:30:01 - Server setup finished
 20.05.2017 23:30:17 - New client named l\l | Now there are 1 sockets connected
 20.05.2017 23:30:27 - l\l (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+24.010.2019 17:47:35 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+24.010.2019 17:47:42 - Setting up server on port 1234 with name 1234
+24.010.2019 17:47:42 - Server setup finished
+24.010.2019 17:48:22 - New client named 123 | Now there are 1 sockets connected
+24.010.2019 17:49:37 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+24.010.2019 19:12:07 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+24.010.2019 19:14:14 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+24.010.2019 19:14:18 - Setting up server on port 1234 with name test
+24.010.2019 19:14:19 - Server setup finished
+24.010.2019 19:14:20 - You shut down the server, by closing the window
+-------------------------------------------------------------
+

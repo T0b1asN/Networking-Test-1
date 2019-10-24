@@ -1,17 +1,13 @@
 #pragma once
-#include "TextBox.h"
-#include "OwnButton.h"
-#include "SFML.h"
+#include "BaseUIWindow.h"
 
-class NamePrompt
+class NamePrompt : public BaseUIWindow
 {
 private:
 	TextBox nameBox;
 	std::string name;
 
 	OwnButton okButton;
-
-	sf::RenderWindow prompt;
 
 public:
 	NamePrompt();

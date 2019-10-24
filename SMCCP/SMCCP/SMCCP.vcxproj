@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AudioUtil.cpp" />
+    <ClCompile Include="BaseUIWindow.cpp" />
     <ClCompile Include="CheckBox.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="LogUtil.cpp" />
@@ -167,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AudioUtil.h" />
+    <ClInclude Include="BaseUIWindow.h" />
     <ClInclude Include="CheckBox.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="curr.h" />

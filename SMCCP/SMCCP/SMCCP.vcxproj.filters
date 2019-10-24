@@ -40,6 +40,9 @@
     <ClCompile Include="TextBox.cpp">
       <Filter>Source\UI\Elements</Filter>
     </ClCompile>
+    <ClCompile Include="BaseUIWindow.cpp">
+      <Filter>Source\UI\Windows</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stringutil.h">
@@ -85,6 +88,9 @@
       <Filter>Headers\UI\Windows</Filter>
     </ClInclude>
     <ClInclude Include="StartMenu.h">
+      <Filter>Headers\UI\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseUIWindow.h">
       <Filter>Headers\UI\Windows</Filter>
     </ClInclude>
   </ItemGroup>
