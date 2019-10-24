@@ -4,16 +4,14 @@
 #include "Defines.h"
 #include "NetworkHelpers.h"
 
-#include "OwnButton.h"
-#include "TextBox.h"
-#include "CheckBox.h"
+#include "BaseUIWindow.h"
 
 #include <iostream>
 #include <string>
 
 
 
-class StartMenu
+class StartMenu : public BaseUIWindow
 {
 public:
 	enum Result
@@ -44,5 +42,7 @@ public:
 	unsigned int getPort() { return port; }
 
 	void display();
+
+	void close();
 };
 

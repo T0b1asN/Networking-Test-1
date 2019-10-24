@@ -1599,3 +1599,82 @@ Server session
 24.010.2019 19:14:20 - You shut down the server, by closing the window
 -------------------------------------------------------------
 
+
+**********************************
+Loading audio files
+24.010.2019 22:37:51 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+24.010.2019 22:42:10 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+24.010.2019 22:42:22 - Setting up server on port 2345 with name Hallo
+24.010.2019 22:42:22 - Server setup finished
+24.010.2019 22:42:26 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+24.010.2019 22:43:02 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+24.010.2019 22:43:08 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+24.010.2019 22:44:16 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+24.010.2019 22:44:51 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+24.010.2019 22:51:36 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+24.010.2019 22:51:41 - Setting up server on port 1234 with name Boi
+24.010.2019 22:51:41 - Server setup finished
+24.010.2019 22:52:08 - New client named YaBoi | Now there are 1 sockets connected
+24.010.2019 22:52:13 - YaBoi (Place 0) disconnected | Now there are 0 sockets connected
+24.010.2019 22:52:18 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+24.010.2019 23:09:34 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+24.010.2019 23:09:38 - Setting up server on port 1234 with name Hallo
+24.010.2019 23:09:38 - Server setup finished
+24.010.2019 23:09:39 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+24.010.2019 23:14:38 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+24.010.2019 23:14:42 - Setting up server on port 1234 with name Hallo
+24.010.2019 23:14:42 - Server setup finished
+24.010.2019 23:14:46 - You shut down the server, by closing the window
+-------------------------------------------------------------
+

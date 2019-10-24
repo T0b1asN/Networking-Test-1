@@ -43,6 +43,9 @@
     <ClCompile Include="BaseUIWindow.cpp">
       <Filter>Source\UI\Windows</Filter>
     </ClCompile>
+    <ClCompile Include="WindowHandler.cpp">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stringutil.h">
@@ -92,6 +95,9 @@
     </ClInclude>
     <ClInclude Include="BaseUIWindow.h">
       <Filter>Headers\UI\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowHandler.h">
+      <Filter>Headers\Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

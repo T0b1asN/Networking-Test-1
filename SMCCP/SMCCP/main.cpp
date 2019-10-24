@@ -19,7 +19,7 @@
 #include "NetworkHelpers.h"
 
 void RunServer(std::string name, int port = 1234);
-void RunClient(sf::IpAddress adress, unsigned int port = 1234);
+void RunClient(sf::IpAddress adress, StartMenu *menuToClose, unsigned int port = 1234);
 std::string getCurrTime();
 
 sf::Image icon;
@@ -64,13 +64,15 @@ int main()
 			return 0;
 		std::string name = np.getName();
 
+		stMen.close();
+
 		GraphicsSetup(1000U, 750U);
 		RunServer(name, port);
 		break;
 	}
 	case StartMenu::Client:
 		GraphicsSetup(1000U, 750U);
-		RunClient(enteredIp, port);
+		RunClient(enteredIp, &stMen, port);
 
 		break;
 	case StartMenu::Close:
@@ -110,11 +112,12 @@ void RunServer(std::string name, int port)
 	server.Run();
 }
 
-void RunClient(sf::IpAddress adress, unsigned int port)
+void RunClient(sf::IpAddress adress, StartMenu *menuToClose, unsigned int port)
 {
 	Client client(false, port, adress);
 	if(client.setup() == 2)
 		return;
+	menuToClose->close();
 	client.Run();
 }
 

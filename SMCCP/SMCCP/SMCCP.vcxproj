@@ -165,6 +165,7 @@
     <ClCompile Include="StartMenu.cpp" />
     <ClCompile Include="stringutildef.cpp" />
     <ClCompile Include="TextBox.cpp" />
+    <ClCompile Include="WindowHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AudioUtil.h" />
@@ -183,6 +184,7 @@
     <ClInclude Include="StartMenu.h" />
     <ClInclude Include="stringutil.h" />
     <ClInclude Include="TextBox.h" />
+    <ClInclude Include="WindowHandler.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="TODO.txt" />

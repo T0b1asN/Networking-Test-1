@@ -2,7 +2,7 @@
 
 NamePrompt::NamePrompt() :
 	BaseUIWindow((unsigned int)(500.f - 12.5f), 90U, "Name Prompt"),
-	nameBox(sf::Vector2f(25.f, 25.f), sf::Vector2f(300.f, 40.f), "Name...", sf::Color::Black, sf::Color::White, &window),
+	nameBox(sf::Vector2f(25.f, 25.f), sf::Vector2f(300.f, 40.f), &window, "Name..."),
 	okButton("Ok", sf::Vector2f(125.f, 40.f), sf::Vector2f(350.f - 12.5f, 25.f), sf::Color(0, 155, 0), sf::Color::Black, &window, 25)
 {
 	nameBox.set_maxChars(MAX_NAME_LENGTH);

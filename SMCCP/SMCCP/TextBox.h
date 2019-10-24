@@ -30,9 +30,11 @@ private:
 
 	unsigned int maxChars = 100000000U;
 public:
-	TextBox(sf::Vector2f pPos, sf::Vector2f pSize, std::string pStandardText = "Input Text...",
+	TextBox(sf::Vector2f pPos, sf::Vector2f pSize, 
+		sf::RenderWindow* winPtr = &cr::currWin(), 
+		std::string pStandardText = "Input Text...",
 		sf::Color pBackColor = sf::Color::Black, 
-		sf::Color pTextColor = sf::Color::White, sf::RenderWindow* winPtr = &cr::currWin());
+		sf::Color pTextColor = sf::Color::White);
 	~TextBox();
 
 	void display();

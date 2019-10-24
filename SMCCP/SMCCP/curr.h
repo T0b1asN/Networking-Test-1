@@ -8,5 +8,4 @@ namespace cr
 	unsigned int winWidth();
 	unsigned int winHeight();
 	sf::Font& currFont();
-
 }
