@@ -2051,3 +2051,17 @@ Server session
 27.02.2019 20:55:40 - Server setup finished
 27.02.2019 20:55:49 - New client named c1 | Now there are 1 sockets connected
 27.02.2019 20:55:55 - New client named c2 | Now there are 2 sockets connected
+
+**********************************
+Loading audio files
+25.010.2019 12:04:39 - Loaded 3 audiofiles - without error: true
+**********************************
+25.010.2019 12:04:42 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+25.010.2019 12:04:46 - Setting up server on port 1234 with name Hallo
+25.010.2019 12:04:46 - Server setup finished
+25.010.2019 12:04:52 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
