@@ -3,11 +3,16 @@
 #include "CheckBox.h"
 #include "OwnButton.h"
 
+#include "LogUtil.h"
+
 #include "SFML.h"
 
 class BaseUIWindow
 {
 protected:
+	int baseWidth;
+	int baseHeight;
+
 	sf::RenderWindow window;
 	sf::String title;
 

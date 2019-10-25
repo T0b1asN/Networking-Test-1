@@ -3,6 +3,8 @@
 BaseUIWindow::BaseUIWindow(sf::String title) : 
 	window(sf::VideoMode(800,600), title, sf::Style::Close)
 {
+	baseWidth = 800;
+	baseHeight = 600;
 	window.setFramerateLimit(60);
 	this->title = title;
 
@@ -16,6 +18,9 @@ BaseUIWindow::BaseUIWindow(sf::String title) :
 BaseUIWindow::BaseUIWindow(unsigned int width, unsigned int height, sf::String title) : 
 	window(sf::VideoMode(width, height), title, sf::Style::Close)
 {
+	this->baseWidth = width;
+	this->baseHeight = height;
+
 	window.setFramerateLimit(60);
 	this->title = title;
 

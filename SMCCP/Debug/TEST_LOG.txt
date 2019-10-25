@@ -1264,3 +1264,30 @@ Client session
 24.010.2019 22:52:13 - Disconnect from server due to closing the window
 -------------------------------------------------------------
 
+
+**********************************
+Loading audio files
+25.010.2019 11:53:35 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Client session
+-------------------------------------------------------------
+25.010.2019 11:53:39 - Trying to connect to 192.168.179.98 as Hallo
+
+Client session
+-------------------------------------------------------------
+25.010.2019 11:53:42 - Trying to connect to 192.168.179.98 as Test
+25.010.2019 11:53:42 - Connected to: 192.168.179.98
+
+--------------------------------
+|	Connected as Test
+--------------------------------
+
+25.010.2019 11:55:07 - Disconnect from server due to closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+25.010.2019 11:55:11 - Loaded 3 audiofiles - without error: true
+**********************************

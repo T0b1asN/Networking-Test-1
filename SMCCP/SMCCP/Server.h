@@ -3,9 +3,7 @@
 #include "Defines.h"
 #include "curr.h"
 
-#include "TextBox.h"
-#include "CheckBox.h"
-#include "OwnButton.h"
+#include "BaseUIWindow.h"
 
 #include "AudioUtil.h"
 
@@ -19,7 +17,7 @@
 
 #include <memory>
 
-class Server
+class Server : public BaseUIWindow
 {
 	//Networking stuff
 private:

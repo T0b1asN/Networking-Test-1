@@ -1,9 +1,9 @@
 #include "StartMenu.h"
 
 StartMenu::StartMenu() :
-	BaseUIWindow(cr::winWidth(), cr::winHeight(), "Start Menu"),
-	serverButton("Server", sf::Vector2f(200.0f, 100.0f), sf::Vector2f(cr::winWidth() / 4.0f, 75.f), sf::Color::White, sf::Color::Black, &window, 25),
-	clientButton("Client", sf::Vector2f(200.0f, 100.0f), sf::Vector2f(cr::winWidth() / 4.0f * 3.0f, 75.f), sf::Color::Black, sf::Color::White, &window, 25),
+	BaseUIWindow(500U, 200U, "Start Menu"),
+	serverButton("Server", sf::Vector2f(200.0f, 100.0f), sf::Vector2f(baseWidth / 4.0f, 75.f), sf::Color::White, sf::Color::Black, &window, 25),
+	clientButton("Client", sf::Vector2f(200.0f, 100.0f), sf::Vector2f(baseWidth / 4.0f * 3.0f, 75.f), sf::Color::Black, sf::Color::White, &window, 25),
 	ipBox(sf::Vector2f(25.f, 135.f), sf::Vector2f(312.5f, 40.f), &window, sf::IpAddress::getLocalAddress().toString()),
 	portBox(sf::Vector2f(350.f, 135.f), sf::Vector2f(125.f, 40.f), &window, std::to_string(1234))
 {

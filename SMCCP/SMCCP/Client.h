@@ -2,9 +2,7 @@
 #include "SFML.h"
 #include "Defines.h"
 
-#include "TextBox.h"
-#include "CheckBox.h"
-#include "OwnButton.h"
+#include "BaseUIWindow.h"
 
 #include "AudioUtil.h"
 #include "NamePrompt.h"
@@ -17,7 +15,7 @@
 
 #include <Windows.h>
 
-class Client
+class Client : public BaseUIWindow
 {
 private:
 	unsigned int port;

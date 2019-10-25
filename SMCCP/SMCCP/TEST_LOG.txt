@@ -1678,3 +1678,156 @@ Server session
 24.010.2019 23:14:46 - You shut down the server, by closing the window
 -------------------------------------------------------------
 
+
+**********************************
+Loading audio files
+25.010.2019 11:26:33 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+25.010.2019 11:26:37 - Setting up server on port 1234 with name Hallo
+25.010.2019 11:26:37 - Server setup finished
+
+**********************************
+Loading audio files
+25.010.2019 11:27:42 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+25.010.2019 11:27:45 - Setting up server on port 1234 with name Hallo
+25.010.2019 11:27:45 - Server setup finished
+
+**********************************
+Loading audio files
+25.010.2019 11:29:24 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+25.010.2019 11:29:26 - Setting up server on port 1234 with name j
+25.010.2019 11:29:26 - Server setup finished
+
+**********************************
+Loading audio files
+25.010.2019 11:30:02 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+25.010.2019 11:32:41 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+25.010.2019 11:32:45 - Setting up server on port 1234 with name Hallo
+25.010.2019 11:32:45 - Server setup finished
+
+**********************************
+Loading audio files
+25.010.2019 11:35:48 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+25.010.2019 11:35:50 - Setting up server on port 1234 with name j
+25.010.2019 11:35:50 - Server setup finished
+
+**********************************
+Loading audio files
+25.010.2019 11:36:25 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+25.010.2019 11:36:28 - Setting up server on port 1234 with name J
+25.010.2019 11:36:28 - Server setup finished
+
+**********************************
+Loading audio files
+25.010.2019 11:38:22 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+25.010.2019 11:38:26 - Setting up server on port 1234 with name Hallo
+25.010.2019 11:38:26 - Server setup finished
+
+**********************************
+Loading audio files
+25.010.2019 11:40:14 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+25.010.2019 11:40:17 - Setting up server on port 1234 with name j
+25.010.2019 11:40:17 - Server setup finished
+
+**********************************
+Loading audio files
+25.010.2019 11:45:01 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+25.010.2019 11:45:03 - Setting up server on port 1234 with name Hallo
+25.010.2019 11:45:03 - Server setup finished
+
+**********************************
+Loading audio files
+25.010.2019 11:45:39 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+25.010.2019 11:45:42 - Setting up server on port 1234 with name Hallo
+25.010.2019 11:45:42 - Server setup finished
+
+**********************************
+Loading audio files
+25.010.2019 11:47:13 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+25.010.2019 11:47:16 - Setting up server on port 1234 with name Hallo
+25.010.2019 11:47:16 - Server setup finished
+
+**********************************
+Loading audio files
+25.010.2019 11:48:47 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+25.010.2019 11:48:50 - Setting up server on port 1234 with name Halo
+25.010.2019 11:48:50 - Server setup finished
+
+**********************************
+Loading audio files
+25.010.2019 11:49:36 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+25.010.2019 11:49:39 - Setting up server on port 1234 with name Hallo
+25.010.2019 11:49:39 - Server setup finished
+25.010.2019 11:49:51 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+25.010.2019 11:53:14 - Loaded 3 audiofiles - without error: true
+**********************************
+
+Server session
+-------------------------------------------------------------
+25.010.2019 11:53:18 - Setting up server on port 1234 with name Hallo
+25.010.2019 11:53:18 - Server setup finished
+25.010.2019 11:53:42 - New client named Test | Now there are 1 sockets connected
+25.010.2019 11:55:07 - Test (Place 0) disconnected | Now there are 0 sockets connected
+25.010.2019 11:55:09 - You shut down the server, by closing the window
+-------------------------------------------------------------
+

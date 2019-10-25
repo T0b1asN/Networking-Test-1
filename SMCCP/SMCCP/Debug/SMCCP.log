@@ -1,8 +1,7 @@
-﻿  Server.cpp
-C:\Users\Tobias\Documents\GitHub\own\SMCCP\SMCCP\SMCCP\Server.cpp(107,21): warning C4566:  character represented by universal-character-name '\u2510' cannot be represented in the current code page (1252)
-  WindowHandler.cpp
+﻿  BaseUIWindow.cpp
+  Client.cpp
   main.cpp
-C:\Users\Tobias\Documents\GitHub\own\SMCCP\SMCCP\SMCCP\Server.cpp(319,20): warning C4566:  character represented by universal-character-name '\u2510' cannot be represented in the current code page (1252)
+C:\Users\Tobias\Documents\GitHub\own\SMCCP\SMCCP\SMCCP\Client.cpp(99,35): warning C4566:  character represented by universal-character-name '\u2510' cannot be represented in the current code page (1252)
   Generating Code...
 C:\Users\Tobias\Documents\GitHub\own\SMCCP\SMCCP\SMCCP\PopUp.h(11,2): warning C4091:  'static ': ignored on left of 'PopUp' when no variable is declared
   SMCCP.vcxproj -> C:\Users\Tobias\Documents\GitHub\own\SMCCP\SMCCP\Debug\SMCCP.exe

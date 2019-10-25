@@ -86,13 +86,13 @@ int main()
 void GraphicsSetup(unsigned int width, unsigned int height)
 {
 	std::string vers = VERSION;
-	win.create(sf::VideoMode(width, height), "SMCCP " + vers, sf::Style::Close);
-	win.setFramerateLimit(60);
+	//win.create(sf::VideoMode(width, height), "SMCCP " + vers, sf::Style::Close);
+	//win.setFramerateLimit(60);
 
-	if (icon.loadFromFile("res\\AppIcon.png"))
-		win.setIcon(626, 626, icon.getPixelsPtr());
-	else
-		own_log::AppendToLog("Icon could not be loaded!");
+	//if (icon.loadFromFile("res\\AppIcon.png"))
+	//	win.setIcon(626, 626, icon.getPixelsPtr());
+	//else
+	//	own_log::AppendToLog("Icon could not be loaded!");
 	std::string fontName = FONT_IT;
 	mainFont.loadFromFile("res\\fonts\\" + fontName);
 
