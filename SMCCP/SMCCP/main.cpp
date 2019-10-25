@@ -153,7 +153,7 @@ int main()
 		break;
 	default:
 		own_log::append("Wrong return from StartMenu!");
-		debug::log("Wrong return fromm StartMenu!");
+		debug::log("Wrong return from StartMenu!");
 		//TODO stop only if in debug (new method in own_log)
 		debug::pause();
 		//TODO error box (if in release)
@@ -228,28 +228,16 @@ sf::Font& cr::currFont() { return mainFont; }
 
 void cr::addUIElement(UIElement* element)
 {
-	std::cout << "Add: " << element << std::endl;
 	elementsVec.push_back(element);
 }
 
 void cr::deleteUIElement(UIElement * element)
 {
-	std::cout << "Delete: " << element << std::endl;
-	for each (UIElement* i in elementsVec)
-	{
-		std::cout << i << std::endl;
-	}
-
 	if (elementsVec.empty())
 		return;
 	auto p = std::find(elementsVec.begin(), elementsVec.end(), element);
 	if (p != elementsVec.end())
 		elementsVec.erase(p);
-
-	for each (UIElement* i in elementsVec)
-	{
-		std::cout << i << std::endl;
-	}
 }
 
 void cr::updateUIElements()
@@ -286,17 +274,18 @@ void cr::updateDiscordRPC(std::string details)
 
 void discord_ready(const DiscordUser* request)
 {
-	std::cout << "Discord username: " << request->username << std::endl;
+	std::string username(request->username);
+	debug::log("Discord is ready with username: " + username);
 }
 
 void discord_error(int error, const char* msg)
 {
-	std::cout << "Error " << std::to_string(error) << ": " << msg << std::endl;
+	debug::log("Error " + std::to_string(error) + ": " + msg);
 }
 
 void discord_disconnect(int error, const char* msg)
 {
-	std::cout << "Disconnect: (Error " << std::to_string(error) << "); " << msg << std::endl;
+	debug::log("Disconnect: (Error " + std::to_string(error) + "); " + msg);
 }
 
 void InitDiscord()

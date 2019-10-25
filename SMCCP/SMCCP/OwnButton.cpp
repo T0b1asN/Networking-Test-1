@@ -126,7 +126,6 @@ void OwnButton::setOnClickCallback(OwnButton::buttonCallback newCallback)
 
 void OwnButton::LeftMCallback(int x, int y)
 {
-	debug::log("(" + callbackID + ") Mouse pressed at: " + std::to_string(x) + std::to_string(y));
 	if (win->isOpen())
 	{
 		if (rect.contains((sf::Vector2f)sf::Mouse::getPosition(*win)))
@@ -146,8 +145,8 @@ void OwnButton::initCallbacks()
 
 void OwnButton::cleanup()
 {
-	deleteFromList();
 	input::deleteLMouseCallback(callbackID);
+	deleteFromList();
 }
 
 void OwnButton::update()

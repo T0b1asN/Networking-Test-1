@@ -17,7 +17,6 @@ sf::RenderWindow* focus;
 void input::addLeftMouseCallback(mouseCallback cb, id name)
 {
 	lMouseCallbacks[name] = cb;
-	debug::log("Added a left mouse callback; ID: " + name);
 }
 
 void input::deleteLMouseCallback(id name)
@@ -40,7 +39,6 @@ input::mouseCallback input::getLMouseCallback(id name)
 void input::addCloseCallback(closeCallback cb, id name)
 {
 	closeCallbacks[name] = cb;
-	debug::log("Added a close callback; ID: " + name);
 }
 
 void input::deleteCloseCallback(id name)
@@ -63,7 +61,6 @@ input::closeCallback input::getCloseCallback(id name)
 void input::addTextEnteredCallback(textEnteredCallback cb, id name)
 {
 	textEnteredCallbacks[name] = cb;
-	debug::log("Added a text entered callback; ID: " + name);
 }
 
 void input::deleteTextEnteredCallback(id name)
@@ -86,7 +83,6 @@ input::textEnteredCallback input::getTextEnteredCallback(id name)
 void input::addLostFocusCallback(lostFocusCallback cb, id name)
 {
 	lostFocusCallbacks[name] = cb;
-	debug::log("Added a lost focus callback; ID: " + name);
 }
 
 void input::deleteLostFocusCallback(id name)
@@ -148,13 +144,15 @@ void input::cleanCallbacks()
 	tECbDelete.shrink_to_fit();
 	lMCbDelete.shrink_to_fit();
 
-	if(count > 0)
+	if (count > 0)
+	{
 		debug::log("Deleted " + std::to_string(count) + " callbacks!");
-	int ncount =
-		lMouseCallbacks.size() + closeCallbacks.size() + textEnteredCallbacks.size() +
-		lostFocusCallbacks.size();
-	if(count > 0)
-		debug::log("There are " + std::to_string(ncount) + " callbacks left");
+		int ncount =
+			lMouseCallbacks.size() + closeCallbacks.size() + textEnteredCallbacks.size() +
+			lostFocusCallbacks.size();
+		if (count > 0)
+			debug::log("There are " + std::to_string(ncount) + " callbacks left");
+	}
 }
 
 void input::handleInput()
@@ -187,10 +185,8 @@ void input::handleInput()
 				if (lMouseCallbacks.size() <= 0)
 					return;
 				sf::Vector2i pos = sf::Mouse::getPosition(*focus);
-				std::cout << lMouseCallbacks.size();
 				for(auto func : lMouseCallbacks)
 				{
-					debug::log(func.first + " --------------- Test");
 					func.second(pos.x, pos.y);
 				}
 			}

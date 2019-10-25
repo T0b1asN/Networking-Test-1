@@ -97,7 +97,6 @@ int Client::Setup()
 	socket.receive(sKeyPacket);
 	std::string sKey;
 	sKeyPacket >> sKey;
-	debug::log(sKey);
 
 	if (str::split(sKey, ' ').front() != prot::rsa_key)
 	{
@@ -312,6 +311,8 @@ void Client::initCallbacks()
 	input::addLeftMouseCallback(lMCb, callback_id);
 	input::addCloseCallback(cCb, callback_id);
 	input::addTextEnteredCallback(tECb, callback_id);
+
+	sendButton.setOnClickCallback(bCallback);
 }
 
 void Client::cleanCallbacks()
@@ -329,11 +330,6 @@ void Client::LeftMCallback(int x, int y)
 		muted = muteBox.isChecked();
 	}
 	textBox.SelectOrUnselect();
-	if (sendButton.validClick(true))
-	{
-		onEnter();
-		textBox.Select();
-	}
 }
 
 void Client::CloseCallback()
@@ -357,5 +353,11 @@ void Client::TextEnteredCallback(sf::Event::TextEvent text)
 		onEnter();
 		textBox.Select();
 	}
+}
+
+void Client::buttonCallback(std::string id)
+{
+	onEnter();
+	textBox.Select();
 }
 #pragma endregion

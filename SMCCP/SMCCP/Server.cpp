@@ -497,11 +497,6 @@ void Server::leftMCallback(int x, int y)
 	if (muteBox.CheckClick())
 		muted = muteBox.isChecked();
 	textBox.SelectOrUnselect();
-	if (sendButton.validClick(true))
-	{
-		Enter();
-		textBox.Select();
-	}
 }
 
 void Server::closeCallback()
@@ -529,7 +524,8 @@ void Server::buttonCallback(std::string id)
 {
 	if (id == sendButton_id)
 	{
-		debug::log("Send Button has been pressed (from server)");
+		Enter();
+		textBox.Select();
 	}
 }
 #pragma endregion

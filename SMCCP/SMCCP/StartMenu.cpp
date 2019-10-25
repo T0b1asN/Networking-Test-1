@@ -52,10 +52,6 @@ StartMenu::Result StartMenu::open()
 		cr::updateUIElements();
 		input::handleInput();
 	}
-	//start menu is closed, clean up stuff
-	serverButton.cleanup();
-	clientButton.cleanup();
-	//TODO: buttons arent cleaned up properly
 	return returnVal;
 }
 
@@ -141,8 +137,8 @@ void StartMenu::display()
 
 void StartMenu::nextWindow()
 {
-	serverButton.~OwnButton();
-	clientButton.~OwnButton();
+	serverButton.cleanup();
+	clientButton.cleanup();
 
 	input::deleteLMouseCallback(callback_id);
 	input::deleteTextEnteredCallback(callback_id);

@@ -153,6 +153,11 @@ public:
 			&Client::TextEnteredCallback, this,
 			std::placeholders::_1
 		);
+
+	void buttonCallback(std::string id);
+	OwnButton::buttonCallback bCallback =
+		std::bind(&Client::buttonCallback, this,
+			std::placeholders::_1);
 #pragma endregion
 };
 
