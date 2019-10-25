@@ -153,9 +153,9 @@
   <ItemGroup>
     <ClCompile Include="CheckBox.cpp" />
     <ClCompile Include="Client.cpp" />
+    <ClCompile Include="LogUtil.cpp" />
     <ClCompile Include="OwnMath.cpp" />
     <ClCompile Include="RSA.cpp" />
-    <ClCompile Include="WindowHandler.cpp" />
     <ClCompile Include="OwnWindow.cpp" />
     <ClCompile Include="util.cpp" />
     <ClCompile Include="main.cpp" />
@@ -166,13 +166,13 @@
     <ClCompile Include="Server.cpp" />
     <ClCompile Include="StartMenu.cpp" />
     <ClCompile Include="TextBox.cpp" />
-    <ClCompile Include="WindowHandler.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CheckBox.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="curr.h" />
     <ClInclude Include="Defines.h" />
+    <ClInclude Include="LogUtil.h" />
     <ClInclude Include="OwnMath.h" />
     <ClInclude Include="Protocol.h" />
     <ClInclude Include="RSA.h" />

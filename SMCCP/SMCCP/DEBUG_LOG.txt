@@ -2065,3 +2065,23 @@ Server session
 25.010.2019 12:04:52 - You shut down the server, by closing the window
 -------------------------------------------------------------
 
+
+**********************************
+Loading audio files
+25.010.2019 13:21:58 - Loaded 3 audiofiles - without error: true
+**********************************
+25.010.2019 13:21:58 - Wrong return from StartMenu!
+
+**********************************
+Loading audio files
+25.010.2019 13:23:11 - Loaded 3 audiofiles - without error: true
+**********************************
+25.010.2019 13:23:15 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+25.010.2019 13:23:18 - Setting up server on port 1234 with name Hallo
+25.010.2019 13:23:19 - Server setup finished
+25.010.2019 13:23:31 - You shut down the server, by closing the window
+-------------------------------------------------------------
+

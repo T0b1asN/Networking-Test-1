@@ -46,6 +46,9 @@
     <ClCompile Include="OwnMath.cpp">
       <Filter>Source\Util</Filter>
     </ClCompile>
+    <ClCompile Include="LogUtil.cpp">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SFML.h">
@@ -104,6 +107,9 @@
     </ClInclude>
     <ClInclude Include="Protocol.h">
       <Filter>Headers\Networking</Filter>
+    </ClInclude>
+    <ClInclude Include="LogUtil.h">
+      <Filter>Headers\Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

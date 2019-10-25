@@ -32,7 +32,7 @@
 //TODO have a loop that updates all present buttons, checkboxes, etc. which then call a callback when needed
 
 void RunServer(std::string name, int port = 1234);
-void RunClient(sf::IpAddress adress, StartMenu *menuToClose, unsigned int port = 1234);
+void RunClient(sf::IpAddress adress, unsigned int port = 1234);
 std::string getCurrTime();
 
 sf::Image icon;
@@ -169,8 +169,8 @@ int main()
 void GraphicsSetup(unsigned int width, unsigned int height)
 {
 	std::string vers = VERSION;
-	//win.create(sf::VideoMode(width, height), "SMCCP " + vers, sf::Style::Close);
-	//win.setFramerateLimit(60);
+	win.create(sf::VideoMode(width, height), "SMCCP " + vers, sf::Style::Close);
+	win.setFramerateLimit(60);
 
 	if (icon.loadFromFile("res\\AppIcon.png"))
 		win.setIcon(626, 626, icon.getPixelsPtr());
@@ -197,13 +197,12 @@ void RunServer(std::string name, int port)
 	server.Run();
 }
 
-void RunClient(sf::IpAddress adress, StartMenu *menuToClose, unsigned int port)
+void RunClient(sf::IpAddress adress, unsigned int port)
 {
 	Client client(false, port, adress);
 	int setupRes = client.Setup();
 	if(setupRes != 0)
 		return;
-	menuToClose->close();
 	client.Run();
 }
 

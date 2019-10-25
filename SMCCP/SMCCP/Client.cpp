@@ -2,10 +2,9 @@
 
 #pragma region Con-/Destructor
 Client::Client(bool pBlock, int pPort, sf::IpAddress address) :
-	BaseUIWindow(1000U, 750U, "SMCCP Client"),
-	textBox(sf::Vector2f(10.0f, baseHeight - 50.0f), sf::Vector2f(350.0f, 40.0f), &window),
-	muteBox(sf::Vector2f(480.f, baseHeight - 30.f), 40.f, false, &window),
-	sendButton("Send", sf::Vector2f(80.f, 40.f), sf::Vector2f(370.f, baseHeight - 50.f), sf::Color::Black, sf::Color::White, &window)
+	textBox(sf::Vector2f(10.0f, cr::winHeight() - 50.0f), sf::Vector2f(350.0f, 40.0f)),
+	muteBox(sf::Vector2f(480.f, cr::winHeight() - 30.f), 40.f),
+	sendButton("Send", sf::Vector2f(80.f, 40.f), sf::Vector2f(370.f, cr::winHeight() - 50.f))
 {
 	port = pPort;
 	name = "";
@@ -176,7 +175,7 @@ void Client::draw()
 	muteBox.display();
 	sendButton.display();
 
-	window.display();
+	cr::currWin().display();
 }
 
 void Client::onEnter()

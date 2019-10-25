@@ -1,5 +1,7 @@
 #pragma once
-#include "BaseUIWindow.h"
+#include "TextBox.h"
+#include "CheckBox.h"
+#include "OwnButton.h"
 
 #include "InputHandler.h"
 

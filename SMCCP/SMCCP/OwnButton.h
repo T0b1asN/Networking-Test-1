@@ -31,8 +31,8 @@ private:
 	std::function<void()> callback;
 
 public:
-	OwnButton(std::string pText, sf::Vector2f pSize, sf::Vector2f pPos, 
-		sf::Color backColor = sf::Color::Black, sf::Color textColor = sf::Color::White, sf::RenderWindow* winPtr = &cr::currWin(), unsigned int pCharSize = 0);
+	OwnButton(sf::String text, sf::Vector2f pSize, sf::Vector2f pPos, 
+		sf::Color backColor = sf::Color::Black, sf::Color textColor = sf::Color::White, sf::RenderWindow* winPtr = &cr::currWin(), unsigned int pCharSize = 25U);
 	~OwnButton();
 
 	//void Update(bool click);

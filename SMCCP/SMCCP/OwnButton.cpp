@@ -1,6 +1,6 @@
 #include "OwnButton.h"
 
-OwnButton::OwnButton(std::string pText, sf::Vector2f pSize, sf::Vector2f pPos,
+OwnButton::OwnButton(sf::String pText, sf::Vector2f pSize, sf::Vector2f pPos,
 	sf::Color backColor, sf::Color textColor, sf::RenderWindow* winPtr, unsigned int pCharSize)
 {
 	win = winPtr;

@@ -3,14 +3,16 @@
 #include "curr.h"
 #include "Defines.h"
 
-#include "BaseUIWindow.h"
+#include "TextBox.h"
+#include "CheckBox.h"
+#include "OwnButton.h"
 
 #include <iostream>
 #include <string>
 
 #include "InputHandler.h"
 
-class StartMenu : public BaseUIWindow
+class StartMenu
 {
 public:
 	enum Result
