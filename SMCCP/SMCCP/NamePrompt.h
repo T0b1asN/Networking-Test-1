@@ -24,6 +24,8 @@ private:
 
 	bool loseFocus;
 
+	static const std::string okButton_id;
+
 public:
 	NamePrompt(bool dontLoseFocus = true);
 	~NamePrompt();

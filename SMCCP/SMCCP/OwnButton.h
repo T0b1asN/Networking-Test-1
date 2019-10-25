@@ -5,6 +5,7 @@
 #include <string>
 #include "Defines.h"
 #include "UIElement.h"
+#include "InputHandler.h"
 
 //TODO support list of callbacks
 
@@ -28,10 +29,10 @@ private:
 
 	sf::Vector2f offset;
 
-	std::function<void()> callback;
+	std::string callbackID;
 
 public:
-	OwnButton(sf::String text, sf::Vector2f pSize, sf::Vector2f pPos, 
+	OwnButton(std::string callbackID, sf::String text, sf::Vector2f pSize, sf::Vector2f pPos, 
 		sf::Color backColor = sf::Color::Black, sf::Color textColor = sf::Color::White, sf::RenderWindow* winPtr = &cr::currWin(), unsigned int pCharSize = 25U);
 	~OwnButton();
 
@@ -59,6 +60,27 @@ public:
 	void setCharSize(unsigned int newSize);
 
 	virtual void update();
+	virtual void cleanup();
 
-	void setOnClickCallback(std::function<void()> newCallback);
+#pragma region Callbacks
+private:
+	void LeftMCallback(int x, int y);
+	input::mouseCallback lMCB = 
+		std::bind(
+			&OwnButton::LeftMCallback, this,
+			std::placeholders::_1,
+			std::placeholders::_2
+		);
+
+	void initCallbacks();
+
+public:
+	typedef std::function<void(std::string)> buttonCallback;
+
+	void setOnClickCallback(buttonCallback newCallback);
+
+private:
+	buttonCallback callback;
+#pragma endregion
+
 };

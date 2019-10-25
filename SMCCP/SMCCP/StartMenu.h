@@ -38,11 +38,14 @@ private:
 
 	void initCallbacks();
 
+	static const std::string serverButton_id;
+	static const std::string clientButton_id;
+
 public:
 	StartMenu();
 	~StartMenu();
 
-	const std::string callback_id = "startMenu";
+	const std::string callback_id;
 
 	Result open();
 

@@ -1,8 +1,9 @@
 #include "OwnButton.h"
 
-OwnButton::OwnButton(sf::String pText, sf::Vector2f pSize, sf::Vector2f pPos,
+OwnButton::OwnButton(std::string callbackID, sf::String pText, sf::Vector2f pSize, sf::Vector2f pPos,
 	sf::Color backColor, sf::Color textColor, sf::RenderWindow* winPtr, unsigned int pCharSize)
 {
+	this->callbackID = callbackID;
 	win = winPtr;
 
 	pos = pPos;
@@ -32,6 +33,7 @@ OwnButton::OwnButton(sf::String pText, sf::Vector2f pSize, sf::Vector2f pPos,
 	offset = sf::Vector2f(0.0f, 0.0f);
 
 	addToList();
+	initCallbacks();
 }
 
 OwnButton::~OwnButton()
@@ -65,10 +67,10 @@ bool OwnButton::validClick(bool click)
 		{
 			if (rect.contains((sf::Vector2f)sf::Mouse::getPosition(*win)))
 			{
-				if (callback)
-					callback();
-				else
-					own_log::append("Button: callback not set!");
+				//if (callback)
+				//	callback(callbackID);
+				//else
+				//	own_log::append("Button: callback not set!");
 				return true;
 			}
 		}
@@ -117,9 +119,35 @@ void OwnButton::setCharSize(unsigned int newSize)
 	textField.setPosition(pos + (size / 2.0f));
 }
 
-void OwnButton::setOnClickCallback(std::function<void()> newCallback)
+void OwnButton::setOnClickCallback(OwnButton::buttonCallback newCallback)
 {
 	callback = newCallback;
+}
+
+void OwnButton::LeftMCallback(int x, int y)
+{
+	debug::log("(" + callbackID + ") Mouse pressed at: " + std::to_string(x) + std::to_string(y));
+	if (win->isOpen())
+	{
+		if (rect.contains((sf::Vector2f)sf::Mouse::getPosition(*win)))
+		{
+			if (callback)
+				callback(callbackID);
+			else
+				own_log::append("Button: callback not set!");
+		}
+	}
+}
+
+void OwnButton::initCallbacks()
+{
+	input::addLeftMouseCallback(lMCB, callbackID);
+}
+
+void OwnButton::cleanup()
+{
+	deleteFromList();
+	input::deleteLMouseCallback(callbackID);
 }
 
 void OwnButton::update()

@@ -1,8 +1,12 @@
 #include "StartMenu.h"
 
+const std::string StartMenu::serverButton_id = "startMenu_serverB";
+const std::string StartMenu::clientButton_id = "startMenu_clientB";
+
 StartMenu::StartMenu() :
-	serverButton("Server", sf::Vector2f(200.0f, 100.0f), sf::Vector2f(cr::winWidth() / 4.0f, 75.f), sf::Color::White, sf::Color::Black, &cr::currWin(), 25U),
-	clientButton("Client", sf::Vector2f(200.f, 100.f), sf::Vector2f(cr::winWidth()/4.f*3.f, 75.f), sf::Color::Black, sf::Color::White, &cr::currWin(), 25U),
+	callback_id("startMenu"),
+	serverButton(serverButton_id, "Server", sf::Vector2f(200.0f, 100.0f), sf::Vector2f(cr::winWidth() / 4.0f, 75.f), sf::Color::White, sf::Color::Black, &cr::currWin(), 25U),
+	clientButton(clientButton_id, "Client", sf::Vector2f(200.f, 100.f), sf::Vector2f(cr::winWidth()/4.f*3.f, 75.f), sf::Color::Black, sf::Color::White, &cr::currWin(), 25U),
 	ipBox(sf::Vector2f(25.f, 135.f), sf::Vector2f(312.5f, 40.f), sf::IpAddress::getLocalAddress().toString()),
 	portBox(sf::Vector2f(350.f, 135.f), sf::Vector2f(125.f, 40.f), std::to_string(1234))
 {
@@ -48,6 +52,10 @@ StartMenu::Result StartMenu::open()
 		cr::updateUIElements();
 		input::handleInput();
 	}
+	//start menu is closed, clean up stuff
+	serverButton.cleanup();
+	clientButton.cleanup();
+	//TODO: buttons arent cleaned up properly
 	return returnVal;
 }
 

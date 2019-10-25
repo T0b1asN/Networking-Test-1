@@ -190,6 +190,7 @@ void input::handleInput()
 				std::cout << lMouseCallbacks.size();
 				for(auto func : lMouseCallbacks)
 				{
+					debug::log(func.first + " --------------- Test");
 					func.second(pos.x, pos.y);
 				}
 			}

@@ -1,10 +1,12 @@
 #include "Client.h"
 
+const std::string Client::sendButton_id = "client_sendB";
+
 #pragma region Con-/Destructor
 Client::Client(bool pBlock, int pPort, sf::IpAddress address) :
 	textBox(sf::Vector2f(10.0f, cr::winHeight() - 50.0f), sf::Vector2f(350.0f, 40.0f)),
 	muteBox(sf::Vector2f(480.f, cr::winHeight() - 30.f), 40.f),
-	sendButton("Send", sf::Vector2f(80.f, 40.f), sf::Vector2f(370.f, cr::winHeight() - 50.f))
+	sendButton(sendButton_id, "Send", sf::Vector2f(80.f, 40.f), sf::Vector2f(370.f, cr::winHeight() - 50.f))
 {
 	port = pPort;
 	name = "";
@@ -280,8 +282,13 @@ void Client::Run()
 		textBox.Update((char)0);
 		update();
 	}
+
+	//Client is terminated, clean up stuff here
+
 	socket.disconnect();
 	cleanCallbacks();
+
+	sendButton.cleanup();
 }
 #pragma endregion
 

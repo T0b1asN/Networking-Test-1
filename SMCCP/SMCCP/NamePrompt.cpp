@@ -1,9 +1,11 @@
 #include "NamePrompt.h"
 
+const std::string NamePrompt::okButton_id = "namePrompt_okB";
+
 NamePrompt::NamePrompt(bool dontLoseFocus) :
 	prompt(sf::VideoMode((unsigned int)(500.f - 12.5f), 90U), "Set Name", sf::Style::Close),
 	nameBox(sf::Vector2f(25.f, 25.f), sf::Vector2f(300.f, 40.f), "Name...", sf::Color::Black, sf::Color::White, &prompt),
-	okButton("Ok", sf::Vector2f(125.f, 40.f), sf::Vector2f(350.f - 12.5f, 25.f), sf::Color(0, 155, 0), sf::Color::Black, &prompt, 25)
+	okButton(okButton_id, "Ok", sf::Vector2f(125.f, 40.f), sf::Vector2f(350.f - 12.5f, 25.f), sf::Color(0, 155, 0), sf::Color::Black, &prompt, 25)
 {
 	loseFocus = !dontLoseFocus;
 
@@ -106,7 +108,7 @@ void NamePrompt::lostFocus()
 
 void NamePrompt::nextWindow()
 {
-	okButton.~OwnButton();
+	okButton.cleanup();
 	cleanCallbacks();
 	prompt.close();
 }

@@ -8,6 +8,7 @@ protected:
 
 public:
 	virtual void update() = 0;
+	virtual void cleanup() = 0;
 
 };
 #include "curr.h"

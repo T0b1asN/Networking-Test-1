@@ -123,6 +123,8 @@ private:
 #pragma region Callbacks
 	void initCallbacks();
 	void cleanCallbacks();
+
+	static const std::string sendButton_id;
 #pragma endregion
 
 public:

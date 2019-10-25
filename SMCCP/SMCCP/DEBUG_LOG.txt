@@ -2114,3 +2114,147 @@ Server session
 25.010.2019 13:47:20 - You shut down the server, by closing the window
 -------------------------------------------------------------
 
+
+**********************************
+Loading audio files
+25.010.2019 17:07:29 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+25.010.2019 17:09:23 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+25.010.2019 17:11:47 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+25.010.2019 17:19:38 - Loaded 3 audiofiles - without error: true
+**********************************
+
+**********************************
+Loading audio files
+25.010.2019 17:26:47 - Loaded 3 audiofiles - without error: true
+**********************************
+25.010.2019 17:26:49 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+25.010.2019 17:26:52 - Setting up server on port 1234 with name Hallo
+25.010.2019 17:26:52 - Server setup finished
+25.010.2019 17:26:56 - Button: callback not set!
+25.010.2019 17:27:02 - Button: callback not set!
+25.010.2019 17:27:04 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+25.010.2019 17:28:51 - Loaded 3 audiofiles - without error: true
+**********************************
+25.010.2019 17:28:52 - Button: callback not set!
+25.010.2019 17:28:52 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+25.010.2019 17:28:54 - Setting up server on port 1234 with name Hallo
+25.010.2019 17:28:54 - Server setup finished
+25.010.2019 17:28:58 - Button: callback not set!
+25.010.2019 17:28:58 - Button: callback not set!
+25.010.2019 17:29:05 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+25.010.2019 17:29:34 - Loaded 3 audiofiles - without error: true
+**********************************
+25.010.2019 17:29:35 - Button: callback not set!
+25.010.2019 17:29:35 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+25.010.2019 17:29:37 - Setting up server on port 1234 with name Hallo
+25.010.2019 17:29:37 - Server setup finished
+25.010.2019 17:29:44 - Button: callback not set!
+25.010.2019 17:29:44 - Button: callback not set!
+25.010.2019 17:29:47 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+25.010.2019 17:30:17 - Loaded 3 audiofiles - without error: true
+**********************************
+25.010.2019 17:30:18 - Button: callback not set!
+25.010.2019 17:30:18 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+25.010.2019 17:30:20 - Setting up server on port 1234 with name Hallo
+25.010.2019 17:30:20 - Server setup finished
+25.010.2019 17:30:24 - Button: callback not set!
+25.010.2019 17:30:24 - Button: callback not set!
+25.010.2019 17:30:35 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+25.010.2019 17:32:50 - Loaded 3 audiofiles - without error: true
+**********************************
+25.010.2019 17:32:51 - Button: callback not set!
+25.010.2019 17:32:51 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+25.010.2019 17:32:53 - Setting up server on port 1234 with name Hallo
+25.010.2019 17:32:53 - Server setup finished
+25.010.2019 17:33:34 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+25.010.2019 17:34:22 - Loaded 3 audiofiles - without error: true
+**********************************
+25.010.2019 17:34:23 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+25.010.2019 17:34:27 - Setting up server on port 1234 with name Hallo
+25.010.2019 17:34:27 - Server setup finished
+25.010.2019 17:34:36 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+25.010.2019 17:35:49 - Loaded 3 audiofiles - without error: true
+**********************************
+25.010.2019 17:35:50 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+25.010.2019 17:35:54 - Setting up server on port 1234 with name Hallo
+25.010.2019 17:35:54 - Server setup finished
+25.010.2019 17:36:03 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+25.010.2019 17:36:22 - Loaded 3 audiofiles - without error: true
+**********************************
+25.010.2019 17:36:24 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+25.010.2019 17:36:27 - Setting up server on port 1234 with name hallo
+25.010.2019 17:36:27 - Server setup finished
+25.010.2019 17:36:52 - You shut down the server, by closing the window
+-------------------------------------------------------------
+

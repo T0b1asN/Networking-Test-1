@@ -1,11 +1,13 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "Server.h"
 
+const std::string Server::sendButton_id = "server_sendB";
+
 #pragma region Con-/Destructors
 Server::Server(std::string pName, bool pBlock, unsigned int pPort, unsigned int pMax_Clients) :
 	textBox(sf::Vector2f(10.0f, cr::winHeight() - 50.0f), sf::Vector2f(350.0f, 40.0f)),
 	muteBox(sf::Vector2f(480.f, cr::winHeight() - 30.f), 40.f),
-	sendButton("Send", sf::Vector2f(80.f, 40.f), sf::Vector2f(370.f, cr::winHeight() - 50.f))
+	sendButton(sendButton_id, "Send", sf::Vector2f(80.f, 40.f), sf::Vector2f(370.f, cr::winHeight() - 50.f))
 {
 	port = pPort;
 	max_Clients = pMax_Clients;
@@ -444,7 +446,10 @@ void Server::Run()
 		textBox.Update((char)0);
 		Update();
 	}
+	//server is terminated, clean up stuff here
 	cleanCallbacks();
+
+	sendButton.cleanup();
 }
 
 void Server::printNames()
@@ -476,6 +481,8 @@ void Server::initCallbacks()
 	input::addLeftMouseCallback(lMCb, callback_id);
 	input::addCloseCallback(cCb, callback_id);
 	input::addTextEnteredCallback(tECb, callback_id);
+
+	sendButton.setOnClickCallback(bCallback);
 }
 
 void Server::cleanCallbacks()
@@ -516,6 +523,13 @@ void Server::textEnteredCallback(sf::Event::TextEvent text)
 		textBox.Unselect();
 		Enter();
 		textBox.Select();
+	}
+}
+void Server::buttonCallback(std::string id)
+{
+	if (id == sendButton_id)
+	{
+		debug::log("Send Button has been pressed (from server)");
 	}
 }
 #pragma endregion

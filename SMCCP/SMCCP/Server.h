@@ -202,6 +202,8 @@ private:
 	void initCallbacks();
 
 	void cleanCallbacks();
+
+	static const std::string sendButton_id;
 #pragma endregion
 
 public:
@@ -230,6 +232,9 @@ public:
 			&Server::textEnteredCallback, this,
 			std::placeholders::_1
 		);
+
+	void buttonCallback(std::string id);
+	OwnButton::buttonCallback bCallback = std::bind(&Server::buttonCallback, this, std::placeholders::_1);
 
 #pragma endregion
 
