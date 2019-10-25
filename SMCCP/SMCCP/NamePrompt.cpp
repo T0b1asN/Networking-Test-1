@@ -57,12 +57,12 @@ int NamePrompt::run()
 
 void NamePrompt::display()
 {
-	prompt.clear(sf::Color(100, 100, 100));
+	window.clear(sf::Color(100, 100, 100));
 
 	nameBox.display();
 	okButton.display();
 
-	prompt.display();
+	window.display();
 }
 
 void NamePrompt::leftMouseDown(int x, int y)

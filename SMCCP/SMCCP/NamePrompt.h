@@ -1,7 +1,5 @@
 #pragma once
-#include "TextBox.h"
-#include "OwnButton.h"
-#include "SFML.h"
+#include "BaseUIWindow.h"
 
 #include "InputHandler.h"
 

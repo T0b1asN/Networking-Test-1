@@ -3,9 +3,10 @@
 
 #pragma region Con-/Destructors
 Server::Server(std::string pName, bool pBlock, unsigned int pPort, unsigned int pMax_Clients) :
-	textBox(sf::Vector2f(10.0f, cr::winHeight() - 50.0f), sf::Vector2f(350.0f, 40.0f)),
-	muteBox(sf::Vector2f(480.f, cr::winHeight() - 30.f), 40.f),
-	sendButton("Send", sf::Vector2f(80.f, 40.f), sf::Vector2f(370.f, cr::winHeight() - 50.f))
+	BaseUIWindow(1000U, 750U, "SMCCP Server"),
+	textBox(sf::Vector2f(10.0f, baseHeight - 50.0f), sf::Vector2f(350.0f, 40.0f), &window),
+	muteBox(sf::Vector2f(480.f, baseHeight - 30.f), 40.f, false, &window),
+	sendButton("Send", sf::Vector2f(80.f, 40.f), sf::Vector2f(370.f, baseHeight - 50.f), sf::Color::Black, sf::Color::White, &window)
 {
 	port = pPort;
 	max_Clients = pMax_Clients;
@@ -301,15 +302,15 @@ void Server::disconnectSocket(int index, std::string reason)
 #pragma region Graphics
 void Server::Draw()
 {
-	cr::currWin().clear(sf::Color(100, 100, 100));
+	window.clear(sf::Color(100, 100, 100));
 
-	cr::currWin().draw(nameText);
-	cr::currWin().draw(msgText);
+	window.draw(nameText);
+	window.draw(msgText);
 	textBox.display();
 	muteBox.display();
 	sendButton.display();
 
-	cr::currWin().display();
+	window.display();
 }
 
 void Server::Enter()

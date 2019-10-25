@@ -3,9 +3,7 @@
 #include "Defines.h"
 #include "curr.h"
 
-#include "TextBox.h"
-#include "CheckBox.h"
-#include "OwnButton.h"
+#include "BaseUIWindow.h"
 
 #include "InputHandler.h"
 

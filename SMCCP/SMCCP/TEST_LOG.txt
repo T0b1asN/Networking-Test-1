@@ -1534,7 +1534,7 @@ Server session
 -------------------------------------------------------------
 20.05.2017 23:21:06 - Setting up server on port 1234 with name Hello
 20.05.2017 23:21:06 - Server setup finished
-20.05.2017 23:21:26 - New client named üüü | Now there are 1 sockets connected
+20.05.2017 23:21:26 - New client named ï¿½ï¿½ï¿½ | Now there are 1 sockets connected
 
 **********************************
 Loading audio files
