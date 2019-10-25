@@ -279,7 +279,7 @@ void cr::updateDiscordRPC(std::string details)
 	DiscordRichPresence discordPresence;
 	memset(&discordPresence, 0, sizeof(discordPresence));
 	discordPresence.details = details.c_str();
-	discordPresence.startTimestamp = own_log::getTimeStamp();
+	discordPresence.startTimestamp = own_time::getTimeStamp();
 	discordPresence.largeImageKey = "appicon_png";
 	Discord_UpdatePresence(&discordPresence);
 }
@@ -309,6 +309,6 @@ void InitDiscord()
 
 	// Discord_Initialize(const char* applicationId, DiscordEventHandlers* handlers, int autoRegister, const char* optionalSteamId)
 	Discord_Initialize(DISCORD_CLIENT_ID, &handlers, 0, "");
-	debug::pushMsgToCommandIfDebug("Discord Rich Presence enabled!");
+	debug::log("Discord Rich Presence enabled!");
 }
 #endif

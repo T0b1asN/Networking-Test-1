@@ -37,16 +37,10 @@
     <ClCompile Include="OwnWindow.cpp">
       <Filter>Source\UI\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="WindowHandler.cpp">
-      <Filter>Source\Util</Filter>
-    </ClCompile>
     <ClCompile Include="RSA.cpp">
       <Filter>Source\Util</Filter>
     </ClCompile>
     <ClCompile Include="OwnMath.cpp">
-      <Filter>Source\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="LogUtil.cpp">
       <Filter>Source\Util</Filter>
     </ClCompile>
   </ItemGroup>
@@ -107,9 +101,6 @@
     </ClInclude>
     <ClInclude Include="Protocol.h">
       <Filter>Headers\Networking</Filter>
-    </ClInclude>
-    <ClInclude Include="LogUtil.h">
-      <Filter>Headers\Util</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
