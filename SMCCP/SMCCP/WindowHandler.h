@@ -1,23 +1,42 @@
 #pragma once
-#include "SFML.h"
+#include "curr.h"
+#include <vector>
+#include <string>
+#include <map>
 
-class WindowHandler
+
+namespace windows
 {
-private:
-	WindowHandler();
+	constexpr auto KEY_LENGTH = 10;
+	// a class that gives new windows if you ask
+	//TODO get a better name
 
-	sf::String test;
+	/*
+		This class also needs to handle the events for the events of a single window
 
-public:
-	//needs to be declared, otherwise copies are possible
-	WindowHandler(WindowHandler const&) = delete;
-	void operator=(WindowHandler const&) = delete;
+		Start with:
+			every window only has one class, that gets notified for that windows events
+	
+		Needs to iterate through all windows and check for it's events
 
-	~WindowHandler();
+		Needs to be able to control focus loss
+	*/
 
-	static WindowHandler& get();
 
-	void setTest(sf::String n) { test = n; }
-	sf::String getTest() { return test; }
-};
+	struct WindowEntry
+	{
+		WindowEntry(std::string key, sf::RenderWindow* window)
+		{
+			this->key = key;
+			this->window = window;
+		}
 
+		std::string key;
+		sf::RenderWindow* window;
+	};
+	sf::RenderWindow* getNew(const std::string& id);
+	WindowEntry* getNew();
+
+	bool destroyWindow(WindowEntry& win);
+	bool destroyWindow(const std::string& key);
+}

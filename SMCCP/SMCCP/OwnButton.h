@@ -4,8 +4,11 @@
 #include <iostream>
 #include <string>
 #include "Defines.h"
+#include "UIElement.h"
 
-class OwnButton
+//TODO support list of callbacks
+
+class OwnButton: public UIElement
 {
 private:
 	sf::RenderWindow* win;
@@ -24,6 +27,8 @@ private:
 	bool checkClick();
 
 	sf::Vector2f offset;
+
+	std::function<void()> callback;
 
 public:
 	OwnButton(std::string pText, sf::Vector2f pSize, sf::Vector2f pPos, 
@@ -52,5 +57,8 @@ public:
 	void setWinPtr(sf::RenderWindow* ptr) { win = ptr; }
 
 	void setCharSize(unsigned int newSize);
-};
 
+	virtual void update();
+
+	void setOnClickCallback(std::function<void()> newCallback);
+};

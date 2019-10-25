@@ -30,11 +30,13 @@ OwnButton::OwnButton(std::string pText, sf::Vector2f pSize, sf::Vector2f pPos,
 	field.setFillColor(backColor);
 
 	offset = sf::Vector2f(0.0f, 0.0f);
+
+	addToList();
 }
 
 OwnButton::~OwnButton()
 {
-
+	deleteFromList();
 }
 
 bool OwnButton::checkClick()
@@ -63,6 +65,10 @@ bool OwnButton::validClick(bool click)
 		{
 			if (rect.contains((sf::Vector2f)sf::Mouse::getPosition(*win)))
 			{
+				if (callback)
+					callback();
+				else
+					own_log::append("Button: callback not set!");
 				return true;
 			}
 		}
@@ -109,4 +115,14 @@ void OwnButton::setCharSize(unsigned int newSize)
 	textField.setCharacterSize(newSize);
 	textField.setOrigin(textField.getLocalBounds().width / 2.0f, textField.getLocalBounds().height / 2.0f);
 	textField.setPosition(pos + (size / 2.0f));
+}
+
+void OwnButton::setOnClickCallback(std::function<void()> newCallback)
+{
+	callback = newCallback;
+}
+
+void OwnButton::update()
+{
+
 }

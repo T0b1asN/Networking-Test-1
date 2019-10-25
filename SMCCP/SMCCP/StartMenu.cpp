@@ -18,7 +18,7 @@ StartMenu::StartMenu() :
 	ipBox.set_maxChars(15);
 	portBox.set_maxChars(5);
 
-	port = 1234;
+	initCallbacks();
 }
 
 StartMenu::~StartMenu()
@@ -26,84 +26,97 @@ StartMenu::~StartMenu()
 
 }
 
+void StartMenu::initCallbacks()
+{
+	input::addLeftMouseCallback(
+		std::bind(
+			&StartMenu::leftMouseDown, this,
+			std::placeholders::_1, std::placeholders::_2),
+		callback_id);
+	input::addCloseCallback(
+		std::bind(&StartMenu::close, this),
+		callback_id);
+	input::addTextEnteredCallback(
+		std::bind(&StartMenu::textEntered, this, std::placeholders::_1),
+		callback_id);
+}
+
 StartMenu::Result StartMenu::open()
 {
-	bool run = true;
-	while (run && window.isOpen())
+	while (cr::currWin().isOpen() && returnVal == Result::None)
 	{
-		sf::Event evnt;
-		while (window.pollEvent(evnt))
+		display();
+		cr::updateUIElements();
+		input::handleInput();
+	}
+	return returnVal;
+}
+
+void StartMenu::leftMouseDown(int x, int y)
+{
+	//std::cout << "Test" << std::endl;
+	//system("pause");
+	//TODO something is going VERY wrong -> see nextWindow
+	/**/
+	if (serverButton.validClick(true))
+	{
+		adress = sf::IpAddress::getLocalAddress();
+
+		try
 		{
-			switch (evnt.type)
+			port = std::stoi(portBox.Text().toAnsiString());
+			nextWindow();
+			returnVal = StartMenu::Server;
+		}
+		catch (std::invalid_argument inv_arg)
+		{
+			debug::log("Invalid Port");
+		}
+		catch (std::out_of_range oor)
+		{
+			debug::log("Port out of Range");
+		}
+	}
+	else if (clientButton.validClick(true))
+	{
+		if (network::validIp(ipBox.Text()))
+		{
+			adress = sf::IpAddress(ipBox.Text());
+
+			try
 			{
-			case sf::Event::Closed:
-				window.close();
-				return StartMenu::Close;
-				break;
-			case sf::Event::TextEntered:
-				if (evnt.text.unicode != 13)
-				{
-					ipBox.Update(evnt.text.unicode);
-					portBox.Update(evnt.text.unicode);
-				}
-				else
-				{
-					ipBox.Unselect();
-					portBox.Unselect();
-				}
-				break;
-			case sf::Event::MouseButtonPressed:
-				if (evnt.mouseButton.button == sf::Mouse::Left)
-				{
-					if (serverButton.validClick(true))
-					{
-						adress = sf::IpAddress::getLocalAddress();
-
-						try
-						{
-							port = std::stoi(portBox.Text().toAnsiString());
-							return StartMenu::Server;
-						}
-						catch (std::invalid_argument inv_arg)
-						{
-							own_log::pushMsgToCommandIfDebug("Invalid Port");
-						}
-						catch (std::out_of_range oor)
-						{
-							own_log::pushMsgToCommandIfDebug("Port out of Range");
-						}
-					}
-					else if (clientButton.validClick(true))
-					{
-						if (ntwrk::validIp(ipBox.Text()))
-						{
-							adress = sf::IpAddress(ipBox.Text());
-
-							try
-							{
-								port = std::stoi(portBox.Text().toAnsiString());
-								return StartMenu::Client;
-							}
-							catch (std::invalid_argument inv_arg)
-							{
-								own_log::pushMsgToCommandIfDebug("Invalid Port");
-							}
-							catch (std::out_of_range oor)
-							{
-								own_log::pushMsgToCommandIfDebug("Port out of Range");
-							}
-						}
-					}
-
-					ipBox.SelectOrUnselect();
-					portBox.SelectOrUnselect();
-				}
-				break;
+				port = std::stoi(portBox.Text().toAnsiString());
+				nextWindow();
+				returnVal = StartMenu::Client;
+			}
+			catch (std::invalid_argument inv_arg)
+			{
+				debug::log("Invalid Port");
+			}
+			catch (std::out_of_range oor)
+			{
+				debug::log("Port out of Range");
 			}
 		}
-		display();
 	}
-	return StartMenu::Default;
+	/**/
+	std::cout << "Test" << std::endl;
+	ipBox.SelectOrUnselect(x, y);
+	portBox.SelectOrUnselect(x, y);
+}
+
+void StartMenu::textEntered(sf::Event::TextEvent text)
+{
+	if (text.unicode != 13)
+	{
+		ipBox.Update(text.unicode);
+		portBox.Update(text.unicode);
+	}
+	else
+	{
+		ipBox.Unselect();
+		portBox.Unselect();
+	}
 }
 
 void StartMenu::display()
@@ -122,4 +135,21 @@ void StartMenu::display()
 void StartMenu::close()
 {
 	window.close();
+}
+
+void StartMenu::nextWindow()
+{
+	serverButton.~OwnButton();
+	clientButton.~OwnButton();
+
+	input::deleteLMouseCallback(callback_id);
+	input::deleteTextEnteredCallback(callback_id);
+	input::deleteCloseCallback(callback_id);
+}
+
+void StartMenu::close()
+{
+	returnVal = Result::Close;
+	nextWindow();
+	cr::currWin().close();
 }

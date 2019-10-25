@@ -10,18 +10,6 @@
     <ClCompile Include="Server.cpp">
       <Filter>Source\Networking</Filter>
     </ClCompile>
-    <ClCompile Include="stringutildef.cpp">
-      <Filter>Source\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="LogUtil.cpp">
-      <Filter>Source\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="AudioUtil.cpp">
-      <Filter>Source\Util</Filter>
-    </ClCompile>
-    <ClCompile Include="NetworkHelpers.cpp">
-      <Filter>Source\Util</Filter>
-    </ClCompile>
     <ClCompile Include="CheckBox.cpp">
       <Filter>Source\UI\Elements</Filter>
     </ClCompile>
@@ -40,17 +28,26 @@
     <ClCompile Include="TextBox.cpp">
       <Filter>Source\UI\Elements</Filter>
     </ClCompile>
-    <ClCompile Include="BaseUIWindow.cpp">
+    <ClCompile Include="InputHandler.cpp">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="util.cpp">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="OwnWindow.cpp">
       <Filter>Source\UI\Windows</Filter>
     </ClCompile>
     <ClCompile Include="WindowHandler.cpp">
       <Filter>Source\Util</Filter>
     </ClCompile>
+    <ClCompile Include="RSA.cpp">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="OwnMath.cpp">
+      <Filter>Source\Util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stringutil.h">
-      <Filter>Headers\Util</Filter>
-    </ClInclude>
     <ClInclude Include="SFML.h">
       <Filter>Headers\Util</Filter>
     </ClInclude>
@@ -64,15 +61,6 @@
       <Filter>Headers\Networking</Filter>
     </ClInclude>
     <ClInclude Include="Defines.h">
-      <Filter>Headers\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="LogUtil.h">
-      <Filter>Headers\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="AudioUtil.h">
-      <Filter>Headers\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="NetworkHelpers.h">
       <Filter>Headers\Util</Filter>
     </ClInclude>
     <ClInclude Include="CheckBox.h">
@@ -93,11 +81,29 @@
     <ClInclude Include="StartMenu.h">
       <Filter>Headers\UI\Windows</Filter>
     </ClInclude>
-    <ClInclude Include="BaseUIWindow.h">
+    <ClInclude Include="UIElement.h">
+      <Filter>Headers\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="InputHandler.h">
+      <Filter>Headers\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="util.h">
+      <Filter>Headers\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="OwnWindow.h">
       <Filter>Headers\UI\Windows</Filter>
     </ClInclude>
     <ClInclude Include="WindowHandler.h">
       <Filter>Headers\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="RSA.h">
+      <Filter>Headers\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="OwnMath.h">
+      <Filter>Headers\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Protocol.h">
+      <Filter>Headers\Networking</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -142,6 +148,9 @@
     </Filter>
     <Filter Include="Headers\UI\Windows">
       <UniqueIdentifier>{93c9ef31-1a2c-41a0-b1f4-e40ac56374b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Interfaces">
+      <UniqueIdentifier>{7dad4187-7904-4b63-a70b-9a22e0074513}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

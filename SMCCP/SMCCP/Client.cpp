@@ -1,5 +1,6 @@
-﻿#include "Client.h"
+#include "Client.h"
 
+#pragma region Con-/Destructor
 Client::Client(bool pBlock, int pPort, sf::IpAddress address) :
 	BaseUIWindow(1000U, 750U, "SMCCP Client"),
 	textBox(sf::Vector2f(10.0f, baseHeight - 50.0f), sf::Vector2f(350.0f, 40.0f), &window),
@@ -17,11 +18,27 @@ Client::Client(bool pBlock, int pPort, sf::IpAddress address) :
 	muted = muteBox.isChecked();
 
 	initGraphics();
+	initCallbacks();
+
+	running = true;
 }
 
 Client::~Client()
 {
 
+}
+#pragma endregion
+
+#pragma region Networking
+void Client::onServerDisconnect()
+{
+	own_log::append("Disconnected from " + ip.toString() + " due to server");
+	own_log::append("-------------------------------------------------------------", false);
+	socket.disconnect();
+	if (!muted)
+		snd::playSound("error_01");
+	Sleep(1500);
+	cr::currWin().close();
 }
 
 void Client::SendString(sf::String msg)
@@ -32,146 +49,129 @@ void Client::SendString(sf::String msg)
 	socket.send(sendData);
 }
 
-int Client::setup()
+int Client::Setup()
 {
-	NamePrompt np;
-	if(np.run() == 1)
+	socket.setBlocking(true);
+	//TODO: make that key isn't generated twice for the client, even if you need a new name
+	//		should also resend key, but not regenerate
+	//key generation
+	if (!GenerateKey())
+	{
+		debug::log("Error - Could not Generate key!");
+		own_log::append("Error - Could not generate key!");
+		own_log::append("-------------------------------------------------------------\n", false);
 		return 2;
-	name = np.getName();
-	
-	//Update nameText
-	nameText.setString("Name: " + name + "\nRole: Client\nPort: " + std::to_string(port) +
-		"\nVersion: " + VERSION + "\nConnected to " + ip.toString());
-	Draw();
-
-	own_log::AppendToLogWOTime("\nClient session\n-------------------------------------------------------------");
-	own_log::AppendToLog("Trying to connect to " + ip.toString() + " as " + name);
+	}
 
 	if (socket.connect(ip, port, sf::seconds(2.f)) != sf::Socket::Done)
 	{
-		own_log::pushMsgToCommandIfDebug("Could not connect");
-		own_log::AppendToLog("Could not connect");
-		own_log::AppendToLogWOTime("-------------------------------------------------------------\n");
+		debug::log("Could not connect");
+		own_log::append("Could not connect");
+		own_log::append("-------------------------------------------------------------\n", false);
 		return 1;
 	}
 
-	sf::Packet namePacket;
+	//send key to server
+	std::string keyStr = str::concat(
+		prot::rsa_key, " ", mpir_helper::str(key.pubKey.N), " ", mpir_helper::str(key.pubKey.e)
+	);
+	this->Send(keyStr, true, false);
+
+	NamePrompt np;
+	if (np.run() == 1)
+		return 2;
+	name = np.getName();
+	input::setFocus(&cr::currWin());
+
+	//Update nameText
+	nameText.setString("Name: " + name + "\nRole: Client\nPort: " + std::to_string(port) +
+		"\nVersion: " + VERSION + "\nConnected to " + ip.toString());
+	draw();
+
+	own_log::append("\nClient session\n-------------------------------------------------------------", false);
+	own_log::append("Trying to connect to " + ip.toString() + " as " + name);
+
+	//receive key
+	sf::Packet sKeyPacket;
+	socket.receive(sKeyPacket);
+	std::string sKey;
+	sKeyPacket >> sKey;
+	debug::log(sKey);
+
+	if (str::split(sKey, ' ').front() != prot::rsa_key)
+	{
+		debug::log(str::concat("Error: Awaited ", prot::rsa_key,
+			"and received different Token -> Exiting..."));
+		own_log::append(str::concat("Error: Awaited ", prot::rsa_key,
+			"and received different Token -> Exiting...")); //awaited name response
+		return 4;
+	}
+	if (str::split(sKey, ' ').size() < 3)
+	{
+		debug::log(str::concat("Error: Didn't receive enough arguments from server -> Exiting..."));
+		own_log::append(str::concat("Error: Didn't receive enough arguments from server -> Exiting...")); //awaited name response
+		return 5;
+	}
+	mpir_helper::fill(serverKey.N, str::split(sKey, ' ').at(1), RSA::ENC_BASE);
+	mpir_helper::fill(serverKey.e, str::split(sKey, ' ').at(2), RSA::ENC_BASE);
+
+	/*sf::Packet namePacket;
 	namePacket << name;
-	socket.send(namePacket);
+	socket.send(namePacket);*/
+	this->Send(str::concat(prot::c::name, " ", name), true);
 
 	sf::Packet respPacket;
 	socket.receive(respPacket);
 	std::string resp;
 	respPacket >> resp;
-	
-	if (resp == "1")
+	resp = RSA::Decrypt(resp, key.privKey);
+	debug::log("Resp: " + resp);
+
+	if (str::split(resp, ' ').front() != prot::s::name_resp)
 	{
+		debug::log(str::concat("Error: Awaited ", prot::s::name_resp,
+			"and received different Token -> Exiting..."));
+		own_log::append(str::concat("Error: Awaited ", prot::s::name_resp, 
+			"and received different Token -> Exiting...")); //awaited name response
+		return 4;
+	}
+
+	if (str::split(resp, ' ').at(1) == "1")
+	{
+		// Name already exists on Server, disconnect and ask for another name
 		socket.disconnect();
-		setup();
+		Setup();
 		return 3;
 	}
 
-	own_log::pushMsgToCommandIfDebug("Connected");
+	debug::log("Connected");
 	DisplayMessage("[Connected to: " + ip.toString() + "]");
 
-	own_log::AppendToLog("Connected to: " + ip.toString());
-	own_log::AppendToLogWOTime("\n--------------------------------\n|	Connected as " + name + "\n--------------------------------\n");
+	own_log::append("Connected to: " + ip.toString());
+	own_log::append("\n--------------------------------\n|	Connected as " + name + "\n--------------------------------\n", false);
 	socket.setBlocking(block);
 	return 0;
 }
-
-void Client::Update()
+void Client::Send(std::string msg, bool tagIncluded, bool encrypt)
 {
-	newMsg = false;
-	lastMsg = "";
-	receiveData.clear();
-
-	if (socket.receive(receiveData) == sf::Socket::Done)
-	{
-		if (!(receiveData >> lastMsg))
-		{
-			own_log::pushMsgToCommandIfDebug("Error in receiving");
-			own_log::AppendToLog("Error in receiving");
-			return;
-		}
-		if (lastMsg != "" && lastMsg != SHUTDOWN_MSG)
-		{
-			if (lastMsg.substring(0, 1) != NO_SOUND_CHAR)
-			{
-				if (!muted)
-					snd::playSound("incoming_01");
-			}
-			else
-				lastMsg.erase(0);
-			DisplayMessage(lastMsg);
-		}
-		else if (lastMsg == SHUTDOWN_MSG)
-		{
-			OnServerDisconnect();
-		}
-	}
-	else if (socket.receive(receiveData) == sf::Socket::Disconnected)
-	{
-		OnServerDisconnect();
-	}
-	Draw();
+	//if tag is not included in the message, add standard msg tag
+	if (!tagIncluded)
+		msg = str::concat(prot::msg, " ", msg);
+	if (encrypt)
+		msg = RSA::Encrypt(msg, serverKey, prot::rsa::chunkSize);
+	sendData.clear();
+	sendData << msg;
+	socket.send(sendData);
 }
+#pragma endregion
 
-void Client::Run()
+#pragma region Graphics
+void Client::draw()
 {
-	textBox.Select();
-	while (window.isOpen())
-	{
-		sf::Event evnt;
-		while (window.pollEvent(evnt))
-		{
-			switch (evnt.type)
-			{
-			case sf::Event::Closed:
-				own_log::AppendToLog("Disconnect from server due to closing the window");
-				own_log::AppendToLogWOTime("-------------------------------------------------------------\n");
-				socket.disconnect();
-				return;
-				break;
-			case sf::Event::TextEntered:
-				if (evnt.text.unicode != 13)
-				{
-					textBox.Update(evnt.text.unicode);
-				}
-				else
-				{
-					textBox.Unselect();
-					Enter();
-					textBox.Select();
-				}
-				break;
-			case sf::Event::MouseButtonPressed:
-				if (evnt.mouseButton.button == sf::Mouse::Left)
-				{
-					if (muteBox.CheckClick())
-						muted = muteBox.isChecked();
-					textBox.SelectOrUnselect();
-					if (sendButton.validClick(true))
-					{
-						Enter();
-						textBox.Select();
-					}
-				}
-				break;
-			}
-		}
-		textBox.Update((char)0);
-		Update();
-	}
-	socket.disconnect();
-}
+	cr::currWin().clear(sf::Color(100, 100, 100));
 
-void Client::Draw()
-{
-	window.clear(sf::Color(100, 100, 100));
-	
-	window.draw(nameText);
-	window.draw(msgText);
+	cr::currWin().draw(nameText);
+	cr::currWin().draw(msgText);
 	textBox.display();
 	muteBox.display();
 	sendButton.display();
@@ -179,12 +179,11 @@ void Client::Draw()
 	window.display();
 }
 
-void Client::Enter()
+void Client::onEnter()
 {
 	if (textBox.Text() != "" && textBox.Text() != textBox.getStdText())
 	{
-		this->SendString(textBox.Text());
-
+		this->Send(textBox.Text());
 		sf::String tmpStr = textBox.Text();
 		tmpStr = "You: " + tmpStr;
 
@@ -197,7 +196,7 @@ void Client::Enter()
 
 void Client::initGraphics()
 {
-	nameText.setString("Name: " + name + "\nRole: Client\nPort: " + std::to_string(port) + 
+	nameText.setString("Name: " + name + "\nRole: Client\nPort: " + std::to_string(port) +
 		"\nVersion: " + VERSION + "\nConnected to " + ip.toString());
 	nameText.setFont(cr::currFont());
 	nameText.setCharacterSize(14U);
@@ -207,18 +206,7 @@ void Client::initGraphics()
 	msgText.setCharacterSize(25U);
 	msgText.setPosition(0.0f, 75.0f);
 
-	Draw();
-}
-
-void Client::OnServerDisconnect()
-{
-	own_log::AppendToLog("Disconnected from " + ip.toString() + " due to server");
-	own_log::AppendToLogWOTime("-------------------------------------------------------------");
-	socket.disconnect();
-	if (!muted)
-		snd::playSound("error_01");
-	Sleep(1500);
-	window.close();
+	draw();
 }
 
 void Client::DisplayMessage(std::string message)
@@ -234,3 +222,134 @@ void Client::DisplayMessage(std::string message)
 	}
 	msgText.setString(complStr);
 }
+#pragma endregion
+
+#pragma region General
+void Client::update()
+{
+	lastMsg = "";
+	receiveData.clear();
+	//TODO: Work here
+	if (socket.receive(receiveData) == sf::Socket::Done)
+	{
+		if (!(receiveData >> lastMsg))
+		{
+			debug::log("Error in receiving");
+			own_log::append("Error in receiving");
+			return;
+		}
+		lastMsg = RSA::Decrypt(lastMsg, key.privKey);
+		debug::log("lastMsg: " + lastMsg);
+		std::string token = str::split(lastMsg, ' ').front();
+		//remove token from message
+		lastMsg = prot::remToken(lastMsg, token);
+		if (token == prot::msg)
+		{
+			//normal message
+			if (!muted)
+				snd::playSound("incoming_01");
+			DisplayMessage(lastMsg);
+		}
+		else if (token == prot::s::msg_nosound)
+		{
+			//message with no sound
+			DisplayMessage(lastMsg);
+		}
+		else if (token == prot::s::shutdown)
+		{
+			//server is shutting down
+			onServerDisconnect();
+		}
+		else if (token == prot::error)
+		{
+			//error
+		}
+	}
+	else if (socket.receive(receiveData) == sf::Socket::Disconnected)
+	{
+		onServerDisconnect();
+	}
+	draw();
+}
+
+void Client::Run()
+{
+	textBox.Select();
+	while (running && cr::currWin().isOpen())
+	{
+		input::handleInput();
+		textBox.Update((char)0);
+		update();
+	}
+	socket.disconnect();
+	cleanCallbacks();
+}
+#pragma endregion
+
+#pragma region RSA
+bool Client::GenerateKey(int max_errors)
+{
+	key = RSA::GenerateKey(prot::rsa::key_bitcnt);
+	int err_count = 0;
+	while (key.err && err_count < 5)
+	{
+		err_count++;
+		key = RSA::GenerateKey(prot::rsa::key_bitcnt);
+	}
+	return !(err_count >= max_errors);
+}
+#pragma endregion
+
+#pragma region Callbacks
+void Client::initCallbacks()
+{
+	input::addLeftMouseCallback(lMCb, callback_id);
+	input::addCloseCallback(cCb, callback_id);
+	input::addTextEnteredCallback(tECb, callback_id);
+}
+
+void Client::cleanCallbacks()
+{
+	input::deleteCloseCallback(callback_id);
+	input::deleteLMouseCallback(callback_id);
+	input::deleteTextEnteredCallback(callback_id);
+}
+
+void Client::LeftMCallback(int x, int y)
+{
+	if (muteBox.CheckClick())
+	{
+		debug::pause();
+		muted = muteBox.isChecked();
+	}
+	textBox.SelectOrUnselect();
+	if (sendButton.validClick(true))
+	{
+		onEnter();
+		textBox.Select();
+	}
+}
+
+void Client::CloseCallback()
+{
+	own_log::append("Disconnect from server due to closing the window");
+	own_log::append("-------------------------------------------------------------\n", false);
+	socket.disconnect();
+	running = false;
+}
+
+void Client::TextEnteredCallback(sf::Event::TextEvent text)
+{
+	//std::cout << text.unicode << std::endl;
+	if (text.unicode != 13)
+	{
+		textBox.Update(text.unicode);
+	}
+	else
+	{
+		textBox.Unselect();
+		onEnter();
+		textBox.Select();
+	}
+}
+#pragma endregion

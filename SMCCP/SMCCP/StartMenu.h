@@ -2,20 +2,20 @@
 #include "SFML.h"
 #include "curr.h"
 #include "Defines.h"
-#include "NetworkHelpers.h"
 
 #include "BaseUIWindow.h"
 
 #include <iostream>
 #include <string>
 
-
+#include "InputHandler.h"
 
 class StartMenu : public BaseUIWindow
 {
 public:
 	enum Result
 	{
+		None = -2,
 		Close = -1,
 		Default = 0,
 		Server = 1,
@@ -32,17 +32,26 @@ private:
 	TextBox portBox;
 	unsigned int port;
 
+	Result returnVal = Result::None;
+
+	void initCallbacks();
+
 public:
 	StartMenu();
 	~StartMenu();
+
+	const std::string callback_id = "startMenu";
 
 	Result open();
 
 	sf::IpAddress getIp() { return adress; }
 	unsigned int getPort() { return port; }
 
-	void display();
-
+	void leftMouseDown(int x, int y);
+	void textEntered(sf::Event::TextEvent text);
 	void close();
+
+	void display();
+	void nextWindow();
 };
 

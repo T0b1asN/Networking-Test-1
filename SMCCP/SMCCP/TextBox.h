@@ -4,8 +4,6 @@
 #include "curr.h"
 #include <iostream>
 
-#include "stringutil.h"
-
 class TextBox
 {
 private:
@@ -23,7 +21,6 @@ private:
 	sf::RectangleShape background;
 
 	bool selected = false;
-	bool changed = false;
 
 	bool deleteStdMsg = true;
 	bool canReturnStdText = false;
@@ -40,6 +37,7 @@ public:
 	void display();
 
 	void SelectOrUnselect();
+	void SelectOrUnselect(int x, int y);
 	void Update(sf::String add);
 
 	sf::String Text();
@@ -51,7 +49,7 @@ public:
 	void Select();
 	void Unselect();
 
-	bool wasChanged() { return changed; }
+	bool changed() { return (text.getString() != standardText || text.getString() != ""); }
 	void set_deleteStdMsg(bool newState) { deleteStdMsg = newState; }
 	void set_canReturnStdText(bool newState) { canReturnStdText = newState; }
 

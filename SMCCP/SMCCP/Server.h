@@ -5,7 +5,7 @@
 
 #include "BaseUIWindow.h"
 
-#include "AudioUtil.h"
+#include "InputHandler.h"
 
 #include <iostream>
 #include <string>
@@ -17,10 +17,25 @@
 
 #include <memory>
 
-class Server : public BaseUIWindow
+#include "RSA.h"
+#include "Protocol.h"
+
+class Server
 {
-	//Networking stuff
+public:
+#pragma region Con-/Destructors
+	//////////////////////////////////////////////
+	///pName: name of the server
+	///pBlock: should the components block the thread when waiting
+	///pPort: the port of the server (standard 53000)
+	///pMax_Clients: max clients of the server (standard 10)
+	//////////////////////////////////////////////
+	Server(std::string pName, bool pBlock, unsigned int pPort = 53000, unsigned int pMax_Clients = 10);
+	~Server();
+#pragma endregion
+
 private:
+#pragma region Networking
 	//the listener of the server
 	sf::TcpListener listener;
 
@@ -28,7 +43,7 @@ private:
 	unsigned int port;
 	//the max number of clients allowed
 	unsigned int max_Clients;
-	
+
 	//the name of the server
 	std::string name;
 
@@ -46,7 +61,7 @@ private:
 	//the newest message that is received
 	//it has some stuff in it that you should exclude from the message
 	//like the ExcludeChar
-	sf::String lastMsg;
+	std::string lastMsg;
 
 	//maximum amount of messages shown and saved
 	unsigned int maxMsgs = 15;
@@ -54,7 +69,7 @@ private:
 	//if there are to many (over the limit set by maxMsgs)
 	//the old ones will be deleted
 	std::vector<sf::String> msgs;
-	
+
 	//determines if the components should block or not
 	bool block;
 
@@ -68,18 +83,10 @@ private:
 
 	//Is the sound muted
 	bool muted;
+#pragma endregion
 
 public:
-	//////////////////////////////////////////////
-	///pName: name of the server
-	///pBlock: should the components block
-	///pPort: the port of the server (standard 53000)
-	///pMax_Clients: max clients of the server (standard 10)
-	///adress: IpAdress of the server (WARNING: standard not tested)
-	//////////////////////////////////////////////
-	Server(std::string pName, bool pBlock, unsigned int pPort = 53000, unsigned int pMax_Clients = 10);
-	~Server();
-
+#pragma region Networking
 	//returns the information of the server in one string
 	std::string getInfo();
 	//returns the name of the server
@@ -94,30 +101,37 @@ public:
 	void connectToClient();
 
 	//Send a string to all connected sockets
-	void SendString(sf::String msg);
+	__declspec(deprecated) void SendString(sf::String msg);
 	//Send a string to all connected sockets except the
 	//socket at the index 'exclude'
 	//without name
-	void SendString(sf::String msg, int exclude);
+	__declspec(deprecated) void SendString(sf::String msg, int exclude);
 	//Send a string to the given socket
 	//without name
-	void SendString(sf::String msg, sf::TcpSocket& socket);
+	__declspec(deprecated) void SendString(sf::String msg, sf::TcpSocket& socket);
 	//Send a string without your name
-	void SendStringWithoutName(sf::String msg);
+	__declspec(deprecated) void SendStringWithoutName(sf::String msg);
+
+	//TODO check on sf::String
+	//Send string to all sockets
+	void Send(std::string msg, bool tagIncluded = false, bool encrypt = true);
+	//send a string to all sockets except the ssocket at index [exclude]
+	void Send(std::string msg, int exclude, bool tagIncluded = false, bool encrypt = true);
+	//send a string to a specific socket
+	void SendSingle(std::string msg, int socketIndex, bool tagIncluded = false, bool encrypt = true);
 
 	//Shuts down the server
 	//The optMsg is displayed after the standardMsg if replaceStd is false
 	//it can be used to display errors
 	//WARNING: doesn't close window
-	void Shutdown(std::string optMsg = "", bool replaceStd = false);
+	void Shutdown(sf::String optMsg = "", bool replaceStd = false);
 
 	//Disconnect the socket at the given index, you can also give a reason
 	void disconnectSocket(int index, std::string reason = "");
-	//Disconnect the given socket, you can also give a reason
-	void disconnectSocket(sf::TcpSocket& socket, std::string reason = "");
+#pragma endregion
 
-	//Graphics Stuff
 private:
+#pragma region Graphics
 	//Text, where the server information is displayed
 	sf::Text nameText;
 	//Textbox, where the server enters his text
@@ -137,18 +151,90 @@ private:
 
 	//initializes the info and message text
 	void initGraphics();
+
+#pragma endregion
+
 public:
+#pragma region Graphics
 	//Displays message in messages feed (no name, etc.)
 	void DisplayMessage(std::string message);
-	
-	//General
-public:
+#pragma endregion
+
+private:
+#pragma region General
 	//one cycle of the server
 	void Update();
-	//Loop that keeps the server running
-	void Run();
 
 	//prints all names
 	void printNames();
+
+	bool run = true;
+#pragma endregion
+
+public:
+#pragma region General
+	//Loop that keeps the server running
+	void Run();
+#pragma endregion
+
+private:
+#pragma region RSA
+	//own RSA-key !!! only share public part!!!
+	RSA::Key key;
+	//TODO solve differently
+	// when adding a new socket, also get a new key
+	std::vector<RSA::PublicKey> socketKeys;
+
+	//tries generating a key (filling variable key)
+	//returns true if succesful
+	bool GenerateKey(int max_errors = 5);
+#pragma endregion
+
+public:
+#pragma region RSA
+
+#pragma endregion
+
+private:
+#pragma region Callbacks
+	void initCallbacks();
+
+	void cleanCallbacks();
+#pragma endregion
+
+public:
+#pragma region Callbacks
+	// Callback stuff
+	const std::string callback_id = "server";
+
+	void leftMCallback(int x, int y);
+	// handle for leftMouseCallback
+	input::mouseCallback lMCb =
+		std::bind(
+			&Server::leftMCallback, this,
+			std::placeholders::_1,
+			std::placeholders::_2
+		);
+
+	void closeCallback();
+	// handle for closeCallback
+	input::closeCallback cCb =
+		std::bind(&Server::closeCallback, this);
+
+	void textEnteredCallback(sf::Event::TextEvent text);
+	// handle for textEnteredCallback
+	input::textEnteredCallback tECb =
+		std::bind(
+			&Server::textEnteredCallback, this,
+			std::placeholders::_1
+		);
+
+#pragma endregion
+
+private:
+#pragma region RSA
+	RSA::Key ownKey;
+#pragma endregion
+
 };
 
