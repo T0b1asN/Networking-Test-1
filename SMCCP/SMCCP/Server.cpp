@@ -143,7 +143,7 @@ void Server::connectToClient()
 			(sockets.back().get())->disconnect();
 			sockets.pop_back();
 			socketKeys.pop_back();
-			socketKeys.pop_back();
+			//socketKeys.pop_back();
 			return;
 		}
 		else
