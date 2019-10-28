@@ -2468,3 +2468,14 @@ Server session
 28.010.2019 17:07:08 - You shut down the server, by closing the window
 -------------------------------------------------------------
 
+
+**********************************
+Loading audio files
+28.010.2019 17:13:32 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 17:13:33 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 17:13:35 - Setting up server on port 1234 with name boi
+28.010.2019 17:13:35 - Server setup finished

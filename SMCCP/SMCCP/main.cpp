@@ -201,6 +201,7 @@ void RunClient(sf::IpAddress adress, unsigned int port)
 {
 	Client client(false, port, adress);
 	int setupRes = client.Setup();
+	while (setupRes == 2) client.Setup();
 	if(setupRes != 0)
 		return;
 	client.Run();
