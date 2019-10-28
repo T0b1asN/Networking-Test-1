@@ -9,6 +9,15 @@
 
 class NamePrompt
 {
+public:
+	enum class Result
+	{
+		Default = -1,
+		HasName = 0,
+		Close = 1,
+		Unexpected = 2,
+	};
+
 private:
 	TextBox nameBox;
 	std::string name;
@@ -18,6 +27,7 @@ private:
 	sf::RenderWindow prompt;
 
 	int returnVal = -1;
+	Result result = Result::Default;
 
 	void initCallbacks();
 	void cleanCallbacks();
@@ -25,6 +35,9 @@ private:
 	bool loseFocus;
 
 	static const std::string okButton_id;
+
+	const std::string callback_id_base = "namePrompt";
+	std::string callback_id_own;
 
 public:
 	NamePrompt(bool dontLoseFocus = true);
@@ -35,7 +48,9 @@ public:
 	//	0 = OK
 	//	1 = Closed
 	//	2 = reached end of function (bad)
-	int run();
+	int run_int();
+
+	Result run();
 
 	std::string getName() { return name; }
 
@@ -44,7 +59,6 @@ public:
 	void nextWindow();
 
 	// Callback stuff
-	const std::string callback_id = "namePrompt";
 	void leftMouseDown(int x, int y);
 	// handle for leftMouseCallback
 	input::mouseCallback lMCb =

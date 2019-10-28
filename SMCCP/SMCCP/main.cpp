@@ -129,12 +129,12 @@ int main()
 
 	switch (stMenRes)
 	{
-	case StartMenu::Server:
+	case StartMenu::Result::Server:
 	{
 		win.close();
 
 		NamePrompt np;
-		if (np.run() == 1)
+		if (np.run() != NamePrompt::Result::HasName)
 			return 0;
 		std::string name = np.getName();
 
@@ -144,11 +144,11 @@ int main()
 		RunServer(name, port);
 		break;
 	}
-	case StartMenu::Client:
+	case StartMenu::Result::Client:
 		GraphicsSetup(1000U, 750U);
 		RunClient(enteredIp, port);
 		break;
-	case StartMenu::Close:
+	case StartMenu::Result::Close:
 		return 0;
 		break;
 	default:
@@ -200,11 +200,15 @@ void RunServer(std::string name, int port)
 void RunClient(sf::IpAddress adress, unsigned int port)
 {
 	Client client(false, port, adress);
-	int setupRes = client.Setup();
-	while (setupRes == 2) client.Setup();
-	if(setupRes != 0)
+	Client::SetupResult setupRes = client.Setup();
+
+	while (setupRes == Client::SetupResult::RetrySetup) 
+		setupRes = client.Setup();
+
+	if (setupRes == Client::SetupResult::Done)
+		client.Run();
+	else		// some sort of unexpected behavior or closing
 		return;
-	client.Run();
 }
 
 std::string getCurrTime()

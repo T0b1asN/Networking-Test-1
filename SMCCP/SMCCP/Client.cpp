@@ -50,8 +50,9 @@ void Client::SendString(sf::String msg)
 	socket.send(sendData);
 }
 
-int Client::Setup()
+Client::SetupResult Client::Setup()
 {
+	debug::log("------------ Client -----------------");
 	socket.setBlocking(true);
 	//TODO: make that key isn't generated twice for the client, even if you need a new name
 	//		should also resend key, but not regenerate
@@ -61,7 +62,7 @@ int Client::Setup()
 		debug::log("Error - Could not Generate key!");
 		own_log::append("Error - Could not generate key!");
 		own_log::append("-------------------------------------------------------------\n", false);
-		return 2;
+		return SetupResult::Error;
 	}
 
 	if (socket.connect(ip, port, sf::seconds(2.f)) != sf::Socket::Done)
@@ -69,7 +70,7 @@ int Client::Setup()
 		debug::log("Could not connect");
 		own_log::append("Could not connect");
 		own_log::append("-------------------------------------------------------------\n", false);
-		return 1;
+		return SetupResult::Error;
 	}
 
 	//send key to server
@@ -78,11 +79,17 @@ int Client::Setup()
 	);
 	this->Send(keyStr, true, false);
 
-	NamePrompt np;
-	if (np.run() == 1)
-		return 2;
+	NamePrompt np(true);
+	NamePrompt::Result np_res = np.run();
+	if (np_res == NamePrompt::Result::Close)
+		return SetupResult::Close;
+	else if (np_res == NamePrompt::Result::Default)
+		return SetupResult::Error;
+	else if (np_res == NamePrompt::Result::Unexpected)
+		return SetupResult::Error;
+
 	name = np.getName();
-	input::setFocus(&cr::currWin());
+	//input::setFocus(&cr::currWin());
 
 	//Update nameText
 	nameText.setString("Name: " + name + "\nRole: Client\nPort: " + std::to_string(port) +
@@ -104,13 +111,13 @@ int Client::Setup()
 			"and received different Token -> Exiting..."));
 		own_log::append(str::concat("Error: Awaited ", prot::rsa_key,
 			"and received different Token -> Exiting...")); //awaited name response
-		return 4;
+		return SetupResult::Error;
 	}
 	if (str::split(sKey, ' ').size() < 3)
 	{
 		debug::log(str::concat("Error: Didn't receive enough arguments from server -> Exiting..."));
 		own_log::append(str::concat("Error: Didn't receive enough arguments from server -> Exiting...")); //awaited name response
-		return 5;
+		return SetupResult::Error;
 	}
 	mpir_helper::fill(serverKey.N, str::split(sKey, ' ').at(1), RSA::ENC_BASE);
 	mpir_helper::fill(serverKey.e, str::split(sKey, ' ').at(2), RSA::ENC_BASE);
@@ -131,18 +138,19 @@ int Client::Setup()
 	{
 		debug::log(str::concat("Error: Awaited ", prot::s::name_resp,
 			"and received different Token -> Exiting..."));
-		own_log::append(str::concat("Error: Awaited ", prot::s::name_resp, 
+		own_log::append(str::concat("Error: Awaited ", prot::s::name_resp,
 			"and received different Token -> Exiting...")); //awaited name response
-		return 4;
+		return SetupResult::Error;
 	}
 
 	if (str::split(resp, ' ').at(1) == "1")
 	{
 		// Name already exists on Server, disconnect and ask for another name
 		socket.disconnect();
-		Setup();
-		return 3;
+		return SetupResult::RetrySetup;
 	}
+
+	input::setFocus(&cr::currWin());
 
 	debug::log("Connected");
 	DisplayMessage("[Connected to: " + ip.toString() + "]");
@@ -150,8 +158,9 @@ int Client::Setup()
 	own_log::append("Connected to: " + ip.toString());
 	own_log::append("\n--------------------------------\n|	Connected as " + name + "\n--------------------------------\n", false);
 	socket.setBlocking(block);
-	return 0;
+	return SetupResult::Done;
 }
+
 void Client::Send(std::string msg, bool tagIncluded, bool encrypt)
 {
 	//if tag is not included in the message, add standard msg tag
@@ -281,7 +290,7 @@ void Client::Run()
 		textBox.Update((char)0);
 		update();
 	}
-
+	debug::log("Terminating");
 	//Client is terminated, clean up stuff here
 
 	socket.disconnect();

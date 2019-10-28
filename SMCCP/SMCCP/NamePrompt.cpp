@@ -21,6 +21,8 @@ NamePrompt::NamePrompt(bool dontLoseFocus) :
 	initCallbacks();
 
 	input::setFocus(&prompt);
+
+	callback_id_own = callback_id_base + str::createRandom(8);
 }
 
 NamePrompt::~NamePrompt()
@@ -30,21 +32,21 @@ NamePrompt::~NamePrompt()
 
 void NamePrompt::initCallbacks()
 {
-	input::addLeftMouseCallback(lMCb, callback_id);
-	input::addCloseCallback(cCb, callback_id);
-	input::addTextEnteredCallback(tECb, callback_id);
-	input::addLostFocusCallback(lFCb, callback_id);
+	input::addLeftMouseCallback(lMCb, callback_id_own);
+	input::addCloseCallback(cCb, callback_id_own);
+	input::addTextEnteredCallback(tECb, callback_id_own);
+	input::addLostFocusCallback(lFCb, callback_id_own);
 }
 
 void NamePrompt::cleanCallbacks()
 {
-	input::deleteCloseCallback(callback_id);
-	input::deleteLMouseCallback(callback_id);
-	input::deleteTextEnteredCallback(callback_id);
-	input::deleteLostFocusCallback(callback_id);
+	input::deleteCloseCallback(callback_id_own);
+	input::deleteLMouseCallback(callback_id_own);
+	input::deleteTextEnteredCallback(callback_id_own);
+	input::deleteLostFocusCallback(callback_id_own);
 }
 
-int NamePrompt::run()
+int NamePrompt::run_int()
 {
 	nameBox.Select();
 	while (prompt.isOpen() && returnVal == -1)
@@ -55,6 +57,20 @@ int NamePrompt::run()
 	}
 	nextWindow();
 	return returnVal;
+}
+
+NamePrompt::Result NamePrompt::run()
+{
+	nameBox.Select();
+	while (prompt.isOpen() && returnVal == -1)
+	{
+		//debug::log("---- Prompt / Update");
+		display();
+		cr::updateUIElements();
+		input::handleInput();
+	}
+	nextWindow();
+	return result;
 }
 
 void NamePrompt::display()
@@ -76,6 +92,7 @@ void NamePrompt::leftMouseDown(int x, int y)
 			name = nameBox.Text();
 			nextWindow();
 			returnVal = 0;
+			result = Result::HasName;
 			return;
 		}
 	}
@@ -84,6 +101,7 @@ void NamePrompt::leftMouseDown(int x, int y)
 
 void NamePrompt::textEntered(sf::Event::TextEvent text)
 {
+	debug::log("there was text entered in the name prompt: " + std::to_string(text.unicode));
 	if (text.unicode != 13)
 		nameBox.Update(text.unicode);
 	else
@@ -94,6 +112,7 @@ void NamePrompt::textEntered(sf::Event::TextEvent text)
 			name = nameBox.Text();
 			nextWindow();
 			returnVal = 0;
+			result = Result::HasName;
 		}
 	}
 }
@@ -117,4 +136,5 @@ void NamePrompt::close()
 {
 	nextWindow();
 	returnVal = 1;
+	result = Result::Close;
 }

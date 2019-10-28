@@ -22,6 +22,16 @@
 class Client
 {
 public:
+	enum class SetupResult
+	{
+		Default = -1,
+		Done = 0,
+		RetrySetup = 1,
+		Close = 2,
+		Error = 3,
+	};
+
+public:
 #pragma region Con-/Destructor
 	Client(bool pBlock, int pPort = 53000, sf::IpAddress address = sf::IpAddress::getPublicAddress());
 	~Client();
@@ -53,13 +63,7 @@ public:
 #pragma region Networking
 	__declspec(deprecated) void SendString(sf::String msg);
 
-	//set up the networking
-	//returns errorCode
-	//	0 = OK
-	//	1 = Could not connect
-	//	2 = Closed name prompt
-	//	3 = Reached code that is unreachable
-	int Setup();
+	SetupResult Setup();
 
 	bool isConnected() { return connected; }
 	std::string getName() { return name; }

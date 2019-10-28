@@ -2502,3 +2502,250 @@ Server session
 28.010.2019 17:19:43 - Setting up server on port 1234 with name boi
 28.010.2019 17:19:43 - Server setup finished
 28.010.2019 17:20:39 - New client named bi | Now there are 1 sockets connected
+
+**********************************
+Loading audio files
+28.010.2019 20:44:15 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 20:44:16 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 20:44:19 - Setting up server on port 1234 with name Hallo
+28.010.2019 20:44:19 - Server setup finished
+28.010.2019 20:44:34 - New client named Jo | Now there are 1 sockets connected
+28.010.2019 20:44:44 - Jo (Place 0) disconnected | Now there are 0 sockets connected
+28.010.2019 20:44:46 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+28.010.2019 20:45:42 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 20:45:45 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 20:45:46 - Setting up server on port 1234 with name 1
+28.010.2019 20:45:46 - Server setup finished
+28.010.2019 20:46:11 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+28.010.2019 22:04:58 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 22:04:59 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 22:05:01 - Setting up server on port 1234 with name 123
+28.010.2019 22:05:01 - Server setup finished
+28.010.2019 22:05:30 - New client named 456 | Now there are 1 sockets connected
+
+**********************************
+Loading audio files
+28.010.2019 22:09:18 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 22:09:19 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 22:09:21 - Setting up server on port 1234 with name 123
+28.010.2019 22:09:21 - Server setup finished
+28.010.2019 22:09:35 - New client named 456 | Now there are 1 sockets connected
+28.010.2019 22:10:14 - 456 (Place 0) disconnected | Now there are 0 sockets connected
+28.010.2019 22:10:15 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+28.010.2019 22:10:20 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 22:10:22 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 22:10:25 - Setting up server on port 1234 with name Hallo
+28.010.2019 22:10:25 - Server setup finished
+28.010.2019 22:10:32 - New client named 123 | Now there are 1 sockets connected
+28.010.2019 22:10:42 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+28.010.2019 22:11:42 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 22:11:43 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 22:11:45 - Setting up server on port 1234 with name 12.
+28.010.2019 22:11:45 - Server setup finished
+28.010.2019 22:11:52 - New client named 5 | Now there are 1 sockets connected
+28.010.2019 22:11:57 - 5 (Place 0) disconnected | Now there are 0 sockets connected
+28.010.2019 22:11:59 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+28.010.2019 23:03:05 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 23:03:06 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 23:03:08 - Setting up server on port 1234 with name 123
+28.010.2019 23:03:08 - Server setup finished
+28.010.2019 23:03:24 - New client named Hallo | Now there are 1 sockets connected
+28.010.2019 23:03:37 - Hallo (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+28.010.2019 23:06:32 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 23:06:33 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 23:06:34 - Setting up server on port 1234 with name 123
+28.010.2019 23:06:34 - Server setup finished
+
+**********************************
+Loading audio files
+28.010.2019 23:08:18 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 23:08:19 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 23:08:22 - Setting up server on port 1234 with name 123
+28.010.2019 23:08:22 - Server setup finished
+28.010.2019 23:08:51 - New client named 456 | Now there are 1 sockets connected
+28.010.2019 23:09:07 - 456 (Place 0) disconnected | Now there are 0 sockets connected
+28.010.2019 23:09:08 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+28.010.2019 23:09:50 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 23:09:51 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 23:09:53 - Setting up server on port 1234 with name 123
+28.010.2019 23:09:53 - Server setup finished
+28.010.2019 23:10:07 - New client named 456 | Now there are 1 sockets connected
+28.010.2019 23:10:11 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+28.010.2019 23:11:51 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 23:12:01 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 23:12:05 - Setting up server on port 1234 with name Hallo
+28.010.2019 23:12:05 - Server setup finished
+28.010.2019 23:12:18 - New client named halslso | Now there are 1 sockets connected
+
+**********************************
+Loading audio files
+
+**********************************
+Loading audio files
+28.010.2019 23:14:31 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 23:14:32 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 23:14:37 - Setting up server on port 1234 with name Hallo
+28.010.2019 23:14:37 - Server setup finished
+
+**********************************
+Loading audio files
+28.010.2019 23:15:04 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 23:15:05 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 23:15:14 - Setting up server on port 1234 with name Hallo
+28.010.2019 23:15:14 - Server setup finished
+28.010.2019 23:16:04 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+28.010.2019 23:19:09 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 23:19:12 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 23:19:16 - Setting up server on port 1234 with name Hallo
+28.010.2019 23:19:16 - Server setup finished
+
+**********************************
+Loading audio files
+28.010.2019 23:22:39 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 23:22:40 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 23:22:42 - Setting up server on port 1234 with name 123
+28.010.2019 23:22:42 - Server setup finished
+28.010.2019 23:22:54 - New client named 156 | Now there are 1 sockets connected
+28.010.2019 23:22:58 - 156 (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+28.010.2019 23:23:26 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 23:23:27 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 23:23:29 - Setting up server on port 1234 with name 123
+28.010.2019 23:23:29 - Server setup finished
+28.010.2019 23:23:40 - New client named 456 | Now there are 1 sockets connected
+28.010.2019 23:23:43 - 456 (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+28.010.2019 23:25:02 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 23:25:03 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 23:25:05 - Setting up server on port 1234 with name 123
+28.010.2019 23:25:05 - Server setup finished
+28.010.2019 23:25:15 - New client named 456 | Now there are 1 sockets connected
+28.010.2019 23:25:20 - 456 (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+28.010.2019 23:26:46 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 23:26:47 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 23:26:49 - Setting up server on port 1234 with name 123
+28.010.2019 23:26:49 - Server setup finished
+28.010.2019 23:27:02 - New client named 456 | Now there are 1 sockets connected
+28.010.2019 23:27:08 - 456 (Place 0) disconnected | Now there are 0 sockets connected

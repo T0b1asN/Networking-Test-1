@@ -15,7 +15,7 @@
 class StartMenu
 {
 public:
-	enum Result
+	enum class Result
 	{
 		None = -2,
 		Close = -1,

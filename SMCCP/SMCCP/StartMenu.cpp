@@ -69,7 +69,7 @@ void StartMenu::leftMouseDown(int x, int y)
 		{
 			port = std::stoi(portBox.Text().toAnsiString());
 			nextWindow();
-			returnVal = StartMenu::Server;
+			returnVal = StartMenu::Result::Server;
 		}
 		catch (std::invalid_argument inv_arg)
 		{
@@ -90,7 +90,7 @@ void StartMenu::leftMouseDown(int x, int y)
 			{
 				port = std::stoi(portBox.Text().toAnsiString());
 				nextWindow();
-				returnVal = StartMenu::Client;
+				returnVal = StartMenu::Result::Client;
 			}
 			catch (std::invalid_argument inv_arg)
 			{

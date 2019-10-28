@@ -49,6 +49,7 @@ std::string Server::getInfo()
 
 int Server::setup()
 {
+	debug::log("------------ Server -----------------");
 	own_log::append("\nServer session\n-------------------------------------------------------------", false);
 	own_log::append("Setting up server on port " + std::to_string(port) + " with name " + name);
 	listener.setBlocking(block);
@@ -162,6 +163,7 @@ void Server::connectToClient()
 
 		socketsConnected++;
 
+		debug::log("--------- New Socket Name: " + newSocketName);
 		names.push_back(newSocketName);
 
 		(*sockets.back().get()).setBlocking(block);
@@ -400,6 +402,8 @@ void Server::Update()
 							lastMsg = prot::remToken(lastMsg, token);
 							if (!muted)
 								snd::playSound("incoming_01");
+
+							//TODO: Sometimes throws exception (Index out of range)
 							Send(names.at(i) + ": " + lastMsg, i);
 							DisplayMessage(names.at(i) + ": " + lastMsg);
 						}
