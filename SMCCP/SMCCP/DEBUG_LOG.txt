@@ -2479,3 +2479,26 @@ Server session
 -------------------------------------------------------------
 28.010.2019 17:13:35 - Setting up server on port 1234 with name boi
 28.010.2019 17:13:35 - Server setup finished
+
+**********************************
+Loading audio files
+28.010.2019 17:16:03 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 17:16:05 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 17:16:08 - Setting up server on port 1234 with name boi
+28.010.2019 17:16:08 - Server setup finished
+
+**********************************
+Loading audio files
+28.010.2019 17:19:39 - Loaded 3 audiofiles - without error: true
+**********************************
+28.010.2019 17:19:41 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+28.010.2019 17:19:43 - Setting up server on port 1234 with name boi
+28.010.2019 17:19:43 - Server setup finished
+28.010.2019 17:20:39 - New client named bi | Now there are 1 sockets connected

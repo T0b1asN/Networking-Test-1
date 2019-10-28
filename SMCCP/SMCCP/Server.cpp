@@ -130,6 +130,10 @@ void Server::connectToClient()
 		std::string newSocketName;
 		namePacket >> newSocketName;
 		newSocketName = RSA::Decrypt(newSocketName, key.privKey);
+
+		std::vector<std::string> splitName = str::split(newSocketName, ' ');
+		if (splitName.empty()) return;
+
 		newSocketName = prot::remToken(newSocketName, str::split(newSocketName, ' ').front());
 		if (std::find(names.begin(), names.end(), newSocketName) != names.end() || newSocketName == name)
 		{
