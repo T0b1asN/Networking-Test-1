@@ -3,6 +3,7 @@
 const std::string NamePrompt::okButton_id = "namePrompt_okB";
 
 NamePrompt::NamePrompt(bool dontLoseFocus) :
+	callback_id_base("namePrompt"),
 	prompt(sf::VideoMode((unsigned int)(500.f - 12.5f), 90U), "Set Name", sf::Style::Close),
 	nameBox(sf::Vector2f(25.f, 25.f), sf::Vector2f(300.f, 40.f), "Name...", sf::Color::Black, sf::Color::White, &prompt),
 	okButton(okButton_id, "Ok", sf::Vector2f(125.f, 40.f), sf::Vector2f(350.f - 12.5f, 25.f), sf::Color(0, 155, 0), sf::Color::Black, &prompt, 25)
@@ -18,11 +19,10 @@ NamePrompt::NamePrompt(bool dontLoseFocus) :
 	else
 		own_log::append("Icon could not be loaded!");
 
+	callback_id_own = callback_id_base + str::createRandom(8);
 	initCallbacks();
 
 	input::setFocus(&prompt);
-
-	callback_id_own = callback_id_base + str::createRandom(8);
 }
 
 NamePrompt::~NamePrompt()
@@ -101,7 +101,6 @@ void NamePrompt::leftMouseDown(int x, int y)
 
 void NamePrompt::textEntered(sf::Event::TextEvent text)
 {
-	debug::log("there was text entered in the name prompt: " + std::to_string(text.unicode));
 	if (text.unicode != 13)
 		nameBox.Update(text.unicode);
 	else
@@ -127,8 +126,8 @@ void NamePrompt::lostFocus()
 
 void NamePrompt::nextWindow()
 {
-	okButton.cleanup();
 	cleanCallbacks();
+	okButton.cleanup();
 	prompt.close();
 }
 

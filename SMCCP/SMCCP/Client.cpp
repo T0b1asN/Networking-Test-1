@@ -89,7 +89,7 @@ Client::SetupResult Client::Setup()
 		return SetupResult::Error;
 
 	name = np.getName();
-	//input::setFocus(&cr::currWin());
+	np.close();
 
 	//Update nameText
 	nameText.setString("Name: " + name + "\nRole: Client\nPort: " + std::to_string(port) +
@@ -122,9 +122,6 @@ Client::SetupResult Client::Setup()
 	mpir_helper::fill(serverKey.N, str::split(sKey, ' ').at(1), RSA::ENC_BASE);
 	mpir_helper::fill(serverKey.e, str::split(sKey, ' ').at(2), RSA::ENC_BASE);
 
-	/*sf::Packet namePacket;
-	namePacket << name;
-	socket.send(namePacket);*/
 	this->Send(str::concat(prot::c::name, " ", name), true);
 
 	sf::Packet respPacket;
@@ -147,6 +144,7 @@ Client::SetupResult Client::Setup()
 	{
 		// Name already exists on Server, disconnect and ask for another name
 		socket.disconnect();
+		own_log::append("Name exists on server, retrying setup");
 		return SetupResult::RetrySetup;
 	}
 
@@ -287,11 +285,8 @@ void Client::Run()
 	while (running && cr::currWin().isOpen())
 	{
 		input::handleInput();
-		textBox.Update((char)0);
 		update();
 	}
-	debug::log("Terminating");
-	//Client is terminated, clean up stuff here
 
 	socket.disconnect();
 	cleanCallbacks();
@@ -345,13 +340,14 @@ void Client::CloseCallback()
 {
 	own_log::append("Disconnect from server due to closing the window");
 	own_log::append("-------------------------------------------------------------\n", false);
+	debug::log("Client closed window");
+	debug::pause();
 	socket.disconnect();
 	running = false;
 }
 
 void Client::TextEnteredCallback(sf::Event::TextEvent text)
 {
-	//std::cout << text.unicode << std::endl;
 	if (text.unicode != 13)
 	{
 		textBox.Update(text.unicode);

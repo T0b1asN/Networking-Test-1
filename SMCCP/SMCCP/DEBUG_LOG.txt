@@ -2749,3 +2749,589 @@ Server session
 28.010.2019 23:26:49 - Server setup finished
 28.010.2019 23:27:02 - New client named 456 | Now there are 1 sockets connected
 28.010.2019 23:27:08 - 456 (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+13.11.2019 12:49:23 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 12:49:24 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+13.11.2019 12:49:29 - Setting up server on port 1234 with name 123
+13.11.2019 12:49:29 - Server setup finished
+13.11.2019 12:49:50 - New client named 456 | Now there are 1 sockets connected
+13.11.2019 12:49:56 - 456 (Place 0) disconnected | Now there are 0 sockets connected
+13.11.2019 12:50:08 - New client named 456 | Now there are 1 sockets connected
+13.11.2019 12:50:13 - 456 (Place 0) disconnected | Now there are 0 sockets connected
+13.11.2019 12:50:16 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 12:51:15 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 12:51:18 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+13.11.2019 12:51:21 - Setting up server on port 1234 with name 789
+13.11.2019 12:51:21 - Server setup finished
+13.11.2019 12:51:30 - New client named 456 | Now there are 1 sockets connected
+13.11.2019 12:51:33 - 456 (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+13.11.2019 12:52:59 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 12:53:02 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+13.11.2019 12:53:04 - Setting up server on port 1234 with name 789
+13.11.2019 12:53:04 - Server setup finished
+13.11.2019 12:53:15 - New client named 4546 | Now there are 1 sockets connected
+13.11.2019 12:53:18 - 4546 (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+13.11.2019 12:54:24 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 12:54:28 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+13.11.2019 12:54:30 - Setting up server on port 1234 with name 459
+13.11.2019 12:54:30 - Server setup finished
+13.11.2019 12:54:38 - New client named 4562 | Now there are 1 sockets connected
+13.11.2019 12:54:41 - 4562 (Place 0) disconnected | Now there are 0 sockets connected
+
+**********************************
+Loading audio files
+13.11.2019 12:56:49 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 12:56:51 - Calling all left mouse button callbacks
+13.11.2019 12:56:51 - Calling all left mouse button callbacks
+13.11.2019 12:56:51 - Button: callback not set!
+13.11.2019 12:56:51 - Calling all left mouse button callbacks
+
+Server session
+-------------------------------------------------------------
+13.11.2019 12:56:52 - Setting up server on port 1234 with name 458
+13.11.2019 12:56:52 - Server setup finished
+13.11.2019 12:57:04 - New client named 516 | Now there are 1 sockets connected
+13.11.2019 12:57:07 - 516 (Place 0) disconnected | Now there are 0 sockets connected
+13.11.2019 12:59:53 - 
+
+-------------------------------------------------
+
+13.11.2019 12:59:53 - New SMCCP Session
+
+13.11.2019 12:59:53 - -------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 12:59:54 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 12:59:55 - Calling all left mouse button callbacks
+13.11.2019 12:59:55 - Calling all left mouse button callbacks
+13.11.2019 12:59:55 - Button: callback not set!
+13.11.2019 12:59:55 - Calling all left mouse button callbacks
+
+Server session
+-------------------------------------------------------------
+13.11.2019 12:59:57 - Setting up server on port 1234 with name 465897
+13.11.2019 12:59:57 - Server setup finished
+13.11.2019 13:00:09 - New client named 465978 | Now there are 1 sockets connected
+13.11.2019 13:00:13 - 465978 (Place 0) disconnected | Now there are 0 sockets connected
+
+
+
+13.11.2019 13:01:32 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 13:01:33 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 13:01:33 - Calling all left mouse button callbacks
+13.11.2019 13:01:33 - Calling all left mouse button callbacks
+13.11.2019 13:01:33 - Button: callback not set!
+13.11.2019 13:01:33 - Calling all left mouse button callbacks
+
+Server session
+-------------------------------------------------------------
+13.11.2019 13:01:36 - Setting up server on port 1234 with name 54978645
+13.11.2019 13:01:36 - Server setup finished
+13.11.2019 13:01:43 - New client named 31877 | Now there are 1 sockets connected
+13.11.2019 13:01:46 - 31877 (Place 0) disconnected | Now there are 0 sockets connected
+13.11.2019 13:02:05 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+
+
+13.11.2019 13:04:34 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 13:04:35 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 13:04:35 - Calling all left mouse button callbacks
+13.11.2019 13:04:35 - Calling all left mouse button callbacks
+13.11.2019 13:04:35 - Button: callback not set!
+13.11.2019 13:04:35 - Calling all left mouse button callbacks
+
+Server session
+-------------------------------------------------------------
+13.11.2019 13:04:38 - Setting up server on port 1234 with name 654
+13.11.2019 13:04:38 - Server setup finished
+13.11.2019 13:04:47 - New client named 897456 | Now there are 1 sockets connected
+13.11.2019 13:04:50 - 897456 (Place 0) disconnected | Now there are 0 sockets connected
+
+
+
+13.11.2019 13:07:26 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 13:07:27 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 13:07:27 - Calling all left mouse button callbacks
+13.11.2019 13:07:27 - Calling all left mouse button callbacks
+13.11.2019 13:07:27 - Button: callback not set!
+13.11.2019 13:07:27 - Calling all left mouse button callbacks
+
+Server session
+-------------------------------------------------------------
+13.11.2019 13:07:30 - Setting up server on port 1234 with name 987465
+13.11.2019 13:07:30 - Server setup finished
+13.11.2019 13:07:40 - New client named 9876464546587 | Now there are 1 sockets connected
+13.11.2019 13:07:43 - 9876464546587 (Place 0) disconnected | Now there are 0 sockets connected
+
+
+
+13.11.2019 13:10:36 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 13:10:36 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 13:10:37 - Calling all left mouse button callbacks
+13.11.2019 13:10:37 - Calling all left mouse button callbacks
+13.11.2019 13:10:37 - Button: callback not set!
+13.11.2019 13:10:37 - Calling all left mouse button callbacks
+
+Server session
+-------------------------------------------------------------
+13.11.2019 13:10:39 - Setting up server on port 1234 with name 4516458987
+13.11.2019 13:10:39 - Server setup finished
+13.11.2019 13:10:47 - New client named 32165748675 | Now there are 1 sockets connected
+13.11.2019 13:10:50 - 32165748675 (Place 0) disconnected | Now there are 0 sockets connected
+
+
+
+13.11.2019 13:13:44 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 13:13:44 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 13:13:46 - Calling all left mouse button callbacks
+13.11.2019 13:13:46 - Calling all left mouse button callbacks
+13.11.2019 13:13:46 - Button: callback not set!
+13.11.2019 13:13:46 - Calling all left mouse button callbacks
+
+Server session
+-------------------------------------------------------------
+13.11.2019 13:13:47 - Setting up server on port 1234 with name 645897
+13.11.2019 13:13:47 - Server setup finished
+13.11.2019 13:13:57 - New client named 4863 | Now there are 1 sockets connected
+13.11.2019 13:14:00 - 4863 (Place 0) disconnected | Now there are 0 sockets connected
+
+
+
+13.11.2019 13:17:12 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 13:17:12 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 13:17:13 - Left Mouse Button called
+13.11.2019 13:17:13 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+13.11.2019 13:17:15 - Setting up server on port 1234 with name 465987
+13.11.2019 13:17:15 - Server setup finished
+13.11.2019 13:17:24 - New client named 312645987 | Now there are 1 sockets connected
+13.11.2019 13:17:27 - 312645987 (Place 0) disconnected | Now there are 0 sockets connected
+
+
+
+13.11.2019 13:18:05 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 13:18:05 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 13:18:07 - Left Mouse Button called
+13.11.2019 13:18:07 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+13.11.2019 13:18:08 - Setting up server on port 1234 with name 87
+13.11.2019 13:18:08 - Server setup finished
+13.11.2019 13:18:14 - New client named 5 | Now there are 1 sockets connected
+13.11.2019 13:18:17 - 5 (Place 0) disconnected | Now there are 0 sockets connected
+
+
+
+13.11.2019 13:21:13 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 13:21:13 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 13:21:14 - Left Mouse Button called
+13.11.2019 13:21:14 - got Mouse pos: {x: 170; y: 57}
+13.11.2019 13:21:14 - Button: callback not set!
+13.11.2019 13:21:17 - Left Mouse Button called
+13.11.2019 13:21:17 - got Mouse pos: {x: 384; y: 51}
+
+Server session
+-------------------------------------------------------------
+13.11.2019 13:21:17 - Setting up server on port 1234 with name 123asd
+13.11.2019 13:21:17 - Server setup finished
+13.11.2019 13:21:26 - New client named 89746523 | Now there are 1 sockets connected
+13.11.2019 13:21:29 - 89746523 (Place 0) disconnected | Now there are 0 sockets connected
+
+
+
+13.11.2019 13:22:31 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 13:22:31 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 13:22:32 - Left Mouse Button called
+13.11.2019 13:22:32 - got Mouse pos: {x: 163; y: 66}
+13.11.2019 13:22:32 - MCallback ID: startMenu
+13.11.2019 13:22:32 - MCallback ID: startMenu_clientB
+13.11.2019 13:22:32 - MCallback ID: startMenu_serverB
+13.11.2019 13:22:32 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+13.11.2019 13:22:34 - Setting up server on port 1234 with name 987465
+13.11.2019 13:22:34 - Server setup finished
+13.11.2019 13:22:41 - New client named 321654 | Now there are 1 sockets connected
+13.11.2019 13:22:45 - 321654 (Place 0) disconnected | Now there are 0 sockets connected
+
+
+
+13.11.2019 13:24:03 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 13:24:03 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 13:24:04 - Left Mouse Button called
+13.11.2019 13:24:04 - got Mouse pos: {x: 95; y: 86}
+13.11.2019 13:24:04 - MCallback ID: startMenu
+13.11.2019 13:24:04 - MCallback ID: startMenu_clientB
+13.11.2019 13:24:04 - MCallback ID: startMenu_serverB
+13.11.2019 13:24:04 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+13.11.2019 13:24:06 - Setting up server on port 1234 with name 6+5
+13.11.2019 13:24:06 - Server setup finished
+13.11.2019 13:24:15 - New client named 7/ | Now there are 1 sockets connected
+13.11.2019 13:24:19 - 7/ (Place 0) disconnected | Now there are 0 sockets connected
+
+
+
+13.11.2019 13:25:34 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 13:25:35 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 13:25:36 - Left Mouse Button called
+13.11.2019 13:25:36 - got Mouse pos: {x: 121; y: 93}
+13.11.2019 13:25:36 - MCallback ID: startMenu
+13.11.2019 13:25:36 - MCallback ID: startMenu_clientB
+13.11.2019 13:25:36 - MCallback ID: startMenu_serverB
+13.11.2019 13:25:36 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+13.11.2019 13:25:37 - Setting up server on port 1234 with name 645
+13.11.2019 13:25:37 - Server setup finished
+13.11.2019 13:25:38 - Left Mouse Button called
+13.11.2019 13:25:38 - got Mouse pos: {x: 239; y: 721}
+13.11.2019 13:25:38 - MCallback ID: 
+13.11.2019 13:25:38 - MCallback ID: server
+13.11.2019 13:25:38 - MCallback ID: server_sendB
+13.11.2019 13:25:51 - New client named 4 | Now there are 1 sockets connected
+13.11.2019 13:25:58 - 4 (Place 0) disconnected | Now there are 0 sockets connected
+13.11.2019 13:26:01 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+
+
+13.11.2019 13:28:11 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 13:28:12 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 13:28:12 - Left Mouse Button called
+13.11.2019 13:28:12 - got Mouse pos: {x: 179; y: 70}
+13.11.2019 13:28:12 - MCallback ID: startMenu
+13.11.2019 13:28:12 - MCallback ID: startMenu_clientB
+13.11.2019 13:28:12 - MCallback ID: startMenu_serverB
+13.11.2019 13:28:12 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+13.11.2019 13:28:14 - Setting up server on port 1234 with name 4
+13.11.2019 13:28:14 - Server setup finished
+13.11.2019 13:28:23 - New client named 467 | Now there are 1 sockets connected
+13.11.2019 13:28:25 - 467 (Place 0) disconnected | Now there are 0 sockets connected
+
+
+
+13.11.2019 13:32:17 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 13:32:18 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 13:32:20 - Left Mouse Button called
+13.11.2019 13:32:20 - got Mouse pos: {x: 88; y: 43}
+13.11.2019 13:32:20 - MCallback ID: startMenu
+13.11.2019 13:32:20 - MCallback ID: startMenu_clientB
+13.11.2019 13:32:20 - MCallback ID: startMenu_serverB
+13.11.2019 13:32:20 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+13.11.2019 13:32:21 - Setting up server on port 1234 with name 654879
+13.11.2019 13:32:21 - Server setup finished
+13.11.2019 13:32:30 - New client named 546789 | Now there are 1 sockets connected
+13.11.2019 13:32:33 - 546789 (Place 0) disconnected | Now there are 0 sockets connected
+
+
+
+13.11.2019 13:34:12 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 13:34:13 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 13:34:14 - Left Mouse Button called
+13.11.2019 13:34:14 - got Mouse pos: {x: 95; y: 91}
+13.11.2019 13:34:14 - MCallback ID: startMenu
+13.11.2019 13:34:14 - MCallback ID: startMenu_clientB
+13.11.2019 13:34:14 - MCallback ID: startMenu_serverB
+13.11.2019 13:34:14 - Button: callback not set!
+13.11.2019 13:34:14 - INIT Name Prompt callback ID: namePrompt
+13.11.2019 13:34:16 - CLEAN Name Prompt callback ID: ^>g%>au~
+13.11.2019 13:34:16 - CLEAN Name Prompt callback ID: ^>g%>au~
+
+Server session
+-------------------------------------------------------------
+13.11.2019 13:34:16 - Setting up server on port 1234 with name 987465123
+13.11.2019 13:34:16 - Server setup finished
+13.11.2019 13:34:24 - New client named 9786453211 | Now there are 1 sockets connected
+13.11.2019 13:34:27 - 9786453211 (Place 0) disconnected | Now there are 0 sockets connected
+
+
+
+13.11.2019 13:34:58 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 13:34:59 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 13:35:00 - Left Mouse Button called
+13.11.2019 13:35:00 - got Mouse pos: {x: 124; y: 35}
+13.11.2019 13:35:00 - MCallback ID: startMenu
+13.11.2019 13:35:00 - MCallback ID: startMenu_clientB
+13.11.2019 13:35:00 - MCallback ID: startMenu_serverB
+13.11.2019 13:35:00 - Button: callback not set!
+13.11.2019 13:35:01 - INIT Name Prompt callback ID: ^>g%>au~
+13.11.2019 13:35:02 - CLEAN Name Prompt callback ID: ^>g%>au~
+
+
+
+13.11.2019 13:35:35 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 13:35:36 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 13:35:37 - Left Mouse Button called
+13.11.2019 13:35:37 - got Mouse pos: {x: 78; y: 50}
+13.11.2019 13:35:37 - MCallback ID: startMenu
+13.11.2019 13:35:37 - MCallback ID: startMenu_clientB
+13.11.2019 13:35:37 - MCallback ID: startMenu_serverB
+13.11.2019 13:35:37 - Button: callback not set!
+13.11.2019 13:35:37 - INIT Name Prompt callback ID: namePrompt^>g%>au~
+13.11.2019 13:35:38 - CLEAN Name Prompt callback ID: namePrompt^>g%>au~
+
+
+
+13.11.2019 13:36:11 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 13:36:11 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 13:36:12 - Left Mouse Button called
+13.11.2019 13:36:12 - got Mouse pos: {x: 59; y: 102}
+13.11.2019 13:36:12 - MCallback ID: startMenu
+13.11.2019 13:36:12 - MCallback ID: startMenu_clientB
+13.11.2019 13:36:12 - MCallback ID: startMenu_serverB
+13.11.2019 13:36:12 - Button: callback not set!
+13.11.2019 13:36:12 - INIT Name Prompt callback ID: namePrompt^>g%>au~
+13.11.2019 13:36:13 - CLEAN Name Prompt callback ID: namePrompt^>g%>au~
+
+
+
+13.11.2019 13:37:34 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+13.11.2019 13:37:35 - Loaded 3 audiofiles - without error: true
+**********************************
+13.11.2019 13:37:36 - Left Mouse Button called
+13.11.2019 13:37:36 - got Mouse pos: {x: 169; y: 41}
+13.11.2019 13:37:36 - MCallback ID: startMenu
+13.11.2019 13:37:36 - MCallback ID: startMenu_clientB
+13.11.2019 13:37:36 - MCallback ID: startMenu_serverB
+13.11.2019 13:37:36 - Button: callback not set!
+13.11.2019 13:37:36 - INIT Name Prompt callback ID: namePrompt^>g%>au~
+13.11.2019 13:37:38 - CLEAN Name Prompt callback ID: namePrompt^>g%>au~
+13.11.2019 13:37:38 - CLEAN Name Prompt callback ID: namePrompt^>g%>au~
+
+Server session
+-------------------------------------------------------------
+13.11.2019 13:37:38 - Setting up server on port 1234 with name 465897
+13.11.2019 13:37:38 - Server setup finished
+13.11.2019 13:37:46 - New client named 64789 | Now there are 1 sockets connected
+13.11.2019 13:37:52 - You shut down the server, by closing the window
+-------------------------------------------------------------
+

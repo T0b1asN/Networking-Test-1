@@ -58,54 +58,19 @@ int main()
 	ShowWindow(GetConsoleWindow(), SW_HIDE);
 #endif // !NDEBUG
 	InitMPIR();
-	
-	//debug::log(mpir_math::test::rand_prime_test(2048));
-	//auto start = std::chrono::steady_clock::now();
-	//RSA::Key key = RSA::GenerateKey(512);
-	//auto end = std::chrono::steady_clock::now();
-	//auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
-	//double elapsedS = (double)elapsed / 1000000000;
-	//if (!key.err)
-	//{
-	//	debug::log("N: " + mpir_helper::str(key.pubKey.N));
-	//	debug::log("e: " + mpir_helper::str(key.pubKey.e));
-	//	debug::log("d: " + mpir_helper::str(key.privKey.d));
-	//	debug::log("Time needed: " + std::to_string(elapsedS) + "s");
-	//}
-	//else
-	//	debug::log("Error in generating key");
-
-	//std::string msg = "Hallo";
-
-	//debug::log("Encrypting \"" + msg + "\"...");
-	//start = std::chrono::steady_clock::now();
-	//std::string encrypted = RSA::Encrypt(msg, key.pubKey, 8);
-	//end = std::chrono::steady_clock::now();
-	//debug::log("Result (encryption): " + encrypted);
-	//elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
-	//elapsedS = (double)elapsed / 1000000000;
-	//debug::log("Time needed: " + std::to_string(elapsedS) + "s");
-
-	//debug::log("Decrypting...");
-	//start = std::chrono::steady_clock::now();
-	//std::string decrypted = RSA::Decrypt(encrypted, key.privKey);
-	//end = std::chrono::steady_clock::now();
-	//debug::log("Result (decryption): " + decrypted);
-	//elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
-	//elapsedS = (double)elapsed / 1000000000;
-	//debug::log("Time needed: " + std::to_string(elapsedS) + "s");
-	//bool equal = (decrypted.compare(msg) == 0);
-	//if (equal)
-	//	debug::log("Strings before and after RSA are equal->RSA worked!");
-	//else
-	//	debug::log("Strings before and after RSA are not equal -> RSA failed!");
-
-	//debug::pause();
 
 	if (own_log::create() == 0)
 	{
 		debug::log("Created log file");
 		own_log::append("Created log file");
+	}
+	else
+	{
+		own_log::append("\n\n", false);
+		own_log::append("");
+		own_log::append("-------------------------------------------------\n", false);
+		own_log::append("New SMCCP Session\n", false);
+		own_log::append("-------------------------------------------------\n", false);
 	}
 
 	if (!snd::LoadAllSounds())

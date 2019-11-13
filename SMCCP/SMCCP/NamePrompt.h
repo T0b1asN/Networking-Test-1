@@ -36,7 +36,7 @@ private:
 
 	static const std::string okButton_id;
 
-	const std::string callback_id_base = "namePrompt";
+	const std::string callback_id_base;
 	std::string callback_id_own;
 
 public:

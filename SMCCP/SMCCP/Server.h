@@ -170,7 +170,7 @@ private:
 	//prints all names
 	void printNames();
 
-	bool run = true;
+	bool running = true;
 #pragma endregion
 
 public:

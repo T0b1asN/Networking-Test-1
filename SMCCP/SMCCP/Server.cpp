@@ -22,7 +22,7 @@ Server::Server(std::string pName, bool pBlock, unsigned int pPort, unsigned int 
 	initGraphics();
 	initCallbacks();
 
-	run = true;
+	running = true;
 }
 
 Server::~Server()
@@ -448,7 +448,7 @@ void Server::Run()
 
 	// Generate RSA key
 
-	while (cr::currWin().isOpen() && run)
+	while (cr::currWin().isOpen() && running)
 	{
 		input::handleInput();
 		textBox.Update((char)0);
@@ -512,7 +512,7 @@ void Server::closeCallback()
 	own_log::append("You shut down the server, by closing the window");
 	own_log::append("-------------------------------------------------------------\n", false);
 	Shutdown("Host closed the window!", true);
-	run = false;
+	running = false;
 }
 
 void Server::textEnteredCallback(sf::Event::TextEvent text)
