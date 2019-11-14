@@ -3485,3 +3485,60 @@ Server session
 14.11.2019 14:00:06 - You shut down the server, by closing the window
 -------------------------------------------------------------
 
+
+
+
+14.11.2019 16:57:16 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+14.11.2019 16:57:17 - Loaded 3 audiofiles - without error: true
+**********************************
+
+
+
+14.11.2019 16:58:36 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+14.11.2019 16:58:36 - Loaded 3 audiofiles - without error: true
+**********************************
+
+
+
+14.11.2019 17:11:05 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+14.11.2019 17:11:05 - Loaded 3 audiofiles - without error: true
+**********************************
+14.11.2019 17:11:07 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+14.11.2019 17:11:09 - Setting up server on port 1234 with name Ja BOII
+14.11.2019 17:11:10 - Server setup finished
+14.11.2019 17:11:23 - New client named Ya BOII | Now there are 1 sockets connected
+14.11.2019 17:11:32 - Ya BOII (Place 0) disconnected | Now there are 0 sockets connected
+14.11.2019 17:12:20 - New client named Ja BOIII | Now there are 1 sockets connected
+14.11.2019 17:12:39 - New client named 123 | Now there are 2 sockets connected
+14.11.2019 17:12:44 - 123 (Place 1) disconnected | Now there are 1 sockets connected
+14.11.2019 17:12:47 - Ja BOIII (Place 0) disconnected | Now there are 0 sockets connected
