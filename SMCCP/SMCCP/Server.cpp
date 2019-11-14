@@ -5,6 +5,7 @@ const std::string Server::sendButton_id = "server_sendB";
 
 #pragma region Con-/Destructors
 Server::Server(std::string pName, bool pBlock, unsigned int pPort, unsigned int pMax_Clients) :
+	InputCallbackHandler("server"),
 	textBox(sf::Vector2f(10.0f, cr::winHeight() - 50.0f), sf::Vector2f(350.0f, 40.0f)),
 	muteBox(sf::Vector2f(480.f, cr::winHeight() - 30.f), 40.f),
 	sendButton(sendButton_id, "Send", sf::Vector2f(80.f, 40.f), sf::Vector2f(370.f, cr::winHeight() - 50.f))
@@ -486,28 +487,18 @@ bool Server::GenerateKey(int max_errors)
 #pragma region Callbacks
 void Server::initCallbacks()
 {
-	input::addLeftMouseCallback(lMCb, callback_id);
-	input::addCloseCallback(cCb, callback_id);
-	input::addTextEnteredCallback(tECb, callback_id);
-
+	InputCallbackHandler::initCallbacks();
 	sendButton.setOnClickCallback(bCallback);
 }
 
-void Server::cleanCallbacks()
-{
-	input::deleteCloseCallback(callback_id);
-	input::deleteLMouseCallback(callback_id);
-	input::deleteTextEnteredCallback(callback_id);
-}
-
-void Server::leftMCallback(int x, int y)
+void Server::LeftMCallback(int x, int y)
 {
 	if (muteBox.CheckClick())
 		muted = muteBox.isChecked();
 	textBox.SelectOrUnselect();
 }
 
-void Server::closeCallback()
+void Server::CloseCallback()
 {
 	own_log::append("You shut down the server, by closing the window");
 	own_log::append("-------------------------------------------------------------\n", false);
@@ -515,7 +506,7 @@ void Server::closeCallback()
 	running = false;
 }
 
-void Server::textEnteredCallback(sf::Event::TextEvent text)
+void Server::TextEnteredCallback(sf::Event::TextEvent text)
 {
 	if (text.unicode != 13)
 	{

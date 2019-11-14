@@ -22,7 +22,9 @@
 #include "RSA.h"
 #include "Protocol.h"
 
-class Server
+#include "InputCallbackHandler.h"
+
+class Server : public InputCallbackHandler
 {
 public:
 #pragma region Con-/Destructors
@@ -201,37 +203,14 @@ private:
 #pragma region Callbacks
 	void initCallbacks();
 
-	void cleanCallbacks();
-
 	static const std::string sendButton_id;
 #pragma endregion
 
 public:
 #pragma region Callbacks
-	// Callback stuff
-	const std::string callback_id = "server";
-
-	void leftMCallback(int x, int y);
-	// handle for leftMouseCallback
-	input::mouseCallback lMCb =
-		std::bind(
-			&Server::leftMCallback, this,
-			std::placeholders::_1,
-			std::placeholders::_2
-		);
-
-	void closeCallback();
-	// handle for closeCallback
-	input::closeCallback cCb =
-		std::bind(&Server::closeCallback, this);
-
-	void textEnteredCallback(sf::Event::TextEvent text);
-	// handle for textEnteredCallback
-	input::textEnteredCallback tECb =
-		std::bind(
-			&Server::textEnteredCallback, this,
-			std::placeholders::_1
-		);
+	virtual void LeftMCallback(int x, int y);
+	virtual void CloseCallback();
+	virtual void TextEnteredCallback(sf::Event::TextEvent text);
 
 	void buttonCallback(std::string id);
 	OwnButton::buttonCallback bCallback = std::bind(&Server::buttonCallback, this, std::placeholders::_1);
