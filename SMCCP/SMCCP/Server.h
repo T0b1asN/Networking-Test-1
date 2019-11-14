@@ -34,7 +34,7 @@ public:
 	///pPort: the port of the server (standard 53000)
 	///pMax_Clients: max clients of the server (standard 10)
 	//////////////////////////////////////////////
-	Server(std::string pName, bool pBlock, unsigned int pPort = 53000, unsigned int pMax_Clients = 10);
+	Server(std::string pName, bool pBlock, unsigned int pPort = DEFAULT_PORT, unsigned int pMax_Clients = 10);
 	~Server();
 #pragma endregion
 

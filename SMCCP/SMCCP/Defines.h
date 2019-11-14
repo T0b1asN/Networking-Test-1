@@ -35,6 +35,8 @@
 #define NO_SOUND_MSG "SljyXBZyQq"
 #define NO_SOUND_MSG_LENGTH 10
 
+constexpr auto DEFAULT_PORT = 1234;
+
 //TODO have as Setting in extra window
 //#define DISCORD_RICH_PRESENCE
 #ifdef DISCORD_RICH_PRESENCE
