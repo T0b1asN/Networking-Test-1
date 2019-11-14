@@ -4,11 +4,12 @@ const std::string StartMenu::serverButton_id = "startMenu_serverB";
 const std::string StartMenu::clientButton_id = "startMenu_clientB";
 
 StartMenu::StartMenu() :
-	callback_id("startMenu"),
+	InputCallbackHandler("startMenu"),
 	serverButton(serverButton_id, "Server", sf::Vector2f(200.0f, 100.0f), sf::Vector2f(cr::winWidth() / 4.0f, 75.f), sf::Color::White, sf::Color::Black, &cr::currWin(), 25U),
 	clientButton(clientButton_id, "Client", sf::Vector2f(200.f, 100.f), sf::Vector2f(cr::winWidth()/4.f*3.f, 75.f), sf::Color::Black, sf::Color::White, &cr::currWin(), 25U),
 	ipBox(sf::Vector2f(25.f, 135.f), sf::Vector2f(312.5f, 40.f), sf::IpAddress::getLocalAddress().toString()),
-	portBox(sf::Vector2f(350.f, 135.f), sf::Vector2f(125.f, 40.f), std::to_string(1234))
+	portBox(sf::Vector2f(350.f, 135.f), sf::Vector2f(125.f, 40.f), std::to_string(1234)),
+	port(1234)
 {
 	serverButton.SetOrigin(serverButton.GetSize() / 2.0f);
 	clientButton.SetOrigin(clientButton.GetSize() / 2.0f);
@@ -21,27 +22,12 @@ StartMenu::StartMenu() :
 	ipBox.set_maxChars(15);
 	portBox.set_maxChars(5);
 
-	initCallbacks();
+	InputCallbackHandler::initCallbacks();
 }
 
 StartMenu::~StartMenu()
 {
 
-}
-
-void StartMenu::initCallbacks()
-{
-	input::addLeftMouseCallback(
-		std::bind(
-			&StartMenu::leftMouseDown, this,
-			std::placeholders::_1, std::placeholders::_2),
-		callback_id);
-	input::addCloseCallback(
-		std::bind(&StartMenu::close, this),
-		callback_id);
-	input::addTextEnteredCallback(
-		std::bind(&StartMenu::textEntered, this, std::placeholders::_1),
-		callback_id);
 }
 
 StartMenu::Result StartMenu::open()
@@ -55,7 +41,7 @@ StartMenu::Result StartMenu::open()
 	return returnVal;
 }
 
-void StartMenu::leftMouseDown(int x, int y)
+void StartMenu::LeftMCallback(int x, int y)
 {
 	//std::cout << "Test" << std::endl;
 	//system("pause");
@@ -108,7 +94,7 @@ void StartMenu::leftMouseDown(int x, int y)
 	portBox.SelectOrUnselect(x, y);
 }
 
-void StartMenu::textEntered(sf::Event::TextEvent text)
+void StartMenu::TextEnteredCallback(sf::Event::TextEvent text)
 {
 	if (text.unicode != 13)
 	{
@@ -139,15 +125,17 @@ void StartMenu::nextWindow()
 {
 	serverButton.cleanup();
 	clientButton.cleanup();
-
-	input::deleteLMouseCallback(callback_id);
-	input::deleteTextEnteredCallback(callback_id);
-	input::deleteCloseCallback(callback_id);
+	InputCallbackHandler::cleanCallbacks();
 }
 
-void StartMenu::close()
+void StartMenu::CloseCallback()
 {
 	returnVal = Result::Close;
 	nextWindow();
 	cr::currWin().close();
+}
+
+void StartMenu::LostFocusCallback()
+{
+
 }

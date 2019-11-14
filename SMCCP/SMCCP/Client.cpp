@@ -90,7 +90,7 @@ Client::SetupResult Client::Setup()
 		return SetupResult::Error;
 
 	name = np.getName();
-	np.close();
+	np.CloseCallback();
 
 	//Update nameText
 	nameText.setString("Name: " + name + "\nRole: Client\nPort: " + std::to_string(port) +
@@ -355,6 +355,11 @@ void Client::TextEnteredCallback(sf::Event::TextEvent text)
 		onEnter();
 		textBox.Select();
 	}
+}
+
+void Client::LostFocusCallback()
+{
+
 }
 
 void Client::buttonCallback(std::string id)

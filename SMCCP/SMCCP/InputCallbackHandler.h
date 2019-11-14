@@ -37,4 +37,8 @@ public:
 			&InputCallbackHandler::TextEnteredCallback, this,
 			std::placeholders::_1
 		);
+
+	virtual void LostFocusCallback() = 0;
+	input::lostFocusCallback lFCb =
+		std::bind(&InputCallbackHandler::LostFocusCallback, this);
 };

@@ -519,6 +519,12 @@ void Server::TextEnteredCallback(sf::Event::TextEvent text)
 		textBox.Select();
 	}
 }
+
+void Server::LostFocusCallback()
+{
+
+}
+
 void Server::buttonCallback(std::string id)
 {
 	if (id == sendButton_id)

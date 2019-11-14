@@ -3,6 +3,7 @@
 const std::string NamePrompt::okButton_id = "namePrompt_okB";
 
 NamePrompt::NamePrompt(bool dontLoseFocus) :
+	InputCallbackHandler("namePrompt" + str::createRandom(8)),
 	callback_id_base("namePrompt"),
 	prompt(sf::VideoMode((unsigned int)(500.f - 12.5f), 90U), "Set Name", sf::Style::Close),
 	nameBox(sf::Vector2f(25.f, 25.f), sf::Vector2f(300.f, 40.f), "Name...", sf::Color::Black, sf::Color::White, &prompt),
@@ -20,7 +21,7 @@ NamePrompt::NamePrompt(bool dontLoseFocus) :
 		own_log::append("Icon could not be loaded!");
 
 	callback_id_own = callback_id_base + str::createRandom(8);
-	initCallbacks();
+	InputCallbackHandler::initCallbacks();
 
 	input::setFocus(&prompt);
 }
@@ -28,22 +29,6 @@ NamePrompt::NamePrompt(bool dontLoseFocus) :
 NamePrompt::~NamePrompt()
 {
 	
-}
-
-void NamePrompt::initCallbacks()
-{
-	input::addLeftMouseCallback(lMCb, callback_id_own);
-	input::addCloseCallback(cCb, callback_id_own);
-	input::addTextEnteredCallback(tECb, callback_id_own);
-	input::addLostFocusCallback(lFCb, callback_id_own);
-}
-
-void NamePrompt::cleanCallbacks()
-{
-	input::deleteCloseCallback(callback_id_own);
-	input::deleteLMouseCallback(callback_id_own);
-	input::deleteTextEnteredCallback(callback_id_own);
-	input::deleteLostFocusCallback(callback_id_own);
 }
 
 int NamePrompt::run_int()
@@ -83,7 +68,7 @@ void NamePrompt::display()
 	prompt.display();
 }
 
-void NamePrompt::leftMouseDown(int x, int y)
+void NamePrompt::LeftMCallback(int x, int y)
 {
 	if (nameBox.changed() && nameBox.Text() != "")
 	{
@@ -99,7 +84,7 @@ void NamePrompt::leftMouseDown(int x, int y)
 	nameBox.SelectOrUnselect();
 }
 
-void NamePrompt::textEntered(sf::Event::TextEvent text)
+void NamePrompt::TextEnteredCallback(sf::Event::TextEvent text)
 {
 	if (text.unicode != 13)
 		nameBox.Update(text.unicode);
@@ -116,7 +101,7 @@ void NamePrompt::textEntered(sf::Event::TextEvent text)
 	}
 }
 
-void NamePrompt::lostFocus()
+void NamePrompt::LostFocusCallback()
 {
 	if (!loseFocus)
 	{
@@ -126,12 +111,12 @@ void NamePrompt::lostFocus()
 
 void NamePrompt::nextWindow()
 {
-	cleanCallbacks();
+	InputCallbackHandler::cleanCallbacks();
 	okButton.cleanup();
 	prompt.close();
 }
 
-void NamePrompt::close()
+void NamePrompt::CloseCallback()
 {
 	nextWindow();
 	returnVal = 1;

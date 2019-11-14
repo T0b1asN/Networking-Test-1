@@ -12,7 +12,9 @@
 
 #include "InputHandler.h"
 
-class StartMenu
+#include "InputCallbackHandler.h"
+
+class StartMenu : public InputCallbackHandler
 {
 public:
 	enum class Result
@@ -36,8 +38,6 @@ private:
 
 	Result returnVal = Result::None;
 
-	void initCallbacks();
-
 	static const std::string serverButton_id;
 	static const std::string clientButton_id;
 
@@ -45,16 +45,15 @@ public:
 	StartMenu();
 	~StartMenu();
 
-	const std::string callback_id;
-
 	Result open();
 
 	sf::IpAddress getIp() { return adress; }
 	unsigned int getPort() { return port; }
 
-	void leftMouseDown(int x, int y);
-	void textEntered(sf::Event::TextEvent text);
-	void close();
+	virtual void LeftMCallback(int x, int y);
+	virtual void TextEnteredCallback(sf::Event::TextEvent text);
+	virtual void CloseCallback();
+	virtual void LostFocusCallback();
 
 	void display();
 	void nextWindow();

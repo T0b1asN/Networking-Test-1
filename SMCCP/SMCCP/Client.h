@@ -139,6 +139,7 @@ public:
 	virtual void LeftMCallback(int x, int y);
 	virtual void CloseCallback();
 	virtual void TextEnteredCallback(sf::Event::TextEvent text);
+	virtual void LostFocusCallback();
 
 	void buttonCallback(std::string id);
 	OwnButton::buttonCallback bCallback =

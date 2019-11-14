@@ -103,7 +103,7 @@ int main()
 			return 0;
 		std::string name = np.getName();
 
-		stMen.close();
+		stMen.CloseCallback();
 
 		GraphicsSetup(1000U, 750U);
 		RunServer(name, port);
