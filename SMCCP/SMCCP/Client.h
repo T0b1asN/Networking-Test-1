@@ -19,7 +19,9 @@
 #include "RSA.h"
 #include "Protocol.h"
 
-class Client
+#include "InputCallbackHandler.h"
+
+class Client : public InputCallbackHandler
 {
 public:
 	enum class SetupResult
@@ -126,7 +128,7 @@ public:
 private:
 #pragma region Callbacks
 	void initCallbacks();
-	void cleanCallbacks();
+	//void cleanCallbacks();
 
 	static const std::string sendButton_id;
 #pragma endregion
@@ -134,29 +136,9 @@ private:
 public:
 #pragma region Callbacks
 	// Callback stuff
-	const std::string callback_id = "client";
-
-	void LeftMCallback(int x, int y);
-	// handle for leftMouseCallback
-	input::mouseCallback lMCb =
-		std::bind(
-			&Client::LeftMCallback, this,
-			std::placeholders::_1,
-			std::placeholders::_2
-		);
-
-	void CloseCallback();
-	// handle for closeCallback
-	input::closeCallback cCb =
-		std::bind(&Client::CloseCallback, this);
-
-	void TextEnteredCallback(sf::Event::TextEvent text);
-	// handle for textEnteredCallback
-	input::textEnteredCallback tECb =
-		std::bind(
-			&Client::TextEnteredCallback, this,
-			std::placeholders::_1
-		);
+	virtual void LeftMCallback(int x, int y);
+	virtual void CloseCallback();
+	virtual void TextEnteredCallback(sf::Event::TextEvent text);
 
 	void buttonCallback(std::string id);
 	OwnButton::buttonCallback bCallback =

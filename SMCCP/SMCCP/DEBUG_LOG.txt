@@ -3335,3 +3335,55 @@ Server session
 13.11.2019 13:37:52 - You shut down the server, by closing the window
 -------------------------------------------------------------
 
+
+
+
+14.11.2019 09:40:18 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+14.11.2019 09:40:19 - Loaded 3 audiofiles - without error: true
+**********************************
+14.11.2019 09:40:20 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+14.11.2019 09:40:22 - Setting up server on port 1234 with name Hallo
+14.11.2019 09:40:22 - Server setup finished
+14.11.2019 09:40:34 - New client named Hi | Now there are 1 sockets connected
+14.11.2019 09:40:45 - Hi (Place 0) disconnected | Now there are 0 sockets connected
+14.11.2019 09:40:49 - You shut down the server, by closing the window
+-------------------------------------------------------------
+
+
+
+
+14.11.2019 09:42:11 - 
+-------------------------------------------------
+
+New SMCCP Session
+
+-------------------------------------------------
+
+
+**********************************
+Loading audio files
+14.11.2019 09:42:12 - Loaded 3 audiofiles - without error: true
+**********************************
+14.11.2019 09:42:13 - Button: callback not set!
+
+Server session
+-------------------------------------------------------------
+14.11.2019 09:42:15 - Setting up server on port 1234 with name Hallo
+14.11.2019 09:42:15 - Server setup finished
+14.11.2019 09:42:24 - New client named Ha | Now there are 1 sockets connected
+14.11.2019 09:42:32 - Ha (Place 0) disconnected | Now there are 0 sockets connected
+14.11.2019 09:42:36 - You shut down the server, by closing the window
+-------------------------------------------------------------
+

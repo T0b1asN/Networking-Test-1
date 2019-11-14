@@ -4,6 +4,7 @@ const std::string Client::sendButton_id = "client_sendB";
 
 #pragma region Con-/Destructor
 Client::Client(bool pBlock, int pPort, sf::IpAddress address) :
+	InputCallbackHandler("client"),
 	textBox(sf::Vector2f(10.0f, cr::winHeight() - 50.0f), sf::Vector2f(350.0f, 40.0f)),
 	muteBox(sf::Vector2f(480.f, cr::winHeight() - 30.f), 40.f),
 	sendButton(sendButton_id, "Send", sf::Vector2f(80.f, 40.f), sf::Vector2f(370.f, cr::winHeight() - 50.f))
@@ -315,25 +316,19 @@ bool Client::GenerateKey(int max_errors)
 #pragma region Callbacks
 void Client::initCallbacks()
 {
-	input::addLeftMouseCallback(lMCb, callback_id);
-	input::addCloseCallback(cCb, callback_id);
-	input::addTextEnteredCallback(tECb, callback_id);
-
+	InputCallbackHandler::initCallbacks();
 	sendButton.setOnClickCallback(bCallback);
 }
 
-void Client::cleanCallbacks()
-{
-	input::deleteCloseCallback(callback_id);
-	input::deleteLMouseCallback(callback_id);
-	input::deleteTextEnteredCallback(callback_id);
-}
+//void Client::cleanCallbacks()
+//{
+//	InputCallbackHandler::cleanCallbacks();
+//}
 
 void Client::LeftMCallback(int x, int y)
 {
 	if (muteBox.CheckClick())
 	{
-		debug::pause();
 		muted = muteBox.isChecked();
 	}
 	textBox.SelectOrUnselect();
@@ -344,7 +339,6 @@ void Client::CloseCallback()
 	own_log::append("Disconnect from server due to closing the window");
 	own_log::append("-------------------------------------------------------------\n", false);
 	debug::log("Client closed window");
-	debug::pause();
 	socket.disconnect();
 	running = false;
 }
