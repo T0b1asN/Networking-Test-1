@@ -12,3 +12,13 @@ int PopUp::ShowMessageBox(std::string capt, std::string message, int type)
 
 	return MessageBox(0, msg, cap, type);
 }
+
+PopUp::Result PopUp::IntToResult(int i)
+{
+	return static_cast<Result>(i);
+}
+
+int PopUp::ResultToInt(Result r)
+{
+	return static_cast<int>(r);
+}
