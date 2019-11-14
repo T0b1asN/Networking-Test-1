@@ -107,6 +107,7 @@ Client::SetupResult Client::Setup()
 
 	if (str::split(sKey, ' ').front() != prot::rsa_key)
 	{
+		socket.disconnect();
 		debug::log(str::concat("Error: Awaited ", prot::rsa_key,
 			"and received different Token -> Exiting..."));
 		own_log::append(str::concat("Error: Awaited ", prot::rsa_key,
@@ -115,6 +116,7 @@ Client::SetupResult Client::Setup()
 	}
 	if (str::split(sKey, ' ').size() < 3)
 	{
+		socket.disconnect();
 		debug::log(str::concat("Error: Didn't receive enough arguments from server -> Exiting..."));
 		own_log::append(str::concat("Error: Didn't receive enough arguments from server -> Exiting...")); //awaited name response
 		return SetupResult::Error;
@@ -133,6 +135,7 @@ Client::SetupResult Client::Setup()
 
 	if (str::split(resp, ' ').front() != prot::s::name_resp)
 	{
+		socket.disconnect();
 		debug::log(str::concat("Error: Awaited ", prot::s::name_resp,
 			"and received different Token -> Exiting..."));
 		own_log::append(str::concat("Error: Awaited ", prot::s::name_resp,
