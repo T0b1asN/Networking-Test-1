@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BaseServer.cpp" />
     <ClCompile Include="CheckBox.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="InputCallbackHandler.cpp" />
@@ -168,6 +169,7 @@
     <ClCompile Include="TextBox.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseServer.h" />
     <ClInclude Include="CheckBox.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="curr.h" />

@@ -46,6 +46,9 @@
     <ClCompile Include="InputCallbackHandler.cpp">
       <Filter>Source\Interfaces</Filter>
     </ClCompile>
+    <ClCompile Include="BaseServer.cpp">
+      <Filter>Source\Networking</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SFML.h">
@@ -107,6 +110,9 @@
     </ClInclude>
     <ClInclude Include="InputCallbackHandler.h">
       <Filter>Headers\Interfaces</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseServer.h">
+      <Filter>Headers\Networking</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
