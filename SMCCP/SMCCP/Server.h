@@ -119,7 +119,7 @@ public:
 	//TODO check on sf::String
 	//Send string to all sockets
 	void Send(std::string msg, bool tagIncluded = false, bool encrypt = true);
-	//send a string to all sockets except the ssocket at index [exclude]
+	//send a string to all sockets except the socket at index [exclude]
 	void Send(std::string msg, int exclude, bool tagIncluded = false, bool encrypt = true);
 	//send a string to a specific socket
 	void SendSingle(std::string msg, int socketIndex, bool tagIncluded = false, bool encrypt = true);
