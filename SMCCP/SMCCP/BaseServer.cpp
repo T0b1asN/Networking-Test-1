@@ -129,11 +129,11 @@ void BaseServer::ConnectClient()
 void BaseServer::pushNewMsg(sf::String msg)
 {
 	msgLog.push_back(msg);
-	if (msgLog.size > msgLogMaxLength)
+	if (msgLog.size() > msgLogMaxLength)
 		msgLog.pop_back();
 }
 
-void BaseServer::Send(sf::String msg, bool alreadyHasToken = false)
+void BaseServer::Send(sf::String msg, bool alreadyHasToken)
 {
 	if (!alreadyHasToken)
 		msg = str::concat(prot::msg, " ", msg);
@@ -148,7 +148,7 @@ void BaseServer::Send(sf::String msg, bool alreadyHasToken = false)
 	}
 }
 
-void BaseServer::Send(sf::String msg, int exclude, bool alreadyHasToken = false)
+void BaseServer::Send(sf::String msg, int exclude, bool alreadyHasToken)
 {
 	for (int i = 0; i < (int)sockets.size(); i++)
 	{
@@ -157,7 +157,7 @@ void BaseServer::Send(sf::String msg, int exclude, bool alreadyHasToken = false)
 	}
 }
 
-void BaseServer::SendSingle(sf::String msg, int socketIndex, bool alreadyHasToken = false)
+void BaseServer::SendSingle(sf::String msg, int socketIndex, bool alreadyHasToken)
 {
 	if (!alreadyHasToken)
 		msg = str::concat(prot::msg, " ", msg);
